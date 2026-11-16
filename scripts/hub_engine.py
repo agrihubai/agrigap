@@ -38,7 +38,8 @@ MAX_CONTINUATIONS = 5  # sunucu araç döngüsü 'pause_turn' ile durursa en faz
 
 REQUIRED_SECTIONS = [
     "## 1.", "## 2. Görünmeyen Bağlantılar", "## 3. Mevcut Çözüm Haritası", "## 4.",
-    "## 5.", "## 6.", "## 7.", "## 8. Kaynaklar", "**Durum Kararı:**", "**Görünmeyen bağlantı:**",
+    "## 5.", "## 6.", "## 7.", "## 8. Kaynaklar", "## 9. Yeni Hedef Önerileri",
+    "**Durum Kararı:**", "**Görünmeyen bağlantı:**",
 ]
 
 TR_MAP = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
@@ -143,7 +144,8 @@ def write_report(t, md: str, missing):
         f"crop: {t['crop']}",
         f"region: {t['region']}",
         f"model: {MODEL}",
-        f"review_status: {'needs_fix' if missing else 'in_review'}",
+        "status: published",
+        f"format_check: {'eksik: ' + '; '.join(missing) if missing else 'tam'}",
         "---",
         "",
     ]
@@ -189,7 +191,7 @@ def parse_report(p):
         "decision_reason": dec.group(2).strip() if dec else "",
         "finding": _field(body, "Tek cümlede bulgu"),
         "link": _field(body, "Görünmeyen bağlantı"),
-        "review_status": meta.get("review_status", ""),
+        "suggested_by": "",
     }
 
 
@@ -274,13 +276,49 @@ def main():
     return finalize(t, targets, append_citations(strip_preamble(md), citations), citations)
 
 
+MAX_SUGGESTIONS = 2
+
+
+def _norm(x):
+    return re.sub(r"\s+", " ", x.strip().lower())
+
+
+def queue_suggestions(md, targets, source_id):
+    """Rapordaki '## 9. Yeni Hedef Önerileri' satırlarını kuyruğa ekler (kendini besleme)."""
+    sec = md.split("## 9. Yeni Hedef Önerileri", 1)
+    if len(sec) < 2:
+        return []
+    added = []
+    seen = {(_norm(t["crop"]), _norm(t["focus"])) for t in targets}
+    nmax = max([int(t["id"].split("-")[1]) for t in targets if t["id"].startswith("TRG-")] or [0])
+    for line in re.findall(r"^-\s*`([^`]+)`", sec[1], re.MULTILINE):
+        parts = [x.strip() for x in line.split("|")]
+        if len(parts) != 5 or not all(parts):
+            continue
+        ps, cg, crop, region, focus = parts
+        if (_norm(crop), _norm(focus)) in seen:
+            continue
+        nmax += 1
+        nt = {"id": f"TRG-{nmax:03d}", "production_system": ps, "crop_group": cg, "crop": crop,
+              "region": region, "focus": focus, "status": "pending", "suggested_by": source_id}
+        targets.append(nt)
+        seen.add((_norm(crop), _norm(focus)))
+        added.append(nt["id"])
+        if len(added) >= MAX_SUGGESTIONS:
+            break
+    return added
+
+
 def finalize(t, targets, md, citations):
     missing = quality_check(md)
     path = write_report(t, md, missing)
     rebuild_index()
 
-    t["status"] = "review"
+    t["status"] = "published"
     t["report"] = str(path.relative_to(ROOT))
+    added = queue_suggestions(md, targets, t["id"])
+    if added:
+        print(f"[KUYRUK] Yeni hedefler eklendi: {', '.join(added)}")
     t["processed_at"] = datetime.now(timezone.utc).isoformat()
     t.pop("last_error", None)
     save_targets(targets)

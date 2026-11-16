@@ -15,7 +15,7 @@
     "crop": "Muz",
     "region": "TR",
     "focus": "Hasat sonrası yüksek nemli gövde ve yaprak atıklarının yerinde ekonomiye kazandırılması",
-    "status": "review",
+    "status": "published",
     "report": "discoveries/2026-11-16-trg-002-muz.md",
     "processed_at": "2026-11-16T18:26:05.563385+00:00"
   },
@@ -45,5 +45,151 @@
     "region": "TR",
     "focus": "Eğimli arazilerde mekanize hasat eksikliği ve kahverengi kokarca biyolojik mücadelesi",
     "status": "pending"
+  },
+  {
+    "id": "TRG-006",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Zeytin & Yağlı Tohumlar",
+    "crop": "Zeytin",
+    "region": "TR+EU",
+    "focus": "Budama artıklarının yakılmadan yerinde değerlendirilmesi",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-007",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Pamuk",
+    "region": "TR",
+    "focus": "Hasat sonrası sap artıklarının değerlendirilmesi ve sulama suyu verimliliği",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-008",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Şeker Pancarı",
+    "region": "TR+EU",
+    "focus": "Pancar yaprak ve posa artıklarının değerlendirilmesi; azotlu gübre kullanımının azaltılması",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-009",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Portakal",
+    "region": "TR+EU",
+    "focus": "Hasat işçiliği açığı ve pazarlanamayan (fire) meyvenin değerlendirilmesi",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-010",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Domates",
+    "region": "TR+EU",
+    "focus": "Topraksız tarımda drenaj suyu ve kullanılmış yetiştirme ortamı (kaya yünü, kokopit) atığı",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-011",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Mısır",
+    "region": "TR+EU",
+    "focus": "Kuraklıkta sulama planlaması ve sap artığının toprak organik maddesine katkısı",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-012",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Üzüm",
+    "region": "TR+EU",
+    "focus": "Budama çubukları ve cibrenin (üzüm posası) değerlendirilmesi",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-013",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Sebzeler",
+    "crop": "Patates",
+    "region": "TR+EU",
+    "focus": "Kimyasal filiz önleyicilerin kısıtlanması sonrası depolama kayıpları",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-014",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Elma",
+    "region": "TR",
+    "focus": "Soğuk hava deposu enerji maliyeti ve hasat sonrası kayıplar",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-015",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Meyveler",
+    "crop": "Çilek",
+    "region": "TR+EU",
+    "focus": "Tozlaşma ve hasat işçiliği açığı",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-016",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Çeltik",
+    "region": "TR+EU",
+    "focus": "Su tüketimi, metan salımı ve anız yönetimi",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-017",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Antep Fıstığı",
+    "region": "TR",
+    "focus": "Yeşil kabuk atığı ve hasat sonrası aflatoksin riski",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-018",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Nohut",
+    "region": "TR",
+    "focus": "Kuraklık stresi ve mekanize hasattaki ürün kayıpları",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-019",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Hıyar",
+    "region": "TR+EU",
+    "focus": "Kış aylarında sera ısıtma enerji maliyeti",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-020",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Biber",
+    "region": "TR",
+    "focus": "Biber serası artığının taşınma riski ve muz gibi başka ürünlerde toprak hastalıklarını baskılamada kullanılabilirliği",
+    "status": "pending",
+    "suggested_by": "TRG-002"
+  },
+  {
+    "id": "TRG-021",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Meyveler",
+    "crop": "Muz",
+    "region": "TR",
+    "focus": "Muz seralarında Fusarium TR4'ün alet, su ve fide yoluyla yayılımını önleyen biyogüvenlik uygulamaları",
+    "status": "pending",
+    "suggested_by": "TRG-002"
   }
 ]

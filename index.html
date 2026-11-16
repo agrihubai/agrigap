@@ -61,7 +61,7 @@ header.top{padding:28px 0 8px;display:flex;align-items:flex-start;justify-conten
 /* liste */
 .list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .item{border-bottom:1px solid var(--line)}
-.item a{display:grid;grid-template-columns:6px 110px 1fr auto;gap:18px;padding:20px 0;text-decoration:none;color:inherit;align-items:start}
+.item a{display:grid;grid-template-columns:6px 110px 1fr;gap:18px;padding:20px 0;text-decoration:none;color:inherit;align-items:start}
 .item a:hover .t{text-decoration:underline}
 .bar{width:6px;align-self:stretch;border-radius:3px}
 .when{font-size:14px;color:var(--mute);font-variation-settings:"wdth" 85;padding-top:3px}
@@ -75,9 +75,16 @@ header.top{padding:28px 0 8px;display:flex;align-items:flex-start;justify-conten
 .linkbox svg{flex-shrink:0;width:22px;height:22px;margin-top:2px}
 .linkbox b{display:block;font-size:14px;font-weight:700;color:#B9D7BE;margin-bottom:2px}
 .tax{margin-top:8px;font-size:13px;color:var(--mute)}
-.badge{font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;border:1px solid currentColor}
-.badge.rev{color:#8a5a00}.badge.ok{color:var(--leaf)}
 .empty{padding:40px 0;color:var(--mute)}
+
+/* kuyruk */
+.queue{margin:48px 0 0}
+.queue h2{font-size:22px;margin:0 0 4px;font-variation-settings:"wdth" 100}
+.queue .qn{margin:0 0 14px;color:var(--mute);font-size:14px}
+.qlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.qlist li{background:var(--sheet);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.4}
+.qlist b{display:block;font-size:16px;margin-bottom:2px}
+.qlist .src{display:block;margin-top:6px;color:var(--leaf);font-weight:600;font-size:13px}
 
 /* rapor */
 .report{display:grid;grid-template-columns:260px 1fr;gap:48px;padding:28px 0 64px}
@@ -113,9 +120,8 @@ footer p{margin:0 0 8px;max-width:62ch}
   .band:nth-child(1){border-radius:14px 0 0 0}.band:nth-child(2){border-radius:0 14px 0 0}
   .band:nth-child(3){border-radius:0 0 0 14px}.band:nth-child(4){border-radius:0 0 14px 0}
   .item a{grid-template-columns:6px 1fr;gap:6px 14px}
-  .item .bar{grid-row:1 / span 3}
-  .item .when,.item .body,.item .badge{grid-column:2}
-  .item .badge{justify-self:start;margin-top:6px}
+  .item .bar{grid-row:1 / span 2}
+  .item .when,.item .body{grid-column:2}
   .item .when b{display:inline;margin-right:8px}
   .filters select{min-width:0;width:100%}
   .filters label{flex:1 1 100%}
@@ -156,39 +162,39 @@ footer p{margin:0 0 8px;max-width:62ch}
 <script>
 const T = {
   tr:{
-    lede:"Tarımdaki darboğazlar için önce dünyada zaten var olan çözümleri bulur; yenisini yalnızca gerçekten bir boşluk varsa önerir. Raporlar yapay zekâ ile hazırlanır, bir ziraat mühendisi tarafından incelenir.",
+    lede:"Türkiye ve Avrupa tarımındaki darboğazları tarayan, açık erişimli ve kendi kendine çalışan bir yapay zekâ merkezi. Her sorun için önce dünyada zaten var olan çözümleri bulur; yenisini yalnızca gerçekten bir boşluk varsa önerir. Her rapor yeni taranacak konular önerir ve kuyruk böyle büyür.",
     solved:"Çözüm var", gap:"Gerçek boşluk",
     A:"Çözüm var, burada da yaygın", B:"Çözüm başka yerde var, burada yok", C:"Çözüm var ama zayıf", D:"Taranan kaynaklarda çözüm yok",
     n:c=>c===0?"Henüz rapor yok":c+" rapor",
     system:"Üretim sistemi", group:"Ürün grubu", stage:"Değer zinciri aşaması", all:"Tümü", reset:"Filtreleri temizle",
     none:"Bu filtrelere uyan rapor yok. Filtreleri temizleyip tekrar deneyin.",
-    rev:"Uzman incelemesinde", ok:"Uzman onaylı",
+    queue:"Sıradaki taramalar", qn:(p,q)=>`${p} rapor yayımlandı, ${q} konu kuyrukta`, from:id=>`${id} raporundan önerildi`,
     back:"Tüm raporlar", decision:"Durum kararı", crop:"Ürün", region:"Bölge", solution:"Çözüm türü", date:"Tarih",
     md:"Raporun Markdown dosyası", enNote:"", link:"Görünmeyen bağlantı",
     loadErr:"Raporlar yüklenemedi. Sayfayı yenileyin; sorun sürerse GitHub deposundan okuyabilirsiniz.",
-    foot1:"Bu sayfadaki raporlar yapay zekâ tarafından web kaynakları taranarak hazırlanan ön analizlerdir. Saha doğrulaması yapılmamıştır; hipotezler kesin sonuç değildir.",
+    foot1:"Raporlar yapay zekâ tarafından web kaynakları taranarak otomatik hazırlanır. İnsan tarafından doğrulanmaz ve sahada denenmez; hipotezler kesin sonuç değildir. Her iddianın kaynağı raporun sonunda yer alır.",
     foot2:"Yatırım veya hukuki tavsiye değildir.",
     source:"Kaynak kod ve raporlar (GitHub)", license:"Kod MIT, raporlar CC BY 4.0"
   },
   en:{
-    lede:"For each farming bottleneck, AgriGap first maps the solutions that already exist somewhere in the world, and proposes a new one only where a real gap remains. Reports are AI-assisted and reviewed by an agricultural engineer.",
+    lede:"An open-access, self-running AI hub that scans bottlenecks in Turkish and European farming. For each one it first maps the solutions that already exist somewhere in the world, and proposes a new one only where a real gap remains. Every report suggests new topics to scan, and that is how the queue grows.",
     solved:"Solved", gap:"Real gap",
     A:"Solved, and common here", B:"Solved elsewhere, not here", C:"Solved, but with weak spots", D:"No solution found",
     n:c=>c===0?"No reports yet":c+(c===1?" report":" reports"),
     system:"Production system", group:"Crop group", stage:"Value-chain stage", all:"All", reset:"Clear filters",
     none:"No reports match these filters. Clear the filters and try again.",
-    rev:"Under expert review", ok:"Expert reviewed",
+    queue:"Up next", qn:(p,q)=>`${p} published, ${q} in the queue`, from:id=>`Suggested by ${id}`,
     back:"All reports", decision:"Decision", crop:"Crop", region:"Region", solution:"Solution type", date:"Date",
     md:"Markdown source of this report", enNote:"Report texts are currently in Turkish.", link:"Hidden link",
     loadErr:"Reports could not be loaded. Refresh the page; if it persists, read them in the GitHub repository.",
-    foot1:"Reports on this page are preliminary analyses prepared by AI from web sources. They have not been field-tested; hypotheses are not conclusions.",
+    foot1:"Reports are generated automatically by AI from web sources. They are not verified by a person and not field-tested; hypotheses are not conclusions. Sources for every claim are listed at the end of each report.",
     foot2:"Not investment or legal advice.",
     source:"Source code and reports (GitHub)", license:"Code MIT, reports CC BY 4.0"
   }
 };
 let lang = "tr";
 try{ lang = localStorage.getItem("agrigap-lang") || "tr"; }catch(e){}
-const state = {reports:[], d:null, system:"", group:"", stage:""};
+const state = {reports:[], targets:[], d:null, system:"", group:"", stage:""};
 const app = document.getElementById("app");
 const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const t = k => T[lang][k];
@@ -203,13 +209,18 @@ function setLang(l){
 }
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 
-function badge(r){
-  const ok = r.review_status==="published";
-  return `<span class="badge ${ok?"ok":"rev"}">${ok?t("ok"):t("rev")}</span>`;
-}
 function options(key,label,cur){
   const vals=[...new Set(state.reports.map(r=>r[key]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"tr"));
   return `<label>${label}<select data-f="${key}"><option value="">${t("all")}</option>${vals.map(v=>`<option ${v===cur?"selected":""}>${esc(v)}</option>`).join("")}</select></label>`;
+}
+
+function queueHtml(){
+  const pend = state.targets.filter(x=>x.status==="pending");
+  if(!state.targets.length) return "";
+  return `<section class="queue"><h2>${t("queue")}</h2>
+    <p class="qn">${t("qn")(state.reports.length,pend.length)}</p>
+    <ul class="qlist">${pend.slice(0,6).map(x=>`<li><b>${esc(x.crop)}</b>${esc(x.focus)}
+      ${x.suggested_by?`<span class="src">${t("from")(esc(x.suggested_by))}</span>`:""}</li>`).join("")}</ul></section>`;
 }
 
 function home(){
@@ -237,8 +248,8 @@ function home(){
         <span class="body"><h2 class="t">${esc(r.title)}</h2><p class="f">${esc(r.finding)}</p>
           ${r.link?`<p class="lk">${LINK_ICON("var(--leaf)")}<span><b>${t("link")}:</b>${esc(r.link)}</span></p>`:""}
           <div class="tax">${esc([r.production_system,r.stage,r.region].filter(Boolean).join(" / "))}</div></span>
-        ${badge(r)}
-      </a></li>`).join("")}</ul>`:`<p class="empty">${state.reports.length?t("none"):t("n")(0)}</p>`}`;
+      </a></li>`).join("")}</ul>`:`<p class="empty">${state.reports.length?t("none"):t("n")(0)}</p>`}
+    ${queueHtml()}`;
   app.querySelectorAll(".band").forEach(b=>b.onclick=()=>{state.d=state.d===b.dataset.d?null:b.dataset.d;home();});
   app.querySelectorAll("select").forEach(s=>s.onchange=()=>{const k={production_system:"system",crop_group:"group",stage:"stage"}[s.dataset.f];state[k]=s.value;home();});
   const rs=app.querySelector(".reset"); if(rs) rs.onclick=()=>{Object.assign(state,{d:null,system:"",group:"",stage:""});home();};
@@ -261,7 +272,6 @@ async function report(id){
     <aside class="meta">
       <div class="dec" style="background:var(--${r.decision})"><span class="letter">${esc(r.decision)}</span><span>${t(r.decision)||""}</span></div>
       <p class="why">${esc(r.decision_reason)}</p>
-      ${badge(r)}
       <dl>
         <dt>${t("crop")}</dt><dd>${esc(r.crop)} (${esc(r.crop_group)})</dd>
         <dt>${t("system")}</dt><dd>${esc(r.production_system)}</dd>
@@ -290,8 +300,10 @@ function route(){
 }
 window.addEventListener("hashchange",route);
 
-fetch("discoveries/index.json",{cache:"no-store"})
-  .then(r=>r.json()).then(d=>{state.reports=d.reports||[];setLang(lang);})
+Promise.all([
+  fetch("discoveries/index.json",{cache:"no-store"}).then(r=>r.json()),
+  fetch("core/targets.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[])
+]).then(([d,tg])=>{state.reports=d.reports||[];state.targets=Array.isArray(tg)?tg:[];setLang(lang);})
   .catch(()=>{setLang(lang);app.innerHTML=`<p class="empty">${t("loadErr")}</p>`;});
 </script>
 </body>

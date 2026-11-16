@@ -1,8 +1,8 @@
 # AgriGap
 
-**Finds the gaps in Turkish & European farming: maps existing solutions worldwide first, proposes new ones only where none exist. AI-assisted, expert-reviewed.**
+**An open-access, self-running AI hub that finds the gaps in Turkish & European farming: it maps existing solutions worldwide first and proposes new ones only where none exist.**
 
-*Türkiye ve Avrupa tarımındaki boşlukları bulur: önce dünyada var olan çözümleri haritalar, yenisini yalnızca çözüm yoksa önerir. Yapay zekâ destekli, uzman denetimli. Bir [AgriHub-AI](https://agrihubai.wordpress.com/) projesidir.*
+*Açık erişimli, yapay zekâ destekli ve kendi kendine çalışan bir sorun tespit ve çözüm önerisi merkezi. Türkiye ve Avrupa tarımındaki darboğazlar için önce dünyada var olan çözümleri haritalar, yenisini yalnızca çözüm yoksa önerir. Bir [AgriHub-AI](https://agrihubai.wordpress.com/) projesidir.*
 
 Türkiye ve Avrupa tarımında belirli bir üretim sistemi ve ürün için:
 
@@ -15,20 +15,22 @@ Türkiye ve Avrupa tarımında belirli bir üretim sistemi ve ürün için:
    - **D** — taranan kaynaklarda çözüm yok → icat hipotezi
 4. Lider öneri için ucuz bir doğrulama deneyi tasarlar.
 
-Raporlar yapay zekâ (Claude API + web araması) ile hazırlanan **ön analizlerdir** ve uzman incelemesinden geçmeden yayınlanmaz.
+Raporlar yapay zekâ tarafından web araması ile **otomatik** hazırlanır; insan tarafından doğrulanmaz ve sahada denenmez. Her iddianın kaynağı raporun sonundadır.
+
+**Kendini besleme:** Her rapor, taramada karşılaştığı en fazla 2 yeni darboğazı önerir; motor bunları `core/targets.json` kuyruğuna ekler (`suggested_by` alanı).
 
 🌱 **Uygulama:** https://agrihubai.github.io/agrigap/ · 📚 **Raporlar:** [`discoveries/`](discoveries/README.md) · ✍️ **Blog:** https://agrihubai.wordpress.com/
 
 ## Nasıl çalışır?
 
-### Varsayılan akış (ücretsiz): Claude.ai sohbeti
+### Varsayılan akış (ücretsiz): Claude zamanlanmış görevi
 
-1. Claude.ai sohbetinde `AGRIHUB SCAN: TRG-00X` komutu verilir.
-2. Claude, `core/system_prompt.md` talimatıyla web araması yaparak raporu hazırlar ve `main` dalına yükler (`python scripts/hub_engine.py --id TRG-00X --from-file rapor.md`).
-3. Rapor uygulamada **"Uzman incelemesinde"** rozetiyle görünür.
-4. Uzman raporu okur; düzeltmeleri sohbette iletir. Onaylanınca `review_status: published` yapılır ve rozet **"Uzman onaylı"** olur.
+1. Claude.ai'de tanımlı bir zamanlanmış görev, belirli günlerde kendiliğinden başlar.
+2. Kuyruktaki sıradaki `pending` hedefi alır, `core/system_prompt.md` talimatıyla web araması yaparak raporu hazırlar.
+3. `python scripts/hub_engine.py --id TRG-00X --from-file rapor.md` ile arşive ekler; motor rapordaki yeni hedef önerilerini kuyruğa yazar ve dizini yeniler.
+4. `main` dalına yükler; rapor sitede yayınlanır.
 
-Bu akışta API anahtarı gerekmez; ek maliyet yoktur.
+İstenirse aynı tarama sohbette `AGRIHUB SCAN: TRG-00X` komutuyla elle de başlatılabilir. API anahtarı gerekmez.
 
 ### Uygulama (GitHub Pages)
 

@@ -1,11 +1,17 @@
-"""AgriHub-AI tarama motoru.
+"""AgriGap tarama motoru.
 
 Kuyruktaki (core/targets.json) sıradaki hedefi alır, Claude API + web araması ile
 rapor üretir, discoveries/ altına Markdown olarak yazar ve discoveries/README.md
 dizinini günceller. Yayın, GitHub Actions'ın açtığı Pull Request birleştirilince olur.
 
+İki mod:
+  - Ücretsiz (varsayılan): Rapor Claude.ai sohbetinde hazırlanır, sonra
+        python scripts/hub_engine.py --id TRG-002 --from-file rapor.md
+    ile arşive eklenir (API çağrısı yapılmaz).
+  - Ücretli (isteğe bağlı): ANTHROPIC_API_KEY tanımlıysa Claude API + web araması.
+
 Kullanım:
-    python scripts/hub_engine.py               # sıradaki 'pending' hedef
+    python scripts/hub_engine.py               # sıradaki 'pending' hedef (API)
     python scripts/hub_engine.py --id TRG-002  # belirli bir hedef
     python scripts/hub_engine.py --dry-run     # API çağırmadan sorguyu göster
 """
@@ -187,6 +193,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--id", help="Belirli bir hedef kimliği (ör. TRG-002)")
     ap.add_argument("--exclude", default="", help="Atlanacak hedefler, virgülle (incelemede bekleyen PR'lar)")
+    ap.add_argument("--from-file", help="Hazır Markdown raporu arşive ekle (API çağrısı yok)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -203,6 +210,18 @@ def main():
     if args.dry_run:
         return 0
 
+    if args.from_file:
+        md, citations = Path(args.from_file).read_text(encoding="utf-8"), {}
+        md = strip_preamble(md)
+        global MODEL
+        MODEL = "claude.ai (sohbet)"
+        return finalize(t, targets, md, citations)
+
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        print("ANTHROPIC_API_KEY yok. Ücretsiz akış: raporu Claude.ai'de hazırlayıp --from-file ile ekleyin.")
+        set_output("created", "false")
+        return 0
+
     try:
         md, citations = run_claude(PROMPT_FILE.read_text(encoding="utf-8"), query)
     except Exception as e:  # hedef kuyrukta kalsın, hata kaydedilsin
@@ -214,7 +233,10 @@ def main():
         set_output("created", "false")
         return 1
 
-    md = append_citations(strip_preamble(md), citations)
+    return finalize(t, targets, append_citations(strip_preamble(md), citations), citations)
+
+
+def finalize(t, targets, md, citations):
     missing = quality_check(md)
     path = write_report(t, md, missing)
     rebuild_index()

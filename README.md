@@ -21,40 +21,42 @@ Raporlar yapay zekâ (Claude API + web araması) ile hazırlanan **ön analizler
 
 ## Nasıl çalışır?
 
+### Varsayılan akış (ücretsiz): Claude.ai sohbeti
+
 ```
-core/targets.json  ──►  scripts/hub_engine.py  ──►  discoveries/<tarih>-<id>-<ürün>.md
- (hedef kuyruğu)         (Claude + web araması)       + discoveries/README.md (dizin)
-                                   │
-                                   ▼
-                    GitHub Actions bir Pull Request açar
-                    (dal: scan/<hedef-id>, kontrol listesiyle)
-                                   │
-                    Uzman inceler → düzeltir → birleştirir = YAYIN
-```
-
-İncelemede bekleyen bir hedef için yeni PR açılmaz; sıradaki hedefe geçilir.
-
-## Kurulum
-
-1. **Secret:** Settings → Secrets and variables → Actions → `ANTHROPIC_API_KEY`
-2. **PR izni:** Settings → Actions → General → *Workflow permissions* → "Allow GitHub Actions to create and approve pull requests" kutusunu işaretleyin.
-3. **İlk deneme:** Actions → *AgriGap Tarama* → *Run workflow* (isterseniz `target_id` olarak `TRG-002` yazın).
-4. Zamanlayıcı Pazartesi ve Perşembe sabahı çalışır; kapatmak için `.github/workflows/agrigap-scan.yml` içindeki `schedule` bloğunu silin.
-
-### Yerel çalıştırma
-
-```bash
-pip install -r requirements.txt
-export ANTHROPIC_API_KEY=...
-python scripts/hub_engine.py --dry-run        # yalnızca sorguyu gösterir
-python scripts/hub_engine.py --id TRG-002     # tek hedef
+core/targets.json'dan hedef seçilir
+        │
+        ▼
+Claude.ai sohbetinde "AGRIHUB SCAN: TRG-00X" komutu
+(core/system_prompt.md talimatıyla, web aramalı)
+        │
+        ▼
+Rapor scan/<hedef-id> dalına Pull Request olarak gönderilir
+(python scripts/hub_engine.py --id TRG-00X --from-file rapor.md)
+        │
+        ▼
+Uzman inceler → düzeltir → birleştirir = YAYIN → WordPress'e link
 ```
 
-İsteğe bağlı ortam değişkenleri: `AGRIHUB_MODEL` (varsayılan `claude-sonnet-5-5`), `AGRIHUB_MAX_TOKENS` (16000), `AGRIHUB_MAX_SEARCHES` (15).
+Bu akışta API anahtarı gerekmez; ek maliyet yoktur.
+
+### İsteğe bağlı akış (ücretli): Claude API
+
+`.github/workflows/agrigap-scan.yml` aynı taramayı GitHub sunucularında Claude API ile yapar. **Claude API, Claude.ai aboneliğinden ayrı ve kullandıkça ücretlendirilen bir hizmettir.** Varsayılan olarak kapalıdır: zamanlayıcı yoktur ve `ANTHROPIC_API_KEY` secret'ı tanımlı değilse iş akışı hiçbir şey yapmadan biter.
+
+Etkinleştirmek için: `ANTHROPIC_API_KEY` secret'ını ekleyin, Settings → Actions → General altında "Allow GitHub Actions to create and approve pull requests" seçeneğini açın, Actions → *AgriGap Tarama* → *Run workflow*. Zamanlayıcıyı açma talimatı iş akışı dosyasının başındadır.
+
+### Maliyet özeti
+
+| Bileşen | Ücret |
+|---|---|
+| GitHub repo, Actions (public repo), Pull Request'ler | Ücretsiz |
+| Claude.ai sohbetinde tarama | Mevcut abonelik kapsamında |
+| Claude API ile otomatik tarama | **Ücretli** (isteğe bağlı, varsayılan kapalı) |
 
 ## Hedef ekleme
 
-`core/targets.json` dosyasına yeni bir nesne ekleyin (`status: "pending"`). Durumlar: `pending` → `review` (rapor PR'da) → elle `published` yapılabilir. Hata durumunda iş başarısız olur ve hedef kuyrukta kalır.
+`core/targets.json` dosyasına yeni bir nesne ekleyin (`status: "pending"`). Durumlar: `pending` → `review` (rapor PR'da) → elle `published` yapılabilir.
 
 ## Sınırlar
 

@@ -1,9 +1,12 @@
-name: AgriGap Tarama
+name: AgriGap Tarama (API, isteğe bağlı)
+
+# ÜCRETLİ MOD: Bu iş akışı Claude API kullanır ve ANTHROPIC_API_KEY secret'ı gerektirir.
+# Varsayılan (ücretsiz) akış Claude.ai sohbetidir; bkz. README.
+# Zamanlayıcı kapalı. Açmak için 'on:' altına şunu ekleyin:
+#   schedule:
+#     - cron: '17 7 * * 1,4'
 
 on:
-  schedule:
-    # Pazartesi ve Perşembe 07:17 UTC (Madrid kışın 08:17)
-    - cron: '17 7 * * 1,4'
   workflow_dispatch:
     inputs:
       target_id:
@@ -30,10 +33,22 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: API anahtarı kontrolü
+        id: key
+        env:
+          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: |
+          if [ "$HAS_KEY" != "true" ]; then
+            echo "::notice::ANTHROPIC_API_KEY tanımlı değil; API modu atlandı. Ücretsiz akış için README'ye bakın."
+          fi
+          echo "ok=$HAS_KEY" >> "$GITHUB_OUTPUT"
+
       - name: Bağımlılıklar
+        if: steps.key.outputs.ok == 'true'
         run: pip install -r requirements.txt
 
       - name: İncelemede bekleyen hedefleri bul
+        if: steps.key.outputs.ok == 'true'
         id: open
         env:
           GH_TOKEN: ${{ github.token }}
@@ -44,6 +59,7 @@ jobs:
           echo "İncelemede: ${ids:-yok}"
 
       - name: Tarama
+        if: steps.key.outputs.ok == 'true'
         id: scan
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

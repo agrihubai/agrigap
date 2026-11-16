@@ -1,0 +1,47 @@
+[
+  {
+    "id": "TRG-001",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Domates",
+    "region": "TR+EU",
+    "focus": "AB pestisit azaltımı (Farm to Fork) ve sera içi işçilik/iklimlendirme maliyetleri",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-002",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Meyveler",
+    "crop": "Muz",
+    "region": "TR",
+    "focus": "Hasat sonrası yüksek nemli gövde ve yaprak atıklarının yerinde ekonomiye kazandırılması",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-003",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Zeytin & Yağlı Tohumlar",
+    "crop": "Zeytin",
+    "region": "TR+EU",
+    "focus": "Zeytinyağı karasu ve pirina atıklarının çevre mevzuatına uygun sıfır atık dönüşümü",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-004",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Buğday",
+    "region": "TR+EU",
+    "focus": "Kuru tarımda kuraklık stresi, anız yakma yasağı ve toprak organik karbon kaybı",
+    "status": "pending"
+  },
+  {
+    "id": "TRG-005",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Fındık",
+    "region": "TR",
+    "focus": "Eğimli arazilerde mekanize hasat eksikliği ve kahverengi kokarca biyolojik mücadelesi",
+    "status": "pending"
+  }
+]

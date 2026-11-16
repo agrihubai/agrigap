@@ -1,0 +1,79 @@
+name: AgriGap Tarama
+
+on:
+  schedule:
+    # Pazartesi ve Perşembe 07:17 UTC (Madrid kışın 08:17)
+    - cron: '17 7 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      target_id:
+        description: 'Belirli bir hedef (ör. TRG-002). Boş bırakılırsa sıradaki pending hedef.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: agrihub-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Bağımlılıklar
+        run: pip install -r requirements.txt
+
+      - name: İncelemede bekleyen hedefleri bul
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ids=$(gh pr list --state open --json headRefName \
+                 --jq '[.[].headRefName | select(startswith("scan/")) | sub("^scan/"; "")] | join(",")')
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+          echo "İncelemede: ${ids:-yok}"
+
+      - name: Tarama
+        id: scan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TARGET_ID: ${{ inputs.target_id }}
+          OPEN_IDS: ${{ steps.open.outputs.ids }}
+        run: |
+          if [ -n "$TARGET_ID" ]; then
+            python scripts/hub_engine.py --id "$TARGET_ID"
+          else
+            python scripts/hub_engine.py --exclude "$OPEN_IDS"
+          fi
+
+      - name: İnceleme için Pull Request aç
+        if: steps.scan.outputs.created == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: scan/${{ steps.scan.outputs.target_id }}
+          commit-message: "rapor(${{ steps.scan.outputs.target_id }}): ${{ steps.scan.outputs.title }}"
+          title: "[İnceleme] ${{ steps.scan.outputs.title }}"
+          labels: agrihub-scan
+          body: |
+            **Rapor:** `${{ steps.scan.outputs.report }}`
+            **Eksik bölümler:** ${{ steps.scan.outputs.missing }}
+
+            ### Yayın öncesi kontrol listesi
+            - [ ] Mevzuat iddiaları kaynağına uyuyor (madde, tarih, kapsam)
+            - [ ] Mevcut Çözüm Haritası'ndaki örnekler gerçekten var ve doğru tanımlanmış
+            - [ ] Durum kararı (A/B/C/D) kanıtla tutarlı
+            - [ ] Uydurma sayı, firma veya patent yok; "doğrulanamadı" notları yerinde
+            - [ ] Şüpheci agronom / tüccar / sanayici / Ar-Ge / proje yöneticisi gözüyle okundu
+            - [ ] Kurum veya firma hakkında övgü/yergi yok
+
+            Birleştirmek = GitHub'da yayınlamak. Sonra WordPress'e bu dosyanın linkini ekleyin.

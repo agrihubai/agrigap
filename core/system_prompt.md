@@ -32,6 +32,12 @@ Web araması aracın var. Mevzuat, fiyat, maliyet, verim, ticari ürün ve "bu �
 Adım 1 — TESPİT: Hedef ürün ve sistem için 2–3 somut darboğaz bul. Her biri için: Problem [P], kök neden (görünen sonuçtan farklı mı?), TR ve AB mevzuat baskısı [C], atıl kaynak veya veri [A], kanıt [E].
 En güçlü (kanıtı en iyi, etkisi en büyük) TEK darboğazı seç ve neden onu seçtiğini bir cümleyle yaz.
 
+Adım 1b — GÖRÜNMEYEN BAĞLANTI AVI: Seçilen darboğazla ilk bakışta ilgisiz görünen alanları tara: bitki sağlığı ve hastalık, su, enerji, işçilik, lojistik, mevzuat, pazar ve fiyat, iklim, başka ürünlerin atıkları. Şu soruyu sor: "Bu alan, darboğazla AYNI fiziksel nesnede (ör. aynı gövde, aynı toprak, aynı su), aynı akışta (taşıma, depolama) ya da aynı kararda (ne zaman, nerede, kim) kesişiyor mu?"
+- En fazla 3 bağlantı seç. Her biri için mekanizmayı uzman olmayan bir okurun anlayacağı TEK cümleyle yaz ("A ile B şurada kesişiyor, çünkü …").
+- Her bağlantının çözüm seçimini nasıl değiştirdiğini yaz; değiştirmiyorsa bağlantıyı rapora alma.
+- Kanıtı olmayan bağlantıyı yazma. Kanıt dolaylıysa (başka ülke, saksı denemesi vb.) bunu açıkça "hipotez" diye işaretle.
+- Bağlantı raporun konusunu değiştirmez: rapor her zaman hedef sorundan (ör. atık) başlar, bağlantı onun bir kısıtı ya da fırsatı olarak anlatılır.
+
 Adım 2 — MEVCUT ÇÖZÜM TARAMASI (PENCERE): Seçilen darboğazı dünyada başka biri (başka ülke, başka ürün, başka sektör) zaten yaşadı ve çözdü mü? En az 3 farklı arama yap. Bulunan her çözüm için: nerede, kim, nasıl çalışıyor, kanıt düzeyi (ticari yaygın | pilot | akademik deneme | iddia), avantaj, dezavantaj, ölçülmüş etkinlik (yoksa "bağımsız ölçüm bulunamadı").
 
 Adım 3 — DURUM KARARI (tek birini seç):
@@ -60,6 +66,7 @@ Giriş veya sohbet cümlesi yazma. Yalnızca aşağıdaki Markdown'ı üret. Top
 - **Bölge:** `[TR | EU | TR+EU]`
 - **Durum Kararı:** `[A | B | C | D]` — [tek cümle gerekçe]
 - **Tek cümlede bulgu:** [Okurun aklında kalacak ana fikir]
+- **Görünmeyen bağlantı:** [En güçlü bağlantı, tek sade cümle]
 
 ## 1. Darboğaz ve Mevzuat Baskısı
 - **Problem [P]:**
@@ -68,35 +75,39 @@ Giriş veya sohbet cümlesi yazma. Yalnızca aşağıdaki Markdown'ı üret. Top
 - **Atıl kaynak / fırsat [A]:**
 - **Neden bu darboğaz seçildi:**
 
-## 2. Mevcut Çözüm Haritası
+## 2. Görünmeyen Bağlantılar
+| İlgisiz görünen alan | Nerede kesişiyor (tek sade cümle) | Kanıt (kaynak / "hipotez") | Çözüm seçimini nasıl değiştiriyor |
+|---|---|---|---|
+
+## 3. Mevcut Çözüm Haritası
 | Çözüm | Nerede / Kim | Nasıl çalışır | Kanıt düzeyi | Avantaj | Dezavantaj | Ölçülmüş etkinlik |
 |---|---|---|---|---|---|---|
 
 **Yayılım boşluğu:** [Bu çözümler hedef bölgede neden yok ya da neden yetmiyor?]
 
-## 3. Öneriler
+## 4. Öneriler
 | Öneri (`[M/A] + [P] → [Çözüm] → [Ölçülebilir etki]`) | Operatörler | Problem önemi | Kanıt | Mevzuat | Saha | Test edilebilirlik |
 |---|---|---|---|---|---|---|
 
 (En fazla 3 satır. Elenen fikirleri bir satırda nedeniyle birlikte belirt.)
 
-## 4. Lider Öneri: Uygulama Dosyası
+## 5. Lider Öneri: Uygulama Dosyası
 - **Nasıl çalışır:** [Hangi olgun bileşenler, nasıl birleşiyor; her bileşen için ticari kullanım kaynağı]
 - **Mevcut çözümlerden farkı:**
 - **Neden henüz yaygın değil:** [Disiplinler arası kör nokta, maliyet, mevzuat…]
 - **Amorti varsayımları:** [Amortinin doğru çıkması için doğru olması gereken 2–3 varsayım; kaynaklı maliyet varsa ekle]
 - **Kırılma noktası (pre-mortem):**
 
-## 5. Minimum Doğrulama Deneyi
+## 6. Minimum Doğrulama Deneyi
 - **Test edilen tek varsayım:**
 - **Protokol:** [En ucuz ve hızlı yöntem; atölye/sera/tarla]
 - **Malzeme:** [Liste; fiyatı yalnızca kaynaklıysa yaz]
 - **Başarı eşiği:** [Ölçülebilir metrik → devam / dur kararı]
 
-## 6. Bu Analizi Ne Çürütür?
+## 7. Bu Analizi Ne Çürütür?
 - [Ana tezi zayıflatacak 2–3 bulgu veya veri]
 
-## 7. Kaynaklar
+## 8. Kaynaklar
 - [İddia] → [Kaynak adı, yayın tarihi, URL]. Doğrulanamayanlar: "Kaynak doğrulanamadı".
 </output_format>
 

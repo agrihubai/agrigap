@@ -68,6 +68,12 @@ header.top{padding:28px 0 8px;display:flex;align-items:flex-start;justify-conten
 .when b{display:block;color:var(--loam);font-size:15px}
 .t{margin:0;font-size:21px;line-height:1.25;font-weight:700;font-variation-settings:"wdth" 92}
 .f{margin:6px 0 0;font-family:var(--read);font-size:16px;color:#3d3832;max-width:70ch}
+.lk{margin:10px 0 0;font-size:15px;line-height:1.45;max-width:70ch;display:flex;gap:10px}
+.lk svg{flex-shrink:0;margin-top:2px}
+.lk b{font-weight:700;margin-right:4px}
+.linkbox{display:flex;gap:14px;background:var(--loam);color:var(--film);border-radius:12px;padding:16px 18px;margin:0 0 28px;font-family:var(--ui);font-size:17px;line-height:1.45}
+.linkbox svg{flex-shrink:0;width:22px;height:22px;margin-top:2px}
+.linkbox b{display:block;font-size:14px;font-weight:700;color:#B9D7BE;margin-bottom:2px}
 .tax{margin-top:8px;font-size:13px;color:var(--mute)}
 .badge{font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;border:1px solid currentColor}
 .badge.rev{color:#8a5a00}.badge.ok{color:var(--leaf)}
@@ -158,7 +164,7 @@ const T = {
     none:"Bu filtrelere uyan rapor yok. Filtreleri temizleyip tekrar deneyin.",
     rev:"Uzman incelemesinde", ok:"Uzman onaylı",
     back:"Tüm raporlar", decision:"Durum kararı", crop:"Ürün", region:"Bölge", solution:"Çözüm türü", date:"Tarih",
-    md:"Raporun Markdown dosyası", enNote:"",
+    md:"Raporun Markdown dosyası", enNote:"", link:"Görünmeyen bağlantı",
     loadErr:"Raporlar yüklenemedi. Sayfayı yenileyin; sorun sürerse GitHub deposundan okuyabilirsiniz.",
     foot1:"Bu sayfadaki raporlar yapay zekâ tarafından web kaynakları taranarak hazırlanan ön analizlerdir. Saha doğrulaması yapılmamıştır; hipotezler kesin sonuç değildir.",
     foot2:"Yatırım veya hukuki tavsiye değildir.",
@@ -173,7 +179,7 @@ const T = {
     none:"No reports match these filters. Clear the filters and try again.",
     rev:"Under expert review", ok:"Expert reviewed",
     back:"All reports", decision:"Decision", crop:"Crop", region:"Region", solution:"Solution type", date:"Date",
-    md:"Markdown source of this report", enNote:"Report texts are currently in Turkish.",
+    md:"Markdown source of this report", enNote:"Report texts are currently in Turkish.", link:"Hidden link",
     loadErr:"Reports could not be loaded. Refresh the page; if it persists, read them in the GitHub repository.",
     foot1:"Reports on this page are preliminary analyses prepared by AI from web sources. They have not been field-tested; hypotheses are not conclusions.",
     foot2:"Not investment or legal advice.",
@@ -186,6 +192,7 @@ const state = {reports:[], d:null, system:"", group:"", stage:""};
 const app = document.getElementById("app");
 const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const t = k => T[lang][k];
+const LINK_ICON = (c="currentColor") => `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>`;
 
 function setLang(l){
   lang=l; try{localStorage.setItem("agrigap-lang",l)}catch(e){}
@@ -228,6 +235,7 @@ function home(){
         <span class="bar" style="background:var(--${r.decision||"line"})" aria-hidden="true"></span>
         <span class="when"><b>${esc(r.crop)}</b>${esc(r.date)}</span>
         <span class="body"><h2 class="t">${esc(r.title)}</h2><p class="f">${esc(r.finding)}</p>
+          ${r.link?`<p class="lk">${LINK_ICON("var(--leaf)")}<span><b>${t("link")}:</b>${esc(r.link)}</span></p>`:""}
           <div class="tax">${esc([r.production_system,r.stage,r.region].filter(Boolean).join(" / "))}</div></span>
         ${badge(r)}
       </a></li>`).join("")}</ul>`:`<p class="empty">${state.reports.length?t("none"):t("n")(0)}</p>`}`;
@@ -268,6 +276,7 @@ async function report(id){
       <h1>${esc(r.title)}</h1>
       ${t("enNote")?`<p class="note">${t("enNote")}</p>`:""}
       <p class="finding">${esc(r.finding)}</p>
+      ${r.link?`<div class="linkbox">${LINK_ICON("#B9D7BE")}<span><b>${t("link")}</b>${esc(r.link)}</span></div>`:""}
       ${html}
     </article>
   </div>`;

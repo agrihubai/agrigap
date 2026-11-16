@@ -37,8 +37,8 @@ MAX_SEARCHES = int(os.environ.get("AGRIHUB_MAX_SEARCHES", "15"))
 MAX_CONTINUATIONS = 5  # sunucu araç döngüsü 'pause_turn' ile durursa en fazla bu kadar devam
 
 REQUIRED_SECTIONS = [
-    "## 1.", "## 2. Mevcut Çözüm Haritası", "## 3.", "## 4.",
-    "## 5.", "## 6.", "## 7. Kaynaklar", "**Durum Kararı:**",
+    "## 1.", "## 2. Görünmeyen Bağlantılar", "## 3. Mevcut Çözüm Haritası", "## 4.",
+    "## 5.", "## 6.", "## 7.", "## 8. Kaynaklar", "**Durum Kararı:**", "**Görünmeyen bağlantı:**",
 ]
 
 TR_MAP = str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")
@@ -188,6 +188,7 @@ def parse_report(p):
         "decision": dec.group(1) if dec else "",
         "decision_reason": dec.group(2).strip() if dec else "",
         "finding": _field(body, "Tek cümlede bulgu"),
+        "link": _field(body, "Görünmeyen bağlantı"),
         "review_status": meta.get("review_status", ""),
     }
 

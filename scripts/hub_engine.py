@@ -143,7 +143,7 @@ def write_report(t, md: str, missing):
         f"crop: {t['crop']}",
         f"region: {t['region']}",
         f"model: {MODEL}",
-        f"review_status: {'needs_fix' if missing else 'awaiting_review'}",
+        f"review_status: {'needs_fix' if missing else 'in_review'}",
         "---",
         "",
     ]
@@ -156,25 +156,56 @@ def extract_title(md: str, fallback: str) -> str:
     return m.group(1).strip() if m else fallback
 
 
+def _field(body, label):
+    m = re.search(r"\*\*" + re.escape(label) + r":\*\*\s*(.+)$", body, re.MULTILINE)
+    return m.group(1).strip() if m else ""
+
+
+def _ticks(text):
+    return re.findall(r"`([^`]+)`", text)
+
+
+def parse_report(p):
+    body = p.read_text(encoding="utf-8")
+    meta = {}
+    if body.startswith("---"):
+        meta = dict(re.findall(r"^(\w+): (.+)$", body.split("---")[1], re.MULTILINE))
+    tax = _ticks(_field(body, "Taksonomi"))
+    stage = _ticks(_field(body, "Aşama & Çözüm Türü"))
+    dec_line = _field(body, "Durum Kararı")
+    dec = re.match(r"`?([ABCD])`?\s*[—-]?\s*(.*)", dec_line)
+    return {
+        "id": meta.get("id", p.stem),
+        "file": p.name,
+        "date": meta.get("date", ""),
+        "title": extract_title(body, p.stem),
+        "production_system": meta.get("production_system", tax[0] if tax else ""),
+        "crop_group": meta.get("crop_group", tax[1] if len(tax) > 1 else ""),
+        "crop": meta.get("crop", tax[2] if len(tax) > 2 else ""),
+        "region": meta.get("region", ""),
+        "stage": stage[0] if stage else "",
+        "solution_type": stage[1] if len(stage) > 1 else "",
+        "decision": dec.group(1) if dec else "",
+        "decision_reason": dec.group(2).strip() if dec else "",
+        "finding": _field(body, "Tek cümlede bulgu"),
+        "review_status": meta.get("review_status", ""),
+    }
+
+
 def rebuild_index():
-    rows = []
-    for p in sorted(DISCOVERIES_DIR.glob("*.md"), reverse=True):
-        if p.name == "README.md":
-            continue
-        body = p.read_text(encoding="utf-8")
-        meta = dict(re.findall(r"^(\w+): (.+)$", body.split("---")[1], re.MULTILINE)) if body.startswith("---") else {}
-        title = extract_title(body, p.stem)
-        decision = re.search(r"\*\*Durum Kararı:\*\*\s*`?([ABCD])", body)
-        rows.append(
-            f"| {meta.get('date', '')} | [{title}]({p.name}) | {meta.get('crop', '')} | "
-            f"{meta.get('region', '')} | {decision.group(1) if decision else '?'} |"
-        )
+    reports = [parse_report(p) for p in sorted(DISCOVERIES_DIR.glob("*.md"), reverse=True)
+               if p.name != "README.md"]
+    (DISCOVERIES_DIR / "index.json").write_text(
+        json.dumps({"generated": datetime.now(timezone.utc).isoformat(), "reports": reports},
+                   ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    rows = [f"| {r['date']} | [{r['title']}]({r['file']}) | {r['crop']} | {r['region']} | {r['decision'] or '?'} |"
+            for r in reports]
     INDEX_FILE.write_text(
         "# AgriGap Raporları\n\n"
-        "Yapay zekâ destekli ön analizlerdir; her rapor yayından önce uzman incelemesinden geçer.\n"
+        "Uygulama: https://agrihubai.github.io/agrigap/\n\n"
+        "Yapay zekâ destekli ön analizlerdir; her rapor uzman incelemesinden geçer.\n"
         "Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var · "
         "**C** çözüm var ama zayıf · **D** taranan kaynaklarda çözüm yok.\n\n"
-        "Blog: https://agrihubai.wordpress.com/\n\n"
         "| Tarih | Rapor | Ürün | Bölge | Durum |\n|---|---|---|---|---|\n"
         + "\n".join(rows) + "\n",
         encoding="utf-8",
@@ -194,10 +225,16 @@ def main():
     ap.add_argument("--id", help="Belirli bir hedef kimliği (ör. TRG-002)")
     ap.add_argument("--exclude", default="", help="Atlanacak hedefler, virgülle (incelemede bekleyen PR'lar)")
     ap.add_argument("--from-file", help="Hazır Markdown raporu arşive ekle (API çağrısı yok)")
+    ap.add_argument("--reindex", action="store_true", help="Yalnızca discoveries/index.json ve README dizinini yeniden üret")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     targets = load_targets()
+    if args.reindex:
+        rebuild_index()
+        print("[OK] Dizin yenilendi")
+        return 0
+
     exclude = {x.strip() for x in args.exclude.split(",") if x.strip()}
     t = pick_target(targets, args.id, exclude)
     if not t:

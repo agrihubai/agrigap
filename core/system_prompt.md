@@ -53,7 +53,7 @@ Giriş veya sohbet cümlesi yazma. Yalnızca aşağıdaki Markdown'ı üret. Top
 
 # [Başlık: kısa, teknik, abartısız]
 
-> Bu rapor yapay zekâ tarafından web kaynakları taranarak hazırlanmış bir ön analizdir; bir uzman tarafından incelenmiştir ancak saha doğrulaması yapılmamıştır. Hipotezler kesin sonuç değildir.
+> Bu rapor yapay zekâ tarafından web kaynakları taranarak hazırlanmış bir ön analizdir; saha doğrulaması yapılmamıştır. Hipotezler kesin sonuç değildir. Uzman inceleme durumu sayfanın başında gösterilir.
 
 - **Taksonomi:** `[Üretim Sistemi]` > `[Ürün Grubu]` > `[Alt Ürün]`
 - **Aşama & Çözüm Türü:** `[Değer Zinciri Aşaması]` | `[Çözüm Türü]`

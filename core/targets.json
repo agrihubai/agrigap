@@ -15,7 +15,9 @@
     "crop": "Muz",
     "region": "TR",
     "focus": "Hasat sonrası yüksek nemli gövde ve yaprak atıklarının yerinde ekonomiye kazandırılması",
-    "status": "pending"
+    "status": "review",
+    "report": "discoveries/2026-11-16-trg-002-muz.md",
+    "processed_at": "2026-11-16T18:26:05.563385+00:00"
   },
   {
     "id": "TRG-003",

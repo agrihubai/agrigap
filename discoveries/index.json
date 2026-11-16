@@ -1,0 +1,21 @@
+{
+  "generated": "2026-11-16T18:33:28.183016+00:00",
+  "reports": [
+    {
+      "id": "TRG-002",
+      "file": "2026-11-16-trg-002-muz.md",
+      "date": "2026-11-16",
+      "title": "Muz Gövdesi Atığı: Değer Var, Asıl Soru Nerede İşleneceği",
+      "production_system": "Örtü Altı Yetiştiriciliği",
+      "crop_group": "Meyveler",
+      "crop": "Muz",
+      "region": "TR",
+      "stage": "Hasat Sonrası & Biyo-Atık",
+      "solution_type": "Döngüsel Biyo-Ekonomi",
+      "decision": "C",
+      "decision_reason": "Gövdeden lif, sıvı gübre ve enerji üreten çözümler dünyada var; ancak hepsi ağır ve sulu gövdeyi bir tesise taşımayı gerektiriyor ve Türkiye seralarında bu taşıma ek bir hastalık riski taşıyor.",
+      "finding": "Bu analize göre muz gövdesinden değer üretmenin yolları biliniyor; Türkiye'de belirleyici olan, gövdeyi uzağa taşımadan sera başında işleyebilmek.",
+      "review_status": "in_review"
+    }
+  ]
+}

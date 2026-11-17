@@ -1,7 +1,7 @@
 name: AgriGap Otomatik Tarama (ücretsiz)
 
 # Yapay zekâ kullanmaz, ücretli hiçbir bileşen yoktur.
-# Pazartesi, Çarşamba ve Cuma 06:23 UTC (Madrid 07:23 kış / 08:23 yaz): Teknoloji Boşluk Haritası'nda 6 ürünü yeniler,
+# Pazartesi, Çarşamba ve Cuma 06:23 UTC (Madrid 07:23 kış / 08:23 yaz): Teknoloji Boşluk Haritası'nda 12 ürünü yeniler,
 # kuyruktaki sıradaki 3 hedefi tarar,
 # raporu discoveries/ altına yazar ve doğrudan main dalına yükler; site kendiliğinden güncellenir.
 # Elle çalıştırmak için: Actions → AgriGap Otomatik Tarama → Run workflow.
@@ -19,7 +19,7 @@ on:
       matrix_crops:
         description: 'Haritada bu çalışmada yenilenecek ürün sayısı (0 = harita atlanır)'
         required: false
-        default: '6'
+        default: '12'
 
 permissions:
   contents: write
@@ -32,7 +32,7 @@ concurrency:
 jobs:
   tarama:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
 
@@ -44,7 +44,7 @@ jobs:
         id: matrix
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
-          CROPS: ${{ inputs.matrix_crops || '6' }}
+          CROPS: ${{ inputs.matrix_crops || '12' }}
         run: |
           if [ "$CROPS" != "0" ]; then python scripts/matrix_scan.py --crops "$CROPS"; fi
 

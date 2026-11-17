@@ -34,10 +34,12 @@
     "crop": "Zeytin",
     "region": "TR+EU",
     "focus": "Zeytinyağı karasu ve pirina atıklarının çevre mevzuatına uygun sıfır atık dönüşümü",
-    "status": "pending",
+    "status": "published",
     "crop_en": "olive",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "(\"olive mill wastewater\" OR \"olive pomace\" OR \"olive mill waste\")"
+    "query": "(\"olive mill wastewater\" OR \"olive pomace\" OR \"olive mill waste\")",
+    "report": "discoveries/2026-11-17-trg-003-zeytin.md",
+    "processed_at": "2026-11-17T14:17:53.261032+00:00"
   },
   {
     "id": "TRG-004",
@@ -46,10 +48,12 @@
     "crop": "Buğday",
     "region": "TR+EU",
     "focus": "Kuru tarımda kuraklık stresi, anız yakma yasağı ve toprak organik karbon kaybı",
-    "status": "pending",
+    "status": "published",
     "crop_en": "wheat",
     "stage": "Toprak & Girdi",
-    "query": "wheat AND (\"stubble burning\" OR \"crop residue\" OR \"soil organic carbon\") AND (drought OR rainfed OR dryland)"
+    "query": "wheat AND (\"stubble burning\" OR \"crop residue\" OR \"soil organic carbon\") AND (drought OR rainfed OR dryland)",
+    "report": "discoveries/2026-11-17-trg-004-bugday.md",
+    "processed_at": "2026-11-17T14:18:10.415283+00:00"
   },
   {
     "id": "TRG-005",
@@ -58,10 +62,12 @@
     "crop": "Fındık",
     "region": "TR",
     "focus": "Eğimli arazilerde mekanize hasat eksikliği ve kahverengi kokarca biyolojik mücadelesi",
-    "status": "pending",
+    "status": "published",
     "crop_en": "hazelnut",
     "stage": "Hasat & Mekanizasyon",
-    "query": "hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")"
+    "query": "hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")",
+    "report": "discoveries/2026-11-17-trg-005-findik.md",
+    "processed_at": "2026-11-17T14:18:25.123898+00:00"
   },
   {
     "id": "TRG-006",
@@ -270,5 +276,33 @@
     "link_domain": "disease",
     "status": "pending",
     "suggested_by": "TRG-001"
+  },
+  {
+    "id": "TRG-023",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Buğday",
+    "crop_en": "wheat",
+    "stage": "Toprak & Girdi",
+    "region": "TR+EU",
+    "focus": "Kuru tarımda kuraklık stresi, anız yakma yasağı ve toprak organik karbon kaybı — su kullanımı ve su kirliliğiyle kesişimi",
+    "query": "(wheat AND (\"stubble burning\" OR \"crop residue\" OR \"soil organic carbon\") AND (drought OR rainfed OR dryland)) AND (water OR irrigation OR wastewater OR leaching OR salinity)",
+    "link_domain": "water",
+    "status": "pending",
+    "suggested_by": "TRG-004"
+  },
+  {
+    "id": "TRG-024",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Fındık",
+    "crop_en": "hazelnut",
+    "stage": "Hasat & Mekanizasyon",
+    "region": "TR",
+    "focus": "Eğimli arazilerde mekanize hasat eksikliği ve kahverengi kokarca biyolojik mücadelesi — hastalık ve zararlı riskiyle kesişimi",
+    "query": "(hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")) AND (pathogen OR disease OR Fusarium OR virus OR nematode OR pest)",
+    "link_domain": "disease",
+    "status": "pending",
+    "suggested_by": "TRG-005"
   }
 ]

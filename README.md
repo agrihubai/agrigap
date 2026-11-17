@@ -8,7 +8,7 @@
 
 ## Nasıl çalışır?
 
-Her Pazartesi ve Perşembe GitHub Actions kendiliğinden başlar ([`agrigap-tarama.yml`](.github/workflows/agrigap-tarama.yml)):
+Her Pazartesi, Çarşamba ve Cuma GitHub Actions kendiliğinden başlar ([`agrigap-tarama.yml`](.github/workflows/agrigap-tarama.yml)):
 
 1. `core/targets.json` kuyruğundaki sıradaki `pending` hedefi alır.
 2. [OpenAlex](https://openalex.org)'ten (açık, CC0 lisanslı yayın veri tabanı) üç sorgu çalıştırır: konu (dünya), konu (hedef bölge) ve karşılaştırma için ürünün genel literatürü.

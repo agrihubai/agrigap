@@ -1,14 +1,14 @@
 name: AgriGap Otomatik Tarama (ücretsiz)
 
 # Yapay zekâ kullanmaz, ücretli hiçbir bileşen yoktur.
-# Pazartesi ve Perşembe 06:23 UTC (Madrid 07:23 kış / 08:23 yaz) kuyruktaki sıradaki hedefi tarar,
+# Pazartesi, Çarşamba ve Cuma 06:23 UTC (Madrid 07:23 kış / 08:23 yaz) kuyruktaki sıradaki hedefi tarar,
 # raporu discoveries/ altına yazar ve doğrudan main dalına yükler; site kendiliğinden güncellenir.
 # Elle çalıştırmak için: Actions → AgriGap Otomatik Tarama → Run workflow.
 # İsteğe bağlı: OPENALEX_API_KEY secret'ı (openalex.org'dan ücretsiz). Yoksa anahtarsız ücretsiz kota kullanılır.
 
 on:
   schedule:
-    - cron: '23 6 * * 1,4'
+    - cron: '23 6 * * 1,3,5'
   workflow_dispatch:
     inputs:
       target_id:

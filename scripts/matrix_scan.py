@@ -106,11 +106,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--crops", type=int, default=CFG["crops_per_run"])
     ap.add_argument("--fixture", action="store_true", help="OpenAlex yerine sahte sayılar (yalnız deneme)")
+    ap.add_argument("--only-missing", action="store_true", help="Yalnızca hiç taranmamış ürünler (ilk doldurma)")
     args = ap.parse_args()
 
     m = load()
     upd = m.setdefault("crop_updated", {})
     order = sorted(CFG["crops"], key=lambda c: upd.get(c["key"], ""))
+    if args.only_missing:
+        order = [c for c in order if c["key"] not in upd]
+        if not order:
+            print("Haritada taranmamış ürün kalmadı.")
     batch = order[: args.crops]
     rng = random.Random(7) if args.fixture else None
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")

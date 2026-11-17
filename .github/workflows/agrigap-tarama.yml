@@ -1,15 +1,15 @@
 name: AgriGap Otomatik Tarama (ücretsiz)
 
 # Yapay zekâ kullanmaz, ücretli hiçbir bileşen yoktur.
-# Pazartesi, Çarşamba ve Cuma 06:23 UTC (Madrid 07:23 kış / 08:23 yaz): Teknoloji Boşluk Haritası'nda 12 ürünü yeniler,
-# kuyruktaki sıradaki 3 hedefi tarar,
+# Her gün 06:23 UTC (Madrid 07:23 kış / 08:23 yaz) başlar. Pazartesi, Çarşamba ve Cuma: haritada 12 ürünü yeniler ve
+# kuyruktaki sıradaki 3 hedefi tarar. Diğer günler: yalnızca haritada hiç taranmamış ürünleri doldurur (en fazla 12),
 # raporu discoveries/ altına yazar ve doğrudan main dalına yükler; site kendiliğinden güncellenir.
 # Elle çalıştırmak için: Actions → AgriGap Otomatik Tarama → Run workflow.
 # İsteğe bağlı: OPENALEX_API_KEY secret'ı (openalex.org'dan ücretsiz). Yoksa anahtarsız ücretsiz kota kullanılır.
 
 on:
   schedule:
-    - cron: '23 6 * * 1,3,5'
+    - cron: '23 6 * * *'   # her gün; raporlar yalnız Pzt/Çar/Cum, diğer günler harita yalnız eksik ürünleri doldurur
   workflow_dispatch:
     inputs:
       target_id:
@@ -45,15 +45,27 @@ jobs:
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           CROPS: ${{ inputs.matrix_crops || '12' }}
+          EVENT: ${{ github.event_name }}
         run: |
-          if [ "$CROPS" != "0" ]; then python scripts/matrix_scan.py --crops "$CROPS"; fi
+          DOW=$(date -u +%u)
+          if [ "$CROPS" = "0" ]; then exit 0; fi
+          if [ "$EVENT" = "schedule" ] && [ "$DOW" != "1" ] && [ "$DOW" != "3" ] && [ "$DOW" != "5" ]; then
+            python scripts/matrix_scan.py --crops "$CROPS" --only-missing
+          else
+            python scripts/matrix_scan.py --crops "$CROPS"
+          fi
 
       - name: Kaynak tarama (OpenAlex)
         id: scan
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           TARGET_ID: ${{ inputs.target_id }}
+          EVENT: ${{ github.event_name }}
         run: |
+          DOW=$(date -u +%u)
+          if [ "$EVENT" = "schedule" ] && [ "$DOW" != "1" ] && [ "$DOW" != "3" ] && [ "$DOW" != "5" ]; then
+            echo "Bugün rapor günü değil (Pzt/Çar/Cum)."; exit 0
+          fi
           if [ -n "$TARGET_ID" ]; then
             python scripts/source_scan.py --id "$TARGET_ID"
           else

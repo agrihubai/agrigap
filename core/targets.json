@@ -11,7 +11,7 @@
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)",
     "report": "discoveries/2026-11-17-trg-001-domates.md",
-    "processed_at": "2026-11-17T13:41:24.851716+00:00"
+    "processed_at": "2026-11-17T14:25:46.147222+00:00"
   },
   {
     "id": "TRG-002",
@@ -39,7 +39,7 @@
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "(\"olive mill wastewater\" OR \"olive pomace\" OR \"olive mill waste\")",
     "report": "discoveries/2026-11-17-trg-003-zeytin.md",
-    "processed_at": "2026-11-17T14:17:53.261032+00:00"
+    "processed_at": "2026-11-17T14:26:00.255648+00:00"
   },
   {
     "id": "TRG-004",
@@ -53,7 +53,7 @@
     "stage": "Toprak & Girdi",
     "query": "wheat AND (\"stubble burning\" OR \"crop residue\" OR \"soil organic carbon\") AND (drought OR rainfed OR dryland)",
     "report": "discoveries/2026-11-17-trg-004-bugday.md",
-    "processed_at": "2026-11-17T14:18:10.415283+00:00"
+    "processed_at": "2026-11-17T14:26:15.523085+00:00"
   },
   {
     "id": "TRG-005",
@@ -67,7 +67,7 @@
     "stage": "Hasat & Mekanizasyon",
     "query": "hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")",
     "report": "discoveries/2026-11-17-trg-005-findik.md",
-    "processed_at": "2026-11-17T14:18:25.123898+00:00"
+    "processed_at": "2026-11-17T14:26:29.997336+00:00"
   },
   {
     "id": "TRG-006",
@@ -302,6 +302,34 @@
     "focus": "Eğimli arazilerde mekanize hasat eksikliği ve kahverengi kokarca biyolojik mücadelesi — hastalık ve zararlı riskiyle kesişimi",
     "query": "(hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")) AND (pathogen OR disease OR Fusarium OR virus OR nematode OR pest)",
     "link_domain": "disease",
+    "status": "pending",
+    "suggested_by": "TRG-005"
+  },
+  {
+    "id": "TRG-025",
+    "production_system": "Sebze Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Domates",
+    "crop_en": "tomato",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "region": "TR",
+    "focus": "Stok & lojistik işinde yazılım & yapay zekâ: dünyada 87 yayın var, TR kaynaklı yayın yok",
+    "query": "(tomato) AND (inventory OR \"supply chain\" OR logistics OR \"stock management\" OR \"cold chain\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c00|stock|digi"
+  },
+  {
+    "id": "TRG-026",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Fındık",
+    "crop_en": "hazelnut",
+    "stage": "Hasat & Mekanizasyon",
+    "region": "TR",
+    "focus": "Eğimli arazilerde mekanize hasat eksikliği ve kahverengi kokarca biyolojik mücadelesi — işçilik ihtiyacıyla kesişimi",
+    "query": "(hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")) AND (labor OR labour OR workforce OR worker)",
+    "link_domain": "labour",
     "status": "pending",
     "suggested_by": "TRG-005"
   }

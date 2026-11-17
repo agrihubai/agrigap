@@ -456,5 +456,145 @@
     "headline_min_lift": 1.5,
     "headline_min_papers": 5,
     "table_min_lift": 1.0
-  }
+  },
+  "constraints": [
+    {
+      "tr": "Eğim & arazi yapısı",
+      "terms": [
+        "slope",
+        "steep",
+        "terrain",
+        "uneven",
+        "terrace"
+      ]
+    },
+    {
+      "tr": "Ürün hasarı (ezilme, kopma)",
+      "terms": [
+        "bruis",
+        "fruit damage",
+        "damage rate",
+        "mechanical damage",
+        "detachment"
+      ]
+    },
+    {
+      "tr": "Görüş engeli (yaprak, örtüşme)",
+      "terms": [
+        "occlusion",
+        "occluded",
+        "overlapping",
+        "foliage",
+        "canopy density"
+      ]
+    },
+    {
+      "tr": "Bitki ve ürün değişkenliği",
+      "terms": [
+        "variability",
+        "heterogene",
+        "irregular",
+        "non-uniform",
+        "ripeness"
+      ]
+    },
+    {
+      "tr": "Hız & kapasite",
+      "terms": [
+        "throughput",
+        "working speed",
+        "cycle time",
+        "field capacity",
+        "picking speed"
+      ]
+    },
+    {
+      "tr": "Doğruluk & hata payı",
+      "terms": [
+        "accuracy",
+        "success rate",
+        "detection rate",
+        "false positive",
+        "misclassif"
+      ]
+    },
+    {
+      "tr": "Dar alan (sıra arası, sera koridoru)",
+      "terms": [
+        "narrow",
+        "row spacing",
+        "corridor",
+        "confined",
+        "plant spacing"
+      ]
+    },
+    {
+      "tr": "Toz, çamur, nem",
+      "terms": [
+        "dust",
+        "mud",
+        "high humidity",
+        "wet soil",
+        "condensation"
+      ]
+    },
+    {
+      "tr": "Maliyet & yatırım",
+      "terms": [
+        "cost",
+        "investment",
+        "affordab",
+        "economic feasib",
+        "payback"
+      ]
+    },
+    {
+      "tr": "Enerji, su & yakıt tüketimi",
+      "terms": [
+        "energy consumption",
+        "fuel consumption",
+        "water consumption",
+        "power requirement",
+        "energy use"
+      ]
+    },
+    {
+      "tr": "İşçilik & ergonomi",
+      "terms": [
+        "labor",
+        "labour",
+        "ergonom",
+        "workload",
+        "manual"
+      ]
+    },
+    {
+      "tr": "Küçük işletme ölçeği",
+      "terms": [
+        "smallholder",
+        "small farm",
+        "small-scale",
+        "fragmented"
+      ]
+    },
+    {
+      "tr": "Veri & bağlantı",
+      "terms": [
+        "connectivity",
+        "data availability",
+        "dataset",
+        "labelled data",
+        "internet access"
+      ]
+    },
+    {
+      "tr": "Güvenlik & mevzuat",
+      "terms": [
+        "operator safety",
+        "safety",
+        "regulation",
+        "certification"
+      ]
+    }
+  ]
 }

@@ -223,7 +223,16 @@ def analyse(t, data):
             if name and not (set(re.findall(r"[a-z]+", name.lower())) & stop):
                 kw[name] += 1
     allc = Counter(c for w in works for c in countries(w))
-    return {"works": works, "groups": groups, "links": links, "keywords": kw.most_common(8), "countries": allc.most_common(10)}
+    cons = []
+    for cdef in RULES.get("constraints", []):
+        rx = term_re(cdef["terms"])
+        hits = [w for w in works if rx.search(texts[w["id"]])]
+        if hits:
+            ex = sorted(hits, key=lambda w: -(w.get("cited_by_count") or 0))[:2]
+            cons.append({**cdef, "n": len(hits), "examples": ex})
+    cons.sort(key=lambda x: -x["n"])
+    return {"works": works, "groups": groups, "links": links, "keywords": kw.most_common(8),
+            "countries": allc.most_common(10), "constraints": cons}
 
 
 def gap_decision(t, data):
@@ -353,21 +362,31 @@ def render(t, data, a, today, sugg):
         L += ["", f"**Hedef bölgede örneği bulunmayan çözüm türleri:** {', '.join(missing)}. "
               "Bunlar başka bölgelerden aktarım (transfer) adayıdır."]
 
+    L += ["", "## 4. Zorluk Sinyalleri (tasarım gerekliliği adayları)",
+          "Yayınların başlık ve özetlerinde sık geçen engeller. Yeni bir makine, yazılım ya da uygulamanın aşması "
+          "gereken koşullar için ham malzemedir; tek başına bir tasarım önerisi değildir.", ""]
+    if a["constraints"]:
+        L += ["| Zorluk | Geçtiği yayın | Örnek yayınlar |", "|---|---|---|"]
+        for cdef in a["constraints"][:8]:
+            L.append(f"| {cdef['tr']} | {cdef['n']} / {n} | " + "<br>".join(study(w) for w in cdef["examples"]) + " |")
+    else:
+        L.append("Taranan yayınlarda tanımlı zorluk terimlerine rastlanmadı.")
+
     r = RULES["gap_rule"]
-    L += ["", "## 4. Boşluk Ölçeği Nasıl Hesaplandı",
+    L += ["", "## 5. Boşluk Ölçeği Nasıl Hesaplandı",
           f"- **D:** dünyadaki yayın sayısı < {r['D_if_total_below']}",
           f"- **B:** hedef bölgeden yazarı olan yayın sayısı < {r['B_if_region_below']} (çözüm başka yerde çalışılmış)",
           f"- **A:** hedef bölgeden yazarı olan yayın sayısı ≥ {r['A_if_region_at_least']} ve payı ≥ %{r['A_if_region_share_at_least'] * 100:.0f}",
           "- **C:** diğer durumlar (bölgede çalışılmış ama sınırlı)",
           f"- **Bu tarama:** `{dec}`. Bu gösterge yayın sayısına dayanır; derin bir değerlendirme değildir.", ""]
 
-    L += ["## 5. Kaynaklar",
+    L += ["## 6. Kaynaklar",
           "OpenAlex (CC0 açık veri, https://openalex.org). Atıf sayısına göre ilk 25 yayın:", ""]
     for w in sorted(a["works"], key=lambda w: -(w.get("cited_by_count") or 0))[:25]:
         src = ((w.get("primary_location") or {}).get("source") or {}).get("display_name") or ""
         L.append(f"- {study(w)}{' — ' + cell(src, 60) if src else ''}")
 
-    L += ["", "## 6. Yeni Hedef Önerileri"]
+    L += ["", "## 7. Yeni Hedef Önerileri"]
     if sugg:
         L.append(f"- `{sugg['production_system']} | {sugg['crop_group']} | {sugg['crop']} | {sugg['region']} | {sugg['focus']}` — {sugg['why']}")
     else:
@@ -394,39 +413,24 @@ def pick(targets, tid):
     return None
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--id")
-    ap.add_argument("--fixture", help="OpenAlex yerine kayıtlı JSON (çevrimdışı deneme)")
-    ap.add_argument("--dry-run", action="store_true", help="Raporu yazdır, dosyaya kaydetme")
-    args = ap.parse_args()
-
-    targets = hub.load_targets()
-    t = pick(targets, args.id)
+def scan_one(targets, tid, fixture=None, dry=False):
+    t = pick(targets, tid)
     if not t:
         print("Taranacak hedef yok (sorgusu olan 'pending' hedef bulunamadı).")
-        hub.set_output("created", "false")
-        return 0
+        return None
     if not t.get("query"):
         print(f"{t['id']} için 'query' alanı yok; core/targets.json'a İngilizce arama sorgusu ekleyin.")
-        hub.set_output("created", "false")
-        return 0
+        return None
     print(f"Taranıyor: {t['id']} — {t['crop']}: {t['focus']}")
-
-    try:
-        data = json.loads(Path(args.fixture).read_text(encoding="utf-8")) if args.fixture else fetch(t)
-    except ScanSkipped as e:
-        print(f"::notice::{e}")
-        hub.set_output("created", "false")
-        return 0
+    data = json.loads(Path(fixture).read_text(encoding="utf-8")) if fixture else fetch(t)
 
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     a = analyse(t, data)
     sugg = suggestion(t, a["links"], targets)
     md, title = render(t, data, a, today, sugg)
-    if args.dry_run:
+    if dry:
         print(md)
-        return 0
+        return None
 
     path = write(t, md, today)
     t["status"] = "published"
@@ -439,11 +443,34 @@ def main():
         targets.append(nt)
         print(f"[KUYRUK] Yeni hedef: {nt['id']} — {nt['focus']}")
     hub.save_targets(targets)
-    hub.rebuild_index()
     print(f"[OK] {path.relative_to(ROOT)} — {len(a['works'])} yayın incelendi")
-    hub.set_output("created", "true")
-    hub.set_output("target_id", t["id"])
-    hub.set_output("title", title.replace("\n", " "))
+    return t["id"]
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--id")
+    ap.add_argument("--count", type=int, default=1, help="Bu çalışmada taranacak hedef sayısı")
+    ap.add_argument("--fixture", help="OpenAlex yerine kayıtlı JSON (çevrimdışı deneme)")
+    ap.add_argument("--dry-run", action="store_true", help="Raporu yazdır, dosyaya kaydetme")
+    args = ap.parse_args()
+
+    targets = hub.load_targets()
+    done = []
+    for i in range(1 if args.id else max(1, args.count)):
+        try:
+            tid = scan_one(targets, args.id, args.fixture, args.dry_run)
+        except ScanSkipped as e:
+            print(f"::notice::{e}")
+            break
+        if not tid:
+            break
+        done.append(tid)
+    if done:
+        hub.rebuild_index()
+    hub.set_output("created", "true" if done else "false")
+    hub.set_output("target_id", ",".join(done))
+    hub.set_output("title", f"{len(done)} rapor: {', '.join(done)}")
     return 0
 
 

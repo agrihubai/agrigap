@@ -116,6 +116,46 @@ article tr:last-child td{border-bottom:0}
 footer{border-top:1px solid var(--line);margin-top:56px;padding:28px 0 48px;font-size:14px;color:var(--mute);display:grid;grid-template-columns:2fr 1fr;gap:24px}
 footer p{margin:0 0 8px;max-width:62ch}
 
+
+/* sekmeler */
+.tabs{display:flex;gap:4px;margin:18px 0 0;border-bottom:1px solid var(--line)}
+.tabs a{padding:10px 14px;text-decoration:none;color:var(--mute);font-weight:600;font-size:15px;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:var(--loam);border-bottom-color:var(--leaf)}
+
+/* teknoloji boşluk haritası */
+.mx-intro{max-width:72ch;color:var(--mute);margin:20px 0 6px}
+.mx-status{font-size:14px;color:var(--mute);margin:0 0 16px}
+.mx-ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:0 0 14px}
+.mx-ctl label{display:flex;flex-direction:column;font-size:13px;color:var(--mute);gap:4px}
+.mx-ctl select{font:inherit;font-size:15px;color:var(--loam);background:var(--sheet);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.seg{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{all:unset;cursor:pointer;padding:8px 14px;font-size:14px;font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--loam);color:var(--film)}
+.mx-wrap{overflow:auto;max-height:75vh;border:1px solid var(--line);border-radius:12px;background:var(--sheet)}
+table.mx{border-collapse:separate;border-spacing:0;font-size:12px;font-variation-settings:"wdth" 85}
+table.mx th,table.mx td{border-right:1px solid var(--film);border-bottom:1px solid var(--film)}
+table.mx thead th{position:sticky;top:0;background:#E1E8E2;z-index:2;font-weight:700;padding:6px 4px;vertical-align:bottom}
+table.mx thead tr:nth-child(2) th{top:28px;height:190px;width:46px;min-width:46px}
+table.mx thead tr:nth-child(2) th span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;margin:0 auto;font-weight:600;max-height:184px;overflow:hidden;text-overflow:ellipsis}
+table.mx .rh{position:sticky;left:0;background:var(--sheet);z-index:1;text-align:left;padding:4px 10px;white-space:nowrap;font-size:13px;font-weight:600;min-width:150px}
+table.mx thead .rh{z-index:3;background:#E1E8E2}
+table.mx tr.grp th{position:sticky;left:0;text-align:left;background:var(--film);padding:8px 10px;font-size:13px;color:var(--leaf)}
+table.mx td{text-align:center;height:30px;min-width:46px;padding:0}
+table.mx td button{all:unset;cursor:pointer;display:block;width:100%;height:30px;line-height:30px;font-weight:600}
+table.mx td button:focus-visible{outline:3px solid var(--loam);outline-offset:-3px}
+table.mx td.na button{color:#9aa39b;background:repeating-linear-gradient(45deg,transparent 0 4px,#e3e8e3 4px 8px)}
+table.mx td.sel button{outline:3px solid var(--loam);outline-offset:-3px}
+.gap-w{background:var(--D)!important;color:#fff!important}
+.gap-r{background:var(--B)!important;color:#fff!important}
+.dimcell{color:#9aa39b!important;background:transparent!important}
+.mx-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--mute);margin:10px 0 0}
+.mx-legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.mx-detail{margin:18px 0 0;background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:16px 18px;max-width:760px}
+.mx-detail h3{margin:0 0 8px;font-size:18px}
+.mx-detail table{border-collapse:collapse;font-size:14px;margin:8px 0}
+.mx-detail th,.mx-detail td{padding:6px 12px 6px 0;text-align:left;border-bottom:1px solid var(--line)}
+.mx-detail p{margin:8px 0 0;font-size:14px;color:var(--mute)}
+
 @media (max-width:820px){
   .bands{grid-template-columns:repeat(2,1fr)}
   .band{min-height:120px}
@@ -145,6 +185,10 @@ footer p{margin:0 0 8px;max-width:62ch}
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
   </header>
+  <nav class="tabs" aria-label="Bölümler">
+    <a href="#/" data-tab="reports" data-i18n="tabReports"></a>
+    <a href="#/harita" data-tab="map" data-i18n="tabMap"></a>
+  </nav>
   <main id="app" tabindex="-1"></main>
   <footer>
     <div>
@@ -174,6 +218,13 @@ const T = {
     back:"Tüm raporlar", decision:"Durum kararı", crop:"Ürün", region:"Bölge", solution:"Çözüm türü", date:"Tarih",
     md:"Raporun Markdown dosyası", enNote:"", link:"Görünmeyen bağlantı",
     auto:"Otomatik tarama", deep:"Derin rapor", kind:"Rapor türü",
+    tabReports:"Raporlar", tabMap:"Teknoloji Boşluk Haritası",
+    mxIntro:"Her hücre, bir ürünün bir iş adımında makine ya da yazılım/yapay zekâ üzerine kaç yayın olduğunu gösterir (OpenAlex, 2010 sonrası, yazar ülkesine göre). Mor hücreler dünyada neredeyse hiç çalışılmamış konulardır; sarı hücreler dünyada çalışılmış ama seçilen bölgede yayını olmayan, yani aktarım adayı konulardır. Sayılar yayın sayısıdır, sahadaki kullanım değildir; bazı boş hücreler o ürün için anlamsız bir iş adımı olabilir.",
+    mxStatus:(a,b,d)=>`${b} üründen ${a} tanesi tarandı · son güncelleme ${d} · harita her taramada birkaç ürün ilerler`,
+    mxLayer:"Katman", mxView:"Gösterilen", vW:"Dünya", vTR:"Türkiye", vES:"İspanya", vEU:"AB (yaklaşık)", gTR:"Boşluklar: Türkiye", gES:"Boşluklar: İspanya",
+    lgW:"Dünyada boşluk (5 yayından az)", lgR:"Bölgede boşluk (dünyada 30+, bölgede en fazla 1)", lgNA:"Henüz taranmadı", lgS:"Koyu = çok yayın",
+    mxPick:"Ayrıntı için bir hücre seçin.", mxEU:"AB sayısı ülke toplamıdır; çok ülkeli yayınlar birden fazla sayılır.",
+    mxQueued:id=>`Bu hücre ayrıntılı tarama kuyruğunda: ${id}`, mxReport:id=>`Ayrıntılı rapor: ${id}`, mxNone:"Henüz taranmadı.",
     autoWhy:"OpenAlex yayın kayıtlarından, yapay zekâ kullanılmadan sabit kurallarla üretildi.",
     deepWhy:"Claude ile web kaynakları okunarak yazıldı.",
     loadErr:"Raporlar yüklenemedi. Sayfayı yenileyin; sorun sürerse GitHub deposundan okuyabilirsiniz.",
@@ -192,6 +243,13 @@ const T = {
     back:"All reports", decision:"Decision", crop:"Crop", region:"Region", solution:"Solution type", date:"Date",
     md:"Markdown source of this report", enNote:"Report texts are currently in Turkish.", link:"Hidden link",
     auto:"Automatic scan", deep:"In-depth report", kind:"Report type",
+    tabReports:"Reports", tabMap:"Technology Gap Map",
+    mxIntro:"Each cell shows how many publications cover machinery or software/AI for one crop and one farm task (OpenAlex, since 2010, by author country). Purple cells are topics barely studied anywhere; amber cells are studied worldwide but have no publications from the selected region, i.e. transfer candidates. Counts are publications, not field adoption; some empty cells may be tasks that make no sense for that crop. Row and column labels are in Turkish.",
+    mxStatus:(a,b,d)=>`${a} of ${b} crops scanned · last update ${d} · the map advances a few crops per run`,
+    mxLayer:"Layer", mxView:"Showing", vW:"World", vTR:"Türkiye", vES:"Spain", vEU:"EU (approx.)", gTR:"Gaps: Türkiye", gES:"Gaps: Spain",
+    lgW:"Global gap (fewer than 5)", lgR:"Regional gap (30+ worldwide, at most 1 in region)", lgNA:"Not scanned yet", lgS:"Darker = more publications",
+    mxPick:"Select a cell for details.", mxEU:"EU count sums countries; multi-country papers are counted more than once.",
+    mxQueued:id=>`This cell is queued for an in-depth scan: ${id}`, mxReport:id=>`In-depth report: ${id}`, mxNone:"Not scanned yet.",
     autoWhy:"Generated from OpenAlex publication records by fixed rules, without AI.",
     deepWhy:"Written with Claude from web sources.",
     loadErr:"Reports could not be loaded. Refresh the page; if it persists, read them in the GitHub repository.",
@@ -304,7 +362,89 @@ async function report(id){
   app.focus({preventScroll:true}); window.scrollTo(0,0);
 }
 
+
+/* ---------- Teknoloji Boşluk Haritası ---------- */
+const mx = {data:null, layer:"mech", view:"w", sel:null};
+function mxVal(v,view){ if(!v) return null; return view.startsWith("g")? v.w : v[view]; }
+function mxClass(v,view){
+  if(!v) return "";
+  if(!view.startsWith("g")) return "";
+  const r = view==="gTR"? v.tr : v.es;
+  if(v.w<5) return "gap-w";
+  if(v.w>=30 && r<=1) return "gap-r";
+  return "dimcell";
+}
+function mxBg(val,max){
+  if(val==null) return "";
+  const k = Math.log10(val+1)/Math.log10(max+1);
+  const a = (0.08+0.82*k).toFixed(2);
+  return `background:rgba(47,107,58,${a});color:${k>0.55?"#fff":"var(--loam)"}`;
+}
+function mxQueue(ck,ok,lk){
+  const key = `${ck}|${ok}|${lk}`;
+  return state.targets.find(x=>x.matrix_cell===key);
+}
+function mapPage(){
+  const m = mx.data;
+  if(!m){ app.innerHTML = `<p class="empty">${t("mxNone")}</p>`; return; }
+  const view = mx.view, layer = mx.layer;
+  const vk0 = {w:"w",vTR:"tr",vES:"es",vEU:"eu",gTR:"gTR",gES:"gES"}[view]||"w";
+  const vals = Object.values(m.cells).map(c=>c[layer]).filter(Boolean).map(v=>mxVal(v,vk0)).filter(x=>x!=null);
+  const max = Math.max(1,...vals);
+  const scanned = Object.keys(m.crop_updated||{}).length;
+  const last = Object.values(m.crop_updated||{}).sort().pop()||"—";
+  const phases = [...new Set(m.ops.map(o=>o.phase))];
+  const groups = [...new Set(m.crops.map(c=>c.group))];
+  const vkey = {w:"w",vTR:"tr",vES:"es",vEU:"eu",gTR:"gTR",gES:"gES"};
+  const vk = vkey[view]||"w";
+  let head1 = `<tr><th class="rh" rowspan="2"></th>${phases.map(p=>`<th colspan="${m.ops.filter(o=>o.phase===p).length}">${esc(p)}</th>`).join("")}</tr>`;
+  let head2 = `<tr>${m.ops.map(o=>`<th title="${esc(o.tr)}"><span>${esc(o.tr)}</span></th>`).join("")}</tr>`;
+  let body = groups.map(g=>`<tr class="grp"><th colspan="${m.ops.length+1}">${esc(g)}</th></tr>`+
+    m.crops.filter(c=>c.group===g).map(c=>`<tr><th class="rh" scope="row">${esc(c.tr)}</th>${m.ops.map(o=>{
+      const cell = m.cells[`${c.key}|${o.key}`]; const v = cell && cell[layer];
+      const isSel = mx.sel && mx.sel[0]===c.key && mx.sel[1]===o.key;
+      if(!v) return `<td class="na${isSel?" sel":""}"><button type="button" data-c="${c.key}" data-o="${o.key}" aria-label="${esc(c.tr)} · ${esc(o.tr)}">·</button></td>`;
+      const val = mxVal(v, vk);
+      const cls = mxClass(v, vk);
+      return `<td class="${isSel?"sel":""}"><button type="button" class="${cls}" style="${cls?"":mxBg(val,max)}" data-c="${c.key}" data-o="${o.key}" aria-label="${esc(c.tr)} · ${esc(o.tr)}: ${val}">${val}</button></td>`;
+    }).join("")}</tr>`).join("")).join("");
+  app.innerHTML = `
+    <p class="mx-intro">${t("mxIntro")}</p>
+    <p class="mx-status">${t("mxStatus")(scanned, m.crops.length, last)}</p>
+    <div class="mx-ctl">
+      <label>${t("mxLayer")}<span class="seg" role="group">${m.layers.map(l=>`<button type="button" data-l="${l.key}" aria-pressed="${l.key===layer}">${esc(lang==="en"?l.en:l.tr)}</button>`).join("")}</span></label>
+      <label>${t("mxView")}<select id="mxv">${["w","vTR","vES","vEU","gTR","gES"].map(k=>`<option value="${k}" ${k===view?"selected":""}>${t(k==="w"?"vW":k)}</option>`).join("")}</select></label>
+    </div>
+    <div class="mx-wrap"><table class="mx"><thead>${head1}${head2}</thead><tbody>${body}</tbody></table></div>
+    <div class="mx-legend">
+      ${vk.startsWith("g")?`<span><i style="background:var(--D)"></i>${t("lgW")}</span><span><i style="background:var(--B)"></i>${t("lgR")}</span>`:`<span><i style="background:rgba(47,107,58,.85)"></i>${t("lgS")}</span>`}
+      <span><i style="background:repeating-linear-gradient(45deg,#fff 0 3px,#d5dcd6 3px 6px)"></i>${t("lgNA")}</span>
+    </div>
+    <div class="mx-detail" id="mxd">${mxDetail()}</div>`;
+  app.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{mx.layer=b.dataset.l;mapPage();});
+  app.querySelector("#mxv").onchange=e=>{mx.view=e.target.value;mapPage();};
+  app.querySelectorAll("table.mx td button").forEach(b=>b.onclick=()=>{mx.sel=[b.dataset.c,b.dataset.o];
+    app.querySelectorAll("table.mx td.sel").forEach(x=>x.classList.remove("sel"));
+    b.parentElement.classList.add("sel"); document.getElementById("mxd").innerHTML=mxDetail();});
+}
+function mxDetail(){
+  const m = mx.data; if(!mx.sel) return `<p>${t("mxPick")}</p>`;
+  const c = m.crops.find(x=>x.key===mx.sel[0]), o = m.ops.find(x=>x.key===mx.sel[1]);
+  const cell = m.cells[`${c.key}|${o.key}`];
+  if(!cell) return `<h3>${esc(c.tr)} · ${esc(o.tr)}</h3><p>${t("mxNone")}</p>`;
+  const rows = m.layers.map(l=>{const v=cell[l.key]||{};return `<tr><th>${esc(lang==="en"?l.en:l.tr)}</th><td>${v.w??"—"}</td><td>${v.tr??"—"}</td><td>${v.es??"—"}</td><td>${v.eu??"—"}</td></tr>`;}).join("");
+  const notes = m.layers.map(l=>{const q=mxQueue(c.key,o.key,l.key); if(!q) return "";
+    const r = state.reports.find(x=>x.id===q.id);
+    return `<p>${esc(lang==="en"?l.en:l.tr)}: ${r?`<a href="#/r/${encodeURIComponent(q.id)}">${t("mxReport")(q.id)}</a>`:t("mxQueued")(q.id)}</p>`;}).join("");
+  return `<h3>${esc(c.tr)} · ${esc(o.tr)}</h3>
+    <table><thead><tr><th></th><th>${t("vW")}</th><th>${t("vTR")}</th><th>${t("vES")}</th><th>${t("vEU")}</th></tr></thead><tbody>${rows}</tbody></table>
+    ${notes}<p>${t("mxEU")}</p>`;
+}
+
 function route(){
+  const isMap = location.hash.startsWith("#/harita");
+  document.querySelectorAll(".tabs a").forEach(a=>a.setAttribute("aria-current", (a.dataset.tab==="map")===isMap ? "page" : "false"));
+  if(isMap){ document.title = t("tabMap")+" — AgriGap"; mapPage(); return; }
   const m = location.hash.match(/^#\/r\/(.+)$/);
   if(m) report(decodeURIComponent(m[1]));
   else { document.title="AgriGap — Tarımdaki çözüm boşlukları"; home(); }
@@ -313,8 +453,9 @@ window.addEventListener("hashchange",route);
 
 Promise.all([
   fetch("discoveries/index.json",{cache:"no-store"}).then(r=>r.json()),
-  fetch("core/targets.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[])
-]).then(([d,tg])=>{state.reports=d.reports||[];state.targets=Array.isArray(tg)?tg:[];setLang(lang);})
+  fetch("core/targets.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[]),
+  fetch("matrix/matrix.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>null)
+]).then(([d,tg,mm])=>{state.reports=d.reports||[];state.targets=Array.isArray(tg)?tg:[];mx.data=mm;setLang(lang);})
   .catch(()=>{setLang(lang);app.innerHTML=`<p class="empty">${t("loadErr")}</p>`;});
 </script>
 </body>

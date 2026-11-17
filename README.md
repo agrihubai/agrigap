@@ -8,9 +8,9 @@
 
 ## Nasıl çalışır?
 
-Her Pazartesi, Çarşamba ve Cuma GitHub Actions kendiliğinden başlar ([`agrigap-tarama.yml`](.github/workflows/agrigap-tarama.yml)):
+Her Pazartesi, Çarşamba ve Cuma GitHub Actions kendiliğinden başlar, Teknoloji Boşluk Haritası'nda 6 ürünü yeniler ve kuyruktaki sıradaki 3 hedefi tarar ([`agrigap-tarama.yml`](.github/workflows/agrigap-tarama.yml)):
 
-1. `core/targets.json` kuyruğundaki sıradaki `pending` hedefi alır.
+1. `core/targets.json` kuyruğundaki sıradaki `pending` hedefleri alır.
 2. [OpenAlex](https://openalex.org)'ten (açık, CC0 lisanslı yayın veri tabanı) üç sorgu çalıştırır: konu (dünya), konu (hedef bölge) ve karşılaştırma için ürünün genel literatürü.
 3. [`scripts/source_scan.py`](scripts/source_scan.py), [`core/scan_rules.json`](core/scan_rules.json) kural sözlüğüyle raporu üretir. **Yapay zekâ kullanılmaz;** her sayı yayın kayıtlarının sayımıdır:
    - **Mevcut Çözüm Haritası:** yayınlar çözüm türüne göre gruplanır (makine, biyolojik mücadele, enzim, kompost, enerji, ıslah…): kaç yayın, hangi ülkeler, hangi yıllar, örnek çalışmalar ve hedef bölgede örneği olmayan çözüm türleri.
@@ -20,6 +20,15 @@ Her Pazartesi, Çarşamba ve Cuma GitHub Actions kendiliğinden başlar ([`agrig
 5. Raporu `discoveries/` altına yazar, `main` dalına yükler; site kendiliğinden güncellenir.
 
 Elle başlatmak için: **Actions → AgriGap Otomatik Tarama → Run workflow** (isteğe bağlı hedef kimliğiyle).
+
+### Teknoloji Boşluk Haritası
+
+Uygulamanın ikinci sekmesi. 48 ürün × 18 iş adımı (toprak işlemeden hasada, depolamadan stok ve maliyet takibine) tablosunun her hücresi için iki katmanda yayın sayar: **makine & donanım** ve **yazılım & yapay zekâ**. Sayılar yazar ülkesine göre bölünür (dünya, Türkiye, İspanya, AB). Mor hücreler dünyada neredeyse hiç çalışılmamış konuları, sarı hücreler dünyada çalışılmış ama seçilen bölgede yayını olmayan (aktarım adayı) konuları gösterir.
+
+- Ayarlar: [`core/matrix_config.json`](core/matrix_config.json) (ürünler, iş adımları, katman terimleri). Ürün listesi [Halden Anlayan](https://agrihubai.github.io/halden-anlayan/) ürünlerinden ve tarla/bahçe bitkilerinden seçildi.
+- Her çalışmada 6 ürün yenilenir (kayan güncelleme); tam tur yaklaşık 3 haftada tamamlanır. Veri: `matrix/matrix.json`.
+- **Kendini besleme:** dünyada en az 50 yayını olup Türkiye'den hiç yayını olmayan en güçlü hücre ayrıntılı tarama kuyruğuna eklenir.
+- Ayrıntılı raporlardaki **Zorluk Sinyalleri** bölümü, yayınlarda sık geçen engelleri (eğim, ürün hasarı, görüş engeli, dar alan, maliyet, enerji…) listeler: yeni bir makine, yazılım ya da uygulama için tasarım gerekliliği adayları.
 
 ### Rapor türleri
 
@@ -35,7 +44,7 @@ Hiçbir rapor insan tarafından doğrulanmaz ve sahada denenmez.
 | Bileşen | Ücret |
 |---|---|
 | GitHub repo, Actions (public repo), Pages | Ücretsiz |
-| OpenAlex API | Ücretsiz günlük kota (anahtarsız da çalışır; ücretsiz anahtarla kota 10 katına çıkar). Tarama başına yaklaşık 5 arama. Kota dolarsa o gün tarama yapılmaz, ücret çıkmaz. |
+| OpenAlex API | Ücretsiz günlük kota (anahtarsız da çalışır; ücretsiz anahtarla kota 10 katına çıkar). Çalışma başına yaklaşık 230 sorgu (harita 216, raporlar 15). Kota dolarsa o gün tarama yapılmaz, ücret çıkmaz. |
 | Yapay zekâ | Kullanılmıyor |
 
 İsteğe bağlı: openalex.org'da ücretsiz hesap açıp anahtarı **Settings → Secrets and variables → Actions** altına `OPENALEX_API_KEY` adıyla ekleyin.

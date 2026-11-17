@@ -1,7 +1,8 @@
 name: AgriGap Otomatik Tarama (ücretsiz)
 
 # Yapay zekâ kullanmaz, ücretli hiçbir bileşen yoktur.
-# Pazartesi, Çarşamba ve Cuma 06:23 UTC (Madrid 07:23 kış / 08:23 yaz) kuyruktaki sıradaki hedefi tarar,
+# Pazartesi, Çarşamba ve Cuma 06:23 UTC (Madrid 07:23 kış / 08:23 yaz): Teknoloji Boşluk Haritası'nda 6 ürünü yeniler,
+# kuyruktaki sıradaki 3 hedefi tarar,
 # raporu discoveries/ altına yazar ve doğrudan main dalına yükler; site kendiliğinden güncellenir.
 # Elle çalıştırmak için: Actions → AgriGap Otomatik Tarama → Run workflow.
 # İsteğe bağlı: OPENALEX_API_KEY secret'ı (openalex.org'dan ücretsiz). Yoksa anahtarsız ücretsiz kota kullanılır.
@@ -12,9 +13,13 @@ on:
   workflow_dispatch:
     inputs:
       target_id:
-        description: 'Belirli bir hedef (ör. TRG-001). Boş bırakılırsa sıradaki pending hedef.'
+        description: 'Belirli bir hedef (ör. TRG-001). Boş bırakılırsa sıradaki 3 pending hedef.'
         required: false
         default: ''
+      matrix_crops:
+        description: 'Haritada bu çalışmada yenilenecek ürün sayısı (0 = harita atlanır)'
+        required: false
+        default: '6'
 
 permissions:
   contents: write
@@ -27,13 +32,21 @@ concurrency:
 jobs:
   tarama:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Teknoloji Boşluk Haritası (OpenAlex)
+        id: matrix
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          CROPS: ${{ inputs.matrix_crops || '6' }}
+        run: |
+          if [ "$CROPS" != "0" ]; then python scripts/matrix_scan.py --crops "$CROPS"; fi
 
       - name: Kaynak tarama (OpenAlex)
         id: scan
@@ -44,24 +57,24 @@ jobs:
           if [ -n "$TARGET_ID" ]; then
             python scripts/source_scan.py --id "$TARGET_ID"
           else
-            python scripts/source_scan.py
+            python scripts/source_scan.py --count 3
           fi
 
       - name: main dalına yükle
-        if: steps.scan.outputs.created == 'true'
+        if: steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true'
         env:
           TID: ${{ steps.scan.outputs.target_id }}
           TITLE: ${{ steps.scan.outputs.title }}
         run: |
           git config user.name "agrigap-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add discoveries core/targets.json
-          git commit -m "tarama(${TID}): ${TITLE}"
+          git add discoveries core/targets.json matrix
+          git commit -m "tarama: ${TITLE:-harita güncellendi}"
           git pull --rebase origin main
           git push origin HEAD:main
 
       - name: Siteyi yenile (GitHub Pages)
-        if: steps.scan.outputs.created == 'true'
+        if: steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}

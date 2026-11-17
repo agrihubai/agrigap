@@ -108,7 +108,7 @@ def search(query, n, countries=None):
         flt.append("authorships.countries:" + "|".join(countries))
     works, total, page = [], 0, 1
     while len(works) < n:
-        data = openalex_get({"search": query, "filter": ",".join(flt), "per_page": min(100, n),
+        data = openalex_get({"search.title_and_abstract": query, "filter": ",".join(flt), "per_page": min(100, n),
                              "page": page, "select": SELECT})
         total = data.get("meta", {}).get("count", 0)
         batch = data.get("results", [])
@@ -314,7 +314,7 @@ def render(t, data, a, today, sugg):
         L.append(f"- **Görünmeyen bağlantı:** {link_line}")
     L += ["", "## 1. Sorun ve Tarama Kapsamı",
           f"- **Sorun:** {t['focus']}",
-          f"- **Sorgu (OpenAlex):** `{t['query']}`",
+          f"- **Sorgu (OpenAlex, başlık ve özet):** `{t['query']}`",
           f"- **Dönem:** {FROM_YEAR}–{today[:4]}, makale ve derleme",
           f"- **Eşleşen yayın:** dünyada {data['total']}, hedef bölgeden ({t['region']}) yazarı olan {data['total_region']}",
           f"- **İncelenen örnek:** en ilgili {n} yayın (dünya ilk {SAMPLE_GLOBAL} + bölge ilk {SAMPLE_REGION}, tekrarlar çıkarıldı)",
@@ -449,7 +449,7 @@ def scan_one(targets, tid, fixture=None, dry=False):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--id")
+    ap.add_argument("--id", help="Hedef kimliği; virgülle birden fazla (yeniden tarama için)")
     ap.add_argument("--count", type=int, default=1, help="Bu çalışmada taranacak hedef sayısı")
     ap.add_argument("--fixture", help="OpenAlex yerine kayıtlı JSON (çevrimdışı deneme)")
     ap.add_argument("--dry-run", action="store_true", help="Raporu yazdır, dosyaya kaydetme")
@@ -457,9 +457,10 @@ def main():
 
     targets = hub.load_targets()
     done = []
-    for i in range(1 if args.id else max(1, args.count)):
+    ids = [x.strip() for x in (args.id or "").split(",") if x.strip()]
+    for i in range(len(ids) if ids else max(1, args.count)):
         try:
-            tid = scan_one(targets, args.id, args.fixture, args.dry_run)
+            tid = scan_one(targets, ids[i] if ids else None, args.fixture, args.dry_run)
         except ScanSkipped as e:
             print(f"::notice::{e}")
             break

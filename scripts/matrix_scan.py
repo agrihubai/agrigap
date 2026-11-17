@@ -45,7 +45,7 @@ def count_cell(q, fixture_rng=None):
         tr = int(w * fixture_rng.choice([0, 0, 0.01, 0.03, 0.06]))
         es = int(w * fixture_rng.choice([0.02, 0.05, 0.08]))
         return {"w": w, "tr": tr, "es": es, "eu": int(w * 0.25)}
-    data = ss.openalex_get({"search": q,
+    data = ss.openalex_get({"search.title_and_abstract": q,
                             "filter": f"publication_year:>{CFG['from_year'] - 1},type:article|review",
                             "group_by": "authorships.countries"})
     groups = {country_key(g.get("key")): g.get("count", 0) for g in data.get("group_by") or []}

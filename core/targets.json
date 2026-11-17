@@ -6,10 +6,12 @@
     "crop": "Domates",
     "region": "TR+EU",
     "focus": "AB pestisit azaltımı (Farm to Fork) ve sera içi işçilik/iklimlendirme maliyetleri",
-    "status": "pending",
+    "status": "published",
     "crop_en": "tomato",
     "stage": "Yetiştirme & Bitki Koruma",
-    "query": "tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)"
+    "query": "tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)",
+    "report": "discoveries/2026-11-17-trg-001-domates.md",
+    "processed_at": "2026-11-17T13:39:21.048608+00:00"
   },
   {
     "id": "TRG-002",

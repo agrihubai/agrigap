@@ -11,7 +11,7 @@
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)",
     "report": "discoveries/2026-11-17-trg-001-domates.md",
-    "processed_at": "2026-11-17T13:39:21.048608+00:00"
+    "processed_at": "2026-11-17T13:41:24.851716+00:00"
   },
   {
     "id": "TRG-002",
@@ -256,5 +256,19 @@
     "crop_en": "banana",
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "banana AND (\"Fusarium wilt\" OR \"Tropical Race 4\" OR TR4) AND (biosecurity OR quarantine OR spread OR disinfection OR \"planting material\")"
+  },
+  {
+    "id": "TRG-022",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Domates",
+    "crop_en": "tomato",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "region": "TR+EU",
+    "focus": "AB pestisit azaltımı (Farm to Fork) ve sera içi işçilik/iklimlendirme maliyetleri — hastalık ve zararlı riskiyle kesişimi",
+    "query": "(tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)) AND (pathogen OR disease OR Fusarium OR virus OR nematode OR pest)",
+    "link_domain": "disease",
+    "status": "pending",
+    "suggested_by": "TRG-001"
   }
 ]

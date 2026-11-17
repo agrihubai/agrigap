@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T13:39:21.050147+00:00",
+  "generated": "2026-11-17T13:41:24.853381+00:00",
   "reports": [
     {
       "id": "TRG-001",
@@ -15,7 +15,7 @@
       "decision": "A",
       "decision_reason": "48048 yayının 12441 tanesinde (%26) hedef bölgeden (TR+EU) yazar var; konu bölgede yoğun çalışılmış.",
       "finding": "Bu taramaya göre en çok çalışılan çözüm türü: Biyolojik mücadele (185 yayın); hedef bölgeden (TR+EU) yazarı olan yayın sayısı 12441.",
-      "link": "'Gıda güvenliği & sağlık' alanı bu konudaki yayınlarda da geçiyor (pay: %8; genel Domates literatürüne göre 1,3 kat sık; ör. toxic, residue, human health). Neden bağlantılı olduğu yayınların kendisinde okunmalı.",
+      "link": "'Hastalık & zararlı' alanı bu konudaki yayınlarda da geçiyor (pay: %74; genel Domates literatürüne göre 1,7 kat sık; ör. pest, disease, nematode). Neden bağlantılı olduğu yayınların kendisinde okunmalı.",
       "suggested_by": "",
       "engine": "kaynak-tarayici v1",
       "kind": "auto"

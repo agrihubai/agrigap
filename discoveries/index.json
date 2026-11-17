@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-16T18:43:46.508659+00:00",
+  "generated": "2026-11-17T13:13:21.384627+00:00",
   "reports": [
     {
       "id": "TRG-002",
@@ -16,7 +16,9 @@
       "decision_reason": "Gövdeden lif, sıvı gübre ve enerji üreten çözümler dünyada var; ancak hepsi ağır ve sulu gövdeyi bir tesise taşımayı gerektiriyor ve Türkiye seralarında bu taşıma ek bir hastalık riski taşıyor.",
       "finding": "Bu analize göre muz gövdesinden değer üretmenin yolları biliniyor; Türkiye'de belirleyici olan, gövdeyi uzağa taşımadan sera başında işleyebilmek.",
       "link": "Değerlendirilmek istenen atık (yalancı gövde), muzun en tehlikeli hastalığı olan Fusarium TR4'ün bitkide yaşadığı yerin ta kendisi; atığı taşımak hastalığı da taşıyabilir.",
-      "suggested_by": ""
+      "suggested_by": "",
+      "engine": "claude",
+      "kind": "deep"
     }
   ]
 }

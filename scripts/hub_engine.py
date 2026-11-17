@@ -192,6 +192,8 @@ def parse_report(p):
         "finding": _field(body, "Tek cümlede bulgu"),
         "link": _field(body, "Görünmeyen bağlantı"),
         "suggested_by": "",
+        "engine": meta.get("engine", "claude"),
+        "kind": meta.get("kind", "deep"),
     }
 
 
@@ -201,15 +203,16 @@ def rebuild_index():
     (DISCOVERIES_DIR / "index.json").write_text(
         json.dumps({"generated": datetime.now(timezone.utc).isoformat(), "reports": reports},
                    ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    rows = [f"| {r['date']} | [{r['title']}]({r['file']}) | {r['crop']} | {r['region']} | {r['decision'] or '?'} |"
+    rows = [f"| {r['date']} | [{r['title']}]({r['file']}) | {r['crop']} | {r['region']} | {r['decision'] or '?'} | {'Otomatik tarama' if r['kind'] == 'auto' else 'Derin rapor'} |"
             for r in reports]
     INDEX_FILE.write_text(
         "# AgriGap Raporları\n\n"
         "Uygulama: https://agrihubai.github.io/agrigap/\n\n"
-        "Yapay zekâ destekli ön analizlerdir; her rapor uzman incelemesinden geçer.\n"
+        "Otomatik taramalar OpenAlex yayın kayıtlarından yapay zekâ kullanılmadan, sabit kurallarla üretilir; "
+        "derin raporlar Claude ile yazılmıştır. Hiçbiri insan tarafından doğrulanmaz.\n"
         "Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var · "
         "**C** çözüm var ama zayıf · **D** taranan kaynaklarda çözüm yok.\n\n"
-        "| Tarih | Rapor | Ürün | Bölge | Durum |\n|---|---|---|---|---|\n"
+        "| Tarih | Rapor | Ürün | Bölge | Durum | Tür |\n|---|---|---|---|---|---|\n"
         + "\n".join(rows) + "\n",
         encoding="utf-8",
     )

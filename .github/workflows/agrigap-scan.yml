@@ -1,4 +1,4 @@
-name: AgriGap Tarama (API, isteğe bağlı)
+name: AgriGap Claude API Taraması (ücretli, kapalı)
 
 # ÜCRETLİ MOD: Bu iş akışı Claude API kullanır ve ANTHROPIC_API_KEY secret'ı gerektirir.
 # Varsayılan (ücretsiz) akış Claude.ai sohbetidir; bkz. README.

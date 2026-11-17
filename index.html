@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AgriGap — Tarımdaki çözüm boşlukları</title>
-<meta name="description" content="Türkiye ve Avrupa tarımındaki darboğazlar için önce dünyada var olan çözümleri haritalayan, yapay zekâ destekli ve uzman denetimli tarama raporları.">
+<meta name="description" content="Türkiye ve Avrupa tarımındaki darboğazlar için önce dünyada yayımlanmış çözümleri haritalayan, düzenli aralıklarla kendiliğinden çalışan açık erişimli tarama merkezi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&display=swap" rel="stylesheet">
@@ -75,6 +75,8 @@ header.top{padding:28px 0 8px;display:flex;align-items:flex-start;justify-conten
 .linkbox svg{flex-shrink:0;width:22px;height:22px;margin-top:2px}
 .linkbox b{display:block;font-size:14px;font-weight:700;color:#B9D7BE;margin-bottom:2px}
 .tax{margin-top:8px;font-size:13px;color:var(--mute)}
+.kind{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:999px;margin-right:8px;vertical-align:1px;font-variation-settings:"wdth" 90}
+.kind.auto{background:#DCE6DE;color:var(--leaf)}.kind.deep{background:var(--loam);color:var(--film)}
 .empty{padding:40px 0;color:var(--mute)}
 
 /* kuyruk */
@@ -162,7 +164,7 @@ footer p{margin:0 0 8px;max-width:62ch}
 <script>
 const T = {
   tr:{
-    lede:"Türkiye ve Avrupa tarımındaki darboğazları tarayan, açık erişimli ve kendi kendine çalışan bir yapay zekâ merkezi. Her sorun için önce dünyada zaten var olan çözümleri bulur; yenisini yalnızca gerçekten bir boşluk varsa önerir. Her rapor yeni taranacak konular önerir ve kuyruk böyle büyür.",
+    lede:"Türkiye ve Avrupa tarımındaki darboğazları düzenli aralıklarla kendiliğinden tarayan, açık erişimli bir merkez. Her sorun için önce dünyada yayımlanmış çözümleri haritalar ve ilk bakışta ilgisiz görünen bağlantıları gösterir. Her tarama yeni konular önerir; kuyruk böyle büyür.",
     solved:"Çözüm var", gap:"Gerçek boşluk",
     A:"Çözüm var, burada da yaygın", B:"Çözüm başka yerde var, burada yok", C:"Çözüm var ama zayıf", D:"Taranan kaynaklarda çözüm yok",
     n:c=>c===0?"Henüz rapor yok":c+" rapor",
@@ -171,13 +173,16 @@ const T = {
     queue:"Sıradaki taramalar", qn:(p,q)=>`${p} rapor yayımlandı, ${q} konu kuyrukta`, from:id=>`${id} raporundan önerildi`,
     back:"Tüm raporlar", decision:"Durum kararı", crop:"Ürün", region:"Bölge", solution:"Çözüm türü", date:"Tarih",
     md:"Raporun Markdown dosyası", enNote:"", link:"Görünmeyen bağlantı",
+    auto:"Otomatik tarama", deep:"Derin rapor", kind:"Rapor türü",
+    autoWhy:"OpenAlex yayın kayıtlarından, yapay zekâ kullanılmadan sabit kurallarla üretildi.",
+    deepWhy:"Claude ile web kaynakları okunarak yazıldı.",
     loadErr:"Raporlar yüklenemedi. Sayfayı yenileyin; sorun sürerse GitHub deposundan okuyabilirsiniz.",
-    foot1:"Raporlar yapay zekâ tarafından web kaynakları taranarak otomatik hazırlanır. İnsan tarafından doğrulanmaz ve sahada denenmez; hipotezler kesin sonuç değildir. Her iddianın kaynağı raporun sonunda yer alır.",
+    foot1:"Otomatik taramalar OpenAlex'teki yayın kayıtlarından yapay zekâ kullanılmadan, sabit kurallarla üretilir; sayılar yayın sayısıdır, sahadaki yaygınlık değildir. Derin raporlar Claude ile web kaynaklarından yazılmıştır. Hiçbiri insan tarafından doğrulanmaz ve sahada denenmez. Her raporun kaynakları sonunda yer alır.",
     foot2:"Yatırım veya hukuki tavsiye değildir.",
     source:"Kaynak kod ve raporlar (GitHub)", license:"Kod MIT, raporlar CC BY 4.0"
   },
   en:{
-    lede:"An open-access, self-running AI hub that scans bottlenecks in Turkish and European farming. For each one it first maps the solutions that already exist somewhere in the world, and proposes a new one only where a real gap remains. Every report suggests new topics to scan, and that is how the queue grows.",
+    lede:"An open-access hub that scans bottlenecks in Turkish and European farming on a regular schedule, by itself. For each one it first maps the solutions already published worldwide and shows links that look unrelated at first sight. Every scan suggests new topics, and that is how the queue grows.",
     solved:"Solved", gap:"Real gap",
     A:"Solved, and common here", B:"Solved elsewhere, not here", C:"Solved, but with weak spots", D:"No solution found",
     n:c=>c===0?"No reports yet":c+(c===1?" report":" reports"),
@@ -186,8 +191,11 @@ const T = {
     queue:"Up next", qn:(p,q)=>`${p} published, ${q} in the queue`, from:id=>`Suggested by ${id}`,
     back:"All reports", decision:"Decision", crop:"Crop", region:"Region", solution:"Solution type", date:"Date",
     md:"Markdown source of this report", enNote:"Report texts are currently in Turkish.", link:"Hidden link",
+    auto:"Automatic scan", deep:"In-depth report", kind:"Report type",
+    autoWhy:"Generated from OpenAlex publication records by fixed rules, without AI.",
+    deepWhy:"Written with Claude from web sources.",
     loadErr:"Reports could not be loaded. Refresh the page; if it persists, read them in the GitHub repository.",
-    foot1:"Reports are generated automatically by AI from web sources. They are not verified by a person and not field-tested; hypotheses are not conclusions. Sources for every claim are listed at the end of each report.",
+    foot1:"Automatic scans are generated from OpenAlex publication records by fixed rules, without AI; the numbers are publication counts, not adoption in the field. In-depth reports were written with Claude from web sources. None is verified by a person or field-tested. Sources are listed at the end of each report.",
     foot2:"Not investment or legal advice.",
     source:"Source code and reports (GitHub)", license:"Code MIT, reports CC BY 4.0"
   }
@@ -199,6 +207,8 @@ const app = document.getElementById("app");
 const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const t = k => T[lang][k];
 const LINK_ICON = (c="currentColor") => `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>`;
+
+const kindTag = r => `<span class="kind ${r.kind==="auto"?"auto":"deep"}">${t(r.kind==="auto"?"auto":"deep")}</span>`;
 
 function setLang(l){
   lang=l; try{localStorage.setItem("agrigap-lang",l)}catch(e){}
@@ -247,7 +257,7 @@ function home(){
         <span class="when"><b>${esc(r.crop)}</b>${esc(r.date)}</span>
         <span class="body"><h2 class="t">${esc(r.title)}</h2><p class="f">${esc(r.finding)}</p>
           ${r.link?`<p class="lk">${LINK_ICON("var(--leaf)")}<span><b>${t("link")}:</b>${esc(r.link)}</span></p>`:""}
-          <div class="tax">${esc([r.production_system,r.stage,r.region].filter(Boolean).join(" / "))}</div></span>
+          <div class="tax">${kindTag(r)}${esc([r.production_system,r.stage,r.region].filter(Boolean).join(" / "))}</div></span>
       </a></li>`).join("")}</ul>`:`<p class="empty">${state.reports.length?t("none"):t("n")(0)}</p>`}
     ${queueHtml()}`;
   app.querySelectorAll(".band").forEach(b=>b.onclick=()=>{state.d=state.d===b.dataset.d?null:b.dataset.d;home();});
@@ -279,6 +289,7 @@ async function report(id){
         <dt>${t("solution")}</dt><dd>${esc(r.solution_type)}</dd>
         <dt>${t("region")}</dt><dd>${esc(r.region)}</dd>
         <dt>${t("date")}</dt><dd>${esc(r.date)}</dd>
+        <dt>${t("kind")}</dt><dd>${kindTag(r)}<span class="why" style="display:block;margin-top:6px">${t(r.kind==="auto"?"autoWhy":"deepWhy")}</span></dd>
       </dl>
       <p><a href="https://github.com/agrihubai/agrigap/blob/main/discoveries/${encodeURIComponent(r.file)}">${t("md")}</a></p>
     </aside>

@@ -1,0 +1,68 @@
+name: AgriGap Otomatik Tarama (ücretsiz)
+
+# Yapay zekâ kullanmaz, ücretli hiçbir bileşen yoktur.
+# Pazartesi ve Perşembe 06:23 UTC (Madrid 07:23 kış / 08:23 yaz) kuyruktaki sıradaki hedefi tarar,
+# raporu discoveries/ altına yazar ve doğrudan main dalına yükler; site kendiliğinden güncellenir.
+# Elle çalıştırmak için: Actions → AgriGap Otomatik Tarama → Run workflow.
+# İsteğe bağlı: OPENALEX_API_KEY secret'ı (openalex.org'dan ücretsiz). Yoksa anahtarsız ücretsiz kota kullanılır.
+
+on:
+  schedule:
+    - cron: '23 6 * * 1,4'
+  workflow_dispatch:
+    inputs:
+      target_id:
+        description: 'Belirli bir hedef (ör. TRG-001). Boş bırakılırsa sıradaki pending hedef.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: agrigap-tarama
+  cancel-in-progress: false
+
+jobs:
+  tarama:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Kaynak tarama (OpenAlex)
+        id: scan
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          TARGET_ID: ${{ inputs.target_id }}
+        run: |
+          if [ -n "$TARGET_ID" ]; then
+            python scripts/source_scan.py --id "$TARGET_ID"
+          else
+            python scripts/source_scan.py
+          fi
+
+      - name: main dalına yükle
+        if: steps.scan.outputs.created == 'true'
+        env:
+          TID: ${{ steps.scan.outputs.target_id }}
+          TITLE: ${{ steps.scan.outputs.title }}
+        run: |
+          git config user.name "agrigap-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add discoveries core/targets.json
+          git commit -m "tarama(${TID}): ${TITLE}"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Siteyi yenile (GitHub Pages)
+        if: steps.scan.outputs.created == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "Pages yenileme isteği atlandı (site birkaç dakika içinde kendiliğinden güncellenir)."

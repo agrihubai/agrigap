@@ -6,7 +6,10 @@
     "crop": "Domates",
     "region": "TR+EU",
     "focus": "AB pestisit azaltımı (Farm to Fork) ve sera içi işçilik/iklimlendirme maliyetleri",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "tomato",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "query": "tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)"
   },
   {
     "id": "TRG-002",
@@ -17,7 +20,10 @@
     "focus": "Hasat sonrası yüksek nemli gövde ve yaprak atıklarının yerinde ekonomiye kazandırılması",
     "status": "published",
     "report": "discoveries/2026-11-16-trg-002-muz.md",
-    "processed_at": "2026-11-16T18:26:05.563385+00:00"
+    "processed_at": "2026-11-16T18:26:05.563385+00:00",
+    "crop_en": "banana",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "banana AND (pseudostem OR \"banana waste\" OR \"banana residue\" OR \"banana leaves\")"
   },
   {
     "id": "TRG-003",
@@ -26,7 +32,10 @@
     "crop": "Zeytin",
     "region": "TR+EU",
     "focus": "Zeytinyağı karasu ve pirina atıklarının çevre mevzuatına uygun sıfır atık dönüşümü",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "olive",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "(\"olive mill wastewater\" OR \"olive pomace\" OR \"olive mill waste\")"
   },
   {
     "id": "TRG-004",
@@ -35,7 +44,10 @@
     "crop": "Buğday",
     "region": "TR+EU",
     "focus": "Kuru tarımda kuraklık stresi, anız yakma yasağı ve toprak organik karbon kaybı",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "wheat",
+    "stage": "Toprak & Girdi",
+    "query": "wheat AND (\"stubble burning\" OR \"crop residue\" OR \"soil organic carbon\") AND (drought OR rainfed OR dryland)"
   },
   {
     "id": "TRG-005",
@@ -44,7 +56,10 @@
     "crop": "Fındık",
     "region": "TR",
     "focus": "Eğimli arazilerde mekanize hasat eksikliği ve kahverengi kokarca biyolojik mücadelesi",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "hazelnut",
+    "stage": "Hasat & Mekanizasyon",
+    "query": "hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")"
   },
   {
     "id": "TRG-006",
@@ -53,7 +68,10 @@
     "crop": "Zeytin",
     "region": "TR+EU",
     "focus": "Budama artıklarının yakılmadan yerinde değerlendirilmesi",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "olive",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "olive AND (\"pruning residues\" OR \"pruning biomass\" OR \"pruning waste\")"
   },
   {
     "id": "TRG-007",
@@ -62,7 +80,10 @@
     "crop": "Pamuk",
     "region": "TR",
     "focus": "Hasat sonrası sap artıklarının değerlendirilmesi ve sulama suyu verimliliği",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "cotton",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "cotton AND (\"cotton stalk\" OR \"cotton stalks\" OR \"deficit irrigation\" OR \"water use efficiency\")"
   },
   {
     "id": "TRG-008",
@@ -71,7 +92,10 @@
     "crop": "Şeker Pancarı",
     "region": "TR+EU",
     "focus": "Pancar yaprak ve posa artıklarının değerlendirilmesi; azotlu gübre kullanımının azaltılması",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "sugar beet",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "\"sugar beet\" AND (\"beet pulp\" OR \"beet leaves\" OR \"nitrogen use efficiency\" OR \"nitrogen fertilizer\")"
   },
   {
     "id": "TRG-009",
@@ -80,7 +104,10 @@
     "crop": "Portakal",
     "region": "TR+EU",
     "focus": "Hasat işçiliği açığı ve pazarlanamayan (fire) meyvenin değerlendirilmesi",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "orange",
+    "stage": "Hasat & Mekanizasyon",
+    "query": "(orange OR citrus) AND (\"harvest mechanization\" OR \"mechanical harvesting\" OR \"citrus waste\" OR \"orange peel\" OR \"fruit loss\")"
   },
   {
     "id": "TRG-010",
@@ -89,7 +116,10 @@
     "crop": "Domates",
     "region": "TR+EU",
     "focus": "Topraksız tarımda drenaj suyu ve kullanılmış yetiştirme ortamı (kaya yünü, kokopit) atığı",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "tomato",
+    "stage": "Toprak & Girdi",
+    "query": "(soilless OR hydroponic) AND (tomato OR greenhouse) AND (\"drainage water\" OR \"rockwool waste\" OR \"used substrate\" OR \"coir\" OR recirculation)"
   },
   {
     "id": "TRG-011",
@@ -98,7 +128,10 @@
     "crop": "Mısır",
     "region": "TR+EU",
     "focus": "Kuraklıkta sulama planlaması ve sap artığının toprak organik maddesine katkısı",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "maize",
+    "stage": "Toprak & Girdi",
+    "query": "maize AND (\"irrigation scheduling\" OR \"deficit irrigation\" OR \"stover\" OR \"residue retention\") AND (drought OR \"soil organic matter\" OR \"soil organic carbon\")"
   },
   {
     "id": "TRG-012",
@@ -107,7 +140,10 @@
     "crop": "Üzüm",
     "region": "TR+EU",
     "focus": "Budama çubukları ve cibrenin (üzüm posası) değerlendirilmesi",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "grape",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "(grape OR vineyard OR winery) AND (\"grape pomace\" OR \"vine pruning\" OR \"vine shoots\" OR \"winery waste\")"
   },
   {
     "id": "TRG-013",
@@ -116,7 +152,10 @@
     "crop": "Patates",
     "region": "TR+EU",
     "focus": "Kimyasal filiz önleyicilerin kısıtlanması sonrası depolama kayıpları",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "potato",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "potato AND (storage OR \"sprout suppression\" OR \"sprout inhibitor\" OR chlorpropham OR CIPC)"
   },
   {
     "id": "TRG-014",
@@ -125,7 +164,10 @@
     "crop": "Elma",
     "region": "TR",
     "focus": "Soğuk hava deposu enerji maliyeti ve hasat sonrası kayıplar",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "apple",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "apple AND (\"cold storage\" OR \"controlled atmosphere\" OR \"postharvest loss\" OR \"energy consumption\")"
   },
   {
     "id": "TRG-015",
@@ -134,7 +176,10 @@
     "crop": "Çilek",
     "region": "TR+EU",
     "focus": "Tozlaşma ve hasat işçiliği açığı",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "strawberry",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "query": "strawberry AND (pollination OR pollinator OR \"bumblebee\" OR \"harvesting robot\" OR \"harvest labour\" OR \"harvest labor\")"
   },
   {
     "id": "TRG-016",
@@ -143,7 +188,10 @@
     "crop": "Çeltik",
     "region": "TR+EU",
     "focus": "Su tüketimi, metan salımı ve anız yönetimi",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "rice",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "query": "rice AND (\"alternate wetting and drying\" OR \"methane emission\" OR \"rice straw\" OR \"water saving\")"
   },
   {
     "id": "TRG-017",
@@ -152,7 +200,10 @@
     "crop": "Antep Fıstığı",
     "region": "TR",
     "focus": "Yeşil kabuk atığı ve hasat sonrası aflatoksin riski",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "pistachio",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "pistachio AND (hull OR \"green hull\" OR aflatoxin OR \"Aspergillus flavus\")"
   },
   {
     "id": "TRG-018",
@@ -161,7 +212,10 @@
     "crop": "Nohut",
     "region": "TR",
     "focus": "Kuraklık stresi ve mekanize hasattaki ürün kayıpları",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "chickpea",
+    "stage": "Hasat & Mekanizasyon",
+    "query": "chickpea AND (drought OR \"mechanical harvesting\" OR \"harvest loss\" OR \"combine harvester\")"
   },
   {
     "id": "TRG-019",
@@ -170,7 +224,10 @@
     "crop": "Hıyar",
     "region": "TR+EU",
     "focus": "Kış aylarında sera ısıtma enerji maliyeti",
-    "status": "pending"
+    "status": "pending",
+    "crop_en": "cucumber",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "query": "(cucumber OR greenhouse) AND (\"greenhouse heating\" OR \"energy consumption\" OR \"heat pump\" OR \"thermal screen\" OR geothermal) AND winter"
   },
   {
     "id": "TRG-020",
@@ -180,7 +237,10 @@
     "region": "TR",
     "focus": "Biber serası artığının taşınma riski ve muz gibi başka ürünlerde toprak hastalıklarını baskılamada kullanılabilirliği",
     "status": "pending",
-    "suggested_by": "TRG-002"
+    "suggested_by": "TRG-002",
+    "crop_en": "pepper",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "query": "pepper AND (residue OR \"crop residue\" OR biofumigation OR \"soil disinfestation\") AND (Fusarium OR \"soil-borne\" OR soilborne)"
   },
   {
     "id": "TRG-021",
@@ -190,6 +250,9 @@
     "region": "TR",
     "focus": "Muz seralarında Fusarium TR4'ün alet, su ve fide yoluyla yayılımını önleyen biyogüvenlik uygulamaları",
     "status": "pending",
-    "suggested_by": "TRG-002"
+    "suggested_by": "TRG-002",
+    "crop_en": "banana",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "query": "banana AND (\"Fusarium wilt\" OR \"Tropical Race 4\" OR TR4) AND (biosecurity OR quarantine OR spread OR disinfection OR \"planting material\")"
   }
 ]

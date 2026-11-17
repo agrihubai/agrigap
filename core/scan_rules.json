@@ -1,0 +1,451 @@
+{
+  "_note": "Yapay zekâsız kaynak tarayıcının (scripts/source_scan.py) kural sözlüğü. Terimler küçük harfle, kelime başından eşleşir (ör. 'mechani' → mechanical, mechanization). Yeni çözüm türü veya bağlantı alanı eklemek için bu dosyayı düzenleyin.",
+  "solution_groups": [
+    {
+      "key": "machine",
+      "tr": "Makine & mekanizasyon",
+      "en": "Machinery & mechanization",
+      "type": "Makine & Otonomi",
+      "terms": [
+        "machine",
+        "machinery",
+        "mechani",
+        "harvester",
+        "robot",
+        "automat",
+        "shredder",
+        "chopper",
+        "prototype",
+        "equipment",
+        "drone",
+        "gripper",
+        "conveyor"
+      ]
+    },
+    {
+      "key": "climate",
+      "tr": "İklimlendirme & enerji verimliliği",
+      "en": "Climate control & energy efficiency",
+      "type": "Makine & Otonomi",
+      "terms": [
+        "heat pump",
+        "thermal screen",
+        "geothermal",
+        "ventilation",
+        "cooling system",
+        "climate control",
+        "heating system",
+        "energy saving",
+        "solar"
+      ]
+    },
+    {
+      "key": "digital",
+      "tr": "Sensör & karar destek",
+      "en": "Sensors & decision support",
+      "type": "Makine & Otonomi",
+      "terms": [
+        "decision support",
+        "remote sensing",
+        "machine learning",
+        "deep learning",
+        "sensor",
+        "iot",
+        "computer vision",
+        "forecasting model"
+      ]
+    },
+    {
+      "key": "biocontrol",
+      "tr": "Biyolojik mücadele",
+      "en": "Biological control",
+      "type": "Biyolojik Mücadele & Girdi",
+      "terms": [
+        "biological control",
+        "biocontrol",
+        "natural enem",
+        "parasitoid",
+        "predator",
+        "entomopathogen",
+        "trichoderma",
+        "bacillus",
+        "beneficial insect",
+        "pheromone",
+        "biopesticide"
+      ]
+    },
+    {
+      "key": "input",
+      "tr": "Gübre & girdi azaltımı",
+      "en": "Fertilizer & input reduction",
+      "type": "Biyolojik Mücadele & Girdi",
+      "terms": [
+        "biofertili",
+        "nitrogen use efficiency",
+        "fertilizer reduction",
+        "fertiliser reduction",
+        "biostimulant",
+        "cover crop",
+        "precision fertili",
+        "slow-release"
+      ]
+    },
+    {
+      "key": "water",
+      "tr": "Su & sulama yönetimi",
+      "en": "Water & irrigation management",
+      "type": "Biyolojik Mücadele & Girdi",
+      "terms": [
+        "deficit irrigation",
+        "irrigation scheduling",
+        "drip irrigation",
+        "water use efficiency",
+        "fertigation",
+        "recirculat",
+        "wastewater treatment",
+        "water reuse"
+      ]
+    },
+    {
+      "key": "breeding",
+      "tr": "Islah & genetik",
+      "en": "Breeding & genetics",
+      "type": "Islah & Genetik",
+      "terms": [
+        "breeding",
+        "resistant variet",
+        "tolerant variet",
+        "cultivar",
+        "genotype",
+        "qtl",
+        "crispr",
+        "gene edit",
+        "rootstock",
+        "marker-assisted"
+      ]
+    },
+    {
+      "key": "compost",
+      "tr": "Kompost & toprağa geri dönüş",
+      "en": "Compost & soil return",
+      "type": "Döngüsel Biyo-Ekonomi",
+      "terms": [
+        "compost",
+        "vermicompost",
+        "soil amendment",
+        "mulch",
+        "biochar",
+        "residue incorporation",
+        "organic amendment",
+        "land application"
+      ]
+    },
+    {
+      "key": "energy",
+      "tr": "Enerji (biyogaz, yakıt)",
+      "en": "Energy (biogas, fuel)",
+      "type": "Döngüsel Biyo-Ekonomi",
+      "terms": [
+        "biogas",
+        "anaerobic digestion",
+        "bioethanol",
+        "biofuel",
+        "pellet",
+        "combustion",
+        "pyrolysis",
+        "gasification",
+        "biomethane",
+        "energy recovery"
+      ]
+    },
+    {
+      "key": "enzyme",
+      "tr": "Enzim & biyoproses",
+      "en": "Enzymes & bioprocessing",
+      "type": "Döngüsel Biyo-Ekonomi",
+      "terms": [
+        "enzym",
+        "cellulase",
+        "xylanase",
+        "pectinase",
+        "laccase",
+        "fermentation",
+        "hydrolysis",
+        "biorefiner",
+        "microbial degradation"
+      ]
+    },
+    {
+      "key": "material",
+      "tr": "Ürün & malzeme (lif, yem, özüt)",
+      "en": "Products & materials (fibre, feed, extracts)",
+      "type": "Döngüsel Biyo-Ekonomi",
+      "terms": [
+        "fiber",
+        "fibre",
+        "composite",
+        "packaging",
+        "bioplastic",
+        "paper",
+        "animal feed",
+        "silage",
+        "extract",
+        "polyphenol",
+        "antioxidant",
+        "pectin",
+        "activated carbon"
+      ]
+    },
+    {
+      "key": "postharvest",
+      "tr": "Hasat sonrası & depolama",
+      "en": "Postharvest & storage",
+      "type": "Makine & Otonomi",
+      "terms": [
+        "cold storage",
+        "controlled atmosphere",
+        "sprout inhibit",
+        "shelf life",
+        "postharvest treatment",
+        "storage condition",
+        "drying"
+      ]
+    }
+  ],
+  "link_domains": [
+    {
+      "key": "disease",
+      "tr": "Hastalık & zararlı",
+      "en": "Disease & pests",
+      "topic_tr": "hastalık ve zararlı riskiyle kesişimi",
+      "terms": [
+        "pathogen",
+        "disease",
+        "fungal",
+        "fusarium",
+        "virus",
+        "viral",
+        "bacterial",
+        "nematode",
+        "pest",
+        "insect",
+        "inoculum",
+        "phytosanitary",
+        "wilt"
+      ],
+      "query_terms": [
+        "pathogen",
+        "disease",
+        "Fusarium",
+        "virus",
+        "nematode",
+        "pest"
+      ]
+    },
+    {
+      "key": "water",
+      "tr": "Su",
+      "en": "Water",
+      "topic_tr": "su kullanımı ve su kirliliğiyle kesişimi",
+      "terms": [
+        "water",
+        "irrigation",
+        "wastewater",
+        "leaching",
+        "groundwater",
+        "salinity",
+        "runoff"
+      ],
+      "query_terms": [
+        "water",
+        "irrigation",
+        "wastewater",
+        "leaching",
+        "salinity"
+      ]
+    },
+    {
+      "key": "energy",
+      "tr": "Enerji",
+      "en": "Energy",
+      "topic_tr": "enerji tüketimi ve üretimiyle kesişimi",
+      "terms": [
+        "energy",
+        "fuel",
+        "electricity",
+        "heating",
+        "biogas"
+      ],
+      "query_terms": [
+        "energy",
+        "fuel",
+        "electricity",
+        "heating"
+      ]
+    },
+    {
+      "key": "labour",
+      "tr": "İşçilik",
+      "en": "Labour",
+      "topic_tr": "işçilik ihtiyacıyla kesişimi",
+      "terms": [
+        "labor",
+        "labour",
+        "workforce",
+        "worker",
+        "manual",
+        "man-hour"
+      ],
+      "query_terms": [
+        "labor",
+        "labour",
+        "workforce",
+        "worker"
+      ]
+    },
+    {
+      "key": "logistics",
+      "tr": "Taşıma & depolama",
+      "en": "Transport & storage",
+      "topic_tr": "taşıma ve depolama zinciriyle kesişimi",
+      "terms": [
+        "transport",
+        "logistic",
+        "supply chain",
+        "storage",
+        "haulage",
+        "collection"
+      ],
+      "query_terms": [
+        "transport",
+        "logistics",
+        "\"supply chain\"",
+        "storage"
+      ]
+    },
+    {
+      "key": "policy",
+      "tr": "Mevzuat & politika",
+      "en": "Regulation & policy",
+      "topic_tr": "mevzuat ve politika baskısıyla kesişimi",
+      "terms": [
+        "regulation",
+        "directive",
+        "legislation",
+        "policy",
+        "subsid",
+        "ban",
+        "compliance",
+        "certification"
+      ],
+      "query_terms": [
+        "regulation",
+        "directive",
+        "legislation",
+        "policy",
+        "subsidy"
+      ]
+    },
+    {
+      "key": "market",
+      "tr": "Pazar & maliyet",
+      "en": "Market & cost",
+      "topic_tr": "pazar ve maliyet yapısıyla kesişimi",
+      "terms": [
+        "price",
+        "market",
+        "consumer",
+        "economic",
+        "cost",
+        "profitab",
+        "income"
+      ],
+      "query_terms": [
+        "price",
+        "market",
+        "consumer",
+        "economic",
+        "cost",
+        "profitability"
+      ]
+    },
+    {
+      "key": "climate",
+      "tr": "İklim & emisyon",
+      "en": "Climate & emissions",
+      "topic_tr": "iklim ve emisyonla kesişimi",
+      "terms": [
+        "climate",
+        "drought",
+        "heat stress",
+        "greenhouse gas",
+        "emission",
+        "carbon footprint",
+        "methane",
+        "life cycle assessment"
+      ],
+      "query_terms": [
+        "climate",
+        "drought",
+        "\"greenhouse gas\"",
+        "emission",
+        "methane"
+      ]
+    },
+    {
+      "key": "soil",
+      "tr": "Toprak sağlığı",
+      "en": "Soil health",
+      "topic_tr": "toprak sağlığıyla kesişimi",
+      "terms": [
+        "soil organic",
+        "soil health",
+        "erosion",
+        "microbiome",
+        "soil microb",
+        "soil fertility"
+      ],
+      "query_terms": [
+        "\"soil organic\"",
+        "\"soil health\"",
+        "erosion",
+        "microbiome"
+      ]
+    },
+    {
+      "key": "food",
+      "tr": "Gıda güvenliği & sağlık",
+      "en": "Food safety & health",
+      "topic_tr": "gıda güvenliği ve insan sağlığıyla kesişimi",
+      "terms": [
+        "food safety",
+        "residue",
+        "toxic",
+        "heavy metal",
+        "mycotoxin",
+        "aflatoxin",
+        "human health",
+        "allergen"
+      ],
+      "query_terms": [
+        "\"food safety\"",
+        "residue",
+        "mycotoxin",
+        "aflatoxin",
+        "\"heavy metal\""
+      ]
+    }
+  ],
+  "gap_rule": {
+    "D_if_total_below": 10,
+    "B_if_region_below": 3,
+    "A_if_region_at_least": 30,
+    "A_if_region_share_at_least": 0.2
+  },
+  "self_feed": {
+    "max_new_targets": 1,
+    "min_share": 0.2,
+    "min_papers": 10,
+    "min_lift": 1.5
+  }
+}

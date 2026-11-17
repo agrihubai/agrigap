@@ -196,7 +196,7 @@ def analyse(t, data):
     btexts = [((w.get("display_name") or "") + " " + abstract(w)) for w in base]
     links = []
     for d in RULES["link_domains"]:
-        if any(re.search(r"\b" + re.escape(x), qlow) for x in d["terms"]):
+        if any(re.search(r"\b" + re.escape(x) + r"\b", qlow) for x in d["terms"]):
             continue  # sorguda zaten var: görünmeyen değil, beklenen bağlantı
         rx = term_re(d["terms"])
         hits, terms = [], Counter()
@@ -282,8 +282,9 @@ def render(t, data, a, today, sugg):
     finding = (f"Bu taramaya göre en çok çalışılan çözüm türü: {top['tr']} ({top['n']} yayın); "
                f"hedef bölgeden ({t['region']}) yazarı olan yayın sayısı {data['total_region']}.") if top else \
               "Bu taramada çözüm türü içeren yayın bulunamadı."
-    lk = links[0] if links else None
-    link_line = ""
+    lr = RULES["link_rule"]
+    lk = links[0] if links and links[0]["n"] >= lr["headline_min_papers"] and (links[0]["lift"] or 0) >= lr["headline_min_lift"] else None
+    link_line = "Bu taramada, genel literatüre göre belirgin biçimde öne çıkan bir alan bulunmadı." if links else ""
     if lk:
         rel = f"; genel {t['crop']} literatürüne göre {lk['lift']:.1f} kat sık".replace(".", ",") if lk["lift"] else ""
         link_line = (f"'{lk['tr']}' alanı bu konudaki yayınlarda da geçiyor (pay: %{lk['share'] * 100:.0f}{rel}; "
@@ -315,16 +316,20 @@ def render(t, data, a, today, sugg):
           "açıklamaz; nedeni yayınların kendisinde okunmalıdır. \"Genel literatüre göre\" sütunu, aynı alanın "
           f"yalnızca \"{t['crop_en']}\" aramasıyla gelen genel {t['crop']} yayınlarındaki sıklığıyla karşılaştırmasıdır; "
           "1'in belirgin üstü, alanın bu konuya özgü olduğunu düşündürür.", ""]
-    if links:
+    shown = [d for d in links if d["lift"] is None or d["lift"] >= lr["table_min_lift"]]
+    hidden = [d["tr"] for d in links if d not in shown]
+    if shown:
         L += ["| İlgisiz görünen alan | Birlikte geçtiği yayın | Genel literatüre göre | Sık geçen terimler | Örnek yayınlar |", "|---|---|---|---|---|"]
-        for d in links[:6]:
+        for d in shown[:6]:
             rel = (f"{d['lift']:.1f} kat".replace(".", ",")) if d["lift"] else "—"
             L.append(f"| {d['tr']} | {d['n']} / {n} (%{d['share'] * 100:.0f}) | {rel} | {', '.join(d['top_terms'])} | "
                      + "<br>".join(study(w) for w in d["examples"]) + " |")
     else:
-        L.append("Taranan yayınlarda sorgu dışı bir alan bulunmadı.")
+        L.append("Genel literatüre göre daha sık geçen, sorgu dışı bir alan bulunmadı.")
+    if hidden:
+        L += ["", f"Genel literatürde bu konudakinden daha sık geçtiği için tabloya alınmayan alanlar: {', '.join(hidden)}."]
     if a["keywords"]:
-        L += ["", "**Sorgu dışında sık geçen anahtar kelimeler (OpenAlex):** "
+        L += ["", "**Sorgu dışında en sık geçen konu başlıkları (OpenAlex anahtar kelimeleri, yayın sayısı):** "
               + ", ".join(f"{k} ({c})" for k, c in a["keywords"])]
 
     L += ["", "## 3. Mevcut Çözüm Haritası",

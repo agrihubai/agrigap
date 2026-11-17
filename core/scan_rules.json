@@ -9,14 +9,16 @@
       "terms": [
         "machine",
         "machinery",
-        "mechani",
+        "mechanical",
+        "mechaniz",
+        "mechanisation",
+        "mechanised",
         "harvester",
         "robot",
         "automat",
         "shredder",
         "chopper",
         "prototype",
-        "equipment",
         "drone",
         "gripper",
         "conveyor"
@@ -115,8 +117,8 @@
         "breeding",
         "resistant variet",
         "tolerant variet",
+        "resistant cultivar",
         "cultivar",
-        "genotype",
         "qtl",
         "crispr",
         "gene edit",
@@ -150,7 +152,7 @@
         "anaerobic digestion",
         "bioethanol",
         "biofuel",
-        "pellet",
+        "fuel pellet",
         "combustion",
         "pyrolysis",
         "gasification",
@@ -186,10 +188,12 @@
         "composite",
         "packaging",
         "bioplastic",
-        "paper",
+        "paper pulp",
+        "papermaking",
         "animal feed",
         "silage",
-        "extract",
+        "plant extract",
+        "essential oil",
         "polyphenol",
         "antioxidant",
         "pectin",
@@ -447,5 +451,10 @@
     "min_share": 0.2,
     "min_papers": 10,
     "min_lift": 1.5
+  },
+  "link_rule": {
+    "headline_min_lift": 1.5,
+    "headline_min_papers": 5,
+    "table_min_lift": 1.0
   }
 }

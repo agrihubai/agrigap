@@ -21,6 +21,10 @@ on:
         description: 'Haritada bu çalışmada yenilenecek ürün sayısı (0 = harita atlanır)'
         required: false
         default: '12'
+      reports:
+        description: 'Ayrıntılı rapor sayısı (0 = atlanır)'
+        required: false
+        default: '3'
       cards:
         description: 'Yazılacak öneri kartı sayısı (0 = atlanır)'
         required: false
@@ -109,7 +113,9 @@ jobs:
           if [ -n "$TARGET_ID" ]; then
             python scripts/source_scan.py --id "$TARGET_ID"
           else
-            python scripts/source_scan.py --count 3
+            N="${{ inputs.reports || '3' }}"
+            if [ "$N" = "0" ]; then echo "Rapor atlandı."; exit 0; fi
+            python scripts/source_scan.py --count "$N"
           fi
 
       - name: main dalına yükle

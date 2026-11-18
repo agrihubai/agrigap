@@ -535,8 +535,13 @@ def scan_one(targets, tid, fixture=None, dry=False):
         print(md_en)
         return None
 
+    old = ROOT / t["report"] if t.get("report") else None
     path = write(t, md, today, "tr")
     write(t, md_en, today, "en")
+    if old and old != path and old.name != path.name:  # yeniden taramada eski kopyayı kaldır
+        for f in (old, old.with_name(old.stem + ".en.md")):
+            if f.exists():
+                f.unlink()
     t["status"] = "published"
     t["report"] = str(path.relative_to(ROOT))
     t["processed_at"] = datetime.now(timezone.utc).isoformat()

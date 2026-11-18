@@ -1,0 +1,1277 @@
+{
+ "generated": "2026-11-18T10:13:55.384407+00:00",
+ "rules": {
+  "transfer": {
+   "min_world": 30,
+   "max_region": 1
+  },
+  "neighbor": {
+   "max_share_ratio": 0.2,
+   "min_expected": 10
+  },
+  "layer": {
+   "min_big": 30,
+   "ratio": 5,
+   "max_small": 10
+  },
+  "gap": {
+   "max_world": 4,
+   "min_group_median": 20
+  },
+  "per_type": 40,
+  "per_crop": 2
+ },
+ "matrix_generated": "2026-11-18T10:09:07.737222+00:00",
+ "candidates": {
+  "transfer": [
+   {
+    "id": "transfer:c14:harvest:digi",
+    "type": "transfer",
+    "crop": "c14",
+    "op": "harvest",
+    "layer": "digi",
+    "w": 267,
+    "tr": 1,
+    "es": 5,
+    "eu": 33,
+    "score": 2.428,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c14:finance:mech",
+    "type": "transfer",
+    "crop": "c14",
+    "op": "finance",
+    "layer": "mech",
+    "w": 173,
+    "tr": 1,
+    "es": 3,
+    "eu": 34,
+    "score": 2.241,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-eudr",
+     "eu-cbam",
+     "tr-7584-pancar"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c09:harvest:mech",
+    "type": "transfer",
+    "crop": "c09",
+    "op": "harvest",
+    "layer": "mech",
+    "w": 165,
+    "tr": 1,
+    "es": 1,
+    "eu": 7,
+    "score": 2.22,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c02:harvest:mech",
+    "type": "transfer",
+    "crop": "c02",
+    "op": "harvest",
+    "layer": "mech",
+    "w": 164,
+    "tr": 1,
+    "es": 5,
+    "eu": 23,
+    "score": 2.217,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c15:plant:digi",
+    "type": "transfer",
+    "crop": "c15",
+    "op": "plant",
+    "layer": "digi",
+    "w": 163,
+    "tr": 1,
+    "es": 0,
+    "eu": 6,
+    "score": 2.215,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c15:scout:mech",
+    "type": "transfer",
+    "crop": "c15",
+    "op": "scout",
+    "layer": "mech",
+    "w": 162,
+    "tr": 1,
+    "es": 5,
+    "eu": 33,
+    "score": 2.212,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-soil"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c10:scout:mech",
+    "type": "transfer",
+    "crop": "c10",
+    "op": "scout",
+    "layer": "mech",
+    "w": 161,
+    "tr": 1,
+    "es": 5,
+    "eu": 35,
+    "score": 2.21,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-soil"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c08:pack:mech",
+    "type": "transfer",
+    "crop": "c08",
+    "op": "pack",
+    "layer": "mech",
+    "w": 151,
+    "tr": 0,
+    "es": 6,
+    "eu": 33,
+    "score": 2.182,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-ppwr"
+    ],
+    "target": "TRG-027",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c12:irrig:mech",
+    "type": "transfer",
+    "crop": "c12",
+    "op": "irrig",
+    "layer": "mech",
+    "w": 138,
+    "tr": 1,
+    "es": 8,
+    "eu": 19,
+    "score": 2.143,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-water-reuse",
+     "eu-cbam"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c13:plant:digi",
+    "type": "transfer",
+    "crop": "c13",
+    "op": "plant",
+    "layer": "digi",
+    "w": 133,
+    "tr": 1,
+    "es": 1,
+    "eu": 10,
+    "score": 2.127,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c00:stock:mech",
+    "type": "transfer",
+    "crop": "c00",
+    "op": "stock",
+    "layer": "mech",
+    "w": 119,
+    "tr": 1,
+    "es": 5,
+    "eu": 26,
+    "score": 2.079,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-eudr"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c05:process:mech",
+    "type": "transfer",
+    "crop": "c05",
+    "op": "process",
+    "layer": "mech",
+    "w": 118,
+    "tr": 1,
+    "es": 1,
+    "eu": 1,
+    "score": 2.076,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c10:pack:mech",
+    "type": "transfer",
+    "crop": "c10",
+    "op": "pack",
+    "layer": "mech",
+    "w": 116,
+    "tr": 1,
+    "es": 6,
+    "eu": 29,
+    "score": 2.068,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-ppwr"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c12:irrig:digi",
+    "type": "transfer",
+    "crop": "c12",
+    "op": "irrig",
+    "layer": "digi",
+    "w": 110,
+    "tr": 1,
+    "es": 6,
+    "eu": 16,
+    "score": 2.045,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-water-reuse",
+     "eu-cbam"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c02:process:mech",
+    "type": "transfer",
+    "crop": "c02",
+    "op": "process",
+    "layer": "mech",
+    "w": 109,
+    "tr": 1,
+    "es": 2,
+    "eu": 23,
+    "score": 2.041,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c09:residue:mech",
+    "type": "transfer",
+    "crop": "c09",
+    "op": "residue",
+    "layer": "mech",
+    "w": 107,
+    "tr": 1,
+    "es": 3,
+    "eu": 14,
+    "score": 2.033,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste",
+     "tr-aniz-yakma"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c07:harvest:mech",
+    "type": "transfer",
+    "crop": "c07",
+    "op": "harvest",
+    "layer": "mech",
+    "w": 98,
+    "tr": 1,
+    "es": 4,
+    "eu": 16,
+    "score": 1.996,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c00:stock:digi",
+    "type": "transfer",
+    "crop": "c00",
+    "op": "stock",
+    "layer": "digi",
+    "w": 87,
+    "tr": 0,
+    "es": 2,
+    "eu": 20,
+    "score": 1.944,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-eudr"
+    ],
+    "target": "TRG-025",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c01:spray:mech",
+    "type": "transfer",
+    "crop": "c01",
+    "op": "spray",
+    "layer": "mech",
+    "w": 86,
+    "tr": 1,
+    "es": 3,
+    "eu": 12,
+    "score": 1.94,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-omnibus-x"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c04:pack:mech",
+    "type": "transfer",
+    "crop": "c04",
+    "op": "pack",
+    "layer": "mech",
+    "w": 85,
+    "tr": 1,
+    "es": 1,
+    "eu": 8,
+    "score": 1.934,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-ppwr"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c04:plant:digi",
+    "type": "transfer",
+    "crop": "c04",
+    "op": "plant",
+    "layer": "digi",
+    "w": 79,
+    "tr": 1,
+    "es": 3,
+    "eu": 7,
+    "score": 1.903,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c08:process:digi",
+    "type": "transfer",
+    "crop": "c08",
+    "op": "process",
+    "layer": "digi",
+    "w": 79,
+    "tr": 0,
+    "es": 2,
+    "eu": 8,
+    "score": 1.903,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c07:process:mech",
+    "type": "transfer",
+    "crop": "c07",
+    "op": "process",
+    "layer": "mech",
+    "w": 76,
+    "tr": 0,
+    "es": 2,
+    "eu": 14,
+    "score": 1.886,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c05:harvest:mech",
+    "type": "transfer",
+    "crop": "c05",
+    "op": "harvest",
+    "layer": "mech",
+    "w": 69,
+    "tr": 1,
+    "es": 2,
+    "eu": 7,
+    "score": 1.845,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c06:plant:digi",
+    "type": "transfer",
+    "crop": "c06",
+    "op": "plant",
+    "layer": "digi",
+    "w": 65,
+    "tr": 0,
+    "es": 3,
+    "eu": 5,
+    "score": 1.82,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c11:residue:mech",
+    "type": "transfer",
+    "crop": "c11",
+    "op": "residue",
+    "layer": "mech",
+    "w": 65,
+    "tr": 0,
+    "es": 1,
+    "eu": 23,
+    "score": 1.82,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste",
+     "tr-aniz-yakma"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c13:process:digi",
+    "type": "transfer",
+    "crop": "c13",
+    "op": "process",
+    "layer": "digi",
+    "w": 56,
+    "tr": 0,
+    "es": 0,
+    "eu": 6,
+    "score": 1.756,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c01:prune:mech",
+    "type": "transfer",
+    "crop": "c01",
+    "op": "prune",
+    "layer": "mech",
+    "w": 54,
+    "tr": 1,
+    "es": 0,
+    "eu": 6,
+    "score": 1.74,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c11:weed:mech",
+    "type": "transfer",
+    "crop": "c11",
+    "op": "weed",
+    "layer": "mech",
+    "w": 50,
+    "tr": 0,
+    "es": 0,
+    "eu": 14,
+    "score": 1.708,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c17:spray:mech",
+    "type": "transfer",
+    "crop": "c17",
+    "op": "spray",
+    "layer": "mech",
+    "w": 49,
+    "tr": 0,
+    "es": 0,
+    "eu": 1,
+    "score": 1.699,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-omnibus-x"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c17:resource:mech",
+    "type": "transfer",
+    "crop": "c17",
+    "op": "resource",
+    "layer": "mech",
+    "w": 49,
+    "tr": 1,
+    "es": 3,
+    "eu": 6,
+    "score": 1.699,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-cbam",
+     "tr-iklim-kanunu"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
+    "id": "transfer:c06:pack:mech",
+    "type": "transfer",
+    "crop": "c06",
+    "op": "pack",
+    "layer": "mech",
+    "w": 42,
+    "tr": 0,
+    "es": 0,
+    "eu": 1,
+    "score": 1.633,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-ppwr"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   }
+  ],
+  "neighbor": [
+   {
+    "id": "neighbor:c17:weed:mech",
+    "type": "neighbor",
+    "crop": "c17",
+    "op": "weed",
+    "layer": "mech",
+    "w": 7,
+    "tr": 0,
+    "es": 2,
+    "eu": 3,
+    "score": 0.836,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "neighbor": "c11",
+    "neighbor_w": 50,
+    "expected": 54
+   },
+   {
+    "id": "neighbor:c17:weed:digi",
+    "type": "neighbor",
+    "crop": "c17",
+    "op": "weed",
+    "layer": "digi",
+    "w": 2,
+    "tr": 0,
+    "es": 0,
+    "eu": 0,
+    "score": 0.67,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "neighbor": "c11",
+    "neighbor_w": 21,
+    "expected": 13
+   },
+   {
+    "id": "neighbor:c12:pollin:mech",
+    "type": "neighbor",
+    "crop": "c12",
+    "op": "pollin",
+    "layer": "mech",
+    "w": 2,
+    "tr": 0,
+    "es": 0,
+    "eu": 0,
+    "score": 0.65,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "neighbor": "c06",
+    "neighbor_w": 9,
+    "expected": 12
+   }
+  ],
+  "layer": [
+   {
+    "id": "layer:c16:residue:digi",
+    "type": "layer",
+    "crop": "c16",
+    "op": "residue",
+    "layer": "digi",
+    "w": 2,
+    "tr": 0,
+    "es": 0,
+    "eu": 1,
+    "score": 1.014,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste",
+     "tr-aniz-yakma"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 30
+   },
+   {
+    "id": "layer:c16:process:digi",
+    "type": "layer",
+    "crop": "c16",
+    "op": "process",
+    "layer": "digi",
+    "w": 4,
+    "tr": 1,
+    "es": 0,
+    "eu": 1,
+    "score": 0.954,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 44
+   },
+   {
+    "id": "layer:c10:prune:digi",
+    "type": "layer",
+    "crop": "c10",
+    "op": "prune",
+    "layer": "digi",
+    "w": 5,
+    "tr": 0,
+    "es": 0,
+    "eu": 3,
+    "score": 0.865,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 43
+   },
+   {
+    "id": "layer:c00:soil:digi",
+    "type": "layer",
+    "crop": "c00",
+    "op": "soil",
+    "layer": "digi",
+    "w": 9,
+    "tr": 0,
+    "es": 0,
+    "eu": 0,
+    "score": 0.845,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-soil",
+     "tr-aniz-yakma"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 69
+   },
+   {
+    "id": "layer:c12:soil:digi",
+    "type": "layer",
+    "crop": "c12",
+    "op": "soil",
+    "layer": "digi",
+    "w": 7,
+    "tr": 0,
+    "es": 0,
+    "eu": 0,
+    "score": 0.74,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-soil",
+     "tr-aniz-yakma"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 43
+   },
+   {
+    "id": "layer:c06:pack:digi",
+    "type": "layer",
+    "crop": "c06",
+    "op": "pack",
+    "layer": "digi",
+    "w": 8,
+    "tr": 0,
+    "es": 1,
+    "eu": 2,
+    "score": 0.679,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-ppwr"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 42
+   }
+  ],
+  "gap": [
+   {
+    "id": "gap:c16:scout:digi",
+    "type": "gap",
+    "crop": "c16",
+    "op": "scout",
+    "layer": "digi",
+    "w": 3,
+    "tr": 0,
+    "es": 0,
+    "eu": 3,
+    "score": 2.0,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-soil"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "group_median": 99
+   },
+   {
+    "id": "gap:c16:pack:digi",
+    "type": "gap",
+    "crop": "c16",
+    "op": "pack",
+    "layer": "digi",
+    "w": 4,
+    "tr": 0,
+    "es": 0,
+    "eu": 1,
+    "score": 1.763,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-ppwr"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "group_median": 57
+   },
+   {
+    "id": "gap:c06:prune:mech",
+    "type": "gap",
+    "crop": "c06",
+    "op": "prune",
+    "layer": "mech",
+    "w": 3,
+    "tr": 0,
+    "es": 0,
+    "eu": 0,
+    "score": 1.462,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "group_median": 28
+   },
+   {
+    "id": "gap:c07:prune:mech",
+    "type": "gap",
+    "crop": "c07",
+    "op": "prune",
+    "layer": "mech",
+    "w": 3,
+    "tr": 0,
+    "es": 0,
+    "eu": 1,
+    "score": 1.462,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "group_median": 28
+   }
+  ]
+ }
+}

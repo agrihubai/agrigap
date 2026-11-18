@@ -30,6 +30,26 @@ Uygulamanın ikinci sekmesi. 48 ürün × 18 iş adımı (toprak işlemeden hasa
 - **Kendini besleme:** dünyada en az 50 yayını olup Türkiye'den hiç yayını olmayan en güçlü hücre ayrıntılı tarama kuyruğuna eklenir.
 - Ayrıntılı raporlardaki **Zorluk Sinyalleri** bölümü, yayınlarda sık geçen engelleri (eğim, ürün hasarı, görüş engeli, dar alan, maliyet, enerji…) listeler: yeni bir makine, yazılım ya da uygulama için tasarım gerekliliği adayları.
 
+### Yeni Öneriler (Sekme 2)
+
+**Aşama 1, kural tabanlı aday bulma (çalışıyor, yapay zekâsız):** [`scripts/ideas.py`](scripts/ideas.py) haritadan dört tür aday çıkarır ve `ideas/candidates.json` dosyasına yazar:
+- **Aktarım:** dünyada çok çalışılmış, Türkiye'den yayını olmayan ya da çok az olan konular.
+- **Komşu üründen aktarım:** bir iş adımı, ürünün kendi literatür büyüklüğüne göre aynı gruptaki ürünlerden belirgin biçimde az çalışılmışsa.
+- **Katman değişimi:** aynı işte makine ile yazılım/yapay zekâ arasında büyük fark varsa.
+- **Gerçek boşluk:** dünyada neredeyse hiç yayın yoksa ama iş adımı aynı gruptaki ürünlerde çalışılıyorsa.
+
+Her adaya ilgili mevzuat ve varsa ayrıntılı tarama bağlanır.
+
+**Aşama 2, öneri kartları (planlandı):** Ücretsiz bir yapay zekâ en güçlü 2 aday için yalnızca verilen kaynaklardan öneri kartı yazacak (makine, yazılım/yapay zekâ, uygulama/yöntem, biyolojik girdi/enzim, iş modeli). Ardından otomatik kaynak ve yenilik kontrolünden geçecek; ikinci bir ücretsiz yapay zekânın denetimi ayrıca planlanıyor.
+
+### Mevzuat listesi
+
+[`core/regulations.json`](core/regulations.json): Türkiye ve AB'nin 2026–2030 döneminde tarımı etkileyen kuralları. Her madde kaynaklarıyla birlikte ve doğrulama tarihiyle yer alır; uygulamada **Mevzuat listesi** düğmesinden görülür. Hukuki tavsiye değildir.
+
+### Dil
+
+Arayüz Türkçe ve İngilizcedir. Otomatik raporlar iki dilde üretilir (`*.md` ve `*.en.md`); derin raporlar (ör. TRG-002) yalnızca Türkçedir ve uygulamada bu şekilde işaretlenir.
+
 ### Rapor türleri
 
 | Tür | Nasıl üretilir | Ne söyler, ne söylemez |

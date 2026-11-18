@@ -1,0 +1,588 @@
+{
+  "_note": "Türkiye ve AB 2026–2030 tarım ile ilgili kurallar. Her madde 'checked' tarihinde web'de doğrulandı; tarih ve kapsam kaynaklara göre yazıldı. Hukuki tavsiye değildir. Güncellemek için yalnızca kaynaklı bilgi ekleyin.",
+  "checked": "2026-11-18",
+  "items": [
+    {
+      "id": "eu-machinery-2023-1230",
+      "region": "EU",
+      "status": "upcoming",
+      "ref": "Tüzük (AB) 2023/1230",
+      "title_tr": "AB Makine Tüzüğü",
+      "title_en": "EU Machinery Regulation",
+      "dates": [
+        {
+          "date": "2027-01-20",
+          "tr": "Uygulanmaya başlar; 2006/42/AT Makine Direktifi yerine geçer",
+          "en": "Applies; replaces Machinery Directive 2006/42/EC"
+        }
+      ],
+      "summary_tr": "Tarım makinesi üreticileri dahil tüm makineler için sağlık ve güvenlik kuralları. 20 Ocak 2027'den sonra piyasaya çıkan makineler yeni tüzüğe uymak zorunda; siber güvenlik ve yapay zekâ içeren makinelere yeni gereklilikler getiriyor.",
+      "summary_en": "Health and safety rules for all machinery, including agricultural machinery. Machines placed on the market after 20 January 2027 must comply; it adds requirements for cybersecurity and AI in machinery.",
+      "tags": [
+        "machine"
+      ],
+      "sources": [
+        {
+          "title": "CEMA: The new Machinery Regulation is published",
+          "url": "https://cema-agri.org/publication/news/1025-the-new-machinery-regulation-is-published-new-requirements-and-upcoming-steps"
+        },
+        {
+          "title": "Nemko: EU Machinery Regulation",
+          "url": "https://digital.nemko.com/regulations/eu-machinery-regulation"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "tr-makine-emniyeti-2026",
+      "region": "TR",
+      "status": "upcoming",
+      "ref": "Makine Emniyeti Yönetmeliği (2023/1230/AB), RG 16.10.2026, sayı 33402",
+      "title_tr": "Makine Emniyeti Yönetmeliği (yeni)",
+      "title_en": "Machinery Safety Regulation (Türkiye, new)",
+      "dates": [
+        {
+          "date": "2026-10-16",
+          "tr": "Resmî Gazete'de yayımlandı",
+          "en": "Published in the Official Gazette"
+        },
+        {
+          "date": "2027-01-20",
+          "tr": "İmalatçı, ithalatçı ve dağıtıcı yükümlülükleri uygulanır; 2006/42/AT uyumlu eski yönetmelik kalkar",
+          "en": "Obligations for manufacturers, importers and distributors apply; the previous regulation (2006/42/EC) is repealed"
+        }
+      ],
+      "summary_tr": "Sanayi ve Teknoloji Bakanlığı, AB Makine Tüzüğü'nü esas alan yeni yönetmeliği yayımladı. Türkiye'de makine üreten, ithal eden ya da satan işletmeler 20 Ocak 2027'den itibaren buna göre hareket edecek.",
+      "summary_en": "Türkiye's Ministry of Industry and Technology published a new regulation based on the EU Machinery Regulation. Businesses that make, import or sell machinery in Türkiye must follow it from 20 January 2027.",
+      "tags": [
+        "machine"
+      ],
+      "sources": [
+        {
+          "title": "Hukukçular Evi: Makine Emniyeti Yönetmeliği 2023/1230",
+          "url": "https://hukukcularevi.com/makine-emniyeti-yonetmeligi-2023-1230-imalatci-ithalatci-dagitici-yukumlulukleri-ce-isareti-piyasadan-cekme-idari-para-cezasi-itiraz-7223/"
+        },
+        {
+          "title": "Alomaliye: Resmî Gazete metni (16.10.2026)",
+          "url": "https://www.alomaliye.com/2026/10/16/makine-emniyeti-yonetmeligi-2023-1230-ab/"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-data-act",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Tüzük (AB) 2023/2854",
+      "title_tr": "AB Veri Yasası",
+      "title_en": "EU Data Act",
+      "dates": [
+        {
+          "date": "2025-09-12",
+          "tr": "Uygulanmaya başladı: kullanıcılar bağlantılı ürün verisine ücretsiz erişim isteyebilir",
+          "en": "Applies: users can request free access to connected-product data"
+        },
+        {
+          "date": "2026-09-12",
+          "tr": "Bu tarihten sonra piyasaya çıkan bağlantılı ürünler veriye doğrudan erişim sağlayacak şekilde tasarlanmalı",
+          "en": "Connected products placed on the market after this date must be designed for direct data access"
+        }
+      ],
+      "summary_tr": "Bağlantılı tarım makineleri kapsamda. Çiftçi ve yükleniciler makinelerinin ürettiği veriye erişebilir ve bunu üçüncü taraflarla paylaşabilir; yeni yazılım ve hizmetler için önemli bir kapı.",
+      "summary_en": "Connected agricultural machinery is in scope. Farmers and contractors can access the data their machines generate and share it with third parties, which opens the way for new software and services.",
+      "tags": [
+        "machine",
+        "software"
+      ],
+      "sources": [
+        {
+          "title": "CCPC: EU Data Act",
+          "url": "https://www.ccpc.ie/enforcement-and-regulation/data-regulation/eu-data-act"
+        },
+        {
+          "title": "Taylor Wessing: Data Act step plan",
+          "url": "https://www.taylorwessing.com/de/insights-and-events/insights/2024/09/data-act-step-plan"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-cra",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Tüzük (AB) 2024/2847",
+      "title_tr": "Siber Dayanıklılık Yasası",
+      "title_en": "Cyber Resilience Act",
+      "dates": [
+        {
+          "date": "2026-09-11",
+          "tr": "Zafiyet ve olay bildirme yükümlülükleri uygulanır",
+          "en": "Vulnerability and incident reporting obligations apply"
+        },
+        {
+          "date": "2027-12-11",
+          "tr": "Yükümlülüklerin çoğu uygulanır",
+          "en": "Most obligations apply"
+        }
+      ],
+      "summary_tr": "Dijital öğe içeren donanım ve yazılım ürünleri için zorunlu siber güvenlik kuralları. Bağlantılı tarım makineleri, sensörler ve tarım yazılımları bu kapsama girebilir.",
+      "summary_en": "Mandatory cybersecurity rules for hardware and software products with digital elements. Connected farm machinery, sensors and farm software can fall in scope.",
+      "tags": [
+        "software",
+        "machine"
+      ],
+      "sources": [
+        {
+          "title": "Jones Day: CRA reporting duties start 11 September 2026",
+          "url": "https://www.jonesday.com/en/insights/2026/07/eu-cyber-resilience-act-24hour-reporting-duties-start-september-11-2026"
+        },
+        {
+          "title": "Hogan Lovells: CRA 2026 milestones",
+          "url": "https://publicationportalpreview.hoganlovells.com/en/publications/eu-cyber-resilience-act-getting-ready-for-cra-compliance-in-2026"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-ai-act",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Tüzük (AB) 2024/1689, değişiklik: Tüzük (AB) 2026/1744 (Dijital Omnibus)",
+      "title_tr": "AB Yapay Zekâ Yasası (Dijital Omnibus ile ertelenen tarihler)",
+      "title_en": "EU AI Act (dates moved by the Digital Omnibus)",
+      "dates": [
+        {
+          "date": "2026-07-27",
+          "tr": "Dijital Omnibus yürürlüğe girdi",
+          "en": "Digital Omnibus entered into force"
+        },
+        {
+          "date": "2027-12-02",
+          "tr": "Bağımsız yüksek riskli sistemler (Ek III) için yükümlülükler",
+          "en": "Obligations for stand-alone high-risk systems (Annex III)"
+        },
+        {
+          "date": "2028-08-02",
+          "tr": "Ürüne gömülü yüksek riskli sistemler (Ek I, örn. makine) için yükümlülükler",
+          "en": "Obligations for high-risk systems embedded in regulated products (Annex I, e.g. machinery)"
+        }
+      ],
+      "summary_tr": "Makineye gömülü yapay zekâ (örn. otonom tarım makinesi) için yüksek risk kuralları Ağustos 2028'e ertelendi. Omnibus aynı zamanda Makine Tüzüğü'nde de değişiklik yaptı.",
+      "summary_en": "High-risk rules for AI embedded in products such as machinery (e.g. autonomous farm machines) were postponed to August 2028. The Omnibus also amended the Machinery Regulation.",
+      "tags": [
+        "software",
+        "machine"
+      ],
+      "sources": [
+        {
+          "title": "Cobalt: Digital Omnibus on AI",
+          "url": "https://www.cobalt.legal/news-cases/digital-omnibus-on-ai/"
+        },
+        {
+          "title": "EUROGIP: what the Digital Omnibus changes for the Machinery Regulation",
+          "url": "https://eurogip.fr/en/machinery-regulation-2023-1230-what-the-digital-omnibus-on-ai-changes/"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-ppwr",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Tüzük (AB) 2025/40",
+      "title_tr": "AB Ambalaj ve Ambalaj Atıkları Tüzüğü",
+      "title_en": "EU Packaging and Packaging Waste Regulation",
+      "dates": [
+        {
+          "date": "2026-08-12",
+          "tr": "Uygulanmaya başladı (gıda temaslı ambalajda PFAS sınırları dahil)",
+          "en": "Applies (including PFAS limits in food-contact packaging)"
+        },
+        {
+          "date": "2028-02-12",
+          "tr": "Meyve ve sebze üzerindeki yapışkan etiketler kompostlanabilir olmalı",
+          "en": "Sticky labels on fruit and vegetables must be compostable"
+        },
+        {
+          "date": "2030-01-01",
+          "tr": "1,5 kg altı taze meyve-sebzede tek kullanımlık plastik ambalaj yasağı (istisnalar var)",
+          "en": "Ban on single-use plastic packaging for fresh fruit and vegetables under 1.5 kg (with exemptions)"
+        }
+      ],
+      "summary_tr": "AB pazarına giren tüm ambalajlara, dışarıdan ihracat yapanlar dahil, uygulanır. Tasnif, paketleme ve izlenebilirlik işini doğrudan etkiler.",
+      "summary_en": "Applies to all packaging placed on the EU market, including from exporters outside the EU. It directly affects grading, packing and traceability.",
+      "tags": [
+        "pack"
+      ],
+      "sources": [
+        {
+          "title": "AGRINFO: New EU packaging rules explained",
+          "url": "https://agrinfo.eu/book-of-reports/new-eu-packaging-rules-explained/"
+        },
+        {
+          "title": "COLEAD: EU food packaging regulations",
+          "url": "https://colead.link/news/eu-food-packaging-regulations-the-new-rules-impose-new-requirements-that-also-apply-to-suppliers-outside-the-european-union/"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-eudr",
+      "region": "EU",
+      "status": "upcoming",
+      "ref": "Tüzük (AB) 2023/1115, değişiklik: Tüzük (AB) 2025/2650",
+      "title_tr": "AB Ormansızlaşma Tüzüğü (EUDR)",
+      "title_en": "EU Deforestation Regulation (EUDR)",
+      "dates": [
+        {
+          "date": "2026-12-30",
+          "tr": "Orta ve büyük işletmeler için uygulanır",
+          "en": "Applies to medium and large operators"
+        },
+        {
+          "date": "2027-06-30",
+          "tr": "Mikro ve küçük işletmeler için uygulanır",
+          "en": "Applies to micro and small operators"
+        }
+      ],
+      "summary_tr": "Kapsamdaki ürünlerin ormansızlaşmaya yol açmadan üretildiğini gösteren durum tespiti yükümlülüğü. 2025 sonunda bir yıl ertelendi ve sadeleştirildi.",
+      "summary_en": "Due-diligence duty to show that products in scope were not produced through deforestation. Postponed by a year and simplified at the end of 2025.",
+      "tags": [
+        "stock",
+        "finance"
+      ],
+      "sources": [
+        {
+          "title": "Linklaters: EU changes to deforestation regulation",
+          "url": "https://sustainablefutures.linklaters.com/post/102ly55/eu-changes-to-deforestation-regulation-reach-the-finish-line"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-ngt",
+      "region": "EU",
+      "status": "upcoming",
+      "ref": "Tüzük (AB) 2026/1388",
+      "title_tr": "Yeni Genomik Tekniklerle elde edilen bitkiler tüzüğü",
+      "title_en": "Regulation on plants obtained by new genomic techniques",
+      "dates": [
+        {
+          "date": "2026-06-26",
+          "tr": "AB Resmî Gazetesi'nde yayımlandı",
+          "en": "Published in the Official Journal"
+        },
+        {
+          "date": "2026-07-16",
+          "tr": "Yürürlüğe girdi; çoğu hükmü iki yıl sonra uygulanacak",
+          "en": "Entered into force; most provisions apply two years later"
+        }
+      ],
+      "summary_tr": "Gen düzenlemeli bitkiler iki sınıfa ayrılıyor: NGT-1 konvansiyonel bitki gibi, NGT-2 GDO kurallarıyla. Herbisit toleranslı ya da insektisit üreten bitkiler NGT-1 olamıyor.",
+      "summary_en": "Gene-edited plants are split into two categories: NGT-1 treated like conventional plants, NGT-2 under GMO rules. Herbicide-tolerant or insecticide-producing plants cannot be NGT-1.",
+      "tags": [
+        "breeding"
+      ],
+      "sources": [
+        {
+          "title": "British Agriculture Bureau: EU approves New Genomic Techniques",
+          "url": "https://www.britishagriculturebureau.co.uk/updates-and-information/eu-approves-new-genomic-techniques-for-plants/"
+        },
+        {
+          "title": "Appleyard Lees: EU Parliament approves NGT Regulation",
+          "url": "https://www.appleyardlees.com/eu-parliament-approves-new-genomic-techniques-ngt-regulation/"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-soil",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Direktif (AB) 2025/2360",
+      "title_tr": "AB Toprak İzleme ve Dayanıklılık Direktifi",
+      "title_en": "EU Soil Monitoring and Resilience Directive",
+      "dates": [
+        {
+          "date": "2025-12-16",
+          "tr": "Yürürlüğe girdi",
+          "en": "Entered into force"
+        },
+        {
+          "date": "2028-12-16",
+          "tr": "Üye devletler için iç hukuka aktarma son tarihi",
+          "en": "Transposition deadline for Member States"
+        }
+      ],
+      "summary_tr": "Toprak sağlığı için ortak izleme ve değerlendirme çerçevesi (erozyon, organik madde kaybı, tuzlanma, kirlenme, sıkışma). Yükümlülükler üye devletlere; çiftçiye doğrudan yükümlülük getirmiyor.",
+      "summary_en": "A common framework for monitoring and assessing soil health (erosion, organic matter loss, salinisation, contamination, compaction). Obligations fall on Member States, not directly on farmers.",
+      "tags": [
+        "soil",
+        "scout"
+      ],
+      "sources": [
+        {
+          "title": "European Commission: Soil Monitoring Law",
+          "url": "https://environment.ec.europa.eu/topics/soil-health/soil-monitoring-law_en"
+        },
+        {
+          "title": "Cuatrecasas: New EU directive on soil monitoring",
+          "url": "https://www.cuatrecasas.com/resources/new-eu-directive-on-soil-monitoring-and-resilience-694519fda4ab1032692762.pdf"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-wfd-food-waste",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Direktif (AB) 2025/1892 (Atık Çerçeve Direktifi değişikliği)",
+      "title_tr": "Bağlayıcı gıda atığı azaltma hedefleri",
+      "title_en": "Binding food waste reduction targets",
+      "dates": [
+        {
+          "date": "2025-10-16",
+          "tr": "Yürürlüğe girdi",
+          "en": "Entered into force"
+        },
+        {
+          "date": "2027",
+          "tr": "Komisyon, birincil üretimdeki kayıpları da içeren değerlendirmesini 2027'de yapacak",
+          "en": "Commission review in 2027, including losses in primary production"
+        },
+        {
+          "date": "2030-12-31",
+          "tr": "Hedefler: işleme ve imalatta %10, perakende, yemek hizmeti ve hanelerde kişi başı %30 azalma",
+          "en": "Targets: 10% in processing and manufacturing, 30% per capita in retail, food service and households"
+        }
+      ],
+      "summary_tr": "Birincil üretim (tarla, sera) şimdilik hedeflerin dışında; ancak 2027 değerlendirmesiyle kapsama alınması gündemde. Pazarlanamayan ürün ve işleme atığı için önemli.",
+      "summary_en": "Primary production (field, greenhouse) is excluded for now, but may be brought in after the 2027 review. Relevant for unmarketable produce and processing waste.",
+      "tags": [
+        "residue",
+        "process"
+      ],
+      "sources": [
+        {
+          "title": "Debevoise: Revised Waste Framework Directive enters into force",
+          "url": "https://www.debevoise.com/insights/publications/2025/10/the-european-unions-revised-directive-on"
+        },
+        {
+          "title": "British Agriculture Bureau: EU introduces food waste reduction targets",
+          "url": "https://www.britishagriculturebureau.co.uk/updates-and-information/eu-introduces-food-waste-reduction-targets/"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-water-reuse",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Tüzük (AB) 2020/741",
+      "title_tr": "Suyun yeniden kullanımı için asgari gereklilikler",
+      "title_en": "Minimum requirements for water reuse",
+      "dates": [
+        {
+          "date": "2023-06-26",
+          "tr": "Uygulanmaya başladı",
+          "en": "Applies"
+        }
+      ],
+      "summary_tr": "Arıtılmış kentsel atık suyun tarımsal sulamada güvenle kullanılması için asgari kalite, izleme ve risk yönetimi kuralları; kullanım ve sulama yöntemine göre dört kalite sınıfı (A–D).",
+      "summary_en": "Minimum quality, monitoring and risk-management rules for safely reusing treated urban wastewater in agricultural irrigation; four quality classes (A–D) by use and irrigation method.",
+      "tags": [
+        "irrig"
+      ],
+      "sources": [
+        {
+          "title": "WISE Freshwater: Water reuse",
+          "url": "https://water.europa.eu/freshwater/europe-freshwater/water-reuse"
+        },
+        {
+          "title": "Umweltbundesamt: EU regulation on water reuse",
+          "url": "https://www.umweltbundesamt.de/print/87336"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-cbam",
+      "region": "EU",
+      "status": "in_force",
+      "ref": "Tüzük (AB) 2023/956",
+      "title_tr": "Sınırda Karbon Düzenleme Mekanizması (SKDM / CBAM)",
+      "title_en": "Carbon Border Adjustment Mechanism (CBAM)",
+      "dates": [
+        {
+          "date": "2026-01-01",
+          "tr": "Kesin dönem başladı (gübreler kapsamda)",
+          "en": "Definitive period began (fertilisers in scope)"
+        },
+        {
+          "date": "2027-02-01",
+          "tr": "2026 ithalatları için sertifika satışı başlar",
+          "en": "Certificate sales open for 2026 imports"
+        },
+        {
+          "date": "2027-09-30",
+          "tr": "2026 ithalatları için ilk yıllık beyan ve sertifika teslimi",
+          "en": "First annual declaration and surrender for 2026 imports"
+        }
+      ],
+      "summary_tr": "AB'ye ithal edilen gübrelerin gömülü emisyonu fiyatlanıyor. Gübre maliyetine ve azotlu gübre kullanımını azaltan çözümlere olan talebe dolaylı etki.",
+      "summary_en": "Embedded emissions in fertilisers imported into the EU are priced. Indirect effect on fertiliser costs and on demand for solutions that cut nitrogen fertiliser use.",
+      "tags": [
+        "irrig",
+        "resource",
+        "finance"
+      ],
+      "sources": [
+        {
+          "title": "Köksal: CBAM legislation note",
+          "url": "https://koksal.av.tr/en/legislation/cbam-carbon-border-adjustment-mechanism/"
+        },
+        {
+          "title": "S&P Global: Europe's CBAM goes live",
+          "url": "https://www.spglobal.com/energy/en/news-research/latest-news/energy-transition/010726-commodities-2026-europes-cbam-goes-live-as-importers-grapple-with-rising-carbon-costs"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "eu-omnibus-x",
+      "region": "EU",
+      "status": "proposal",
+      "ref": "2025/0410(COD), Gıda ve Yem Güvenliği Omnibusu (Omnibus X)",
+      "title_tr": "Gıda ve yem güvenliği sadeleştirme paketi (öneri)",
+      "title_en": "Food and feed safety simplification package (proposal)",
+      "dates": [
+        {
+          "date": "2025-12-16",
+          "tr": "Komisyon önerdi",
+          "en": "Proposed by the Commission"
+        },
+        {
+          "date": "2026-09-30",
+          "tr": "Konsey müzakere pozisyonunu belirledi; yasalaşmadı",
+          "en": "Council set its negotiating mandate; not yet law"
+        }
+      ],
+      "summary_tr": "Biyolojik mücadele ve düşük riskli bitki koruma ürünleri için daha hızlı izin yolu öneriyor. Yasalaşmadı; nihai metin değişebilir.",
+      "summary_en": "Proposes faster authorisation for biocontrol and low-risk plant protection products. Not yet law; the final text may change.",
+      "tags": [
+        "spray"
+      ],
+      "sources": [
+        {
+          "title": "BILL: Omnibus X legislative alert",
+          "url": "https://bill.mino.law/bills/2025-0410-COD"
+        },
+        {
+          "title": "Lovguiden: Council mandate on Omnibus X",
+          "url": "https://lovguiden.dk/en/det-offentlige/raadet-for-den-europaeiske-union/2026-09-30-raadet-vil-forlaenge-pesticidgodkendelser-til-15-og-25-aar"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "tr-iklim-kanunu",
+      "region": "TR",
+      "status": "in_force",
+      "ref": "7552 sayılı İklim Kanunu (RG 9.7.2025, sayı 32951); Türkiye ETS Yönetmeliği (RG 27.8.2026, sayı 33353)",
+      "title_tr": "İklim Kanunu ve Türkiye Emisyon Ticaret Sistemi",
+      "title_en": "Climate Law and Türkiye's Emissions Trading System",
+      "dates": [
+        {
+          "date": "2025-07-09",
+          "tr": "İklim Kanunu yayımlandı ve yürürlüğe girdi",
+          "en": "Climate Law published and entered into force"
+        },
+        {
+          "date": "2026-08-27",
+          "tr": "TR ETS Yönetmeliği yayımlandı; pilot dönemle başlıyor",
+          "en": "TR ETS Regulation published; starts with a pilot phase"
+        }
+      ],
+      "summary_tr": "Yıllık 50 bin tonun üzerinde CO2 salan işletmeler izleme, raporlama ve sertifika teslimiyle yükümlü. Tarımda doğrudan etkisi büyük tesislerle (gübre, enerji) sınırlı; dolaylı etki girdi ve enerji maliyetinde.",
+      "summary_en": "Facilities emitting over 50,000 t CO2 a year must monitor, report and surrender allowances. Direct effect on farming is limited to large facilities (fertiliser, energy); the indirect effect is on input and energy costs.",
+      "tags": [
+        "resource",
+        "climate"
+      ],
+      "sources": [
+        {
+          "title": "Alomaliye: 7552 sayılı İklim Kanunu (RG metni)",
+          "url": "https://www.alomaliye.com/2025/07/09/7552-sayili-iklim-kanunu/"
+        },
+        {
+          "title": "Dünya: Türkiye ETS Yönetmeliği yürürlüğe girdi",
+          "url": "https://www.dunya.com/surdurulebilir-dunya/karbonun-fiyatlandigi-yeni-sanayi-cagi-basladi-haberi-837865"
+        },
+        {
+          "title": "Ember: Türkiye ETS ne getiriyor?",
+          "url": "https://ember-energy.org/app/uploads/2026/08/Turkiye-Emisyon-Ticaret-Sistemi-ne-getiriyor.pdf"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "tr-aniz-yakma",
+      "region": "TR",
+      "status": "in_force",
+      "ref": "2872 sayılı Çevre Kanunu; Çevre Kanunu İdari Para Cezaları Tebliği (2026/1)",
+      "title_tr": "Anız yakma yasağı (2026 cezası)",
+      "title_en": "Stubble-burning ban (2026 fine)",
+      "dates": [
+        {
+          "date": "2026-01-01",
+          "tr": "2026 cezası: dekar başına 698,62 TL; orman, sulak alan ya da yerleşim yakınında 5 katı",
+          "en": "2026 fine: TRY 698.62 per decare; five times higher near forests, wetlands or settlements"
+        }
+      ],
+      "summary_tr": "Anız yakmak Çevre Kanunu'na göre yasak. Artığı yakmadan değerlendiren makine ve yöntemler (parçalama, toprağa karıştırma, balyalama) için doğrudan bir baskı.",
+      "summary_en": "Burning stubble is banned under the Environment Law. Direct pressure for machines and methods that use residues without burning (shredding, incorporation, baling).",
+      "tags": [
+        "residue",
+        "soil"
+      ],
+      "sources": [
+        {
+          "title": "TRT Haber: Anız yakanlara dekar başına 698 lira ceza",
+          "url": "https://www.trthaber.com/haber/turkiye/boluda-aniz-yakanlara-dekar-basina-698-lira-ceza-uygulanacak-948830.html"
+        },
+        {
+          "title": "Alomaliye: Çevre Kanunu İdari Para Cezaları Tebliği (2026/1)",
+          "url": "https://www.alomaliye.com/2025/12/30/2026-yili-cevre-kanunu-uyarinca-verilecek-idari-para-cezalari/"
+        }
+      ],
+      "checked": "2026-11-18"
+    },
+    {
+      "id": "tr-7584-pancar",
+      "region": "TR",
+      "status": "in_force",
+      "ref": "7584 sayılı Kanun (RG 20.6.2026)",
+      "title_tr": "Sözleşmesiz şeker pancarı ekimi yasağı",
+      "title_en": "Ban on sugar beet planting without a contract",
+      "dates": [
+        {
+          "date": "2026-06-20",
+          "tr": "Resmî Gazete'de yayımlandı",
+          "en": "Published in the Official Gazette"
+        }
+      ],
+      "summary_tr": "Tarım, orman ve enerji alanlarında değişiklik yapan kanunla sözleşme olmadan şeker pancarı ekimi yasaklandı ve ihlallere idari para cezası getirildi.",
+      "summary_en": "A law amending farming, forestry and energy rules banned planting sugar beet without a contract and introduced administrative fines for violations.",
+      "tags": [
+        "finance"
+      ],
+      "sources": [
+        {
+          "title": "Alomaliye: 7584 sayılı Kanun",
+          "url": "https://www.alomaliye.com/2026/06/20/7584-sayili-kanun/amp/"
+        }
+      ],
+      "checked": "2026-11-18"
+    }
+  ]
+}

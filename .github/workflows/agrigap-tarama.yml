@@ -70,6 +70,11 @@ jobs:
             python scripts/matrix_scan.py --crops "$CROPS"
           fi
 
+      - name: Yeni Öneriler — aday bulma (yapay zekâsız, API yok)
+        id: ideas
+        if: steps.guard.outputs.skip != 'true'
+        run: python scripts/ideas.py
+
       - name: Kaynak tarama (OpenAlex)
         id: scan
         if: steps.guard.outputs.skip != 'true'
@@ -96,7 +101,7 @@ jobs:
         run: |
           git config user.name "agrigap-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add discoveries core/targets.json matrix
+          git add discoveries core/targets.json matrix ideas
           git commit -m "tarama: ${TITLE:-harita güncellendi}"
           git pull --rebase origin main
           git push origin HEAD:main

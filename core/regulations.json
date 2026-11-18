@@ -31,7 +31,8 @@
           "url": "https://digital.nemko.com/regulations/eu-machinery-regulation"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2023/1230"
     },
     {
       "id": "tr-makine-emniyeti-2026",
@@ -67,7 +68,8 @@
           "url": "https://www.alomaliye.com/2026/10/16/makine-emniyeti-yonetmeligi-2023-1230-ab/"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Machinery Safety Regulation (2023/1230/EU), Official Gazette 16.10.2026, no. 33402"
     },
     {
       "id": "eu-data-act",
@@ -104,7 +106,8 @@
           "url": "https://www.taylorwessing.com/de/insights-and-events/insights/2024/09/data-act-step-plan"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2023/2854"
     },
     {
       "id": "eu-cra",
@@ -141,7 +144,8 @@
           "url": "https://publicationportalpreview.hoganlovells.com/en/publications/eu-cyber-resilience-act-getting-ready-for-cra-compliance-in-2026"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2024/2847"
     },
     {
       "id": "eu-ai-act",
@@ -183,7 +187,8 @@
           "url": "https://eurogip.fr/en/machinery-regulation-2023-1230-what-the-digital-omnibus-on-ai-changes/"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2024/1689, amended by Regulation (EU) 2026/1744 (Digital Omnibus)"
     },
     {
       "id": "eu-ppwr",
@@ -224,7 +229,8 @@
           "url": "https://colead.link/news/eu-food-packaging-regulations-the-new-rules-impose-new-requirements-that-also-apply-to-suppliers-outside-the-european-union/"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2025/40"
     },
     {
       "id": "eu-eudr",
@@ -257,7 +263,8 @@
           "url": "https://sustainablefutures.linklaters.com/post/102ly55/eu-changes-to-deforestation-regulation-reach-the-finish-line"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2023/1115, amended by Regulation (EU) 2025/2650"
     },
     {
       "id": "eu-ngt",
@@ -293,7 +300,8 @@
           "url": "https://www.appleyardlees.com/eu-parliament-approves-new-genomic-techniques-ngt-regulation/"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2026/1388"
     },
     {
       "id": "eu-soil",
@@ -330,7 +338,8 @@
           "url": "https://www.cuatrecasas.com/resources/new-eu-directive-on-soil-monitoring-and-resilience-694519fda4ab1032692762.pdf"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Directive (EU) 2025/2360"
     },
     {
       "id": "eu-wfd-food-waste",
@@ -372,7 +381,8 @@
           "url": "https://www.britishagriculturebureau.co.uk/updates-and-information/eu-introduces-food-waste-reduction-targets/"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Directive (EU) 2025/1892 (amending the Waste Framework Directive)"
     },
     {
       "id": "eu-water-reuse",
@@ -403,7 +413,8 @@
           "url": "https://www.umweltbundesamt.de/print/87336"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2020/741"
     },
     {
       "id": "eu-cbam",
@@ -446,7 +457,8 @@
           "url": "https://www.spglobal.com/energy/en/news-research/latest-news/energy-transition/010726-commodities-2026-europes-cbam-goes-live-as-importers-grapple-with-rising-carbon-costs"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Regulation (EU) 2023/956"
     },
     {
       "id": "eu-omnibus-x",
@@ -482,7 +494,8 @@
           "url": "https://lovguiden.dk/en/det-offentlige/raadet-for-den-europaeiske-union/2026-09-30-raadet-vil-forlaenge-pesticidgodkendelser-til-15-og-25-aar"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "2025/0410(COD), Food and Feed Safety Omnibus (Omnibus X)"
     },
     {
       "id": "tr-iklim-kanunu",
@@ -523,7 +536,8 @@
           "url": "https://ember-energy.org/app/uploads/2026/08/Turkiye-Emisyon-Ticaret-Sistemi-ne-getiriyor.pdf"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Climate Law no. 7552 (Official Gazette 9.7.2025, no. 32951); Türkiye ETS Regulation (Official Gazette 27.8.2026, no. 33353)"
     },
     {
       "id": "tr-aniz-yakma",
@@ -555,7 +569,8 @@
           "url": "https://www.alomaliye.com/2025/12/30/2026-yili-cevre-kanunu-uyarinca-verilecek-idari-para-cezalari/"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Environment Law no. 2872; Communiqué on administrative fines under the Environment Law (2026/1)"
     },
     {
       "id": "tr-7584-pancar",
@@ -582,7 +597,8 @@
           "url": "https://www.alomaliye.com/2026/06/20/7584-sayili-kanun/amp/"
         }
       ],
-      "checked": "2026-11-18"
+      "checked": "2026-11-18",
+      "ref_en": "Law no. 7584 (Official Gazette 20.6.2026)"
     }
   ]
 }

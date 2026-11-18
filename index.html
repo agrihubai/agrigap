@@ -552,7 +552,7 @@ function regPage(){
     </div>
     <ul class="reg-list">${items.map(it=>`<li class="reg">
       <h3>${esc(lang==="en"?it.title_en:it.title_tr)}</h3>
-      <p class="ref">${esc(it.ref)}</p>
+      <p class="ref">${esc(lang==="en"&&it.ref_en?it.ref_en:it.ref)}</p>
       <div class="badges"><span class="b ${it.region}">${it.region==="EU"?(lang==="en"?"EU":"AB"):"TR"}</span><span class="b ${it.status}">${t(it.status)}</span>
         ${it.tags.map(k=>`<span class="b">${esc(tagName(k))}</span>`).join("")}</div>
       <ol>${it.dates.map(x=>`<li><b>${esc(x.date)}</b> ${esc(lang==="en"?x.en:x.tr)}</li>`).join("")}</ol>

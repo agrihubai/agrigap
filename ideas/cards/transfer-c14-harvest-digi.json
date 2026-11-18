@@ -1,0 +1,367 @@
+{
+ "id": "transfer:c14:harvest:digi",
+ "created": "2026-11-18T10:45:45.803800+00:00",
+ "candidate": {
+  "id": "transfer:c14:harvest:digi",
+  "type": "transfer",
+  "crop": "c14",
+  "op": "harvest",
+  "layer": "digi",
+  "w": 267,
+  "tr": 1,
+  "es": 5,
+  "eu": 33,
+  "score": 2.428,
+  "regulations": [
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ]
+ },
+ "query": "(potato) AND (harvesting OR harvester OR harvest OR picking) AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+ "published": true,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.8-flash",
+   "date": "2026-11-18",
+   "status": "ok",
+   "reason": "",
+   "content": {
+    "relevant": true,
+    "relevance_reason": {
+     "tr": "Patates hasadında mekanik toplama sırasında yumru hasarı ve yabancı maddelerin (taş, toprak kesekleri) ayrıştırılması kritik bir problemdir; yapay zekâ ve yazılım katmanı bu süreçlerin otomasyonunda doğrudan etkilidir.",
+     "en": "Tuber damage and impurity separation (soil clods, stones) during mechanical harvesting are critical challenges where software and artificial intelligence layers directly automate operations."
+    },
+    "tr": {
+     "title": "Patates Hasadında Gerçek Zamanlı Ayıklama ve Akıllı Hizmet Yazılımları",
+     "finding": "Bu analize göre, taranan kaynaklarda patates hasadında yapay zekâ ağırlıklı olarak rekolte tahmini veya merkezi tesislerde denenmiş olup, hareket halindeki hasat makineleri üzerinde gerçek zamanlı yabancı madde ayıklama ve dijital ikiz tabanlı servis yazılımlarının ticarileşmesi sınırlı kalmıştır.",
+     "problem": "Geleneksel patates hasadında mekanik makineler iş gücünü azaltsa da yumrularda hasara yol açabilmekte ve taş, toprak gibi safsızlıkları ayırmak yoğun el işçiliği veya merkezi ayıklama gerektirmektedir. Ayrıca tarım iş gücünün yaşlanması ve kentleşme, hasat sırasında gerçek zamanlı otomatik ayrıştırma ve akıllı filo/ekipman yönetim yazılımlarına olan ihtiyacı artırmaktadır.",
+     "existing": [
+      {
+       "what": "Mobil Yapay Zekâ Destekli Yabancı Madde Ayıklama Sistemi",
+       "where": "Japonya (Hokkaido)",
+       "how": "Patates hasat makinesine entegre edilen hafif yapay zekâ mimarisi (YOLOX-small) ve pnömatik eyleyicilerle dinamik tarla koşullarında 40–50 FPS hızında gerçek zamanlı görüntü işleme yapılarak safsızlıklar ayrıştırılmıştır.",
+       "pros": "10 farklı morfolojik patates çeşidinde %0,08 ± 0,03 hatalı sınıflandırma oranı ve %89,99 ± 1,25 safsızlık tespit başarısı sağlamıştır; çiftlikler arası kalibrasyon ihtiyacı gerektirmemiştir.",
+       "cons": "Pnömatik donanım entegrasyonu ve yüksek kare hızlı kamera sensörlerinin tarla ortamındaki titreşim ve toza karşı hassasiyeti bulunmaktadır.",
+       "source_dois": [
+        "10.3390/agronomy16030383"
+       ]
+      },
+      {
+       "what": "Patates Hasat Makineleri İçin Dijital İkiz ve Akıllı Hizmet Modeli",
+       "where": "Almanya",
+       "how": "Fiziksel hasat makineleri ile dijital servisleri birleştiren ürün-hizmet sistemleri (PSS) için morfolojik çerçeve ve dijital ikiz iş modelleri geliştirilmiş ve çiftçilerle doğrulanmıştır.",
+       "pros": "Üreticilerin donanım odaklı yapıdan akıllı servis sağlayıcılığına geçmesine ve operasyonel verimliliğin izlenmesine olanak tanır.",
+       "cons": "Uygun iş modellerinin yeni olması ve üreticilerin fiziksel ürün ile dijital servis kombinasyonunu ölçeklemekte zorlanması.",
+       "source_dois": [
+        "10.1016/j.procir.2019.04.114"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Hasat Makinesi Üzerinde Gerçek Zamanlı Edge-AI Yabancı Madde ve Hasar Ayıklama Yazılımı",
+       "how": "Hasat konveyörü üzerine monte edilen kamera ve hafif nesne tespit modelleri (örn. YOLOX-small türevi mimari) kullanılarak, taş, toprak kesekleri ve hasarlı patatesler 40–50 FPS hızında ayrıştırılır ve ayıklayıcı eyleyicilere komut iletilir.",
+       "difference": "Merkezi depolardaki sabit optik ayıklama sistemleri yerine, doğrudan tarlada hasat makinesi üzerinde gerçek zamanlı işlem yapar.",
+       "overcomes": [
+        "İşçilik & ergonomi",
+        "Doğruluk & hata payı"
+       ],
+       "effect_assumptions": "Hasat sonrası depolama ve yıkama tesislerine taşınan safsızlık yükünün azalmasına ve ayıklama bandındaki el işçiliği ihtiyacının düşmesine bağlıdır.",
+       "regulation_fit": "AB Veri Yasası (Tüzük (AB) 2023/2854) uyarınca hasat makinesinden elde edilen veriye doğrudan erişim sağlanmalı, AB Siber Dayanıklılık Yasası (Tüzük (AB) 2024/2847) kapsamında yazılım siber güvenlik gerekliliklerini karşılamalıdır. Makineye gömülü yapay zekâ bileşeni olarak AB Yapay Zekâ Yasası'nın ertelenen takvimine göre yönetilmelidir.",
+       "premortem": "Aşırı toz, çamur veya doğrudan güneş ışığı yansıması nedeniyle kamera optiklerinin kirlenmesi ve görüntü işleme modelinin safsızlık tespit oranının düşmesi.",
+       "min_experiment": "Tozlu ve çamurlu hasat bandında 5 farklı patates partisi ile prototip kamera-işlemci düzeneği kurup 40 FPS hızda safsızlık tespit doğruluğunu test etmek; kabul eşiği %85 üzeri doğruluk."
+      },
+      {
+       "title": "Açık Veri Standartlı Patates Hasat Makineleri Dijital İkiz ve PSS Yazılım Platformu",
+       "how": "Patates hasat makinelerinin çalışma parametrelerini (ayrıştırma performansı, toprak-yumru etkileşimi, rekolte akışı) IoT sensörleriyle toplayan ve çiftçi/yükleniciye dijital ikiz üzerinden kestirimci bakım ve hasat hızı optimizasyonu sunan SaaS platformu.",
+       "difference": "Yalnızca donanım satışı yerine, hasat anında makine ayarlarını optimize eden ve servis sağlayıcı ile veriyi paylaşan hizmet modeli sunar.",
+       "overcomes": [
+        "Maliyet & yatırım",
+        "Veri & bağlantı"
+       ],
+       "effect_assumptions": "Çiftçilerin makine verisini üçüncü taraf servislerle paylaşma istekliliğine ve servis aboneliğinin hasat arıza sürelerini azaltma oranına bağlıdır.",
+       "regulation_fit": "AB Veri Yasası (Tüzük (AB) 2023/2854) kapsamındaki bağlantılı ürün verilerine ücretsiz erişim ve üçüncü tarafla paylaşım kurallarına tam uyum gerektirir.",
+       "premortem": "Kırsal alanda zayıf hücresel veri bağlantısı nedeniyle dijital ikiz telemetrisinin kesintiye uğraması ve çiftçilerin veri paylaşımına güven duymaması.",
+       "min_experiment": "Bir hasat sezonu boyunca 3 hasat makinesinden telemetri verisi toplayarak lokal önbellek ve bulut senkronizasyonunu test etmek; kabul eşiği veri kaybının %1'in altında kalması."
+      }
+     ]
+    },
+    "en": {
+     "title": "Real-Time Sorting and Smart Service Software for Potato Harvesting",
+     "finding": "According to this analysis, AI applications in the reviewed literature have predominantly focused on yield prediction or stationary sorting, while on-harvester real-time impurity sorting and digital twin-based service software remain limited in commercial scale.",
+     "problem": "While mechanical potato harvesters reduce manual labor, they can cause tuber damage and struggle to separate impurities like stones and soil clods without intensive manual picking or centralized sorting. Furthermore, an aging agricultural workforce and urbanization increase the need for real-time automated sorting and smart fleet/equipment management software.",
+     "existing": [
+      {
+       "what": "Mobile AI-Powered Impurity Removal System",
+       "where": "Japan (Hokkaido)",
+       "how": "Integrated YOLOX-small lightweight AI architecture and pneumatic actuators into a potato harvester to achieve real-time image processing at 40–50 FPS under dynamic field conditions.",
+       "pros": "Achieved a potato misclassification rate of 0.08 ± 0.03% and impurity detection rate of 89.99 ± 1.25% across 10 morphologically diverse varieties with variety-independent consistency across 7 commercial farms.",
+       "cons": "Susceptibility of camera lenses and pneumatic hardware to vibrations and extreme dust in field environments.",
+       "source_dois": [
+        "10.3390/agronomy16030383"
+       ]
+      },
+      {
+       "what": "Digital Twin and Smart Service Model for Potato Harvesters",
+       "where": "Germany",
+       "how": "Developed a morphological framework and identified business model types for product-service systems (PSS) incorporating a digital twin for potato harvesting machinery.",
+       "pros": "Enables agricultural machinery manufacturers to shift towards smart services and optimize operational monitoring for farmers.",
+       "cons": "Business models are nascent, and manufacturers face challenges scaling the combination of physical machinery and digital services.",
+       "source_dois": [
+        "10.1016/j.procir.2019.04.114"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "On-Harvester Edge-AI Impurity and Tuber Defect Sorting Software",
+       "how": "Mounted camera vision and lightweight object detection models (e.g., YOLOX-small architecture) process conveyor belt flow at 40–50 FPS to identify stones, clods, and damaged tubers, triggering high-speed pneumatic actuators.",
+       "difference": "Operates directly on the mobile harvester in real time in the field, avoiding reliance on stationary post-harvest facility sorters.",
+       "overcomes": [
+        "İşçilik & ergonomi",
+        "Doğruluk & hata payı"
+       ],
+       "effect_assumptions": "Depends on reducing the volume of foreign matter transported to storage facilities and decreasing manual sorters required on the harvester inspection table.",
+       "regulation_fit": "Must comply with EU Data Act (Regulation (EU) 2023/2854) for machine-generated data access, EU Cyber Resilience Act (Regulation (EU) 2024/2847) for edge software cybersecurity, and EU AI Act machinery-embedded high-risk timelines.",
+       "premortem": "Optical occlusion caused by severe dust, mud coating, or harsh direct sunlight degrading model detection accuracy on the moving conveyor.",
+       "min_experiment": "Run a prototype camera-compute rig on a functional harvester conveyor across 5 distinct potato batches at 40 FPS; success threshold is impurity detection accuracy exceeding 85%.",
+       "source_dois": [
+        "10.3390/agronomy16030383",
+        "10.48130/tia-0025-0001"
+       ]
+      },
+      {
+       "title": "Open-Standard Digital Twin and PSS Software Platform for Potato Harvesters",
+       "how": "A cloud/edge SaaS platform aggregating harvester IoT telemetry (sorting efficiency, soil-tuber interaction parameters, throughput) to deliver real-time operational tuning and predictive maintenance via a digital twin interface.",
+       "difference": "Shifts machinery ownership toward a product-service system (PSS) that optimizes machine operation in real time rather than delivering static hardware.",
+       "overcomes": [
+        "Maliyet & yatırım",
+        "Veri & bağlantı"
+       ],
+       "effect_assumptions": "Depends on farmer willingness to share machinery operational data with third-party providers and the platform's ability to prevent unscheduled in-season breakdowns.",
+       "regulation_fit": "Directly supported by the EU Data Act (Regulation (EU) 2023/2854) provisions granting users and contractors free access to connected product data and third-party transfer rights.",
+       "premortem": "Intermittent rural cellular connectivity disrupting telemetry synchronization alongside contractor reluctance to adopt recurring digital service fees.",
+       "min_experiment": "Deploy telemetry loggers on 3 operational harvesters during a harvest window to test edge-caching and cloud sync; success threshold is less than 1% telemetry packet loss.",
+       "source_dois": [
+        "10.1016/j.procir.2019.04.114",
+        "10.3389/fpls.2023.1156734"
+       ]
+      }
+     ]
+    },
+    "proposals_meta": [
+     {
+      "type": "software",
+      "grades": {
+       "problem": "strong",
+       "evidence": "strong",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-data-act",
+       "eu-cra",
+       "eu-ai-act"
+      ],
+      "source_dois": [
+       "10.3390/agronomy16030383",
+       "10.48130/tia-0025-0001"
+      ],
+      "novelty_query": "potato harvester real-time AI impurity detection YOLOX"
+     },
+     {
+      "type": "business",
+      "grades": {
+       "problem": "medium",
+       "evidence": "medium",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "medium"
+      },
+      "regulations": [
+       "eu-data-act",
+       "eu-cra"
+      ],
+      "source_dois": [
+       "10.1016/j.procir.2019.04.114",
+       "10.3389/fpls.2023.1156734"
+      ],
+      "novelty_query": "potato harvesting digital twin product service system"
+     }
+    ]
+   },
+   "relevance": {
+    "tr": "Patates hasadında mekanik toplama sırasında yumru hasarı ve yabancı maddelerin (taş, toprak kesekleri) ayrıştırılması kritik bir problemdir; yapay zekâ ve yazılım katmanı bu süreçlerin otomasyonunda doğrudan etkilidir.",
+    "en": "Tuber damage and impurity separation (soil clods, stones) during mechanical harvesting are critical challenges where software and artificial intelligence layers directly automate operations."
+   },
+   "sources": [
+    {
+     "doi": "10.1016/j.procir.2019.04.114",
+     "title": "Business Models for Industrial Smart Services – The Example of a Digital Twin for a Product-Service-System for Potato Harvesting",
+     "year": 2019,
+     "countries": [
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.3389/fpls.2023.1156734",
+     "title": "Machinery for potato harvesting: a state-of-the-art review",
+     "year": 2023,
+     "countries": [
+      "GB"
+     ]
+    },
+    {
+     "doi": "10.1016/j.sna.2022.114106",
+     "title": "Artificial intelligence methods for classification and prediction of potatoes harvested from fertilized soil based on a sensor array response",
+     "year": 2022,
+     "countries": [
+      "MA"
+     ]
+    },
+    {
+     "doi": "10.5281/zenodo.21594775",
+     "title": "Decision Support System for reducing Post-Harvest Loss in Supply Chain Logistics using geographical Information System in Agriculture",
+     "year": 2018,
+     "countries": []
+    },
+    {
+     "doi": "10.48130/tia-0025-0001",
+     "title": "Challenges and innovations in potato harvester design: the role of artificial intelligence in improving crop sorting",
+     "year": 2025,
+     "countries": [
+      "IQ",
+      "TR"
+     ]
+    },
+    {
+     "doi": "10.1007/s11540-024-09773-6",
+     "title": "Potato Harvesting Prediction Using an Improved ResNet-59 Model",
+     "year": 2024,
+     "countries": [
+      "EG",
+      "JO",
+      "SA"
+     ]
+    },
+    {
+     "doi": "10.56093/potatoj.v50i1.134816",
+     "title": "ADAPTIVE MODELS FOR DETERMINING CROPLAND SUITABILITY AND TOTAL HARVEST PREDICTION FOR POTATO USING IOT",
+     "year": 2023,
+     "countries": []
+    },
+    {
+     "doi": "10.1007/s43926-024-00079-0",
+     "title": "SMART-CYPS: an intelligent internet of things and machine learning powered crop yield prediction system for food security",
+     "year": 2024,
+     "countries": [
+      "RW"
+     ]
+    },
+    {
+     "doi": "10.5958/2455-6963.2021.00004.7",
+     "title": "Deep Learning Model for Time-series Images to Discriminate Potato Crop in Punjab: Case Study of Monitoring Crop Harvesting",
+     "year": 2021,
+     "countries": [
+      "IN",
+      "NL"
+     ]
+    },
+    {
+     "doi": "10.3390/agriculture15030315",
+     "title": "Application of Discrete Element Method to Potato Harvesting Machinery: A Review",
+     "year": 2025,
+     "countries": [
+      "CN"
+     ]
+    },
+    {
+     "doi": "10.52015/nijec.v3i1.60",
+     "title": "Numerical investigation of future potato yields in Bangladesh using Machine learning and IoT",
+     "year": 2024,
+     "countries": [
+      "BD"
+     ]
+    },
+    {
+     "doi": "10.3390/rs11151745",
+     "title": "Potato Yield Prediction Using Machine Learning Techniques and Sentinel 2 Data",
+     "year": 2019,
+     "countries": [
+      "ES"
+     ]
+    },
+    {
+     "doi": "10.3390/agriculture13010225",
+     "title": "Crop Yield Prediction Using Machine Learning Models: Case of Irish Potato and Maize",
+     "year": 2023,
+     "countries": [
+      "RW"
+     ]
+    },
+    {
+     "doi": "10.3390/agronomy16030383",
+     "title": "Mobile AI-Powered Impurity Removal System for Decentralized Potato Harvesting",
+     "year": 2026,
+     "countries": [
+      "JP"
+     ]
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "Doğruluk & hata payı",
+     "en": "Accuracy & error rate",
+     "n": 2
+    },
+    {
+     "tr": "Görüş engeli (yaprak, örtüşme)",
+     "en": "Occlusion (leaves, overlap)",
+     "n": 1
+    },
+    {
+     "tr": "Maliyet & yatırım",
+     "en": "Cost & investment",
+     "n": 1
+    },
+    {
+     "tr": "İşçilik & ergonomi",
+     "en": "Labour & ergonomics",
+     "n": 1
+    },
+    {
+     "tr": "Veri & bağlantı",
+     "en": "Data & connectivity",
+     "n": 1
+    }
+   ],
+   "novelty": [
+    {
+     "query": "potato harvester real-time AI impurity detection YOLOX",
+     "count": 0,
+     "seen": false
+    },
+    {
+     "query": "potato harvesting digital twin product service system",
+     "count": 1,
+     "seen": false
+    }
+   ],
+   "checks": {
+    "issues": []
+   }
+  },
+  "audit": null
+ }
+}

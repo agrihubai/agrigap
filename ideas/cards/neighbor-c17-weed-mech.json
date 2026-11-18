@@ -1,0 +1,132 @@
+{
+ "id": "neighbor:c17:weed:mech",
+ "created": "2026-11-18T10:53:22.813364+00:00",
+ "candidate": {
+  "id": "neighbor:c17:weed:mech",
+  "type": "neighbor",
+  "crop": "c17",
+  "op": "weed",
+  "layer": "mech",
+  "w": 7,
+  "tr": 0,
+  "es": 2,
+  "eu": 3,
+  "score": 0.836,
+  "regulations": [
+   "eu-machinery-2023-1230",
+   "tr-makine-emniyeti-2026",
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ],
+  "neighbor": "c11",
+  "neighbor_w": 50,
+  "expected": 54
+ },
+ "query": "(mushroom OR Agaricus) AND (weed OR weeding OR hoeing OR \"inter-row\") AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+ "published": false,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-18",
+   "status": "irrelevant",
+   "reason": "Mantar yetiştiriciliği iklim kontrollü kapalı alanlarda, sterilize veya pasteörize edilmiş kompost ve substrat ortamında yapıldığı için toprak bazlı tarımdaki gibi yabancı ot çıkışı ve çapalama ihtiyacı bulunmamaktadır. Literatürdeki yayınlar, mantar yetiştiriciliği atığı olan kullanılmış mantar substratının (SMS) diğer ürünlerde (elma bahçeleri vb.) yabancı ot kontrolü amacıyla malç olarak kullanılmasını incelemektedir.",
+   "content": null,
+   "relevance": {
+    "tr": "Mantar yetiştiriciliği iklim kontrollü kapalı alanlarda, sterilize veya pasteörize edilmiş kompost ve substrat ortamında yapıldığı için toprak bazlı tarımdaki gibi yabancı ot çıkışı ve çapalama ihtiyacı bulunmamaktadır. Literatürdeki yayınlar, mantar yetiştiriciliği atığı olan kullanılmış mantar substratının (SMS) diğer ürünlerde (elma bahçeleri vb.) yabancı ot kontrolü amacıyla malç olarak kullanılmasını incelemektedir.",
+    "en": "Since mushroom cultivation is performed in climate-controlled indoor environments using sterilized or pasteurized compost/substrate, there is no occurrence of weeds or need for mechanical weeding and hoeing as in soil-based farming. Existing publications investigate the use of spent mushroom substrate (SMS) as mulch for weed control in other crops (e.g., apple orchards)."
+   },
+   "sources": [
+    {
+     "doi": "10.1016/j.biosystemseng.2019.12.012",
+     "title": "Mechanical characterization of blends containing recycled paper pulp and other lignocellulosic materials to develop hydromulches for weed control",
+     "year": 2020,
+     "countries": [
+      "ES"
+     ]
+    },
+    {
+     "doi": "10.1016/j.aiia.2020.11.001",
+     "title": "Crop plant signaling for real-time plant identification in smart farm: A systematic review and new concept in artificial intelligence for automated weed control",
+     "year": 2020,
+     "countries": [
+      "CN",
+      "US"
+     ]
+    },
+    {
+     "doi": "10.1007/s41348-023-00833-6",
+     "title": "Shoot and biomass reduction of perennial weeds using hydromulches and physical changes in the mulches",
+     "year": 2023,
+     "countries": [
+      "ES"
+     ]
+    },
+    {
+     "doi": "10.3390/agriculture12122070",
+     "title": "Different Floor Management Systems Affect Soil Properties and Initial Development of Apple Tree (Malus × domestica Borkh.) in an Orchard",
+     "year": 2022,
+     "countries": [
+      "PL"
+     ]
+    },
+    {
+     "doi": "10.14719/pst.11083",
+     "title": "Exploring the resource potential of water hyacinth and salvinia: A review",
+     "year": 2026,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1093/aob/mcq135",
+     "title": "Plant Cuttings",
+     "year": 2010,
+     "countries": []
+    },
+    {
+     "doi": "10.14321/qed.11.1.0087",
+     "title": "Queering Dystopia: The Last of Us Part II's Troubled Vision of Anarcho-Socialism",
+     "year": 2024,
+     "countries": []
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "Maliyet & yatırım",
+     "en": "Cost & investment",
+     "n": 2
+    },
+    {
+     "tr": "İşçilik & ergonomi",
+     "en": "Labour & ergonomics",
+     "n": 2
+    },
+    {
+     "tr": "Görüş engeli (yaprak, örtüşme)",
+     "en": "Occlusion (leaves, overlap)",
+     "n": 1
+    },
+    {
+     "tr": "Güvenlik & mevzuat",
+     "en": "Safety & regulation",
+     "n": 1
+    }
+   ],
+   "novelty": [],
+   "checks": {
+    "issues": []
+   }
+  },
+  "audit": null
+ }
+}

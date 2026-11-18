@@ -76,10 +76,12 @@
     "crop": "Zeytin",
     "region": "TR+EU",
     "focus": "Budama artıklarının yakılmadan yerinde değerlendirilmesi",
-    "status": "pending",
+    "status": "published",
     "crop_en": "olive",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "olive AND (\"pruning residues\" OR \"pruning biomass\" OR \"pruning waste\")"
+    "query": "olive AND (\"pruning residues\" OR \"pruning biomass\" OR \"pruning waste\")",
+    "report": "discoveries/2026-11-18-trg-006-zeytin.md",
+    "processed_at": "2026-11-18T09:49:25.048695+00:00"
   },
   {
     "id": "TRG-007",
@@ -88,10 +90,12 @@
     "crop": "Pamuk",
     "region": "TR",
     "focus": "Hasat sonrası sap artıklarının değerlendirilmesi ve sulama suyu verimliliği",
-    "status": "pending",
+    "status": "published",
     "crop_en": "cotton",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "cotton AND (\"cotton stalk\" OR \"cotton stalks\" OR \"deficit irrigation\" OR \"water use efficiency\")"
+    "query": "cotton AND (\"cotton stalk\" OR \"cotton stalks\" OR \"deficit irrigation\" OR \"water use efficiency\")",
+    "report": "discoveries/2026-11-18-trg-007-pamuk.md",
+    "processed_at": "2026-11-18T09:49:29.256830+00:00"
   },
   {
     "id": "TRG-008",
@@ -100,10 +104,12 @@
     "crop": "Şeker Pancarı",
     "region": "TR+EU",
     "focus": "Pancar yaprak ve posa artıklarının değerlendirilmesi; azotlu gübre kullanımının azaltılması",
-    "status": "pending",
+    "status": "published",
     "crop_en": "sugar beet",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "\"sugar beet\" AND (\"beet pulp\" OR \"beet leaves\" OR \"nitrogen use efficiency\" OR \"nitrogen fertilizer\")"
+    "query": "\"sugar beet\" AND (\"beet pulp\" OR \"beet leaves\" OR \"nitrogen use efficiency\" OR \"nitrogen fertilizer\")",
+    "report": "discoveries/2026-11-18-trg-008-seker-pancari.md",
+    "processed_at": "2026-11-18T09:49:33.035912+00:00"
   },
   {
     "id": "TRG-009",
@@ -332,5 +338,33 @@
     "link_domain": "labour",
     "status": "pending",
     "suggested_by": "TRG-005"
+  },
+  {
+    "id": "TRG-027",
+    "production_system": "Sebze Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Marul",
+    "crop_en": "lettuce",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "region": "TR",
+    "focus": "Tasnif, paketleme & izlenebilirlik işinde makine & donanım: dünyada 151 yayın var, TR kaynaklı yayın yok",
+    "query": "(lettuce) AND (grading OR sorting OR packaging OR packing OR labelling OR labeling OR traceability) AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c08|pack|mech"
+  },
+  {
+    "id": "TRG-028",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Zeytin & Yağlı Tohumlar",
+    "crop": "Zeytin",
+    "crop_en": "olive",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "region": "TR+EU",
+    "focus": "Budama artıklarının yakılmadan yerinde değerlendirilmesi — gıda güvenliği ve insan sağlığıyla kesişimi",
+    "query": "(olive AND (\"pruning residues\" OR \"pruning biomass\" OR \"pruning waste\")) AND (\"food safety\" OR residue OR mycotoxin OR aflatoxin OR \"heavy metal\")",
+    "link_domain": "food",
+    "status": "pending",
+    "suggested_by": "TRG-006"
   }
 ]

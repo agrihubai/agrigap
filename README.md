@@ -40,7 +40,10 @@ Uygulamanın ikinci sekmesi. 48 ürün × 18 iş adımı (toprak işlemeden hasa
 
 Her adaya ilgili mevzuat ve varsa ayrıntılı tarama bağlanır.
 
-**Aşama 2, öneri kartları (planlandı):** Ücretsiz bir yapay zekâ en güçlü 2 aday için yalnızca verilen kaynaklardan öneri kartı yazacak (makine, yazılım/yapay zekâ, uygulama/yöntem, biyolojik girdi/enzim, iş modeli). Ardından otomatik kaynak ve yenilik kontrolünden geçecek; ikinci bir ücretsiz yapay zekânın denetimi ayrıca planlanıyor.
+**Aşama 2, öneri kartları (katmanlı):** Her kart `ideas/cards/<id>.json` dosyasında katman katman büyür.
+- **Katman 1, yazar ([`scripts/idea_cards.py`](scripts/idea_cards.py)):** Gemini'nin ücretsiz katmanı (`GEMINI_API_KEY` secret'ı) her çalışmada en güçlü 2 aday için kart yazar. Kaynak olarak yalnızca OpenAlex'ten çekilen kaynak paketini (en ilgili 15 yayın), zorluk sinyallerini ve mevzuat listesini kullanır. Kart, Türkçe ve İngilizce olarak şu sırayı izler: sorun, mevcut çözümler (avantaj/dezavantaj), 2–3 öneri, etki varsayımları, mevzuat uyumu, çöküş riski, en küçük deney ve Güçlü/Orta/Zayıf değerlendirmesi. Öneri türleri: makine, yazılım/yapay zekâ, uygulama/yöntem, biyolojik girdi/enzim, iş modeli.
+- **Otomatik kontroller (yapay zekâsız):** pakette olmayan bir DOI ya da kaynaksız bir sayı/yüzde varsa kart reddedilir ve yayınlanmaz. "Bu iş bu ürün için anlamsız" denen adaylar elenir. Yenilik kontrolünde önerinin anahtar kelimeleri OpenAlex'te aranır.
+- **Katman 2, denetçi (planlandı):** ikinci, bağımsız bir ücretsiz yapay zekâ.
 
 ### Mevzuat listesi
 

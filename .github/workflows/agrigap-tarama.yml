@@ -21,6 +21,10 @@ on:
         description: 'Haritada bu çalışmada yenilenecek ürün sayısı (0 = harita atlanır)'
         required: false
         default: '12'
+      cards:
+        description: 'Yazılacak öneri kartı sayısı (0 = atlanır)'
+        required: false
+        default: '2'
 
 permissions:
   contents: write
@@ -75,6 +79,21 @@ jobs:
         if: steps.guard.outputs.skip != 'true'
         run: python scripts/ideas.py
 
+      - name: Yeni Öneriler — öneri kartı (yapay zekâ katmanı 1, Gemini ücretsiz)
+        id: cards
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          EVENT: ${{ github.event_name }}
+          CARDS: ${{ inputs.cards || '2' }}
+        run: |
+          DOW=$(date -u +%u)
+          if [ "$EVENT" = "schedule" ] && [ "$DOW" != "1" ] && [ "$DOW" != "3" ] && [ "$DOW" != "5" ]; then
+            echo "Bugün kart günü değil (Pzt/Çar/Cum)."; exit 0
+          fi
+          if [ "$CARDS" != "0" ]; then python scripts/idea_cards.py --count "$CARDS"; fi
+
       - name: Kaynak tarama (OpenAlex)
         id: scan
         if: steps.guard.outputs.skip != 'true'
@@ -94,7 +113,7 @@ jobs:
           fi
 
       - name: main dalına yükle
-        if: steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true'
+        if: steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true' || steps.cards.outputs.cards != '0' && steps.cards.outputs.cards != ''
         env:
           TID: ${{ steps.scan.outputs.target_id }}
           TITLE: ${{ steps.scan.outputs.title }}
@@ -102,12 +121,13 @@ jobs:
           git config user.name "agrigap-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add discoveries core/targets.json matrix ideas
-          git commit -m "tarama: ${TITLE:-harita güncellendi}"
+          git diff --cached --quiet && { echo "Değişiklik yok."; exit 0; }
+          git commit -m "tarama: ${TITLE:-harita/öneri güncellendi}"
           git pull --rebase origin main
           git push origin HEAD:main
 
       - name: Siteyi yenile (GitHub Pages)
-        if: steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true'
+        if: steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true' || steps.cards.outputs.cards != '0' && steps.cards.outputs.cards != ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}

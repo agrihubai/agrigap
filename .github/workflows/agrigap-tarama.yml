@@ -10,6 +10,7 @@ name: AgriGap Otomatik Tarama (ücretsiz)
 on:
   schedule:
     - cron: '23 6 * * *'   # her gün; raporlar yalnız Pzt/Çar/Cum, diğer günler harita yalnız eksik ürünleri doldurur
+    - cron: '47 10 * * *'  # yedek: GitHub ilk zamanlamayı atlarsa; o gün zaten çalıştıysa hiçbir şey yapmaz
   workflow_dispatch:
     inputs:
       target_id:
@@ -40,8 +41,22 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Bugün zaten çalıştı mı?
+        id: guard
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          git fetch -q --depth=30 origin main
+          TODAY=$(date -u +%Y-%m-%d)
+          if [ "$EVENT" = "schedule" ] && git log origin/main --since="$TODAY 00:00 UTC" --author="agrigap-bot" --format=%h | grep -q .; then
+            echo "Bugün zaten çalıştı; yedek zamanlama atlandı."; echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Teknoloji Boşluk Haritası (OpenAlex)
         id: matrix
+        if: steps.guard.outputs.skip != 'true'
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           CROPS: ${{ inputs.matrix_crops || '12' }}
@@ -57,6 +72,7 @@ jobs:
 
       - name: Kaynak tarama (OpenAlex)
         id: scan
+        if: steps.guard.outputs.skip != 'true'
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           TARGET_ID: ${{ inputs.target_id }}

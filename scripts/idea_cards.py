@@ -111,15 +111,16 @@ def gemini_req(path, body=None):
         return json.loads(r.read().decode("utf-8"))
 
 
-def pick_model():
+def pick_models():
+    """Kullanılabilir 'flash' modellerini sırala: önce kararlı, sonra en yeni. Biri yanıt vermezse sıradaki denenir."""
     if os.environ.get("GEMINI_MODEL"):
-        return os.environ["GEMINI_MODEL"]
+        return [os.environ["GEMINI_MODEL"]]
     try:
         models = gemini_req("models?pageSize=200").get("models", [])
-    except Exception as e:  # liste alınamazsa bilinen bir ad dene
-        print(f"[UYARI] Model listesi alınamadı ({e}); varsayılan deneniyor.")
-        return "gemini-2.5-flash"
-    bad = ("lite", "image", "tts", "live", "audio", "embedding", "vision", "thinking-exp", "learnlm", "gemma")
+    except Exception as e:  # liste alınamazsa bilinen adları dene
+        print(f"[UYARI] Model listesi alınamadı ({e}); varsayılanlar deneniyor.")
+        return ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
+    bad = ("image", "tts", "live", "audio", "embedding", "vision", "thinking-exp", "learnlm", "gemma", "robotics", "computer")
     ok = []
     for m in models:
         name = m.get("name", "").split("/")[-1]
@@ -127,32 +128,38 @@ def pick_model():
             continue
         if "flash" in name and not any(b in name for b in bad):
             ver = [int(x) for x in re.findall(r"\d+", name)[:2]] or [0]
-            ok.append((ver, "preview" not in name and "exp" not in name, name))
-    if not ok:
-        return "gemini-2.5-flash"
-    ok.sort(key=lambda x: (x[1], x[0]), reverse=True)  # önce kararlı sürüm, sonra en yeni
-    return ok[0][2]
+            stable = "preview" not in name and "exp" not in name
+            ok.append(("lite" not in name, stable, ver, name))
+    ok.sort(reverse=True)  # önce tam flash, kararlı, en yeni; lite en sonda yedek
+    return [x[3] for x in ok][:5] or ["gemini-2.5-flash"]
 
 
-def gemini_write(model, prompt):
+class ModelBusy(Exception):
+    pass
+
+
+def gemini_write(models, prompt):
     body = {"systemInstruction": {"parts": [{"text": SYSTEM}]},
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {"temperature": 0.4, "responseMimeType": "application/json"}}
-    last = None
-    for attempt in range(3):
-        try:
-            data = gemini_req(f"models/{model}:generateContent", body)
-            parts = data["candidates"][0]["content"]["parts"]
-            return json.loads("".join(p.get("text", "") for p in parts))
-        except urllib.error.HTTPError as e:
-            last = f"HTTP {e.code}"
-            if e.code in (400, 401, 403, 404):
-                break
-            time.sleep(20 * (attempt + 1))
-        except (KeyError, IndexError, json.JSONDecodeError, urllib.error.URLError, TimeoutError) as e:
-            last = type(e).__name__
-            time.sleep(10)
-    raise ss.ScanSkipped(f"Gemini yanıt vermedi ({last}); ücretsiz kota dolmuş olabilir, aday bekliyor.")
+    tried = []
+    for model in models:
+        for attempt in range(2):
+            try:
+                data = gemini_req(f"models/{model}:generateContent", body)
+                parts = data["candidates"][0]["content"]["parts"]
+                return model, json.loads("".join(p.get("text", "") for p in parts))
+            except urllib.error.HTTPError as e:
+                tried.append(f"{model}: HTTP {e.code}")
+                if e.code in (400, 401, 403):
+                    raise ss.ScanSkipped(f"Gemini isteği reddedildi ({model}: HTTP {e.code}); anahtarı kontrol edin.")
+                if e.code in (404, 429):  # bu model yok ya da kotası doldu: sıradaki modele geç
+                    break
+                time.sleep(15 * (attempt + 1))  # 500/503: kısa bekle, bir kez daha dene
+            except (KeyError, IndexError, json.JSONDecodeError, urllib.error.URLError, TimeoutError) as e:
+                tried.append(f"{model}: {type(e).__name__}")
+                time.sleep(5)
+    raise ss.ScanSkipped("Gemini yanıt vermedi (" + "; ".join(tried) + "); aday bekliyor.")
 
 
 # ---------- kaynak paketi ----------
@@ -348,8 +355,9 @@ def main():
     CARDS_DIR.mkdir(parents=True, exist_ok=True)
     have = {f.stem for f in CARDS_DIR.glob("*.json")}
     picks = next_candidates(cands["candidates"], have, args.count)
-    model = "mock" if args.mock else pick_model()
-    print(f"Model: {model} · {len(picks)} aday")
+    models = ["mock"] if args.mock else pick_models()
+    print(f"Modeller (sırayla): {', '.join(models)} · {len(picks)} aday")
+    model = models[0]
     layers = {x["key"]: x for x in m["layers"]}
     made = 0
     for c in picks:
@@ -366,7 +374,10 @@ def main():
                 cons = constraints(ev)
                 rel_regs = [r for r in regs if r["id"] in c.get("regulations", [])]
                 prompt = build_prompt(c, crop, op, layers[c["layer"]]["tr"], ev, cons, rel_regs, total)
-                card = mock_card(ev) if args.mock else gemini_write(model, prompt)
+                if args.mock:
+                    card = mock_card(ev)
+                else:
+                    model, card = gemini_write(models, prompt)
                 issues = check(card, ev)
                 if not card.get("relevant", True):
                     status, reason = "irrelevant", (card.get("relevance_reason") or {}).get("tr", "")

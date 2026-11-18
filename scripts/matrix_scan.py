@@ -95,6 +95,8 @@ def auto_queue(m, targets):
              "crop_group": c["group"], "crop": c["tr"], "crop_en": c["en"], "stage": o["stage"],
              "region": aq["region"],
              "focus": f"{o['tr']} işinde {layer['tr'].lower()}: dünyada {w} yayın var, {aq['region']} kaynaklı yayın yok",
+             "focus_en": f"{o['en']} — {layer['en'].lower()}: {w} publications worldwide, none from {aq['region']}",
+             "crop_label_en": c.get("label_en", c["tr"]),
              "query": cell_query(c, o, layer), "status": "pending", "suggested_by": "Teknoloji Boşluk Haritası",
              "matrix_cell": mk}
         targets.append(t)

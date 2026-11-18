@@ -185,7 +185,7 @@ table.mx td.sel button{outline:3px solid var(--loam);outline-offset:-3px}
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
   </header>
-  <nav class="tabs" aria-label="Bölümler">
+  <nav class="tabs" aria-label="AgriGap">
     <a href="#/" data-tab="reports" data-i18n="tabReports"></a>
     <a href="#/harita" data-tab="map" data-i18n="tabMap"></a>
   </nav>
@@ -216,7 +216,7 @@ const T = {
     none:"Bu filtrelere uyan rapor yok. Filtreleri temizleyip tekrar deneyin.",
     queue:"Sıradaki taramalar", qn:(p,q)=>`${p} rapor yayımlandı, ${q} konu kuyrukta`, from:id=>`${id} raporundan önerildi`,
     back:"Tüm raporlar", decision:"Durum kararı", crop:"Ürün", region:"Bölge", solution:"Çözüm türü", date:"Tarih",
-    md:"Raporun Markdown dosyası", enNote:"", link:"Görünmeyen bağlantı",
+    md:"Raporun Markdown dosyası", enNote:"", trOnly:"", link:"Görünmeyen bağlantı",
     auto:"Otomatik tarama", deep:"Derin rapor", kind:"Rapor türü",
     tabReports:"Raporlar", tabMap:"Teknoloji Boşluk Haritası",
     mxIntro:"Her hücre, bir ürünün bir iş adımında makine ya da yazılım/yapay zekâ üzerine kaç yayın olduğunu gösterir (OpenAlex, 2010 sonrası, yazar ülkesine göre). Mor hücreler dünyada neredeyse hiç çalışılmamış konulardır; sarı hücreler dünyada çalışılmış ama seçilen bölgede yayını olmayan, yani aktarım adayı konulardır. Sayılar yayın sayısıdır, sahadaki kullanım değildir; bazı boş hücreler o ürün için anlamsız bir iş adımı olabilir.",
@@ -241,10 +241,10 @@ const T = {
     none:"No reports match these filters. Clear the filters and try again.",
     queue:"Up next", qn:(p,q)=>`${p} published, ${q} in the queue`, from:id=>`Suggested by ${id}`,
     back:"All reports", decision:"Decision", crop:"Crop", region:"Region", solution:"Solution type", date:"Date",
-    md:"Markdown source of this report", enNote:"Report texts are currently in Turkish.", link:"Hidden link",
+    md:"Markdown source of this report", enNote:"This in-depth report is available in Turkish only.", trOnly:"Turkish only", link:"Hidden link",
     auto:"Automatic scan", deep:"In-depth report", kind:"Report type",
     tabReports:"Reports", tabMap:"Technology Gap Map",
-    mxIntro:"Each cell shows how many publications cover machinery or software/AI for one crop and one farm task (OpenAlex, since 2010, by author country). Purple cells are topics barely studied anywhere; amber cells are studied worldwide but have no publications from the selected region, i.e. transfer candidates. Counts are publications, not field adoption; some empty cells may be tasks that make no sense for that crop. Row and column labels are in Turkish.",
+    mxIntro:"Each cell shows how many publications cover machinery or software/AI for one crop and one farm task (OpenAlex, since 2010, by author country). Purple cells are topics barely studied anywhere; amber cells are studied worldwide but have no publications from the selected region, i.e. transfer candidates. Counts are publications, not field adoption; some empty cells may be tasks that make no sense for that crop. ",
     mxStatus:(a,b,d)=>`${a} of ${b} crops scanned · last update ${d} · the map advances a few crops per run`,
     mxLayer:"Layer", mxView:"Showing", vW:"World", vTR:"Türkiye", vES:"Spain", vEU:"EU (approx.)", gTR:"Gaps: Türkiye", gES:"Gaps: Spain",
     lgW:"Global gap (fewer than 5)", lgR:"Regional gap (30+ worldwide, at most 1 in region)", lgNA:"Not scanned yet", lgS:"Darker = more publications",
@@ -277,9 +277,26 @@ function setLang(l){
 }
 document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 
+const TAXEN = {
+  "Örtü Altı Yetiştiriciliği":"Protected (greenhouse) cultivation","Açık Tarla Tarımı":"Open-field farming",
+  "Çok Yıllık Bahçe & Bağcılık":"Perennial orchards & vineyards","Sebze Yetiştiriciliği":"Vegetable growing",
+  "Sebzeler":"Vegetables","Meyveler":"Fruit","Zeytin & Yağlı Tohumlar":"Olives & oilseeds","Tarla Bitkileri":"Field crops",
+  "Zeytin & Sert Kabuklular":"Olives & nuts",
+  "Toprak & Girdi":"Soil & Inputs","Yetiştirme & Bitki Koruma":"Growing & Crop Protection","Hasat & Mekanizasyon":"Harvest & Mechanisation",
+  "Hasat Sonrası & Biyo-Atık":"Post-harvest & Bio-waste",
+  "Makine & Otonomi":"Machinery & Autonomy","Döngüsel Biyo-Ekonomi":"Circular Bio-economy","Biyolojik Mücadele & Girdi":"Biological Control & Inputs",
+  "Islah & Genetik":"Breeding & Genetics",
+  "Planlama & hazırlık":"Planning & preparation","Bakım & besleme":"Crop care & nutrition","Hasat & sonrası":"Harvest & post-harvest","Yönetim & takip":"Management & tracking",
+  "Teknoloji Boşluk Haritası":"Technology Gap Map"
+};
+const tx = v => lang==="en" ? (TAXEN[v]||v) : v;
+const rf = (r,k) => lang==="en" && r[k+"_en"] ? r[k+"_en"] : r[k];
+const tgt = id => state.targets.find(x=>x.id===id) || {};
+const cropName = r => lang==="en" ? (tgt(r.id).crop_label_en || r.crop) : r.crop;
+
 function options(key,label,cur){
-  const vals=[...new Set(state.reports.map(r=>r[key]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"tr"));
-  return `<label>${label}<select data-f="${key}"><option value="">${t("all")}</option>${vals.map(v=>`<option ${v===cur?"selected":""}>${esc(v)}</option>`).join("")}</select></label>`;
+  const vals=[...new Set(state.reports.map(r=>r[key]).filter(Boolean))].sort((a,b)=>tx(a).localeCompare(tx(b),lang));
+  return `<label>${label}<select data-f="${key}"><option value="">${t("all")}</option>${vals.map(v=>`<option value="${esc(v)}" ${v===cur?"selected":""}>${esc(tx(v))}</option>`).join("")}</select></label>`;
 }
 
 function queueHtml(){
@@ -287,8 +304,8 @@ function queueHtml(){
   if(!state.targets.length) return "";
   return `<section class="queue"><h2>${t("queue")}</h2>
     <p class="qn">${t("qn")(state.reports.length,pend.length)}</p>
-    <ul class="qlist">${pend.slice(0,6).map(x=>`<li><b>${esc(x.crop)}</b>${esc(x.focus)}
-      ${x.suggested_by?`<span class="src">${t("from")(esc(x.suggested_by))}</span>`:""}</li>`).join("")}</ul></section>`;
+    <ul class="qlist">${pend.slice(0,6).map(x=>`<li><b>${esc(lang==="en"?(x.crop_label_en||x.crop):x.crop)}</b>${esc(lang==="en"?(x.focus_en||x.focus):x.focus)}
+      ${x.suggested_by?`<span class="src">${t("from")(esc(tx(x.suggested_by)))}</span>`:""}</li>`).join("")}</ul></section>`;
 }
 
 function home(){
@@ -312,10 +329,10 @@ function home(){
     ${f.length?`<ul class="list">${f.map(r=>`
       <li class="item"><a href="#/r/${encodeURIComponent(r.id)}">
         <span class="bar" style="background:var(--${r.decision||"line"})" aria-hidden="true"></span>
-        <span class="when"><b>${esc(r.crop)}</b>${esc(r.date)}</span>
-        <span class="body"><h2 class="t">${esc(r.title)}</h2><p class="f">${esc(r.finding)}</p>
-          ${r.link?`<p class="lk">${LINK_ICON("var(--leaf)")}<span><b>${t("link")}:</b>${esc(r.link)}</span></p>`:""}
-          <div class="tax">${kindTag(r)}${esc([r.production_system,r.stage,r.region].filter(Boolean).join(" / "))}</div></span>
+        <span class="when"><b>${esc(cropName(r))}</b>${esc(r.date)}</span>
+        <span class="body"><h2 class="t" ${lang==="en"&&!r.title_en?'lang="tr"':""}>${esc(rf(r,"title"))}</h2><p class="f">${esc(rf(r,"finding"))}</p>
+          ${r.link?`<p class="lk">${LINK_ICON("var(--leaf)")}<span><b>${t("link")}:</b>${esc(rf(r,"link"))}</span></p>`:""}
+          <div class="tax">${kindTag(r)}${lang==="en"&&!r.title_en?`<span class="kind deep" style="background:#E1E8E2;color:var(--loam)">${t("trOnly")}</span>`:""}${esc([tx(r.production_system),tx(r.stage),r.region].filter(Boolean).join(" / "))}</div></span>
       </a></li>`).join("")}</ul>`:`<p class="empty">${state.reports.length?t("none"):t("n")(0)}</p>`}
     ${queueHtml()}`;
   app.querySelectorAll(".band").forEach(b=>b.onclick=()=>{state.d=state.d===b.dataset.d?null:b.dataset.d;home();});
@@ -328,35 +345,36 @@ async function report(id){
   if(!r){ location.hash="#/"; return; }
   app.innerHTML = `<a class="back" href="#/">${t("back")}</a>`;
   let md;
-  try{ md = await (await fetch("discoveries/"+r.file)).text(); }
+  const useEn = lang==="en" && r.file_en;
+  try{ md = await (await fetch("discoveries/"+(useEn?r.file_en:r.file))).text(); }
   catch(e){ app.innerHTML += `<p class="empty">${t("loadErr")}</p>`; return; }
   md = md.replace(/^---[\s\S]*?---\s*/,"");
   const body = md.slice(Math.max(0, md.search(/^## /m)));
   let html = DOMPurify.sanitize(marked.parse(body));
   html = html.replace(/<table>/g,'<div class="tablewrap"><table>').replace(/<\/table>/g,"</table></div>");
-  document.title = r.title + " — AgriGap";
+  document.title = rf(r,"title") + " — AgriGap";
   app.innerHTML = `<a class="back" href="#/">${t("back")}</a>
   <div class="report">
     <aside class="meta">
       <div class="dec" style="background:var(--${r.decision})"><span class="letter">${esc(r.decision)}</span><span>${t(r.decision)||""}</span></div>
-      <p class="why">${esc(r.decision_reason)}</p>
+      <p class="why">${esc(rf(r,"decision_reason"))}</p>
       <dl>
-        <dt>${t("crop")}</dt><dd>${esc(r.crop)} (${esc(r.crop_group)})</dd>
-        <dt>${t("system")}</dt><dd>${esc(r.production_system)}</dd>
-        <dt>${t("stage")}</dt><dd>${esc(r.stage)}</dd>
-        <dt>${t("solution")}</dt><dd>${esc(r.solution_type)}</dd>
+        <dt>${t("crop")}</dt><dd>${esc(cropName(r))} (${esc(tx(r.crop_group))})</dd>
+        <dt>${t("system")}</dt><dd>${esc(tx(r.production_system))}</dd>
+        <dt>${t("stage")}</dt><dd>${esc(tx(r.stage))}</dd>
+        <dt>${t("solution")}</dt><dd>${esc(tx(r.solution_type))}</dd>
         <dt>${t("region")}</dt><dd>${esc(r.region)}</dd>
         <dt>${t("date")}</dt><dd>${esc(r.date)}</dd>
         <dt>${t("kind")}</dt><dd>${kindTag(r)}<span class="why" style="display:block;margin-top:6px">${t(r.kind==="auto"?"autoWhy":"deepWhy")}</span></dd>
       </dl>
-      <p><a href="https://github.com/agrihubai/agrigap/blob/main/discoveries/${encodeURIComponent(r.file)}">${t("md")}</a></p>
+      <p><a href="https://github.com/agrihubai/agrigap/blob/main/discoveries/${encodeURIComponent(useEn?r.file_en:r.file)}">${t("md")}</a></p>
     </aside>
     <article>
-      <h1>${esc(r.title)}</h1>
-      ${t("enNote")?`<p class="note">${t("enNote")}</p>`:""}
-      <p class="finding">${esc(r.finding)}</p>
-      ${r.link?`<div class="linkbox">${LINK_ICON("#B9D7BE")}<span><b>${t("link")}</b>${esc(r.link)}</span></div>`:""}
-      ${html}
+      <h1>${esc(rf(r,"title"))}</h1>
+      ${lang==="en"&&!useEn?`<p class="note">${t("enNote")}</p>`:""}
+      <p class="finding">${esc(rf(r,"finding"))}</p>
+      ${r.link?`<div class="linkbox">${LINK_ICON("#B9D7BE")}<span><b>${t("link")}</b>${esc(rf(r,"link"))}</span></div>`:""}
+      <div ${lang==="en"&&!useEn?'lang="tr"':""}>${html}</div>
     </article>
   </div>`;
   app.focus({preventScroll:true}); window.scrollTo(0,0);
@@ -397,16 +415,17 @@ function mapPage(){
   const groups = [...new Set(m.crops.map(c=>c.group))];
   const vkey = {w:"w",vTR:"tr",vES:"es",vEU:"eu",gTR:"gTR",gES:"gES"};
   const vk = vkey[view]||"w";
-  let head1 = `<tr><th class="rh" rowspan="2"></th>${phases.map(p=>`<th colspan="${m.ops.filter(o=>o.phase===p).length}">${esc(p)}</th>`).join("")}</tr>`;
-  let head2 = `<tr>${m.ops.map(o=>`<th title="${esc(o.tr)}"><span>${esc(o.tr)}</span></th>`).join("")}</tr>`;
-  let body = groups.map(g=>`<tr class="grp"><th colspan="${m.ops.length+1}">${esc(g)}</th></tr>`+
-    m.crops.filter(c=>c.group===g).map(c=>`<tr><th class="rh" scope="row">${esc(c.tr)}</th>${m.ops.map(o=>{
+  const oN = o => lang==="en" ? (o.en||o.tr) : o.tr, cN = c => lang==="en" ? (c.label_en||c.tr) : c.tr;
+  let head1 = `<tr><th class="rh" rowspan="2"></th>${phases.map(p=>`<th colspan="${m.ops.filter(o=>o.phase===p).length}">${esc(tx(p))}</th>`).join("")}</tr>`;
+  let head2 = `<tr>${m.ops.map(o=>`<th title="${esc(oN(o))}"><span>${esc(oN(o))}</span></th>`).join("")}</tr>`;
+  let body = groups.map(g=>`<tr class="grp"><th colspan="${m.ops.length+1}">${esc(tx(g))}</th></tr>`+
+    m.crops.filter(c=>c.group===g).map(c=>`<tr><th class="rh" scope="row">${esc(cN(c))}</th>${m.ops.map(o=>{
       const cell = m.cells[`${c.key}|${o.key}`]; const v = cell && cell[layer];
       const isSel = mx.sel && mx.sel[0]===c.key && mx.sel[1]===o.key;
-      if(!v) return `<td class="na${isSel?" sel":""}"><button type="button" data-c="${c.key}" data-o="${o.key}" aria-label="${esc(c.tr)} · ${esc(o.tr)}">·</button></td>`;
+      if(!v) return `<td class="na${isSel?" sel":""}"><button type="button" data-c="${c.key}" data-o="${o.key}" aria-label="${esc(cN(c))} · ${esc(oN(o))}">·</button></td>`;
       const val = mxVal(v, vk);
       const cls = mxClass(v, vk);
-      return `<td class="${isSel?"sel":""}"><button type="button" class="${cls}" style="${cls?"":mxBg(val,max)}" data-c="${c.key}" data-o="${o.key}" aria-label="${esc(c.tr)} · ${esc(o.tr)}: ${val}">${val}</button></td>`;
+      return `<td class="${isSel?"sel":""}"><button type="button" class="${cls}" style="${cls?"":mxBg(val,max)}" data-c="${c.key}" data-o="${o.key}" aria-label="${esc(cN(c))} · ${esc(oN(o))}: ${val}">${val}</button></td>`;
     }).join("")}</tr>`).join("")).join("");
   app.innerHTML = `
     <p class="mx-intro">${t("mxIntro")}</p>
@@ -431,12 +450,13 @@ function mxDetail(){
   const m = mx.data; if(!mx.sel) return `<p>${t("mxPick")}</p>`;
   const c = m.crops.find(x=>x.key===mx.sel[0]), o = m.ops.find(x=>x.key===mx.sel[1]);
   const cell = m.cells[`${c.key}|${o.key}`];
-  if(!cell) return `<h3>${esc(c.tr)} · ${esc(o.tr)}</h3><p>${t("mxNone")}</p>`;
+  const head = `${esc(lang==="en"?(c.label_en||c.tr):c.tr)} · ${esc(lang==="en"?(o.en||o.tr):o.tr)}`;
+  if(!cell) return `<h3>${head}</h3><p>${t("mxNone")}</p>`;
   const rows = m.layers.map(l=>{const v=cell[l.key]||{};return `<tr><th>${esc(lang==="en"?l.en:l.tr)}</th><td>${v.w??"—"}</td><td>${v.tr??"—"}</td><td>${v.es??"—"}</td><td>${v.eu??"—"}</td></tr>`;}).join("");
   const notes = m.layers.map(l=>{const q=mxQueue(c.key,o.key,l.key); if(!q) return "";
     const r = state.reports.find(x=>x.id===q.id);
     return `<p>${esc(lang==="en"?l.en:l.tr)}: ${r?`<a href="#/r/${encodeURIComponent(q.id)}">${t("mxReport")(q.id)}</a>`:t("mxQueued")(q.id)}</p>`;}).join("");
-  return `<h3>${esc(c.tr)} · ${esc(o.tr)}</h3>
+  return `<h3>${head}</h3>
     <table><thead><tr><th></th><th>${t("vW")}</th><th>${t("vTR")}</th><th>${t("vES")}</th><th>${t("vEU")}</th></tr></thead><tbody>${rows}</tbody></table>
     ${notes}<p>${t("mxEU")}</p>`;
 }
@@ -447,7 +467,7 @@ function route(){
   if(isMap){ document.title = t("tabMap")+" — AgriGap"; mapPage(); return; }
   const m = location.hash.match(/^#\/r\/(.+)$/);
   if(m) report(decodeURIComponent(m[1]));
-  else { document.title="AgriGap — Tarımdaki çözüm boşlukları"; home(); }
+  else { document.title = lang==="en" ? "AgriGap — Solution gaps in farming" : "AgriGap — Tarımdaki çözüm boşlukları"; home(); }
 }
 window.addEventListener("hashchange",route);
 

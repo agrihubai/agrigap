@@ -11,7 +11,9 @@
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)",
     "report": "discoveries/2026-11-17-trg-001-domates.md",
-    "processed_at": "2026-11-17T14:25:46.147222+00:00"
+    "processed_at": "2026-11-17T14:25:46.147222+00:00",
+    "crop_label_en": "Tomato",
+    "focus_en": "EU pesticide reduction (Farm to Fork) and greenhouse labour and climate-control costs"
   },
   {
     "id": "TRG-002",
@@ -25,7 +27,9 @@
     "processed_at": "2026-11-16T18:26:05.563385+00:00",
     "crop_en": "banana",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "banana AND (pseudostem OR \"banana waste\" OR \"banana residue\" OR \"banana leaves\")"
+    "query": "banana AND (pseudostem OR \"banana waste\" OR \"banana residue\" OR \"banana leaves\")",
+    "crop_label_en": "Banana",
+    "focus_en": "Putting high-moisture post-harvest pseudostem and leaf waste to use on site"
   },
   {
     "id": "TRG-003",
@@ -39,7 +43,9 @@
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "(\"olive mill wastewater\" OR \"olive pomace\" OR \"olive mill waste\")",
     "report": "discoveries/2026-11-17-trg-003-zeytin.md",
-    "processed_at": "2026-11-17T14:26:00.255648+00:00"
+    "processed_at": "2026-11-17T14:26:00.255648+00:00",
+    "crop_label_en": "Olive",
+    "focus_en": "Zero-waste conversion of olive mill wastewater and pomace in line with environmental rules"
   },
   {
     "id": "TRG-004",
@@ -53,7 +59,9 @@
     "stage": "Toprak & Girdi",
     "query": "wheat AND (\"stubble burning\" OR \"crop residue\" OR \"soil organic carbon\") AND (drought OR rainfed OR dryland)",
     "report": "discoveries/2026-11-17-trg-004-bugday.md",
-    "processed_at": "2026-11-17T14:26:15.523085+00:00"
+    "processed_at": "2026-11-17T14:26:15.523085+00:00",
+    "crop_label_en": "Wheat",
+    "focus_en": "Drought stress in rainfed farming, the stubble-burning ban and soil organic carbon loss"
   },
   {
     "id": "TRG-005",
@@ -67,7 +75,9 @@
     "stage": "Hasat & Mekanizasyon",
     "query": "hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")",
     "report": "discoveries/2026-11-17-trg-005-findik.md",
-    "processed_at": "2026-11-17T14:26:29.997336+00:00"
+    "processed_at": "2026-11-17T14:26:29.997336+00:00",
+    "crop_label_en": "Hazelnut",
+    "focus_en": "Lack of mechanised harvesting on steep land and biological control of the brown marmorated stink bug"
   },
   {
     "id": "TRG-006",
@@ -81,7 +91,9 @@
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "olive AND (\"pruning residues\" OR \"pruning biomass\" OR \"pruning waste\")",
     "report": "discoveries/2026-11-18-trg-006-zeytin.md",
-    "processed_at": "2026-11-18T09:49:25.048695+00:00"
+    "processed_at": "2026-11-18T09:49:25.048695+00:00",
+    "crop_label_en": "Olive",
+    "focus_en": "Using pruning residues on site instead of burning them"
   },
   {
     "id": "TRG-007",
@@ -95,7 +107,9 @@
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "cotton AND (\"cotton stalk\" OR \"cotton stalks\" OR \"deficit irrigation\" OR \"water use efficiency\")",
     "report": "discoveries/2026-11-18-trg-007-pamuk.md",
-    "processed_at": "2026-11-18T09:49:29.256830+00:00"
+    "processed_at": "2026-11-18T09:49:29.256830+00:00",
+    "crop_label_en": "Cotton",
+    "focus_en": "Using post-harvest stalk residues and improving irrigation water efficiency"
   },
   {
     "id": "TRG-008",
@@ -109,7 +123,9 @@
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "\"sugar beet\" AND (\"beet pulp\" OR \"beet leaves\" OR \"nitrogen use efficiency\" OR \"nitrogen fertilizer\")",
     "report": "discoveries/2026-11-18-trg-008-seker-pancari.md",
-    "processed_at": "2026-11-18T09:49:33.035912+00:00"
+    "processed_at": "2026-11-18T09:49:33.035912+00:00",
+    "crop_label_en": "Sugar beet",
+    "focus_en": "Using beet leaves and pulp; reducing nitrogen fertiliser use"
   },
   {
     "id": "TRG-009",
@@ -121,7 +137,9 @@
     "status": "pending",
     "crop_en": "orange",
     "stage": "Hasat & Mekanizasyon",
-    "query": "(orange OR citrus) AND (\"harvest mechanization\" OR \"mechanical harvesting\" OR \"citrus waste\" OR \"orange peel\" OR \"fruit loss\")"
+    "query": "(orange OR citrus) AND (\"harvest mechanization\" OR \"mechanical harvesting\" OR \"citrus waste\" OR \"orange peel\" OR \"fruit loss\")",
+    "crop_label_en": "Orange",
+    "focus_en": "Harvest labour shortage and use of unmarketable (rejected) fruit"
   },
   {
     "id": "TRG-010",
@@ -133,7 +151,9 @@
     "status": "pending",
     "crop_en": "tomato",
     "stage": "Toprak & Girdi",
-    "query": "(soilless OR hydroponic) AND (tomato OR greenhouse) AND (\"drainage water\" OR \"rockwool waste\" OR \"used substrate\" OR \"coir\" OR recirculation)"
+    "query": "(soilless OR hydroponic) AND (tomato OR greenhouse) AND (\"drainage water\" OR \"rockwool waste\" OR \"used substrate\" OR \"coir\" OR recirculation)",
+    "crop_label_en": "Tomato",
+    "focus_en": "Drainage water and spent growing media (rockwool, coir) waste in soilless growing"
   },
   {
     "id": "TRG-011",
@@ -145,7 +165,9 @@
     "status": "pending",
     "crop_en": "maize",
     "stage": "Toprak & Girdi",
-    "query": "maize AND (\"irrigation scheduling\" OR \"deficit irrigation\" OR \"stover\" OR \"residue retention\") AND (drought OR \"soil organic matter\" OR \"soil organic carbon\")"
+    "query": "maize AND (\"irrigation scheduling\" OR \"deficit irrigation\" OR \"stover\" OR \"residue retention\") AND (drought OR \"soil organic matter\" OR \"soil organic carbon\")",
+    "crop_label_en": "Maize",
+    "focus_en": "Irrigation scheduling under drought and the contribution of stover to soil organic matter"
   },
   {
     "id": "TRG-012",
@@ -157,7 +179,9 @@
     "status": "pending",
     "crop_en": "grape",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "(grape OR vineyard OR winery) AND (\"grape pomace\" OR \"vine pruning\" OR \"vine shoots\" OR \"winery waste\")"
+    "query": "(grape OR vineyard OR winery) AND (\"grape pomace\" OR \"vine pruning\" OR \"vine shoots\" OR \"winery waste\")",
+    "crop_label_en": "Grape",
+    "focus_en": "Using vine prunings and grape pomace"
   },
   {
     "id": "TRG-013",
@@ -169,7 +193,9 @@
     "status": "pending",
     "crop_en": "potato",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "potato AND (storage OR \"sprout suppression\" OR \"sprout inhibitor\" OR chlorpropham OR CIPC)"
+    "query": "potato AND (storage OR \"sprout suppression\" OR \"sprout inhibitor\" OR chlorpropham OR CIPC)",
+    "crop_label_en": "Potato",
+    "focus_en": "Storage losses after restrictions on chemical sprout inhibitors"
   },
   {
     "id": "TRG-014",
@@ -181,7 +207,9 @@
     "status": "pending",
     "crop_en": "apple",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "apple AND (\"cold storage\" OR \"controlled atmosphere\" OR \"postharvest loss\" OR \"energy consumption\")"
+    "query": "apple AND (\"cold storage\" OR \"controlled atmosphere\" OR \"postharvest loss\" OR \"energy consumption\")",
+    "crop_label_en": "Apple",
+    "focus_en": "Cold-store energy costs and post-harvest losses"
   },
   {
     "id": "TRG-015",
@@ -193,7 +221,9 @@
     "status": "pending",
     "crop_en": "strawberry",
     "stage": "Yetiştirme & Bitki Koruma",
-    "query": "strawberry AND (pollination OR pollinator OR \"bumblebee\" OR \"harvesting robot\" OR \"harvest labour\" OR \"harvest labor\")"
+    "query": "strawberry AND (pollination OR pollinator OR \"bumblebee\" OR \"harvesting robot\" OR \"harvest labour\" OR \"harvest labor\")",
+    "crop_label_en": "Strawberry",
+    "focus_en": "Pollination and harvest labour shortage"
   },
   {
     "id": "TRG-016",
@@ -205,7 +235,9 @@
     "status": "pending",
     "crop_en": "rice",
     "stage": "Yetiştirme & Bitki Koruma",
-    "query": "rice AND (\"alternate wetting and drying\" OR \"methane emission\" OR \"rice straw\" OR \"water saving\")"
+    "query": "rice AND (\"alternate wetting and drying\" OR \"methane emission\" OR \"rice straw\" OR \"water saving\")",
+    "crop_label_en": "Rice",
+    "focus_en": "Water use, methane emissions and straw management"
   },
   {
     "id": "TRG-017",
@@ -217,7 +249,9 @@
     "status": "pending",
     "crop_en": "pistachio",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "pistachio AND (hull OR \"green hull\" OR aflatoxin OR \"Aspergillus flavus\")"
+    "query": "pistachio AND (hull OR \"green hull\" OR aflatoxin OR \"Aspergillus flavus\")",
+    "crop_label_en": "Pistachio",
+    "focus_en": "Green hull waste and post-harvest aflatoxin risk"
   },
   {
     "id": "TRG-018",
@@ -229,7 +263,9 @@
     "status": "pending",
     "crop_en": "chickpea",
     "stage": "Hasat & Mekanizasyon",
-    "query": "chickpea AND (drought OR \"mechanical harvesting\" OR \"harvest loss\" OR \"combine harvester\")"
+    "query": "chickpea AND (drought OR \"mechanical harvesting\" OR \"harvest loss\" OR \"combine harvester\")",
+    "crop_label_en": "Chickpea",
+    "focus_en": "Drought stress and crop losses in mechanised harvesting"
   },
   {
     "id": "TRG-019",
@@ -241,7 +277,9 @@
     "status": "pending",
     "crop_en": "cucumber",
     "stage": "Yetiştirme & Bitki Koruma",
-    "query": "(cucumber OR greenhouse) AND (\"greenhouse heating\" OR \"energy consumption\" OR \"heat pump\" OR \"thermal screen\" OR geothermal) AND winter"
+    "query": "(cucumber OR greenhouse) AND (\"greenhouse heating\" OR \"energy consumption\" OR \"heat pump\" OR \"thermal screen\" OR geothermal) AND winter",
+    "crop_label_en": "Cucumber",
+    "focus_en": "Greenhouse heating energy costs in winter"
   },
   {
     "id": "TRG-020",
@@ -254,7 +292,9 @@
     "suggested_by": "TRG-002",
     "crop_en": "pepper",
     "stage": "Hasat Sonrası & Biyo-Atık",
-    "query": "pepper AND (residue OR \"crop residue\" OR biofumigation OR \"soil disinfestation\") AND (Fusarium OR \"soil-borne\" OR soilborne)"
+    "query": "pepper AND (residue OR \"crop residue\" OR biofumigation OR \"soil disinfestation\") AND (Fusarium OR \"soil-borne\" OR soilborne)",
+    "crop_label_en": "Pepper",
+    "focus_en": "Transport risk of pepper greenhouse residues and their use to suppress soil-borne diseases in other crops such as banana"
   },
   {
     "id": "TRG-021",
@@ -267,7 +307,9 @@
     "suggested_by": "TRG-002",
     "crop_en": "banana",
     "stage": "Yetiştirme & Bitki Koruma",
-    "query": "banana AND (\"Fusarium wilt\" OR \"Tropical Race 4\" OR TR4) AND (biosecurity OR quarantine OR spread OR disinfection OR \"planting material\")"
+    "query": "banana AND (\"Fusarium wilt\" OR \"Tropical Race 4\" OR TR4) AND (biosecurity OR quarantine OR spread OR disinfection OR \"planting material\")",
+    "crop_label_en": "Banana",
+    "focus_en": "Biosecurity practices preventing the spread of Fusarium TR4 via tools, water and planting material in banana greenhouses"
   },
   {
     "id": "TRG-022",
@@ -281,7 +323,9 @@
     "query": "(tomato AND greenhouse AND (\"biological control\" OR \"pesticide reduction\" OR robot OR labour OR labor OR \"climate control\" OR heating)) AND (pathogen OR disease OR Fusarium OR virus OR nematode OR pest)",
     "link_domain": "disease",
     "status": "pending",
-    "suggested_by": "TRG-001"
+    "suggested_by": "TRG-001",
+    "crop_label_en": "Tomato",
+    "focus_en": "EU pesticide reduction (Farm to Fork) and greenhouse labour and climate-control costs — overlap with disease and pest risk"
   },
   {
     "id": "TRG-023",
@@ -295,7 +339,9 @@
     "query": "(wheat AND (\"stubble burning\" OR \"crop residue\" OR \"soil organic carbon\") AND (drought OR rainfed OR dryland)) AND (water OR irrigation OR wastewater OR leaching OR salinity)",
     "link_domain": "water",
     "status": "pending",
-    "suggested_by": "TRG-004"
+    "suggested_by": "TRG-004",
+    "crop_label_en": "Wheat",
+    "focus_en": "Drought stress in rainfed farming, the stubble-burning ban and soil organic carbon loss — overlap with water use and water pollution"
   },
   {
     "id": "TRG-024",
@@ -309,7 +355,9 @@
     "query": "(hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")) AND (pathogen OR disease OR Fusarium OR virus OR nematode OR pest)",
     "link_domain": "disease",
     "status": "pending",
-    "suggested_by": "TRG-005"
+    "suggested_by": "TRG-005",
+    "crop_label_en": "Hazelnut",
+    "focus_en": "Lack of mechanised harvesting on steep land and biological control of the brown marmorated stink bug — overlap with disease and pest risk"
   },
   {
     "id": "TRG-025",
@@ -323,7 +371,9 @@
     "query": "(tomato) AND (inventory OR \"supply chain\" OR logistics OR \"stock management\" OR \"cold chain\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
     "status": "pending",
     "suggested_by": "Teknoloji Boşluk Haritası",
-    "matrix_cell": "c00|stock|digi"
+    "matrix_cell": "c00|stock|digi",
+    "crop_label_en": "Tomato",
+    "focus_en": "Inventory & logistics — software & AI: 87 publications worldwide, none from TR"
   },
   {
     "id": "TRG-026",
@@ -337,7 +387,9 @@
     "query": "(hazelnut AND (harvesting OR mechanization OR harvester OR \"Halyomorpha halys\" OR \"stink bug\")) AND (labor OR labour OR workforce OR worker)",
     "link_domain": "labour",
     "status": "pending",
-    "suggested_by": "TRG-005"
+    "suggested_by": "TRG-005",
+    "crop_label_en": "Hazelnut",
+    "focus_en": "Lack of mechanised harvesting on steep land and biological control of the brown marmorated stink bug — overlap with labour needs"
   },
   {
     "id": "TRG-027",
@@ -351,7 +403,9 @@
     "query": "(lettuce) AND (grading OR sorting OR packaging OR packing OR labelling OR labeling OR traceability) AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
     "status": "pending",
     "suggested_by": "Teknoloji Boşluk Haritası",
-    "matrix_cell": "c08|pack|mech"
+    "matrix_cell": "c08|pack|mech",
+    "crop_label_en": "Lettuce",
+    "focus_en": "Grading, packing & traceability — machinery & hardware: 151 publications worldwide, none from TR"
   },
   {
     "id": "TRG-028",
@@ -365,6 +419,8 @@
     "query": "(olive AND (\"pruning residues\" OR \"pruning biomass\" OR \"pruning waste\")) AND (\"food safety\" OR residue OR mycotoxin OR aflatoxin OR \"heavy metal\")",
     "link_domain": "food",
     "status": "pending",
-    "suggested_by": "TRG-006"
+    "suggested_by": "TRG-006",
+    "crop_label_en": "Olive",
+    "focus_en": "Using pruning residues on site instead of burning them — overlap with food safety and human health"
   }
 ]

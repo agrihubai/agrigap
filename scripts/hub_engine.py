@@ -197,9 +197,25 @@ def parse_report(p):
     }
 
 
+def parse_report_en(p):
+    """İngilizce sürüm (ör. 2026-11-18-trg-006-zeytin.en.md) varsa başlık ve özet alanlarını döndürür."""
+    if not p.exists():
+        return {}
+    body = p.read_text(encoding="utf-8")
+    stage = _ticks(_field(body, "Stage & Solution Type"))
+    dec = re.match(r"`?([ABCD])`?\s*[—-]?\s*(.*)", _field(body, "Decision"))
+    return {"file_en": p.name, "title_en": extract_title(body, ""), "finding_en": _field(body, "Finding in one sentence"),
+            "link_en": _field(body, "Hidden link"), "decision_reason_en": dec.group(2).strip() if dec else ""}
+
+
 def rebuild_index():
-    reports = [parse_report(p) for p in sorted(DISCOVERIES_DIR.glob("*.md"), reverse=True)
-               if p.name != "README.md"]
+    reports = []
+    for p in sorted(DISCOVERIES_DIR.glob("*.md"), reverse=True):
+        if p.name == "README.md" or p.name.endswith(".en.md"):
+            continue
+        r = parse_report(p)
+        r.update(parse_report_en(p.with_name(p.stem + ".en.md")))
+        reports.append(r)
     (DISCOVERIES_DIR / "index.json").write_text(
         json.dumps({"generated": datetime.now(timezone.utc).isoformat(), "reports": reports},
                    ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

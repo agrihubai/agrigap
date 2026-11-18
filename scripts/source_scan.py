@@ -158,10 +158,6 @@ def link_of(w):
     return w.get("id") or ""
 
 
-def cname(c):
-    return COUNTRY_TR.get(c, c)
-
-
 def cell(s, limit=110):
     s = re.sub(r"\s+", " ", str(s or "")).replace("|", "/").strip()
     return s if len(s) <= limit else s[: limit - 1].rstrip() + "…"
@@ -235,18 +231,46 @@ def analyse(t, data):
             "countries": allc.most_common(10), "constraints": cons}
 
 
-def gap_decision(t, data):
+COUNTRY_EN = {
+    "TR": "Türkiye", "ES": "Spain", "IT": "Italy", "GR": "Greece", "PT": "Portugal", "FR": "France", "DE": "Germany",
+    "NL": "Netherlands", "BE": "Belgium", "PL": "Poland", "RO": "Romania", "HU": "Hungary", "AT": "Austria", "CZ": "Czechia",
+    "SE": "Sweden", "DK": "Denmark", "FI": "Finland", "IE": "Ireland", "BG": "Bulgaria", "HR": "Croatia", "SI": "Slovenia",
+    "SK": "Slovakia", "CY": "Cyprus", "GB": "United Kingdom", "CH": "Switzerland", "NO": "Norway", "US": "USA", "CA": "Canada",
+    "MX": "Mexico", "BR": "Brazil", "AR": "Argentina", "CL": "Chile", "CO": "Colombia", "EC": "Ecuador", "PE": "Peru",
+    "CR": "Costa Rica", "CN": "China", "IN": "India", "PK": "Pakistan", "BD": "Bangladesh", "JP": "Japan", "KR": "South Korea",
+    "TW": "Taiwan", "PH": "Philippines", "ID": "Indonesia", "MY": "Malaysia", "TH": "Thailand", "VN": "Vietnam", "AU": "Australia",
+    "NZ": "New Zealand", "IR": "Iran", "IQ": "Iraq", "SA": "Saudi Arabia", "EG": "Egypt", "MA": "Morocco", "TN": "Tunisia",
+    "DZ": "Algeria", "IL": "Israel", "JO": "Jordan", "LB": "Lebanon", "ZA": "South Africa", "NG": "Nigeria", "KE": "Kenya",
+    "ET": "Ethiopia", "UG": "Uganda", "TZ": "Tanzania", "GH": "Ghana", "CM": "Cameroon", "RU": "Russia", "UA": "Ukraine",
+    "KZ": "Kazakhstan", "UZ": "Uzbekistan", "AZ": "Azerbaijan", "RS": "Serbia",
+}
+STAGE_EN = {"Toprak & Girdi": "Soil & Inputs", "Yetiştirme & Bitki Koruma": "Growing & Crop Protection",
+            "Hasat & Mekanizasyon": "Harvest & Mechanisation", "Hasat Sonrası & Biyo-Atık": "Post-harvest & Bio-waste"}
+STYPE_EN = {"Makine & Otonomi": "Machinery & Autonomy", "Döngüsel Biyo-Ekonomi": "Circular Bio-economy",
+            "Biyolojik Mücadele & Girdi": "Biological Control & Inputs", "Islah & Genetik": "Breeding & Genetics"}
+
+
+def cname(c, lang="tr"):
+    return (COUNTRY_EN if lang == "en" else COUNTRY_TR).get(c, c)
+
+
+def gap_decision(t, data, lang="tr"):
     r = RULES["gap_rule"]
     total, reg = data["total"], data["total_region"]
     share = reg / total if total else 0
     rn = t["region"]
+    en = lang == "en"
     if total < r["D_if_total_below"]:
-        return "D", f"Taranan kaynaklarda bu konuda yalnızca {total} yayın bulundu."
+        return "D", (f"Only {total} publications were found on this topic in the scanned sources." if en
+                     else f"Taranan kaynaklarda bu konuda yalnızca {total} yayın bulundu.")
     if reg < r["B_if_region_below"]:
-        return "B", f"Dünyada {total} yayın var; hedef bölgeden ({rn}) yazarı olan yayın sayısı yalnızca {reg}."
+        return "B", (f"{total} publications worldwide; only {reg} have an author from the target region ({rn})." if en
+                     else f"Dünyada {total} yayın var; hedef bölgeden ({rn}) yazarı olan yayın sayısı yalnızca {reg}.")
     if reg >= r["A_if_region_at_least"] and share >= r["A_if_region_share_at_least"]:
-        return "A", f"{total} yayının {reg} tanesinde (%{share * 100:.0f}) hedef bölgeden ({rn}) yazar var; konu bölgede yoğun çalışılmış."
-    return "C", f"{total} yayının {reg} tanesinde (%{share * 100:.0f}) hedef bölgeden ({rn}) yazar var; konu bölgede çalışılmış ama sınırlı."
+        return "A", (f"{reg} of {total} publications ({share * 100:.0f}%) have an author from the target region ({rn}); the topic is studied intensively there." if en
+                     else f"{total} yayının {reg} tanesinde (%{share * 100:.0f}) hedef bölgeden ({rn}) yazar var; konu bölgede yoğun çalışılmış.")
+    return "C", (f"{reg} of {total} publications ({share * 100:.0f}%) have an author from the target region ({rn}); the topic is studied there, but to a limited extent." if en
+                 else f"{total} yayının {reg} tanesinde (%{share * 100:.0f}) hedef bölgeden ({rn}) yazar var; konu bölgede çalışılmış ama sınırlı.")
 
 
 def stype(groups):
@@ -258,10 +282,9 @@ def stype(groups):
     return c.most_common(1)[0][0]
 
 
-# ---------- rapor ----------
-
-def study(w):
-    cs = ", ".join(cname(c) for c in sorted(countries(w))[:3]) or "ülke bilgisi yok"
+def study(w, lang="tr"):
+    none = "no country data" if lang == "en" else "ülke bilgisi yok"
+    cs = ", ".join(cname(c, lang) for c in sorted(countries(w))[:3]) or none
     return f"[{cell(w.get('display_name'), 90)}]({link_of(w)}) ({w.get('publication_year', '?')}, {cs})"
 
 
@@ -275,131 +298,209 @@ def suggestion(t, links, targets):
             continue
         if (hub._norm(t["crop"]), d["key"]) in seen:
             continue
-        focus = f"{t['focus']} — {d['topic_tr']}"
         q = f"({t['query']}) AND (" + " OR ".join(d["query_terms"]) + ")"
         return {"production_system": t["production_system"], "crop_group": t["crop_group"], "crop": t["crop"],
-                "crop_en": t["crop_en"], "stage": t.get("stage", ""), "region": t["region"], "focus": focus,
-                "query": q, "link_domain": d["key"], "why": f"{t['id']} taramasında '{d['tr']}' alanı yayınlarda birlikte geçti (pay: %{d['share'] * 100:.0f})."}
+                "crop_en": t["crop_en"], "crop_label_en": t.get("crop_label_en", t["crop"]), "stage": t.get("stage", ""),
+                "region": t["region"], "focus": f"{t['focus']} — {d['topic_tr']}",
+                "focus_en": f"{t.get('focus_en', t['focus'])} — {d['topic_en']}",
+                "query": q, "link_domain": d["key"],
+                "why": f"{t['id']} taramasında '{d['tr']}' alanı yayınlarda birlikte geçti (pay: %{d['share'] * 100:.0f}).",
+                "why_en": f"In the {t['id']} scan, the '{d['en']}' field co-occurred in publications (share: {d['share'] * 100:.0f}%)."}
     return None
 
 
-def render(t, data, a, today, sugg):
-    dec, why = gap_decision(t, data)
+S = {
+    "tr": {
+        "note": "> **Otomatik tarama.** Bu rapor yapay zekâ kullanılmadan, OpenAlex'teki yayın kayıtlarından sabit kurallarla "
+                "üretilmiştir. Sayılar yayın sayısıdır; sahadaki yaygınlığı, çözümün başarısını veya maliyetini göstermez. "
+                "İnsan tarafından doğrulanmamıştır.",
+        "tax": "Taksonomi", "stage": "Aşama & Çözüm Türü", "region": "Bölge", "dec": "Durum Kararı", "find": "Tek cümlede bulgu",
+        "link": "Görünmeyen bağlantı",
+        "finding": lambda top, rn, tr: f"Bu taramaya göre en çok çalışılan çözüm türü: {top} ({tr[0]} yayın); hedef bölgeden ({rn}) yazarı olan yayın sayısı {tr[1]}.",
+        "nofind": "Bu taramada çözüm türü içeren yayın bulunamadı.",
+        "nolink": "Bu taramada, genel literatüre göre belirgin biçimde öne çıkan bir alan bulunmadı.",
+        "rel": lambda crop, x: f"; genel {crop} literatürüne göre {x:.1f} kat sık".replace(".", ","),
+        "linkline": lambda f, s, rel, ex: f"'{f}' alanı bu konudaki yayınlarda da geçiyor (pay: %{s}{rel}; ör. {ex}). Neden bağlantılı olduğu yayınların kendisinde okunmalı.",
+        "h1": "## 1. Sorun ve Tarama Kapsamı", "prob": "Sorun", "q": "Sorgu (OpenAlex, başlık ve özet)", "per": "Dönem",
+        "perv": lambda a, b: f"{a}–{b}, makale ve derleme", "match": "Eşleşen yayın",
+        "matchv": lambda w, rn, r: f"dünyada {w}, hedef bölgeden ({rn}) yazarı olan {r}", "sample": "İncelenen örnek",
+        "samplev": lambda n, g, r: f"en ilgili {n} yayın (dünya ilk {g} + bölge ilk {r}, tekrarlar çıkarıldı)", "date": "Tarama tarihi",
+        "h2": "## 2. Görünmeyen Bağlantılar",
+        "h2p": lambda ce, cr: ("Hedef sorguda geçmeyen ama aynı yayınlarda birlikte geçen alanlar. Birlikte geçmek bağlantının nedenini "
+                               "açıklamaz; nedeni yayınların kendisinde okunmalıdır. \"Genel literatüre göre\" sütunu, aynı alanın "
+                               f"yalnızca \"{ce}\" aramasıyla gelen genel {cr} yayınlarındaki sıklığıyla karşılaştırmasıdır; "
+                               "1'in belirgin üstü, alanın bu konuya özgü olduğunu düşündürür."),
+        "h2t": "| İlgisiz görünen alan | Birlikte geçtiği yayın | Genel literatüre göre | Sık geçen terimler | Örnek yayınlar |",
+        "kat": lambda x: f"{x:.1f} kat".replace(".", ","), "pct": lambda s: f"%{s}",
+        "nolinks": "Genel literatüre göre daha sık geçen, sorgu dışı bir alan bulunmadı.",
+        "hidden": lambda h: f"Genel literatürde bu konudakinden daha sık geçtiği için tabloya alınmayan alanlar: {h}.",
+        "kw": "**Sorgu dışında en sık geçen konu başlıkları (OpenAlex anahtar kelimeleri, yayın sayısı):** ",
+        "h3": "## 3. Mevcut Çözüm Haritası",
+        "h3p": "Yayınlar başlık ve özetlerinde geçen terimlere göre çözüm türlerine ayrıldı (bir yayın birden fazla türde olabilir). "
+               "Avantaj ve dezavantaj bu otomatik taramada yazılmaz; yayınların kendisinde okunmalıdır.",
+        "h3t": "| Çözüm türü | Yayın | Hedef bölgeden | Öne çıkan ülkeler | Yıllar | Örnek çalışmalar |",
+        "fromreg": "Bölgeden: ", "nogroup": "| — | 0 | 0 | — | — | Çözüm türü içeren yayın bulunamadı |",
+        "geo": "**Yayınların coğrafyası (incelenen örnekte, yazar ülkesi):** ",
+        "missing": lambda m: f"**Hedef bölgede örneği bulunmayan çözüm türleri:** {m}. Bunlar başka bölgelerden aktarım (transfer) adayıdır.",
+        "h4": "## 4. Zorluk Sinyalleri (tasarım gerekliliği adayları)",
+        "h4p": "Yayınların başlık ve özetlerinde sık geçen engeller. Yeni bir makine, yazılım ya da uygulamanın aşması "
+               "gereken koşullar için ham malzemedir; tek başına bir tasarım önerisi değildir.",
+        "h4t": "| Zorluk | Geçtiği yayın | Örnek yayınlar |", "nocons": "Taranan yayınlarda tanımlı zorluk terimlerine rastlanmadı.",
+        "h5": "## 5. Boşluk Ölçeği Nasıl Hesaplandı",
+        "rD": lambda x: f"- **D:** dünyadaki yayın sayısı < {x}",
+        "rB": lambda x: f"- **B:** hedef bölgeden yazarı olan yayın sayısı < {x} (çözüm başka yerde çalışılmış)",
+        "rA": lambda x, y: f"- **A:** hedef bölgeden yazarı olan yayın sayısı ≥ {x} ve payı ≥ %{y}",
+        "rC": "- **C:** diğer durumlar (bölgede çalışılmış ama sınırlı)",
+        "rThis": lambda d: f"- **Bu tarama:** `{d}`. Bu gösterge yayın sayısına dayanır; derin bir değerlendirme değildir.",
+        "h6": "## 6. Kaynaklar", "h6p": "OpenAlex (CC0 açık veri, https://openalex.org). Atıf sayısına göre ilk 25 yayın:",
+        "h7": "## 7. Yeni Hedef Önerileri", "nosugg": "Bu taramada eşiği geçen yeni bir bağlantı alanı çıkmadı.",
+    },
+    "en": {
+        "note": "> **Automatic scan.** This report was generated without AI, by fixed rules, from publication records in OpenAlex. "
+                "The numbers are publication counts; they do not show adoption in the field, how well a solution works or what it costs. "
+                "It has not been verified by a person.",
+        "tax": "Taxonomy", "stage": "Stage & Solution Type", "region": "Region", "dec": "Decision", "find": "Finding in one sentence",
+        "link": "Hidden link",
+        "finding": lambda top, rn, tr: f"In this scan the most studied solution type is {top} ({tr[0]} publications); {tr[1]} publications have an author from the target region ({rn}).",
+        "nofind": "No publications with a solution type were found in this scan.",
+        "nolink": "No field stands out clearly against the general literature in this scan.",
+        "rel": lambda crop, x: f"; {x:.1f}× as frequent as in the general {crop.lower()} literature",
+        "linkline": lambda f, s, rel, ex: f"The '{f}' field also appears in publications on this topic (share: {s}%{rel}; e.g. {ex}). Why they are linked has to be read in the publications themselves.",
+        "h1": "## 1. Problem and Scan Scope", "prob": "Problem", "q": "Query (OpenAlex, title and abstract)", "per": "Period",
+        "perv": lambda a, b: f"{a}–{b}, articles and reviews", "match": "Matching publications",
+        "matchv": lambda w, rn, r: f"{w} worldwide, {r} with an author from the target region ({rn})", "sample": "Sample examined",
+        "samplev": lambda n, g, r: f"the {n} most relevant publications (top {g} worldwide + top {r} from the region, duplicates removed)", "date": "Scan date",
+        "h2": "## 2. Hidden Links",
+        "h2p": lambda ce, cr: ("Fields that are not in the query but appear in the same publications. Co-occurrence does not explain "
+                               "the link; the reason has to be read in the publications themselves. The \"vs general literature\" column compares "
+                               f"the field's frequency with general {cr.lower()} publications returned by a plain \"{ce}\" search; "
+                               "clearly above 1 suggests the field is specific to this topic."),
+        "h2t": "| Field that looks unrelated | Co-occurs in | vs general literature | Frequent terms | Example publications |",
+        "kat": lambda x: f"{x:.1f}×", "pct": lambda s: f"{s}%",
+        "nolinks": "No out-of-query field appears more often than in the general literature.",
+        "hidden": lambda h: f"Fields left out of the table because they are more frequent in the general literature: {h}.",
+        "kw": "**Most frequent topics outside the query (OpenAlex keywords, publication count):** ",
+        "h3": "## 3. Existing Solutions Map",
+        "h3p": "Publications were sorted into solution types by terms in their titles and abstracts (one publication can fall into several types). "
+               "This automatic scan does not list advantages and disadvantages; read them in the publications themselves.",
+        "h3t": "| Solution type | Publications | From target region | Leading countries | Years | Example studies |",
+        "fromreg": "From the region: ", "nogroup": "| — | 0 | 0 | — | — | No publications with a solution type |",
+        "geo": "**Geography of publications (sample, author country):** ",
+        "missing": lambda m: f"**Solution types with no example in the target region:** {m}. These are candidates for transfer from other regions.",
+        "h4": "## 4. Difficulty Signals (design requirement candidates)",
+        "h4p": "Obstacles frequently mentioned in titles and abstracts. Raw material for the conditions a new machine, software or practice "
+               "has to meet; not a design proposal on its own.",
+        "h4t": "| Difficulty | Mentioned in | Example publications |", "nocons": "None of the defined difficulty terms appeared in the scanned publications.",
+        "h5": "## 5. How the Gap Scale Was Calculated",
+        "rD": lambda x: f"- **D:** publications worldwide < {x}",
+        "rB": lambda x: f"- **B:** publications with an author from the target region < {x} (solution studied elsewhere)",
+        "rA": lambda x, y: f"- **A:** publications with an author from the target region ≥ {x} and share ≥ {y}%",
+        "rC": "- **C:** all other cases (studied in the region, but to a limited extent)",
+        "rThis": lambda d: f"- **This scan:** `{d}`. The indicator is based on publication counts; it is not an in-depth assessment.",
+        "h6": "## 6. Sources", "h6p": "OpenAlex (CC0 open data, https://openalex.org). Top 25 publications by citations:",
+        "h7": "## 7. New Target Suggestions", "nosugg": "No new link field passed the threshold in this scan.",
+    },
+}
+
+
+def render(t, data, a, today, sugg, lang="tr"):
+    s, en = S[lang], lang == "en"
+    dec, why = gap_decision(t, data, lang)
     groups, links = a["groups"], a["links"]
     n = len(a["works"])
+    crop = t.get("crop_label_en", t["crop"]) if en else t["crop"]
+    focus = t.get("focus_en", t["focus"]) if en else t["focus"]
+    gname = lambda g: g["en"] if en else g["tr"]  # noqa: E731
     top = groups[0] if groups else None
-    finding = (f"Bu taramaya göre en çok çalışılan çözüm türü: {top['tr']} ({top['n']} yayın); "
-               f"hedef bölgeden ({t['region']}) yazarı olan yayın sayısı {data['total_region']}.") if top else \
-              "Bu taramada çözüm türü içeren yayın bulunamadı."
+    finding = s["finding"](gname(top), t["region"], (top["n"], data["total_region"])) if top else s["nofind"]
     lr = RULES["link_rule"]
     lk = links[0] if links and links[0]["n"] >= lr["headline_min_papers"] and (links[0]["lift"] or 0) >= lr["headline_min_lift"] else None
-    link_line = "Bu taramada, genel literatüre göre belirgin biçimde öne çıkan bir alan bulunmadı." if links else ""
+    link_line = s["nolink"] if links else ""
     if lk:
-        rel = f"; genel {t['crop']} literatürüne göre {lk['lift']:.1f} kat sık".replace(".", ",") if lk["lift"] else ""
-        link_line = (f"'{lk['tr']}' alanı bu konudaki yayınlarda da geçiyor (pay: %{lk['share'] * 100:.0f}{rel}; "
-                     f"ör. {', '.join(lk['top_terms'][:3])}). Neden bağlantılı olduğu yayınların kendisinde okunmalı.")
-    title = f"{t['crop']}: {t['focus']}"
-    L = [
-        f"# {title}", "",
-        "> **Otomatik tarama.** Bu rapor yapay zekâ kullanılmadan, OpenAlex'teki yayın kayıtlarından sabit kurallarla "
-        "üretilmiştir. Sayılar yayın sayısıdır; sahadaki yaygınlığı, çözümün başarısını veya maliyetini göstermez. "
-        "İnsan tarafından doğrulanmamıştır.", "",
-        f"- **Taksonomi:** `{t['production_system']}` > `{t['crop_group']}` > `{t['crop']}`",
-        f"- **Aşama & Çözüm Türü:** `{t.get('stage', '')}` | `{stype(groups)}`",
-        f"- **Bölge:** `{t['region']}`",
-        f"- **Durum Kararı:** `{dec}` — {why}",
-        f"- **Tek cümlede bulgu:** {finding}",
-    ]
+        rel = s["rel"](crop, lk["lift"]) if lk["lift"] else ""
+        link_line = s["linkline"](gname(lk), f"{lk['share'] * 100:.0f}", rel, ", ".join(lk["top_terms"][:3]))
+    title = f"{crop}: {focus}"
+    st = stype(groups)
+    L = [f"# {title}", "", s["note"], "",
+         f"- **{s['tax']}:** `{t['production_system']}` > `{t['crop_group']}` > `{t['crop']}`",
+         f"- **{s['stage']}:** `{t.get('stage', '')}` | `{st}`",
+         f"- **{s['region']}:** `{t['region']}`",
+         f"- **{s['dec']}:** `{dec}` — {why}",
+         f"- **{s['find']}:** {finding}"]
     if link_line:
-        L.append(f"- **Görünmeyen bağlantı:** {link_line}")
-    L += ["", "## 1. Sorun ve Tarama Kapsamı",
-          f"- **Sorun:** {t['focus']}",
-          f"- **Sorgu (OpenAlex, başlık ve özet):** `{t['query']}`",
-          f"- **Dönem:** {FROM_YEAR}–{today[:4]}, makale ve derleme",
-          f"- **Eşleşen yayın:** dünyada {data['total']}, hedef bölgeden ({t['region']}) yazarı olan {data['total_region']}",
-          f"- **İncelenen örnek:** en ilgili {n} yayın (dünya ilk {SAMPLE_GLOBAL} + bölge ilk {SAMPLE_REGION}, tekrarlar çıkarıldı)",
-          f"- **Tarama tarihi:** {today}", ""]
+        L.append(f"- **{s['link']}:** {link_line}")
+    L += ["", s["h1"], f"- **{s['prob']}:** {focus}", f"- **{s['q']}:** `{t['query']}`",
+          f"- **{s['per']}:** {s['perv'](FROM_YEAR, today[:4])}",
+          f"- **{s['match']}:** {s['matchv'](data['total'], t['region'], data['total_region'])}",
+          f"- **{s['sample']}:** {s['samplev'](n, SAMPLE_GLOBAL, SAMPLE_REGION)}",
+          f"- **{s['date']}:** {today}", ""]
 
-    L += ["## 2. Görünmeyen Bağlantılar",
-          "Hedef sorguda geçmeyen ama aynı yayınlarda birlikte geçen alanlar. Birlikte geçmek bağlantının nedenini "
-          "açıklamaz; nedeni yayınların kendisinde okunmalıdır. \"Genel literatüre göre\" sütunu, aynı alanın "
-          f"yalnızca \"{t['crop_en']}\" aramasıyla gelen genel {t['crop']} yayınlarındaki sıklığıyla karşılaştırmasıdır; "
-          "1'in belirgin üstü, alanın bu konuya özgü olduğunu düşündürür.", ""]
+    L += [s["h2"], s["h2p"](t["crop_en"], crop), ""]
     shown = [d for d in links if d["lift"] is None or d["lift"] >= lr["table_min_lift"]]
-    hidden = [d["tr"] for d in links if d not in shown]
+    hidden = [gname(d) for d in links if d not in shown]
     if shown:
-        L += ["| İlgisiz görünen alan | Birlikte geçtiği yayın | Genel literatüre göre | Sık geçen terimler | Örnek yayınlar |", "|---|---|---|---|---|"]
+        L += [s["h2t"], "|---|---|---|---|---|"]
         for d in shown[:6]:
-            rel = (f"{d['lift']:.1f} kat".replace(".", ",")) if d["lift"] else "—"
-            L.append(f"| {d['tr']} | {d['n']} / {n} (%{d['share'] * 100:.0f}) | {rel} | {', '.join(d['top_terms'])} | "
-                     + "<br>".join(study(w) for w in d["examples"]) + " |")
+            rel = s["kat"](d["lift"]) if d["lift"] else "—"
+            L.append(f"| {gname(d)} | {d['n']} / {n} ({s['pct'](f'{d['share'] * 100:.0f}')}) | {rel} | {', '.join(d['top_terms'])} | "
+                     + "<br>".join(study(w, lang) for w in d["examples"]) + " |")
     else:
-        L.append("Genel literatüre göre daha sık geçen, sorgu dışı bir alan bulunmadı.")
+        L.append(s["nolinks"])
     if hidden:
-        L += ["", f"Genel literatürde bu konudakinden daha sık geçtiği için tabloya alınmayan alanlar: {', '.join(hidden)}."]
+        L += ["", s["hidden"](", ".join(hidden))]
     if a["keywords"]:
-        L += ["", "**Sorgu dışında en sık geçen konu başlıkları (OpenAlex anahtar kelimeleri, yayın sayısı):** "
-              + ", ".join(f"{k} ({c})" for k, c in a["keywords"])]
+        L += ["", s["kw"] + ", ".join(f"{k} ({c})" for k, c in a["keywords"])]
 
-    L += ["", "## 3. Mevcut Çözüm Haritası",
-          "Yayınlar başlık ve özetlerinde geçen terimlere göre çözüm türlerine ayrıldı (bir yayın birden fazla türde olabilir). "
-          "Avantaj ve dezavantaj bu otomatik taramada yazılmaz; yayınların kendisinde okunmalıdır.", "",
-          "| Çözüm türü | Yayın | Hedef bölgeden | Öne çıkan ülkeler | Yıllar | Örnek çalışmalar |", "|---|---|---|---|---|---|"]
+    L += ["", s["h3"], s["h3p"], "", s["h3t"], "|---|---|---|---|---|---|"]
     for g in groups:
         yrs = f"{g['years'][0]}–{g['years'][1]}" if g["years"] else "?"
-        ctry = ", ".join(f"{cname(c)} ({k})" for c, k in g["countries"]) or "—"
-        ex = "<br>".join(study(w) for w in g["examples"])
+        ctry = ", ".join(f"{cname(c, lang)} ({k})" for c, k in g["countries"]) or "—"
+        ex = "<br>".join(study(w, lang) for w in g["examples"])
         if g["region_example"] and g["region_example"] not in g["examples"]:
-            ex += "<br>Bölgeden: " + study(g["region_example"])
-        L.append(f"| {g['tr']} | {g['n']} | {g['region_n']} | {ctry} | {yrs} | {ex} |")
+            ex += "<br>" + s["fromreg"] + study(g["region_example"], lang)
+        L.append(f"| {gname(g)} | {g['n']} | {g['region_n']} | {ctry} | {yrs} | {ex} |")
     if not groups:
-        L.append("| — | 0 | 0 | — | — | Çözüm türü içeren yayın bulunamadı |")
+        L.append(s["nogroup"])
     if a["countries"]:
-        L += ["", "**Yayınların coğrafyası (incelenen örnekte, yazar ülkesi):** "
-              + ", ".join(f"{cname(c)} {k}" for c, k in a["countries"])]
-    missing = [g["tr"] for g in groups if g["region_n"] == 0]
+        L += ["", s["geo"] + ", ".join(f"{cname(c, lang)} {k}" for c, k in a["countries"])]
+    missing = [gname(g) for g in groups if g["region_n"] == 0]
     if missing:
-        L += ["", f"**Hedef bölgede örneği bulunmayan çözüm türleri:** {', '.join(missing)}. "
-              "Bunlar başka bölgelerden aktarım (transfer) adayıdır."]
+        L += ["", s["missing"](", ".join(missing))]
 
-    L += ["", "## 4. Zorluk Sinyalleri (tasarım gerekliliği adayları)",
-          "Yayınların başlık ve özetlerinde sık geçen engeller. Yeni bir makine, yazılım ya da uygulamanın aşması "
-          "gereken koşullar için ham malzemedir; tek başına bir tasarım önerisi değildir.", ""]
+    L += ["", s["h4"], s["h4p"], ""]
     if a["constraints"]:
-        L += ["| Zorluk | Geçtiği yayın | Örnek yayınlar |", "|---|---|---|"]
+        L += [s["h4t"], "|---|---|---|"]
         for cdef in a["constraints"][:8]:
-            L.append(f"| {cdef['tr']} | {cdef['n']} / {n} | " + "<br>".join(study(w) for w in cdef["examples"]) + " |")
+            L.append(f"| {cdef['en'] if en else cdef['tr']} | {cdef['n']} / {n} | " + "<br>".join(study(w, lang) for w in cdef["examples"]) + " |")
     else:
-        L.append("Taranan yayınlarda tanımlı zorluk terimlerine rastlanmadı.")
+        L.append(s["nocons"])
 
     r = RULES["gap_rule"]
-    L += ["", "## 5. Boşluk Ölçeği Nasıl Hesaplandı",
-          f"- **D:** dünyadaki yayın sayısı < {r['D_if_total_below']}",
-          f"- **B:** hedef bölgeden yazarı olan yayın sayısı < {r['B_if_region_below']} (çözüm başka yerde çalışılmış)",
-          f"- **A:** hedef bölgeden yazarı olan yayın sayısı ≥ {r['A_if_region_at_least']} ve payı ≥ %{r['A_if_region_share_at_least'] * 100:.0f}",
-          "- **C:** diğer durumlar (bölgede çalışılmış ama sınırlı)",
-          f"- **Bu tarama:** `{dec}`. Bu gösterge yayın sayısına dayanır; derin bir değerlendirme değildir.", ""]
+    L += ["", s["h5"], s["rD"](r["D_if_total_below"]), s["rB"](r["B_if_region_below"]),
+          s["rA"](r["A_if_region_at_least"], f"{r['A_if_region_share_at_least'] * 100:.0f}"), s["rC"], s["rThis"](dec), ""]
 
-    L += ["## 6. Kaynaklar",
-          "OpenAlex (CC0 açık veri, https://openalex.org). Atıf sayısına göre ilk 25 yayın:", ""]
+    L += [s["h6"], s["h6p"], ""]
     for w in sorted(a["works"], key=lambda w: -(w.get("cited_by_count") or 0))[:25]:
         src = ((w.get("primary_location") or {}).get("source") or {}).get("display_name") or ""
-        L.append(f"- {study(w)}{' — ' + cell(src, 60) if src else ''}")
+        L.append(f"- {study(w, lang)}{' — ' + cell(src, 60) if src else ''}")
 
-    L += ["", "## 7. Yeni Hedef Önerileri"]
+    L += ["", s["h7"]]
     if sugg:
-        L.append(f"- `{sugg['production_system']} | {sugg['crop_group']} | {sugg['crop']} | {sugg['region']} | {sugg['focus']}` — {sugg['why']}")
+        sf = sugg["focus_en"] if en else sugg["focus"]
+        L.append(f"- `{sugg['production_system']} | {sugg['crop_group']} | {sugg['crop']} | {sugg['region']} | {sf}` — {sugg['why_en'] if en else sugg['why']}")
     else:
-        L.append("Bu taramada eşiği geçen yeni bir bağlantı alanı çıkmadı.")
-    return "\n".join(L) + "\n", title
+        L.append(s["nosugg"])
+    meta = {"stage_en": STAGE_EN.get(t.get("stage", ""), t.get("stage", "")), "solution_type_en": STYPE_EN.get(st, st)}
+    return "\n".join(L) + "\n", title, meta
 
 
-def write(t, md, today):
+def write(t, md, today, lang="tr"):
     hub.DISCOVERIES_DIR.mkdir(exist_ok=True)
-    path = hub.DISCOVERIES_DIR / f"{today}-{t['id'].lower()}-{hub.slugify(t['crop'])}.md"
+    suffix = ".en.md" if lang == "en" else ".md"
+    path = hub.DISCOVERIES_DIR / f"{today}-{t['id'].lower()}-{hub.slugify(t['crop'])}{suffix}"
     front = ["---", f"id: {t['id']}", f"date: {today}", f"production_system: {t['production_system']}",
              f"crop_group: {t['crop_group']}", f"crop: {t['crop']}", f"region: {t['region']}",
-             f"engine: {ENGINE}", "kind: auto", "status: published", "---", ""]
+             f"engine: {ENGINE}", "kind: auto", f"lang: {lang}", "status: published", "---", ""]
     path.write_text("\n".join(front) + md, encoding="utf-8")
     return path
 
@@ -427,18 +528,21 @@ def scan_one(targets, tid, fixture=None, dry=False):
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     a = analyse(t, data)
     sugg = suggestion(t, a["links"], targets)
-    md, title = render(t, data, a, today, sugg)
+    md, title, _ = render(t, data, a, today, sugg, "tr")
+    md_en, _, meta_en = render(t, data, a, today, sugg, "en")
     if dry:
         print(md)
+        print(md_en)
         return None
 
-    path = write(t, md, today)
+    path = write(t, md, today, "tr")
+    write(t, md_en, today, "en")
     t["status"] = "published"
     t["report"] = str(path.relative_to(ROOT))
     t["processed_at"] = datetime.now(timezone.utc).isoformat()
     if sugg:
         nmax = max(int(x["id"].split("-")[1]) for x in targets if x["id"].startswith("TRG-"))
-        nt = {"id": f"TRG-{nmax + 1:03d}", **{k: v for k, v in sugg.items() if k != "why"},
+        nt = {"id": f"TRG-{nmax + 1:03d}", **{k: v for k, v in sugg.items() if k not in ("why", "why_en")},
               "status": "pending", "suggested_by": t["id"]}
         targets.append(nt)
         print(f"[KUYRUK] Yeni hedef: {nt['id']} — {nt['focus']}")

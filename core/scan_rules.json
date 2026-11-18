@@ -244,7 +244,8 @@
         "virus",
         "nematode",
         "pest"
-      ]
+      ],
+      "topic_en": "overlap with disease and pest risk"
     },
     {
       "key": "water",
@@ -266,7 +267,8 @@
         "wastewater",
         "leaching",
         "salinity"
-      ]
+      ],
+      "topic_en": "overlap with water use and water pollution"
     },
     {
       "key": "energy",
@@ -285,7 +287,8 @@
         "fuel",
         "electricity",
         "heating"
-      ]
+      ],
+      "topic_en": "overlap with energy use and production"
     },
     {
       "key": "labour",
@@ -305,7 +308,8 @@
         "labour",
         "workforce",
         "worker"
-      ]
+      ],
+      "topic_en": "overlap with labour needs"
     },
     {
       "key": "logistics",
@@ -325,7 +329,8 @@
         "logistics",
         "\"supply chain\"",
         "storage"
-      ]
+      ],
+      "topic_en": "overlap with the transport and storage chain"
     },
     {
       "key": "policy",
@@ -348,7 +353,8 @@
         "legislation",
         "policy",
         "subsidy"
-      ]
+      ],
+      "topic_en": "overlap with regulatory and policy pressure"
     },
     {
       "key": "market",
@@ -371,7 +377,8 @@
         "economic",
         "cost",
         "profitability"
-      ]
+      ],
+      "topic_en": "overlap with market and cost structure"
     },
     {
       "key": "climate",
@@ -394,7 +401,8 @@
         "\"greenhouse gas\"",
         "emission",
         "methane"
-      ]
+      ],
+      "topic_en": "overlap with climate and emissions"
     },
     {
       "key": "soil",
@@ -414,7 +422,8 @@
         "\"soil health\"",
         "erosion",
         "microbiome"
-      ]
+      ],
+      "topic_en": "overlap with soil health"
     },
     {
       "key": "food",
@@ -437,7 +446,8 @@
         "mycotoxin",
         "aflatoxin",
         "\"heavy metal\""
-      ]
+      ],
+      "topic_en": "overlap with food safety and human health"
     }
   ],
   "gap_rule": {
@@ -466,7 +476,8 @@
         "terrain",
         "uneven",
         "terrace"
-      ]
+      ],
+      "en": "Slope & terrain"
     },
     {
       "tr": "Ürün hasarı (ezilme, kopma)",
@@ -476,7 +487,8 @@
         "damage rate",
         "mechanical damage",
         "detachment"
-      ]
+      ],
+      "en": "Produce damage (bruising, detachment)"
     },
     {
       "tr": "Görüş engeli (yaprak, örtüşme)",
@@ -486,7 +498,8 @@
         "overlapping",
         "foliage",
         "canopy density"
-      ]
+      ],
+      "en": "Occlusion (leaves, overlap)"
     },
     {
       "tr": "Bitki ve ürün değişkenliği",
@@ -496,7 +509,8 @@
         "irregular",
         "non-uniform",
         "ripeness"
-      ]
+      ],
+      "en": "Plant and produce variability"
     },
     {
       "tr": "Hız & kapasite",
@@ -506,7 +520,8 @@
         "cycle time",
         "field capacity",
         "picking speed"
-      ]
+      ],
+      "en": "Speed & capacity"
     },
     {
       "tr": "Doğruluk & hata payı",
@@ -516,7 +531,8 @@
         "detection rate",
         "false positive",
         "misclassif"
-      ]
+      ],
+      "en": "Accuracy & error rate"
     },
     {
       "tr": "Dar alan (sıra arası, sera koridoru)",
@@ -526,7 +542,8 @@
         "corridor",
         "confined",
         "plant spacing"
-      ]
+      ],
+      "en": "Narrow space (rows, greenhouse aisles)"
     },
     {
       "tr": "Toz, çamur, nem",
@@ -536,7 +553,8 @@
         "high humidity",
         "wet soil",
         "condensation"
-      ]
+      ],
+      "en": "Dust, mud, humidity"
     },
     {
       "tr": "Maliyet & yatırım",
@@ -546,7 +564,8 @@
         "affordab",
         "economic feasib",
         "payback"
-      ]
+      ],
+      "en": "Cost & investment"
     },
     {
       "tr": "Enerji, su & yakıt tüketimi",
@@ -556,7 +575,8 @@
         "water consumption",
         "power requirement",
         "energy use"
-      ]
+      ],
+      "en": "Energy, water & fuel use"
     },
     {
       "tr": "İşçilik & ergonomi",
@@ -566,7 +586,8 @@
         "ergonom",
         "workload",
         "manual"
-      ]
+      ],
+      "en": "Labour & ergonomics"
     },
     {
       "tr": "Küçük işletme ölçeği",
@@ -575,7 +596,8 @@
         "small farm",
         "small-scale",
         "fragmented"
-      ]
+      ],
+      "en": "Small farm scale"
     },
     {
       "tr": "Veri & bağlantı",
@@ -585,7 +607,8 @@
         "dataset",
         "labelled data",
         "internet access"
-      ]
+      ],
+      "en": "Data & connectivity"
     },
     {
       "tr": "Güvenlik & mevzuat",
@@ -594,7 +617,8 @@
         "safety",
         "regulation",
         "certification"
-      ]
+      ],
+      "en": "Safety & regulation"
     }
   ]
 }

@@ -14,289 +14,337 @@
       "key": "c00",
       "group": "Sebzeler",
       "tr": "Domates",
-      "en": "tomato"
+      "en": "tomato",
+      "label_en": "Tomato"
     },
     {
       "key": "c01",
       "group": "Sebzeler",
       "tr": "Biber",
-      "en": "pepper OR capsicum"
+      "en": "pepper OR capsicum",
+      "label_en": "Pepper"
     },
     {
       "key": "c02",
       "group": "Sebzeler",
       "tr": "Hıyar",
-      "en": "cucumber"
+      "en": "cucumber",
+      "label_en": "Cucumber"
     },
     {
       "key": "c03",
       "group": "Sebzeler",
       "tr": "Patlıcan",
-      "en": "eggplant OR aubergine"
+      "en": "eggplant OR aubergine",
+      "label_en": "Eggplant"
     },
     {
       "key": "c04",
       "group": "Sebzeler",
       "tr": "Kabak",
-      "en": "zucchini OR courgette OR squash"
+      "en": "zucchini OR courgette OR squash",
+      "label_en": "Zucchini & squash"
     },
     {
       "key": "c05",
       "group": "Sebzeler",
       "tr": "Karpuz",
-      "en": "watermelon"
+      "en": "watermelon",
+      "label_en": "Watermelon"
     },
     {
       "key": "c06",
       "group": "Sebzeler",
       "tr": "Kavun",
-      "en": "\"Cucumis melo\" OR muskmelon OR cantaloupe"
+      "en": "\"Cucumis melo\" OR muskmelon OR cantaloupe",
+      "label_en": "Melon"
     },
     {
       "key": "c07",
       "group": "Sebzeler",
       "tr": "Taze fasulye",
-      "en": "\"green bean\" OR \"snap bean\" OR \"common bean\""
+      "en": "\"green bean\" OR \"snap bean\" OR \"common bean\"",
+      "label_en": "Green bean"
     },
     {
       "key": "c08",
       "group": "Sebzeler",
       "tr": "Marul",
-      "en": "lettuce"
+      "en": "lettuce",
+      "label_en": "Lettuce"
     },
     {
       "key": "c09",
       "group": "Sebzeler",
       "tr": "Lahana",
-      "en": "cabbage"
+      "en": "cabbage",
+      "label_en": "Cabbage"
     },
     {
       "key": "c10",
       "group": "Sebzeler",
       "tr": "Brokoli & karnabahar",
-      "en": "broccoli OR cauliflower"
+      "en": "broccoli OR cauliflower",
+      "label_en": "Broccoli & cauliflower"
     },
     {
       "key": "c11",
       "group": "Sebzeler",
       "tr": "Havuç",
-      "en": "carrot"
+      "en": "carrot",
+      "label_en": "Carrot"
     },
     {
       "key": "c12",
       "group": "Sebzeler",
       "tr": "Soğan",
-      "en": "onion"
+      "en": "onion",
+      "label_en": "Onion"
     },
     {
       "key": "c13",
       "group": "Sebzeler",
       "tr": "Sarımsak",
-      "en": "garlic"
+      "en": "garlic",
+      "label_en": "Garlic"
     },
     {
       "key": "c14",
       "group": "Sebzeler",
       "tr": "Patates",
-      "en": "potato"
+      "en": "potato",
+      "label_en": "Potato"
     },
     {
       "key": "c15",
       "group": "Sebzeler",
       "tr": "Ispanak",
-      "en": "spinach"
+      "en": "spinach",
+      "label_en": "Spinach"
     },
     {
       "key": "c16",
       "group": "Sebzeler",
       "tr": "Enginar",
-      "en": "artichoke"
+      "en": "artichoke",
+      "label_en": "Artichoke"
     },
     {
       "key": "c17",
       "group": "Sebzeler",
       "tr": "Mantar",
-      "en": "mushroom OR Agaricus"
+      "en": "mushroom OR Agaricus",
+      "label_en": "Mushroom"
     },
     {
       "key": "c18",
       "group": "Sebzeler",
       "tr": "Çilek",
-      "en": "strawberry"
+      "en": "strawberry",
+      "label_en": "Strawberry"
     },
     {
       "key": "c19",
       "group": "Meyveler",
       "tr": "Elma",
-      "en": "apple"
+      "en": "apple",
+      "label_en": "Apple"
     },
     {
       "key": "c20",
       "group": "Meyveler",
       "tr": "Armut",
-      "en": "pear"
+      "en": "pear",
+      "label_en": "Pear"
     },
     {
       "key": "c21",
       "group": "Meyveler",
       "tr": "Kiraz",
-      "en": "cherry"
+      "en": "cherry",
+      "label_en": "Cherry"
     },
     {
       "key": "c22",
       "group": "Meyveler",
       "tr": "Kayısı",
-      "en": "apricot"
+      "en": "apricot",
+      "label_en": "Apricot"
     },
     {
       "key": "c23",
       "group": "Meyveler",
       "tr": "Şeftali & nektarin",
-      "en": "peach OR nectarine"
+      "en": "peach OR nectarine",
+      "label_en": "Peach & nectarine"
     },
     {
       "key": "c24",
       "group": "Meyveler",
       "tr": "Erik",
-      "en": "plum"
+      "en": "plum",
+      "label_en": "Plum"
     },
     {
       "key": "c25",
       "group": "Meyveler",
       "tr": "Üzüm",
-      "en": "grape OR grapevine OR vineyard"
+      "en": "grape OR grapevine OR vineyard",
+      "label_en": "Grape"
     },
     {
       "key": "c26",
       "group": "Meyveler",
       "tr": "Narenciye",
-      "en": "citrus OR orange OR mandarin OR lemon"
+      "en": "citrus OR orange OR mandarin OR lemon",
+      "label_en": "Citrus"
     },
     {
       "key": "c27",
       "group": "Meyveler",
       "tr": "Nar",
-      "en": "pomegranate"
+      "en": "pomegranate",
+      "label_en": "Pomegranate"
     },
     {
       "key": "c28",
       "group": "Meyveler",
       "tr": "İncir",
-      "en": "fig OR \"Ficus carica\""
+      "en": "fig OR \"Ficus carica\"",
+      "label_en": "Fig"
     },
     {
       "key": "c29",
       "group": "Meyveler",
       "tr": "Muz",
-      "en": "banana"
+      "en": "banana",
+      "label_en": "Banana"
     },
     {
       "key": "c30",
       "group": "Meyveler",
       "tr": "Avokado",
-      "en": "avocado"
+      "en": "avocado",
+      "label_en": "Avocado"
     },
     {
       "key": "c31",
       "group": "Meyveler",
       "tr": "Kivi",
-      "en": "kiwifruit OR kiwi"
+      "en": "kiwifruit OR kiwi",
+      "label_en": "Kiwifruit"
     },
     {
       "key": "c32",
       "group": "Meyveler",
       "tr": "Trabzon hurması",
-      "en": "persimmon"
+      "en": "persimmon",
+      "label_en": "Persimmon"
     },
     {
       "key": "c33",
       "group": "Tarla Bitkileri",
       "tr": "Buğday",
-      "en": "wheat"
+      "en": "wheat",
+      "label_en": "Wheat"
     },
     {
       "key": "c34",
       "group": "Tarla Bitkileri",
       "tr": "Arpa",
-      "en": "barley"
+      "en": "barley",
+      "label_en": "Barley"
     },
     {
       "key": "c35",
       "group": "Tarla Bitkileri",
       "tr": "Mısır",
-      "en": "maize OR corn"
+      "en": "maize OR corn",
+      "label_en": "Maize"
     },
     {
       "key": "c36",
       "group": "Tarla Bitkileri",
       "tr": "Çeltik",
-      "en": "rice OR paddy"
+      "en": "rice OR paddy",
+      "label_en": "Rice"
     },
     {
       "key": "c37",
       "group": "Tarla Bitkileri",
       "tr": "Pamuk",
-      "en": "cotton"
+      "en": "cotton",
+      "label_en": "Cotton"
     },
     {
       "key": "c38",
       "group": "Tarla Bitkileri",
       "tr": "Ayçiçeği",
-      "en": "sunflower"
+      "en": "sunflower",
+      "label_en": "Sunflower"
     },
     {
       "key": "c39",
       "group": "Tarla Bitkileri",
       "tr": "Şeker pancarı",
-      "en": "\"sugar beet\""
+      "en": "\"sugar beet\"",
+      "label_en": "Sugar beet"
     },
     {
       "key": "c40",
       "group": "Tarla Bitkileri",
       "tr": "Nohut",
-      "en": "chickpea"
+      "en": "chickpea",
+      "label_en": "Chickpea"
     },
     {
       "key": "c41",
       "group": "Tarla Bitkileri",
       "tr": "Mercimek",
-      "en": "lentil"
+      "en": "lentil",
+      "label_en": "Lentil"
     },
     {
       "key": "c42",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Zeytin",
-      "en": "olive"
+      "en": "olive",
+      "label_en": "Olive"
     },
     {
       "key": "c43",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Fındık",
-      "en": "hazelnut"
+      "en": "hazelnut",
+      "label_en": "Hazelnut"
     },
     {
       "key": "c44",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Antep fıstığı",
-      "en": "pistachio"
+      "en": "pistachio",
+      "label_en": "Pistachio"
     },
     {
       "key": "c45",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Badem",
-      "en": "almond"
+      "en": "almond",
+      "label_en": "Almond"
     },
     {
       "key": "c46",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Ceviz",
-      "en": "walnut"
+      "en": "walnut",
+      "label_en": "Walnut"
     },
     {
       "key": "c47",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Çay",
-      "en": "\"Camellia sinensis\" OR \"tea plantation\" OR \"tea plant\""
+      "en": "\"Camellia sinensis\" OR \"tea plantation\" OR \"tea plant\"",
+      "label_en": "Tea"
     }
   ],
   "ops": [
@@ -305,126 +353,144 @@
       "phase": "Planlama & hazırlık",
       "tr": "Toprak işleme & analiz",
       "stage": "Toprak & Girdi",
-      "terms": "tillage OR \"soil preparation\" OR seedbed OR plough OR plow OR subsoiler OR \"soil sampling\""
+      "terms": "tillage OR \"soil preparation\" OR seedbed OR plough OR plow OR subsoiler OR \"soil sampling\"",
+      "en": "Tillage & soil analysis"
     },
     {
       "key": "plant",
       "phase": "Planlama & hazırlık",
       "tr": "Ekim, dikim & aşılama",
       "stage": "Toprak & Girdi",
-      "terms": "sowing OR seeding OR seeder OR transplanting OR transplanter OR planting OR grafting"
+      "terms": "sowing OR seeding OR seeder OR transplanting OR transplanter OR planting OR grafting",
+      "en": "Sowing, planting & grafting"
     },
     {
       "key": "mulch",
       "phase": "Planlama & hazırlık",
       "tr": "Malçlama",
       "stage": "Toprak & Girdi",
-      "terms": "mulch OR mulching OR \"plastic film\" OR \"film mulch\""
+      "terms": "mulch OR mulching OR \"plastic film\" OR \"film mulch\"",
+      "en": "Mulching"
     },
     {
       "key": "irrig",
       "phase": "Bakım & besleme",
       "tr": "Sulama & gübreleme",
       "stage": "Yetiştirme & Bitki Koruma",
-      "terms": "irrigation OR fertigation OR fertilizer OR fertiliser OR \"nutrient application\""
+      "terms": "irrigation OR fertigation OR fertilizer OR fertiliser OR \"nutrient application\"",
+      "en": "Irrigation & fertilisation"
     },
     {
       "key": "weed",
       "phase": "Bakım & besleme",
       "tr": "Yabancı ot & çapalama",
       "stage": "Yetiştirme & Bitki Koruma",
-      "terms": "weed OR weeding OR hoeing OR \"inter-row\""
+      "terms": "weed OR weeding OR hoeing OR \"inter-row\"",
+      "en": "Weeding & hoeing"
     },
     {
       "key": "prune",
       "phase": "Bakım & besleme",
       "tr": "Budama, seyreltme & uç alma",
       "stage": "Yetiştirme & Bitki Koruma",
-      "terms": "pruning OR thinning OR deleafing OR \"de-leafing\" OR topping OR \"canopy management\""
+      "terms": "pruning OR thinning OR deleafing OR \"de-leafing\" OR topping OR \"canopy management\"",
+      "en": "Pruning, thinning & topping"
     },
     {
       "key": "pollin",
       "phase": "Bakım & besleme",
       "tr": "Tozlaşma",
       "stage": "Yetiştirme & Bitki Koruma",
-      "terms": "pollination OR pollinator OR pollinating"
+      "terms": "pollination OR pollinator OR pollinating",
+      "en": "Pollination"
     },
     {
       "key": "spray",
       "phase": "Bakım & besleme",
       "tr": "İlaçlama (bitki koruma)",
       "stage": "Yetiştirme & Bitki Koruma",
-      "terms": "spraying OR sprayer OR \"pesticide application\" OR \"plant protection product\""
+      "terms": "spraying OR sprayer OR \"pesticide application\" OR \"plant protection product\"",
+      "en": "Spraying (crop protection)"
     },
     {
       "key": "climate",
       "phase": "Bakım & besleme",
       "tr": "İklim koruma (don, dolu, sera iklimi)",
       "stage": "Yetiştirme & Bitki Koruma",
-      "terms": "frost OR hail OR \"shade net\" OR shading OR \"greenhouse climate\" OR windbreak"
+      "terms": "frost OR hail OR \"shade net\" OR shading OR \"greenhouse climate\" OR windbreak",
+      "en": "Climate protection (frost, hail, greenhouse climate)"
     },
     {
       "key": "scout",
       "phase": "Bakım & besleme",
       "tr": "Saha gözlemi (hastalık, verim izleme)",
       "stage": "Yetiştirme & Bitki Koruma",
-      "terms": "monitoring OR \"disease detection\" OR \"yield estimation\" OR \"yield prediction\" OR phenotyping OR scouting"
+      "terms": "monitoring OR \"disease detection\" OR \"yield estimation\" OR \"yield prediction\" OR phenotyping OR scouting",
+      "en": "Field monitoring (disease, yield)"
     },
     {
       "key": "harvest",
       "phase": "Hasat & sonrası",
       "tr": "Hasat",
       "stage": "Hasat & Mekanizasyon",
-      "terms": "harvesting OR harvester OR harvest OR picking"
+      "terms": "harvesting OR harvester OR harvest OR picking",
+      "en": "Harvesting"
     },
     {
       "key": "store",
       "phase": "Hasat & sonrası",
       "tr": "Ön soğutma & depolama",
       "stage": "Hasat Sonrası & Biyo-Atık",
-      "terms": "precooling OR \"pre-cooling\" OR \"cold storage\" OR \"storage facility\" OR \"controlled atmosphere\""
+      "terms": "precooling OR \"pre-cooling\" OR \"cold storage\" OR \"storage facility\" OR \"controlled atmosphere\"",
+      "en": "Pre-cooling & storage"
     },
     {
       "key": "pack",
       "phase": "Hasat & sonrası",
       "tr": "Tasnif, paketleme & izlenebilirlik",
       "stage": "Hasat Sonrası & Biyo-Atık",
-      "terms": "grading OR sorting OR packaging OR packing OR labelling OR labeling OR traceability"
+      "terms": "grading OR sorting OR packaging OR packing OR labelling OR labeling OR traceability",
+      "en": "Grading, packing & traceability"
     },
     {
       "key": "process",
       "phase": "Hasat & sonrası",
       "tr": "Kurutma & işleme",
       "stage": "Hasat Sonrası & Biyo-Atık",
-      "terms": "drying OR dryer OR dehydration OR peeling OR shelling OR pitting OR \"post-harvest processing\""
+      "terms": "drying OR dryer OR dehydration OR peeling OR shelling OR pitting OR \"post-harvest processing\"",
+      "en": "Drying & processing"
     },
     {
       "key": "residue",
       "phase": "Hasat & sonrası",
       "tr": "Artık & atık işleme",
       "stage": "Hasat Sonrası & Biyo-Atık",
-      "terms": "\"crop residue\" OR residues OR \"agricultural waste\" OR \"pruning residues\" OR byproduct OR \"by-product\""
+      "terms": "\"crop residue\" OR residues OR \"agricultural waste\" OR \"pruning residues\" OR byproduct OR \"by-product\"",
+      "en": "Residue & waste processing"
     },
     {
       "key": "resource",
       "phase": "Yönetim & takip",
       "tr": "Kaynak tüketimi takibi (su, enerji, girdi)",
       "stage": "Toprak & Girdi",
-      "terms": "\"water consumption\" OR \"energy consumption\" OR \"fuel consumption\" OR \"input use\" OR \"resource use efficiency\" OR \"carbon footprint\""
+      "terms": "\"water consumption\" OR \"energy consumption\" OR \"fuel consumption\" OR \"input use\" OR \"resource use efficiency\" OR \"carbon footprint\"",
+      "en": "Resource-use tracking (water, energy, inputs)"
     },
     {
       "key": "stock",
       "phase": "Yönetim & takip",
       "tr": "Stok & lojistik",
       "stage": "Hasat Sonrası & Biyo-Atık",
-      "terms": "inventory OR \"supply chain\" OR logistics OR \"stock management\" OR \"cold chain\""
+      "terms": "inventory OR \"supply chain\" OR logistics OR \"stock management\" OR \"cold chain\"",
+      "en": "Inventory & logistics"
     },
     {
       "key": "finance",
       "phase": "Yönetim & takip",
       "tr": "Maliyet, kayıt & sertifikasyon",
       "stage": "Hasat Sonrası & Biyo-Atık",
-      "terms": "\"cost analysis\" OR profitability OR \"farm management\" OR \"record keeping\" OR certification OR \"economic analysis\""
+      "terms": "\"cost analysis\" OR profitability OR \"farm management\" OR \"record keeping\" OR certification OR \"economic analysis\"",
+      "en": "Cost, records & certification"
     }
   ],
   "layers": [

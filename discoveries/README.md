@@ -7,6 +7,9 @@ Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var 
 
 | Tarih | Rapor | Ürün | Bölge | Durum | Tür |
 |---|---|---|---|---|---|
+| 2026-11-19 | [Mısır: Kuraklıkta sulama planlaması ve sap artığının toprak organik maddesine katkısı](2026-11-19-trg-011-misir.md) | Mısır | TR+EU | C | Otomatik tarama |
+| 2026-11-19 | [Domates: Topraksız tarımda drenaj suyu ve kullanılmış yetiştirme ortamı (kaya yünü, kokopit) atığı](2026-11-19-trg-010-domates.md) | Domates | TR+EU | A | Otomatik tarama |
+| 2026-11-19 | [Portakal: Hasat işçiliği açığı ve pazarlanamayan (fire) meyvenin değerlendirilmesi](2026-11-19-trg-009-portakal.md) | Portakal | TR+EU | C | Otomatik tarama |
 | 2026-11-18 | [Şeker Pancarı: Pancar yaprak ve posa artıklarının değerlendirilmesi; azotlu gübre kullanımının azaltılması](2026-11-18-trg-008-seker-pancari.md) | Şeker Pancarı | TR+EU | A | Otomatik tarama |
 | 2026-11-18 | [Pamuk: Hasat sonrası sap artıklarının değerlendirilmesi ve sulama suyu verimliliği](2026-11-18-trg-007-pamuk.md) | Pamuk | TR | C | Otomatik tarama |
 | 2026-11-18 | [Zeytin: Budama artıklarının yakılmadan yerinde değerlendirilmesi](2026-11-18-trg-006-zeytin.md) | Zeytin | TR+EU | A | Otomatik tarama |

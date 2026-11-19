@@ -134,12 +134,14 @@
     "crop": "Portakal",
     "region": "TR+EU",
     "focus": "Hasat işçiliği açığı ve pazarlanamayan (fire) meyvenin değerlendirilmesi",
-    "status": "pending",
+    "status": "published",
     "crop_en": "orange",
     "stage": "Hasat & Mekanizasyon",
     "query": "(orange OR citrus) AND (\"harvest mechanization\" OR \"mechanical harvesting\" OR \"citrus waste\" OR \"orange peel\" OR \"fruit loss\")",
     "crop_label_en": "Orange",
-    "focus_en": "Harvest labour shortage and use of unmarketable (rejected) fruit"
+    "focus_en": "Harvest labour shortage and use of unmarketable (rejected) fruit",
+    "report": "discoveries/2026-11-19-trg-009-portakal.md",
+    "processed_at": "2026-11-19T12:59:57.134135+00:00"
   },
   {
     "id": "TRG-010",
@@ -148,12 +150,14 @@
     "crop": "Domates",
     "region": "TR+EU",
     "focus": "Topraksız tarımda drenaj suyu ve kullanılmış yetiştirme ortamı (kaya yünü, kokopit) atığı",
-    "status": "pending",
+    "status": "published",
     "crop_en": "tomato",
     "stage": "Toprak & Girdi",
     "query": "(soilless OR hydroponic) AND (tomato OR greenhouse) AND (\"drainage water\" OR \"rockwool waste\" OR \"used substrate\" OR \"coir\" OR recirculation)",
     "crop_label_en": "Tomato",
-    "focus_en": "Drainage water and spent growing media (rockwool, coir) waste in soilless growing"
+    "focus_en": "Drainage water and spent growing media (rockwool, coir) waste in soilless growing",
+    "report": "discoveries/2026-11-19-trg-010-domates.md",
+    "processed_at": "2026-11-19T13:00:00.632922+00:00"
   },
   {
     "id": "TRG-011",
@@ -162,12 +166,14 @@
     "crop": "Mısır",
     "region": "TR+EU",
     "focus": "Kuraklıkta sulama planlaması ve sap artığının toprak organik maddesine katkısı",
-    "status": "pending",
+    "status": "published",
     "crop_en": "maize",
     "stage": "Toprak & Girdi",
     "query": "maize AND (\"irrigation scheduling\" OR \"deficit irrigation\" OR \"stover\" OR \"residue retention\") AND (drought OR \"soil organic matter\" OR \"soil organic carbon\")",
     "crop_label_en": "Maize",
-    "focus_en": "Irrigation scheduling under drought and the contribution of stover to soil organic matter"
+    "focus_en": "Irrigation scheduling under drought and the contribution of stover to soil organic matter",
+    "report": "discoveries/2026-11-19-trg-011-misir.md",
+    "processed_at": "2026-11-19T13:00:05.125878+00:00"
   },
   {
     "id": "TRG-012",
@@ -513,5 +519,53 @@
     "focus": "Böcek çiftliği: yem/substrat kontaminasyonu, frass gübresi ve mevzuat boşluğu",
     "focus_en": "Insect farming: feed/substrate contamination, frass fertiliser and regulatory gap",
     "query": "(\"Tenebrio molitor\" OR \"insect farming\") AND (frass OR substrate OR feed) AND (pesticide OR contamination OR regulation)"
+  },
+  {
+    "id": "TRG-035",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Elma",
+    "crop_en": "apple",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "region": "TR",
+    "focus": "Maliyet, kayıt & sertifikasyon işinde yazılım & yapay zekâ: dünyada 181 yayın var, TR kaynaklı yayın yok",
+    "focus_en": "Cost, records & certification — software & ai: 181 publications worldwide, none from TR",
+    "crop_label_en": "Apple",
+    "query": "(apple) AND (\"cost analysis\" OR profitability OR \"farm management\" OR \"record keeping\" OR certification OR \"economic analysis\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c19|finance|digi"
+  },
+  {
+    "id": "TRG-036",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "Portakal",
+    "crop_en": "orange",
+    "crop_label_en": "Orange",
+    "stage": "Hasat & Mekanizasyon",
+    "region": "TR+EU",
+    "focus": "Hasat işçiliği açığı ve pazarlanamayan (fire) meyvenin değerlendirilmesi — su kullanımı ve su kirliliğiyle kesişimi",
+    "focus_en": "Harvest labour shortage and use of unmarketable (rejected) fruit — overlap with water use and water pollution",
+    "query": "((orange OR citrus) AND (\"harvest mechanization\" OR \"mechanical harvesting\" OR \"citrus waste\" OR \"orange peel\" OR \"fruit loss\")) AND (water OR irrigation OR wastewater OR leaching OR salinity)",
+    "link_domain": "water",
+    "status": "pending",
+    "suggested_by": "TRG-009"
+  },
+  {
+    "id": "TRG-037",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Domates",
+    "crop_en": "tomato",
+    "crop_label_en": "Tomato",
+    "stage": "Toprak & Girdi",
+    "region": "TR+EU",
+    "focus": "Topraksız tarımda drenaj suyu ve kullanılmış yetiştirme ortamı (kaya yünü, kokopit) atığı — pazar ve maliyet yapısıyla kesişimi",
+    "focus_en": "Drainage water and spent growing media (rockwool, coir) waste in soilless growing — overlap with market and cost structure",
+    "query": "((soilless OR hydroponic) AND (tomato OR greenhouse) AND (\"drainage water\" OR \"rockwool waste\" OR \"used substrate\" OR \"coir\" OR recirculation)) AND (price OR market OR consumer OR economic OR cost OR profitability)",
+    "link_domain": "market",
+    "status": "pending",
+    "suggested_by": "TRG-010"
   }
 ]

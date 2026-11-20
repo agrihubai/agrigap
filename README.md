@@ -72,7 +72,7 @@ Hiçbir rapor insan tarafından doğrulanmaz ve sahada denenmez.
 
 İsteğe bağlı: openalex.org'da ücretsiz hesap açıp anahtarı **Settings → Secrets and variables → Actions** altına `OPENALEX_API_KEY` adıyla ekleyin.
 
-`agrigap-scan.yml` (Claude API) ücretli olduğu için kapalıdır; zamanlayıcısı yoktur ve anahtar olmadan hiçbir şey yapmaz.
+Ücretli Claude API iş akışı (`agrigap-scan.yml`) 20 Kasım 2026'da kaldırıldı: bu depo yalnızca ücretsiz servislerle çalışır.
 
 ## Hedef ekleme
 

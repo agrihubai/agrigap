@@ -56,7 +56,8 @@ jobs:
         run: |
           git fetch -q --depth=30 origin main
           TODAY=$(date -u +%Y-%m-%d)
-          if [ "$EVENT" = "schedule" ] && git log origin/main --since="$TODAY 00:00 UTC" --author="agrigap-bot" --format=%h | grep -q .; then
+          # Yalnızca bugünkü ZAMANLANMIŞ çalışmanın commit'i sayılır; elle başlatılan çalışmalar otomatik taramayı engellemez.
+          if [ "$EVENT" = "schedule" ] && git log origin/main --since="$TODAY 00:00 UTC" --author="agrigap-bot" --grep="\[zamanli\]" --format=%h | grep -q .; then
             echo "Bugün zaten çalıştı; yedek zamanlama atlandı."; echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
@@ -123,12 +124,14 @@ jobs:
         env:
           TID: ${{ steps.scan.outputs.target_id }}
           TITLE: ${{ steps.scan.outputs.title }}
+          EVENT: ${{ github.event_name }}
         run: |
+          TAG=""; [ "$EVENT" = "schedule" ] && TAG=" [zamanli]"
           git config user.name "agrigap-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add discoveries core/targets.json matrix ideas
           git diff --cached --quiet && { echo "Değişiklik yok."; exit 0; }
-          git commit -m "tarama: ${TITLE:-harita/öneri güncellendi}"
+          git commit -m "tarama: ${TITLE:-harita/öneri güncellendi}${TAG}"
           git pull --rebase origin main
           git push origin HEAD:main
 

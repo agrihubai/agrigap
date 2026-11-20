@@ -67,7 +67,7 @@ Hiçbir rapor insan tarafından doğrulanmaz ve sahada denenmez.
 | Bileşen | Ücret |
 |---|---|
 | GitHub repo, Actions (public repo), Pages | Ücretsiz |
-| OpenAlex API | Ücretsiz günlük kota (anahtarsız da çalışır; ücretsiz anahtarla kota 10 katına çıkar). Çalışma başına yaklaşık 450 sorgu (harita 432, raporlar 15); ücretsiz günlük kota yaklaşık 1.000 aramadır. Kota dolarsa o gün tarama yapılmaz, ücret çıkmaz. |
+| OpenAlex API | Ücretsiz günlük kota (anahtarsız da çalışır; ücretsiz anahtarla kota 10 katına çıkar). Çalışma başına yaklaşık 880 sorgu (harita 864: her hücre için bir sayım ve bir Türkçe yayın sorgusu; raporlar 15); ücretsiz anahtarla günlük kota bunun çok üstündedir. Kota dolarsa o gün tarama yapılmaz, ücret çıkmaz. |
 | Yapay zekâ | Kullanılmıyor |
 
 İsteğe bağlı: openalex.org'da ücretsiz hesap açıp anahtarı **Settings → Secrets and variables → Actions** altına `OPENALEX_API_KEY` adıyla ekleyin.
@@ -106,3 +106,10 @@ Hiçbir rapor insan tarafından doğrulanmaz ve sahada denenmez.
 
 - **Kod** (`scripts/`, `.github/`, `index.html`): [MIT](LICENSE)
 - **Raporlar ve talimatlar** (`discoveries/`, `core/`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.tr). Kaynak gösterilerek paylaşılabilir ve uyarlanabilir. Yayın verisi: OpenAlex (CC0).
+
+### Sayım yöntemi (v2, 20 Kasım 2026)
+- Belge türü: makale, derleme ve konferans bildirisi. Tıp, hemşirelik, diş hekimliği ve sağlık meslekleri alanları dışlanır ("robotic flap harvest" gibi cerrahi yayınlar hasat sayımına karışıyordu).
+- Belirsiz terimler daraltıldı: incir ("fig", şekil kısaltmasıyla karışıyordu), narenciye ("orange" renk anlamıyla karışıyordu). Hasat sütunundan "energy harvesting" ve "pick and place" dışlanır.
+- Türkiye sayısı: Türkiye adresli yayınlar + yazar ülkesi kayıtsız Türkçe yayınlar. Denetimde OpenAlex'teki Tarım Makinaları Bilimi Dergisi yayınlarının 485'inden 390'ında yazar ülkesi kayıtsız çıktı.
+- Google Scholar kullanılmaz: resmî bir veri arayüzü yoktur ve otomatik taramayı kullanım koşullarıyla yasaklar. Scopus, Web of Science ve CAB Abstracts abonelikle çalışır.
+- Denetim: `scripts/audit_coverage.py` (Actions → AgriGap Kapsam Denetimi, elle).

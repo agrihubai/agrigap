@@ -196,7 +196,7 @@
       "key": "c26",
       "group": "Meyveler",
       "tr": "Narenciye",
-      "en": "citrus OR orange OR mandarin OR lemon",
+      "en": "citrus OR mandarin OR tangerine OR lemon OR \"Citrus sinensis\" OR \"sweet orange\" OR \"orange fruit\" OR \"orange fruits\" OR \"orange tree\" OR \"orange trees\" OR \"orange orchard\" OR \"orange orchards\" OR \"orange grove\" OR \"orange harvesting\" OR \"orange harvest\" OR \"orange picking\" OR \"orange juice\"",
       "label_en": "Citrus"
     },
     {
@@ -210,7 +210,7 @@
       "key": "c28",
       "group": "Meyveler",
       "tr": "İncir",
-      "en": "fig OR \"Ficus carica\"",
+      "en": "\"Ficus carica\" OR \"fig fruit\" OR \"fig fruits\" OR \"fig tree\" OR \"fig trees\" OR \"fig orchard\" OR \"fig orchards\" OR \"fresh fig\" OR \"dried fig\" OR \"dried figs\" OR \"fig harvesting\" OR \"fig harvest\" OR \"fig production\"",
       "label_en": "Fig"
     },
     {
@@ -434,7 +434,8 @@
       "tr": "Hasat",
       "stage": "Hasat & Mekanizasyon",
       "terms": "harvesting OR harvester OR harvest OR picking",
-      "en": "Harvesting"
+      "en": "Harvesting",
+      "exclude": "\"energy harvesting\" OR \"energy harvester\" OR \"energy harvesters\" OR \"pick and place\" OR \"pick-and-place\""
     },
     {
       "key": "store",
@@ -506,5 +507,13 @@
       "en": "Software & AI",
       "terms": "software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain"
     }
+  ],
+  "_method": "v2 (2026-11-20): makale, derleme ve konferans bildirisi sayılır; tıp, diş, sağlık ve hemşirelik alanları dışlanır. Türkiye sayısı = Türkiye adresli yayınlar + yazar ülkesi kayıtsız Türkçe yayınlar (OpenAlex'te Türk dergilerinin çoğunda adres yok).",
+  "doc_types": "article|review|conference-paper",
+  "exclude_fields": [
+    27,
+    29,
+    35,
+    36
   ]
 }

@@ -103,7 +103,9 @@ SELECT = "id,doi,display_name,publication_year,authorships,keywords,abstract_inv
 
 
 def search(query, n, countries=None):
-    flt = [f"publication_year:>{FROM_YEAR - 1}", "type:article|review"]
+    flt = [f"publication_year:>{FROM_YEAR - 1}", "type:article|review|conference-paper",
+           "primary_topic.field.id:!27", "primary_topic.field.id:!29", "primary_topic.field.id:!35",
+           "primary_topic.field.id:!36"]  # bildiriler dahil; tıp, hemşirelik, diş, sağlık alanları hariç
     if countries:
         flt.append("authorships.countries:" + "|".join(countries))
     works, total, page = [], 0, 1

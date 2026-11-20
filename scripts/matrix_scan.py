@@ -32,7 +32,15 @@ SYSTEM = {"Sebzeler": "Sebze Yetiştiriciliği", "Meyveler": "Çok Yıllık Bah�
 
 
 def cell_query(crop, op, layer):
-    return f"({crop['en']}) AND ({op['terms']}) AND ({layer['terms']})"
+    q = f"({crop['en']}) AND ({op['terms']}) AND ({layer['terms']})"
+    return q + (f" NOT ({op['exclude']})" if op.get("exclude") else "")
+
+
+def base_filter():
+    """Yıl, belge türü (makale, derleme, bildiri) ve tıp/sağlık alanlarının dışlanması."""
+    f = [f"publication_year:>{CFG['from_year'] - 1}", "type:" + CFG.get("doc_types", "article|review")]
+    f += [f"primary_topic.field.id:!{x}" for x in CFG.get("exclude_fields", [])]
+    return ",".join(f)
 
 
 def country_key(k):
@@ -45,12 +53,15 @@ def count_cell(q, fixture_rng=None):
         tr = int(w * fixture_rng.choice([0, 0, 0.01, 0.03, 0.06]))
         es = int(w * fixture_rng.choice([0.02, 0.05, 0.08]))
         return {"w": w, "tr": tr, "es": es, "eu": int(w * 0.25)}
-    data = ss.openalex_get({"search.title_and_abstract": q,
-                            "filter": f"publication_year:>{CFG['from_year'] - 1},type:article|review",
-                            "group_by": "authorships.countries"})
+    flt = base_filter()
+    data = ss.openalex_get({"search.title_and_abstract": q, "filter": flt, "group_by": "authorships.countries"})
     groups = {country_key(g.get("key")): g.get("count", 0) for g in data.get("group_by") or []}
-    return {"w": data.get("meta", {}).get("count", 0), "tr": groups.get("TR", 0), "es": groups.get("ES", 0),
-            "eu": sum(groups.get(c, 0) for c in ss.EU27)}
+    # OpenAlex'te Türk dergilerinin çoğunda yazar adresi yok: ülkesi kayıtsız Türkçe yayınlar Türkiye'ye eklenir.
+    nc = ss.openalex_get({"search.title_and_abstract": q, "filter": flt + ",authorships.countries:null,language:tr",
+                          "per_page": 1})
+    trl = nc.get("meta", {}).get("count", 0)
+    return {"w": data.get("meta", {}).get("count", 0), "tr": groups.get("TR", 0) + trl, "trl": trl,
+            "es": groups.get("ES", 0), "eu": sum(groups.get(c, 0) for c in ss.EU27), "v": 2}
 
 
 def load():
@@ -108,14 +119,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--crops", type=int, default=CFG["crops_per_run"])
     ap.add_argument("--fixture", action="store_true", help="OpenAlex yerine sahte sayılar (yalnız deneme)")
-    ap.add_argument("--only-missing", action="store_true", help="Yalnızca hiç taranmamış ürünler (ilk doldurma)")
+    ap.add_argument("--only-missing", action="store_true", help="Yalnızca hiç taranmamış ya da eski yöntemle sayılmış ürünler")
     args = ap.parse_args()
 
     m = load()
     upd = m.setdefault("crop_updated", {})
-    order = sorted(CFG["crops"], key=lambda c: upd.get(c["key"], ""))
+    def old_method(c):  # v2 öncesi yöntemle sayılmış ürün: önce yenilenir
+        return any((m["cells"].get(f"{c['key']}|{o['key']}") or {}).get(lay["key"], {}).get("v") != 2
+                   for o in CFG["ops"] for lay in CFG["layers"])
+    order = sorted(CFG["crops"], key=lambda c: (c["key"] in upd and not old_method(c), upd.get(c["key"], "")))
     if args.only_missing:
-        order = [c for c in order if c["key"] not in upd]
+        order = [c for c in order if c["key"] not in upd or old_method(c)]
         if not order:
             print("Haritada taranmamış ürün kalmadı.")
     batch = order[: args.crops]

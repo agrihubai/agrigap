@@ -54,6 +54,9 @@ def country_key(k):
     return str(k or "").rstrip("/").split("/")[-1].upper()
 
 
+TR_OFF = [False]
+
+
 def count_cell(q, fixture_rng=None, trq=None):
     if fixture_rng is not None:  # çevrimdışı deneme: sahte ama tutarlı sayılar
         w = int(fixture_rng.expovariate(1 / 120)) if fixture_rng.random() > 0.15 else fixture_rng.randint(0, 4)
@@ -65,13 +68,19 @@ def count_cell(q, fixture_rng=None, trq=None):
     groups = {country_key(g.get("key")): g.get("count", 0) for g in data.get("group_by") or []}
     # OpenAlex'te Türk dergilerinin çoğunda yazar adresi yok ve Türkçe başlıklar İngilizce terimlerle eşleşmez:
     # yazar ülkesi kayıtsız yayınlar Türkçe terimlerle ayrıca aranır ve Türkiye sayısına eklenir.
-    trl = 0
-    if trq:
-        nc = ss.openalex_get({"search.title_and_abstract": trq, "filter": flt + ",authorships.countries:null",
-                              "per_page": 1})
-        trl = nc.get("meta", {}).get("count", 0)
+    trl, ver = 0, 3
+    if trq and not TR_OFF[0]:
+        try:
+            nc = ss.openalex_get({"search.title_and_abstract": trq, "filter": flt + ",authorships.countries:null",
+                                  "per_page": 1})
+            trl = nc.get("meta", {}).get("count", 0)
+        except ss.ScanSkipped as e:  # Türkçe sorgu başarısızsa ana sayım sürer; hücre sonra yeniden taranır
+            TR_OFF[0] = True
+            print(f"::notice::Türkçe sorgu bu çalışmada kapatıldı: {e}")
+    if trq and TR_OFF[0]:
+        ver = 2
     return {"w": data.get("meta", {}).get("count", 0), "tr": groups.get("TR", 0) + trl, "trl": trl,
-            "es": groups.get("ES", 0), "eu": sum(groups.get(c, 0) for c in ss.EU27), "v": 3}
+            "es": groups.get("ES", 0), "eu": sum(groups.get(c, 0) for c in ss.EU27), "v": ver}
 
 
 def load():

@@ -589,5 +589,21 @@
     "status": "pending",
     "suggested_by": "Teknoloji Boşluk Haritası",
     "matrix_cell": "c34|scout|mech"
+  },
+  {
+    "id": "TRG-039",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Mısır",
+    "crop_en": "maize OR corn",
+    "stage": "Toprak & Girdi",
+    "region": "TR",
+    "focus": "Toprak işleme & analiz işinde yazılım & yapay zekâ: dünyada 193 yayın var, TR kaynaklı yayın yok",
+    "focus_en": "Tillage & soil analysis — software & ai: 193 publications worldwide, none from TR",
+    "crop_label_en": "Maize",
+    "query": "(maize OR corn) AND (tillage OR \"soil preparation\" OR seedbed OR plough OR plow OR subsoiler OR \"soil sampling\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c35|soil|digi"
   }
 ]

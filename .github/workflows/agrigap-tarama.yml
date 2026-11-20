@@ -1,7 +1,7 @@
 name: AgriGap Otomatik Tarama (ücretsiz)
 
 # Yapay zekâ kullanmaz, ücretli hiçbir bileşen yoktur.
-# Her gün 06:23 UTC (Madrid 07:23 kış / 08:23 yaz) başlar. Pazartesi, Çarşamba ve Cuma: haritada 12 ürünü yeniler ve
+# Her gece 00:13 UTC'den itibaren saat başı denenir (ilk çalışan tarar), sabah site günceldir. Pazartesi, Çarşamba ve Cuma: haritada 12 ürünü yeniler ve
 # kuyruktaki sıradaki 3 hedefi tarar. Diğer günler: yalnızca haritada hiç taranmamış ürünleri doldurur (en fazla 12),
 # raporu discoveries/ altına yazar ve doğrudan main dalına yükler; site kendiliğinden güncellenir.
 # Elle çalıştırmak için: Actions → AgriGap Otomatik Tarama → Run workflow.
@@ -9,8 +9,9 @@ name: AgriGap Otomatik Tarama (ücretsiz)
 
 on:
   schedule:
-    - cron: '23 6 * * *'   # her gün; raporlar yalnız Pzt/Çar/Cum, diğer günler harita yalnız eksik ürünleri doldurur
-    - cron: '47 10 * * *'  # yedek: GitHub ilk zamanlamayı atlarsa; o gün zaten çalıştıysa hiçbir şey yapmaz
+    # GitHub zamanlanmış işleri saatlerce geciktirebiliyor. Bu yüzden gece 00:13–06:13 UTC arası her saat
+    # (Madrid 01:13–07:13 kış) ve gündüz iki yedek denemesi var. O gün ilk çalışan tarar; diğerleri ~10 sn'de atlar.
+    - cron: '13 0-6,9,13 * * *'
   workflow_dispatch:
     inputs:
       target_id:
@@ -57,7 +58,9 @@ jobs:
           git fetch -q --depth=30 origin main
           TODAY=$(date -u +%Y-%m-%d)
           # Yalnızca bugünkü ZAMANLANMIŞ çalışmanın commit'i sayılır; elle başlatılan çalışmalar otomatik taramayı engellemez.
-          if [ "$EVENT" = "schedule" ] && git log origin/main --since="$TODAY 00:00 UTC" --author="agrigap-bot" --grep="\[zamanli\]" --format=%h | grep -q .; then
+          # Yalnızca bugünkü ZAMANLANMIŞ çalışma sayılır (core/last_run.txt); elle başlatılan çalışmalar engellemez.
+          LAST=$(git show origin/main:core/last_run.txt 2>/dev/null | tr -d '[:space:]' || true)
+          if [ "$EVENT" = "schedule" ] && [ "$LAST" = "$TODAY" ]; then
             echo "Bugün zaten çalıştı; yedek zamanlama atlandı."; echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
@@ -120,7 +123,7 @@ jobs:
           fi
 
       - name: main dalına yükle
-        if: steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true' || steps.cards.outputs.cards != '0' && steps.cards.outputs.cards != ''
+        if: steps.guard.outputs.skip != 'true' && (github.event_name == 'schedule' || steps.scan.outputs.created == 'true' || steps.matrix.outputs.matrix_updated == 'true' || steps.cards.outputs.cards != '0' && steps.cards.outputs.cards != '')
         env:
           TID: ${{ steps.scan.outputs.target_id }}
           TITLE: ${{ steps.scan.outputs.title }}
@@ -129,7 +132,9 @@ jobs:
           TAG=""; [ "$EVENT" = "schedule" ] && TAG=" [zamanli]"
           git config user.name "agrigap-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ "$EVENT" = "schedule" ] && date -u +%Y-%m-%d > core/last_run.txt
           git add discoveries core/targets.json matrix ideas
+          [ -f core/last_run.txt ] && git add core/last_run.txt
           git diff --cached --quiet && { echo "Değişiklik yok."; exit 0; }
           git commit -m "tarama: ${TITLE:-harita/öneri güncellendi}${TAG}"
           git pull --rebase origin main

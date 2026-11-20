@@ -50,7 +50,7 @@ d = get("works", filter="author.orcid:0000-0001-8154-6993", per_page=100,
         select="display_name,publication_year,type,authorships,primary_location")
 notr = []
 for w in d.get("results", []):
-    me = [a for a in w["authorships"] if (a.get("author") or {}).get("orcid", "").endswith("0000-0001-8154-6993")]
+    me = [a for a in w["authorships"] if ((a.get("author") or {}).get("orcid") or "").endswith("0000-0001-8154-6993")]
     ctry = sorted({c for a in me for c in a.get("countries", [])})
     if "TR" not in ctry:
         src = ((w.get("primary_location") or {}).get("source") or {}).get("display_name")

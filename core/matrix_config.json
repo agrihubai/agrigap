@@ -2,7 +2,7 @@
   "_note": "Teknoloji Boşluk Haritası ayarları (scripts/matrix_scan.py). Her hücre ve katman için: ürün AND iş adımı AND katman terimleri; yazar ülkesine göre yayın sayısı. Sorgular İngilizce, OpenAlex boolean söz dizimi.",
   "from_year": 2010,
   "recent_years": 5,
-  "crops_per_run": 12,
+  "crops_per_run": 10,
   "auto_queue": {
     "region": "TR",
     "min_world": 50,

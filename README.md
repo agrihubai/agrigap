@@ -8,7 +8,7 @@
 
 ## Nasıl çalışır?
 
-Her Pazartesi, Çarşamba ve Cuma GitHub Actions kendiliğinden başlar, Teknoloji Boşluk Haritası'nda 12 ürünü yeniler ve kuyruktaki sıradaki 3 hedefi tarar ([`agrigap-tarama.yml`](.github/workflows/agrigap-tarama.yml)):
+Her Pazartesi, Çarşamba ve Cuma GitHub Actions kendiliğinden başlar, Teknoloji Boşluk Haritası'nda 10 ürünü yeniler ve kuyruktaki sıradaki 3 hedefi tarar ([`agrigap-tarama.yml`](.github/workflows/agrigap-tarama.yml)):
 
 1. `core/targets.json` kuyruğundaki sıradaki `pending` hedefleri alır.
 2. [OpenAlex](https://openalex.org)'ten (açık, CC0 lisanslı yayın veri tabanı) üç sorgu çalıştırır: konu (dünya), konu (hedef bölge) ve karşılaştırma için ürünün genel literatürü.
@@ -26,7 +26,7 @@ Elle başlatmak için: **Actions → AgriGap Otomatik Tarama → Run workflow** 
 Uygulamanın ikinci sekmesi. 48 ürün × 18 iş adımı (toprak işlemeden hasada, depolamadan stok ve maliyet takibine) tablosunun her hücresi için iki katmanda yayın sayar: **makine & donanım** ve **yazılım & yapay zekâ**. Sayılar yazar ülkesine göre bölünür (dünya, Türkiye, İspanya, AB). Mor hücreler dünyada neredeyse hiç çalışılmamış konuları, sarı hücreler dünyada çalışılmış ama seçilen bölgede yayını olmayan (aktarım adayı) konuları gösterir.
 
 - Ayarlar: [`core/matrix_config.json`](core/matrix_config.json) (ürünler, iş adımları, katman terimleri). Ürün listesi [Halden Anlayan](https://agrihubai.github.io/halden-anlayan/) ürünlerinden ve tarla/bahçe bitkilerinden seçildi.
-- Her çalışmada 12 ürün yenilenir (kayan güncelleme). İş akışı her gece çalışır (00:13–06:13 UTC arası saat başı denenir, günde yalnız bir kez tarar; sabah site günceldir): rapor olmayan günlerde yalnızca hiç taranmamış ürünler doldurulur, harita tamamlanınca bu günlerde hiçbir şey yapılmaz. Veri: `matrix/matrix.json`.
+- Her çalışmada 10 ürün yenilenir (kayan güncelleme). İş akışı her gece çalışır (00:13–06:13 UTC arası saat başı denenir, günde yalnız bir kez tarar; sabah site günceldir): rapor olmayan günlerde yalnızca hiç taranmamış ya da eski yöntemle sayılmış ürünler doldurulur, harita tamamlanınca bu günlerde hiçbir şey yapılmaz. Veri: `matrix/matrix.json`.
 - **Kendini besleme:** dünyada en az 50 yayını olup Türkiye'den hiç yayını olmayan en güçlü hücre ayrıntılı tarama kuyruğuna eklenir.
 - Ayrıntılı raporlardaki **Zorluk Sinyalleri** bölümü, yayınlarda sık geçen engelleri (eğim, ürün hasarı, görüş engeli, dar alan, maliyet, enerji…) listeler: yeni bir makine, yazılım ya da uygulama için tasarım gerekliliği adayları.
 
@@ -67,7 +67,7 @@ Hiçbir rapor insan tarafından doğrulanmaz ve sahada denenmez.
 | Bileşen | Ücret |
 |---|---|
 | GitHub repo, Actions (public repo), Pages | Ücretsiz |
-| OpenAlex API | Ücretsiz günlük kota (anahtarsız da çalışır; ücretsiz anahtarla kota 10 katına çıkar). Çalışma başına yaklaşık 880 sorgu (harita 864: her hücre için bir sayım ve bir Türkçe yayın sorgusu; raporlar 15); ücretsiz anahtarla günlük kota bunun çok üstündedir. Kota dolarsa o gün tarama yapılmaz, ücret çıkmaz. |
+| OpenAlex API | Ücretsiz günlük kota (anahtarsız da çalışır; ücretsiz anahtarla kota 10 katına çıkar). Çalışma başına yaklaşık 735 sorgu (harita 10 ürün × 72: her hücre için bir sayım ve bir Türkçe yayın sorgusu; raporlar 15). 20 Kasım 2026'da günde yaklaşık 1.000 sorgudan sonra HTTP 429 (kota) alındı; çalışma başına ürün sayısı bu yüzden 10. Kota dolarsa o gün tarama yapılmaz, ücret çıkmaz. |
 | Yapay zekâ | Kullanılmıyor |
 
 İsteğe bağlı: openalex.org'da ücretsiz hesap açıp anahtarı **Settings → Secrets and variables → Actions** altına `OPENALEX_API_KEY` adıyla ekleyin.

@@ -1,8 +1,8 @@
 name: AgriGap Otomatik Tarama (ücretsiz)
 
 # Yapay zekâ kullanmaz, ücretli hiçbir bileşen yoktur.
-# Her gece 00:13 UTC'den itibaren saat başı denenir (ilk çalışan tarar), sabah site günceldir. Pazartesi, Çarşamba ve Cuma: haritada 12 ürünü yeniler ve
-# kuyruktaki sıradaki 3 hedefi tarar. Diğer günler: yalnızca haritada hiç taranmamış ürünleri doldurur (en fazla 12),
+# Her gece 00:13 UTC'den itibaren saat başı denenir (ilk çalışan tarar), sabah site günceldir. Pazartesi, Çarşamba ve Cuma: haritada 10 ürünü yeniler ve
+# kuyruktaki sıradaki 3 hedefi tarar. Diğer günler: yalnızca haritada hiç taranmamış ürünleri doldurur (en fazla 10),
 # raporu discoveries/ altına yazar ve doğrudan main dalına yükler; site kendiliğinden güncellenir.
 # Elle çalıştırmak için: Actions → AgriGap Otomatik Tarama → Run workflow.
 # İsteğe bağlı: OPENALEX_API_KEY secret'ı (openalex.org'dan ücretsiz). Yoksa anahtarsız ücretsiz kota kullanılır.
@@ -21,7 +21,7 @@ on:
       matrix_crops:
         description: 'Haritada bu çalışmada yenilenecek ürün sayısı (0 = harita atlanır)'
         required: false
-        default: '12'
+        default: '10'
       reports:
         description: 'Ayrıntılı rapor sayısı (0 = atlanır)'
         required: false
@@ -71,7 +71,7 @@ jobs:
         if: steps.guard.outputs.skip != 'true'
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
-          CROPS: ${{ inputs.matrix_crops || '12' }}
+          CROPS: ${{ inputs.matrix_crops || '10' }}
           EVENT: ${{ github.event_name }}
         run: |
           DOW=$(date -u +%u)

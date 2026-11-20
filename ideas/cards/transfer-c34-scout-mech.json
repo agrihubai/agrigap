@@ -1,0 +1,374 @@
+{
+ "id": "transfer:c34:scout:mech",
+ "created": "2026-11-20T11:09:28.985454+00:00",
+ "candidate": {
+  "id": "transfer:c34:scout:mech",
+  "type": "transfer",
+  "crop": "c34",
+  "op": "scout",
+  "layer": "mech",
+  "w": 416,
+  "tr": 0,
+  "es": 34,
+  "eu": 253,
+  "score": 2.62,
+  "regulations": [
+   "eu-machinery-2023-1230",
+   "tr-makine-emniyeti-2026",
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act",
+   "eu-soil"
+  ],
+  "target": "TRG-038",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ]
+ },
+ "query": "(barley) AND (monitoring OR \"disease detection\" OR \"yield estimation\" OR \"yield prediction\" OR phenotyping OR scouting) AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+ "published": false,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-20",
+   "status": "rejected",
+   "reason": "unsourced_number: ['85%']",
+   "content": {
+    "relevant": true,
+    "relevance_reason": {
+     "tr": "Arpa üretiminde hastalık takibi ve verim tahmini, tarla izleme adımı ve makine/donanım katmanı kapsamında dron, lazer tarayıcı ve sensör sistemleriyle doğrudan taranan kaynaklarda incelenmiştir.",
+     "en": "Disease monitoring and yield prediction in barley production under the field monitoring step and machine/hardware layer are directly investigated in scanned literature using UAVs, laser scanners, and sensor systems."
+    },
+    "tr": {
+     "title": "Arpa Tarla İzleme ve Verim Kestiriminde Araç Üstü ve Sahada Modüler Sensör Donanımları",
+     "finding": "Bu analize göre arpa tarla izleme çalışmalarında İHA tabanlı multispektral kameralar ve kapalı alan 3D lazer tarama sistemleri öne çıkmakta, ancak veri işleme darboğazı ve açık saha uygulanabilirliği temel engel olarak görülmektedir.",
+     "problem": "Arpa yetiştiriciliğinde hastalıkların ve gelişim dinamiklerinin zamanında tespiti için İHA ile veri toplama sonrası oluşan veri işleme gecikmeleri, kapalı alan 3D lazer/hiperspektral sistemlerin açık tarlaya ölçeklenememesi ve saha şartlarındaki kapasite kısıtları operasyonel verimliliği düşürmektedir.",
+     "existing": [
+      {
+       "what": "İHA tabanlı RGB, multispektral ve termal görüntüleme sistemleri",
+       "where": "Almanya, İspanya, Birleşik Krallık, Bulgaristan",
+       "how": "İHA'lara bağlanan RGB ve çok bantlı kameralarla arpa parselleri üzerinden bitki örtüsü indeksleri, kanopi yüksekliği ve gelişim verileri toplanarak verim ve fenotip kestirimi yapılmıştır.",
+       "pros": "Tahribatsız, nesnel ve tarlanın tamamını kapsayan yüksek hacimli veri toplama imkanı sunar.",
+       "cons": "Görüntü toplama sonrasında veri işleme süresi darboğaz oluşturur; rüzgar ve hava şartlarına bağımlıdır.",
+       "source_dois": [
+        "10.3390/rs13142670",
+        "10.3389/fpls.2017.01733",
+        "10.1080/01431161.2017.1395974",
+        "10.3390/s23115008",
+        "10.1016/j.compag.2021.106380",
+        "10.1016/j.jag.2015.02.012"
+       ]
+      },
+      {
+       "what": "İç mekan / kapalı alan 3D lazer tarama ve hiperspektral platformlar",
+       "where": "Almanya, ABD, Kanada, Bulgaristan",
+       "how": "Gantry robotlar veya lazer tarayıcılar ile saksı/mini parsel ortamındaki arpa bitkilerinin organ seviyesinde (yaprak, sap) 3D geometrisi çıkarılmış ve külleme hastalığı şiddeti ölçülmüştür.",
+       "pros": "Yüksek milimetrik hassasiyet ve otomatik organ segmentasyonu sağlar.",
+       "cons": "Sera veya laboratuvar ortamı ile sınırlıdır; geniş açık tarlalarda doğrudan kullanılamaz.",
+       "source_dois": [
+        "10.3390/s140712670",
+        "10.1186/s13007-018-0313-8",
+        "10.1109/tcbb.2018.2824814"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Traktör ve Saha Ekipmanına Entegre Edge-AI Destekli Optik Sensör Modülü",
+       "how": "Traktör veya tarla makinesinin ön/yan kısımlarına monte edilen korumalı RGB, multispektral ve lazer mesafe sensör dizisi, rutinde yapılan tarla geçişleri esnasında arpa kanopi yapısını ve yaprak hastalıklarını gerçek zamanlı kenar bilgisayarda (edge processing) analiz eder.",
+       "difference": "İHA'ların veri toplama sonrası oluşan veri işleme darboğazını ve sera tipi gantry sistemlerinin açık tarlada kullanılamamasını, mevcut çiftlik makinelerine monte edilip anlık saha içi veri üreterek aşar.",
+       "overcomes": [
+        "Hız & kapasite",
+        "Veri & bağlantı"
+       ],
+       "effect_assumptions": "İş gücü ve takip maliyetini azaltma etkisi, standart traktör geçiş sıklığına ve kenar işlemcinin zorlu arazi koşullarında kesintisiz çalışabilmesine bağlıdır.",
+       "regulation_fit": "AB Makine Tüzüğü (2023/1230) ve TR Makine Emniyeti Yönetmeliği donanım emniyet standartlarına, Siber Dayanıklılık Yasası (2024/2847) cihaz güvenliğine, AB Yapay Zekâ Yasası (2024/1689) ise gömülü AI gereksinimlerine uygundur.",
+       "premortem": "Saha ortamındaki yüksek toz ve titreşimin sensör merceklerini kirletmesi veya optik hizalamayı bozarak anlık analizlerin veri üretemez hale gelmesi riskidir.",
+       "min_experiment": "Tek bir traktör tamponuna monte edilecek RGB ve lazer sensörüyle 1 hektarlık arpa alanında 5 km/s hızla ilerlerken kanopi yüksekliğini ve hastalık izlerini %85 doğrulukla eş zamanlı kaydetmek."
+      },
+      {
+       "title": "Saha Tipi Taşınabilir Otonom Taramalı Arpa Kanopi Robotu",
+       "how": "İç mekan gantry ve 3D lazer tarayıcı mimarisinin engebeli araziye uygun, yüksek şasi açıklığına sahip modüler bir tarla robotuna aktarılarak arpa ıslah ve izleme parsellerinde otomatik 3D bitki mimarisi çıkarması sağlanır.",
+       "difference": "Laboratuvar lazer tarayıcılarının milimetrik hassasiyetini açık tarla parsel denemelerine taşıyarak İHA'ların hava şartlarına bağlı çözünürlük kayıplarını giderir.",
+       "overcomes": [
+        "Doğruluk & hata payı",
+        "İşçilik & ergonomi"
+       ],
+       "effect_assumptions": "Geri dönüş süresi, parsel tarama hızına ve robotun şarj/batarya ömrü sınırlarına bağlıdır.",
+       "regulation_fit": "AB Makine Tüzüğü (2023/1230), TR Makine Emniyeti Yönetmeliği ve AB Veri Yasası (2023/2854) çerçevesinde bağlantılı ürün veri erişimi kurallarına uyar.",
+       "premortem": "Zemin engebesinden kaynaklanan aşırı sarsıntının 3D nokta bulutu birleştirmesini bozarak organ seviyesinde ayrıştırmayı başarısız kılması.",
+       "min_experiment": "Tekerlekli test platformu üzerine kurulu 3D lazer tarayıcı ile 50 metrelik arpa sırasında sap ve yaprak hacimlerini manual ölçümlerle R2 > 0.90 seviyesinde doğrulayarak tarama yapmak."
+      }
+     ]
+    },
+    "en": {
+     "title": "On-Board and Modular Field Sensor Hardware for Barley Field Monitoring and Yield Prediction",
+     "finding": "According to this analysis, UAV-based multispectral cameras and indoor 3D laser scanning systems dominate barley monitoring, while data processing bottlenecks and open-field scalability remain primary hurdles.",
+     "problem": "In barley production, data processing delays following UAV imagery acquisition, the inability to scale indoor 3D laser/hyperspectral setups to open fields, and field capacity constraints hinder timely disease detection and yield monitoring.",
+     "existing": [
+      {
+       "what": "UAV-based RGB, multispectral, and thermal imaging systems",
+       "where": "Germany, Spain, United Kingdom, Bulgaria",
+       "how": "UAVs equipped with RGB and multispectral sensors captured vegetation indices, canopy height, and growth dynamics across barley plots for phenotyping and yield prediction.",
+       "pros": "Provides non-destructive, objective, and full-field coverage high-throughput data collection.",
+       "cons": "Data processing time after acquisition creates a bottleneck; reliant on weather and flight conditions.",
+       "source_dois": [
+        "10.3390/rs13142670",
+        "10.3389/fpls.2017.01733",
+        "10.1080/01431161.2017.1395974",
+        "10.3390/s23115008",
+        "10.1016/j.compag.2021.106380",
+        "10.1016/j.jag.2015.02.012"
+       ]
+      },
+      {
+       "what": "Indoor 3D laser scanning and hyperspectral phenotyping platforms",
+       "where": "Germany, USA, Canada, Bulgaria",
+       "how": "Gantry systems or laser scanners extracted 3D organ-level geometry (leaves, stem) and quantified powdery mildew severity on potted or mini-plot barley plants.",
+       "pros": "Delivers millimeter-level precision and automated organ segmentation.",
+       "cons": "Confined to greenhouse or indoor environments; not directly applicable to expansive open fields.",
+       "source_dois": [
+        "10.3390/s140712670",
+        "10.1186/s13007-018-0313-8",
+        "10.1109/tcbb.2018.2824814"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Tractor-Mounted Edge-AI Optical Sensor Module",
+       "how": "A protected sensor array of RGB, multispectral, and laser distance sensors mounted on standard field machinery processes barley canopy structure and disease spots in real-time using onboard edge computing during routine field operations.",
+       "difference": "Eliminates post-flight UAV data processing delays and field restrictions of indoor gantries by generating immediate actionable field data on existing machinery.",
+       "overcomes": [
+        "Hız & kapasite",
+        "Veri & bağlantı"
+       ],
+       "effect_assumptions": "Labor and monitoring cost reduction depends on the frequency of routine field passes and edge processor reliability under severe dust/vibration.",
+       "regulation_fit": "Complies with EU Machinery Regulation (2023/1230) and TR Machinery Safety Regulation, Cyber Resilience Act (2024/2847) for hardware security, and EU AI Act (2024/1689) for embedded AI.",
+       "premortem": "Heavy dust accumulation or mechanical vibration in field conditions obscuring optical lenses and degrading edge AI model performance.",
+       "min_experiment": "Mount a single RGB and laser distance sensor unit to a tractor bumper, recording canopy height and disease spots at 5 km/h over 1 hectare with 85% accuracy."
+      },
+      {
+       "title": "Field-Deployable Autonomous Canopy Scanning Barley Robot",
+       "how": "Transfers indoor 3D laser scanning and gantry architecture onto a high-clearance, rugged mobile field robot to perform automated 3D canopy characterization across barley breeding and monitoring plots.",
+       "difference": "Brings the millimeter precision of lab laser scanners into open field trial plots, overcoming UAV resolution limits caused by atmospheric conditions.",
+       "overcomes": [
+        "Doğruluk & hata payı",
+        "İşçilik & ergonomi"
+       ],
+       "effect_assumptions": "ROI depends on plot scanning throughput and robot battery endurance under field conditions.",
+       "regulation_fit": "Fits under EU Machinery Regulation (2023/1230), TR Machinery Safety Regulation, and EU Data Act (2023/2854) connected device data sharing rules.",
+       "premortem": "Terrain bumps causing motion blur in 3D point cloud alignment, breaking organ-level segmentation.",
+       "min_experiment": "Deploy a mobile rig with a 3D laser scanner over a 50-meter barley row to validate leaf and stem volume extraction against manual destructive sampling with R2 > 0.90."
+      }
+     ]
+    },
+    "proposals_meta": [
+     {
+      "type": "machine",
+      "grades": {
+       "problem": "strong",
+       "evidence": "strong",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-machinery-2023-1230",
+       "tr-makine-emniyeti-2026",
+       "eu-cra",
+       "eu-ai-act"
+      ],
+      "source_dois": [
+       "10.3390/rs13142670",
+       "10.3389/fpls.2017.01733"
+      ],
+      "novelty_query": "tractor mounted optical sensor edge processing barley field monitoring"
+     },
+     {
+      "type": "machine",
+      "grades": {
+       "problem": "strong",
+       "evidence": "medium",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "medium"
+      },
+      "regulations": [
+       "eu-machinery-2023-1230",
+       "tr-makine-emniyeti-2026",
+       "eu-data-act"
+      ],
+      "source_dois": [
+       "10.3390/s140712670",
+       "10.1109/tcbb.2018.2824814"
+      ],
+      "novelty_query": "field robot 3D laser scanner barley canopy phenotyping"
+     }
+    ]
+   },
+   "relevance": {
+    "tr": "Arpa üretiminde hastalık takibi ve verim tahmini, tarla izleme adımı ve makine/donanım katmanı kapsamında dron, lazer tarayıcı ve sensör sistemleriyle doğrudan taranan kaynaklarda incelenmiştir.",
+    "en": "Disease monitoring and yield prediction in barley production under the field monitoring step and machine/hardware layer are directly investigated in scanned literature using UAVs, laser scanners, and sensor systems."
+   },
+   "sources": [
+    {
+     "doi": "10.3390/rs13142670",
+     "title": "Evaluation of RGB and Multispectral Unmanned Aerial Vehicle (UAV) Imagery for High-Throughput Phenotyping and Yield Prediction in Barley Breeding",
+     "year": 2021,
+     "countries": [
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.1104/pp.16.01122",
+     "title": "pheno Seeder - A Robot System for Automated Handling and Phenotyping of Individual Seeds",
+     "year": 2016,
+     "countries": [
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.22067/jam.v4i2.34826",
+     "title": "MODELING OF YIELD ESTIMATION FOR THE MAIN CROPS IN IRAN BASED ON MECHANIZATION INDEX",
+     "year": 2014,
+     "countries": [
+      "IR"
+     ]
+    },
+    {
+     "doi": "10.1093/jxb/eraf268",
+     "title": "Phenotyping the hidden half: combining UAV phenotyping and machine learning to predict barley root traits in the field",
+     "year": 2025,
+     "countries": [
+      "AU",
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.3389/fpls.2017.01733",
+     "title": "Comparative UAV and Field Phenotyping to Assess Yield and Nitrogen Use Efficiency in Hybrid and Conventional Barley",
+     "year": 2017,
+     "countries": [
+      "ES",
+      "GB"
+     ]
+    },
+    {
+     "doi": "10.1080/01431161.2017.1395974",
+     "title": "UAV-based high-throughput phenotyping to discriminate barley vigour with visible and near-infrared vegetation indices",
+     "year": 2017,
+     "countries": [
+      "IT"
+     ]
+    },
+    {
+     "doi": "10.1002/jsfa.10696",
+     "title": "Yield prediction with machine learning algorithms and satellite images",
+     "year": 2020,
+     "countries": [
+      "IR"
+     ]
+    },
+    {
+     "doi": "10.3390/s140712670",
+     "title": "Automated Analysis of Barley Organs Using 3D Laser Scanning: An Approach for High Throughput Phenotyping",
+     "year": 2014,
+     "countries": [
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.1111/sum.12902",
+     "title": "Yield prediction in spring barley from spectral reflectance and weather data using machine learning",
+     "year": 2023,
+     "countries": [
+      "DK"
+     ]
+    },
+    {
+     "doi": "10.3390/s23115008",
+     "title": "Remotely Sensed Phenotypic Traits for Heritability Estimates and Grain Yield Prediction of Barley Using Multispectral Imaging from UAVs",
+     "year": 2023,
+     "countries": [
+      "BG"
+     ]
+    },
+    {
+     "doi": "10.1016/j.compag.2021.106380",
+     "title": "Assessment of plant density for barley and wheat using UAV multispectral imagery for high-throughput field phenotyping",
+     "year": 2021,
+     "countries": [
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.1016/j.jag.2015.02.012",
+     "title": "Combining UAV-based plant height from crop surface models, visible, and near infrared vegetation indices for biomass monitoring in barley",
+     "year": 2015,
+     "countries": [
+      "CN",
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.1186/s13007-018-0313-8",
+     "title": "Quantitative assessment of disease severity and rating of barley cultivars based on hyperspectral imaging in a non-invasive, automated phenotyping platform",
+     "year": 2018,
+     "countries": [
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.1109/tcbb.2018.2824814",
+     "title": "Machine Vision System for 3D Plant Phenotyping",
+     "year": 2018,
+     "countries": [
+      "BG",
+      "CA",
+      "US"
+     ]
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "Hız & kapasite",
+     "en": "Speed & capacity",
+     "n": 7
+    },
+    {
+     "tr": "Doğruluk & hata payı",
+     "en": "Accuracy & error rate",
+     "n": 2
+    },
+    {
+     "tr": "İşçilik & ergonomi",
+     "en": "Labour & ergonomics",
+     "n": 2
+    },
+    {
+     "tr": "Veri & bağlantı",
+     "en": "Data & connectivity",
+     "n": 1
+    }
+   ],
+   "novelty": [],
+   "checks": {
+    "issues": [
+     {
+      "kind": "unsourced_number",
+      "detail": [
+       "85%"
+      ]
+     }
+    ]
+   }
+  },
+  "audit": null
+ }
+}

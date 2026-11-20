@@ -182,12 +182,14 @@
     "crop": "Üzüm",
     "region": "TR+EU",
     "focus": "Budama çubukları ve cibrenin (üzüm posası) değerlendirilmesi",
-    "status": "pending",
+    "status": "published",
     "crop_en": "grape",
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "(grape OR vineyard OR winery) AND (\"grape pomace\" OR \"vine pruning\" OR \"vine shoots\" OR \"winery waste\")",
     "crop_label_en": "Grape",
-    "focus_en": "Using vine prunings and grape pomace"
+    "focus_en": "Using vine prunings and grape pomace",
+    "report": "discoveries/2026-11-20-trg-012-uzum.md",
+    "processed_at": "2026-11-20T11:09:34.668613+00:00"
   },
   {
     "id": "TRG-013",
@@ -196,12 +198,14 @@
     "crop": "Patates",
     "region": "TR+EU",
     "focus": "Kimyasal filiz önleyicilerin kısıtlanması sonrası depolama kayıpları",
-    "status": "pending",
+    "status": "published",
     "crop_en": "potato",
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "potato AND (storage OR \"sprout suppression\" OR \"sprout inhibitor\" OR chlorpropham OR CIPC)",
     "crop_label_en": "Potato",
-    "focus_en": "Storage losses after restrictions on chemical sprout inhibitors"
+    "focus_en": "Storage losses after restrictions on chemical sprout inhibitors",
+    "report": "discoveries/2026-11-20-trg-013-patates.md",
+    "processed_at": "2026-11-20T11:09:37.795157+00:00"
   },
   {
     "id": "TRG-014",
@@ -210,12 +214,14 @@
     "crop": "Elma",
     "region": "TR",
     "focus": "Soğuk hava deposu enerji maliyeti ve hasat sonrası kayıplar",
-    "status": "pending",
+    "status": "published",
     "crop_en": "apple",
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "apple AND (\"cold storage\" OR \"controlled atmosphere\" OR \"postharvest loss\" OR \"energy consumption\")",
     "crop_label_en": "Apple",
-    "focus_en": "Cold-store energy costs and post-harvest losses"
+    "focus_en": "Cold-store energy costs and post-harvest losses",
+    "report": "discoveries/2026-11-20-trg-014-elma.md",
+    "processed_at": "2026-11-20T11:09:40.988353+00:00"
   },
   {
     "id": "TRG-015",
@@ -567,5 +573,21 @@
     "link_domain": "market",
     "status": "pending",
     "suggested_by": "TRG-010"
+  },
+  {
+    "id": "TRG-038",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Arpa",
+    "crop_en": "barley",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "region": "TR",
+    "focus": "Saha gözlemi (hastalık, verim izleme) işinde makine & donanım: dünyada 416 yayın var, TR kaynaklı yayın yok",
+    "focus_en": "Field monitoring (disease, yield) — machinery & hardware: 416 publications worldwide, none from TR",
+    "crop_label_en": "Barley",
+    "query": "(barley) AND (monitoring OR \"disease detection\" OR \"yield estimation\" OR \"yield prediction\" OR phenotyping OR scouting) AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c34|scout|mech"
   }
 ]

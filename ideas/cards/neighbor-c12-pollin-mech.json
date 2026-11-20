@@ -1,0 +1,77 @@
+{
+ "id": "neighbor:c12:pollin:mech",
+ "created": "2026-11-20T11:09:29.640255+00:00",
+ "candidate": {
+  "id": "neighbor:c12:pollin:mech",
+  "type": "neighbor",
+  "crop": "c12",
+  "op": "pollin",
+  "layer": "mech",
+  "w": 2,
+  "tr": 0,
+  "es": 0,
+  "eu": 0,
+  "score": 0.714,
+  "regulations": [
+   "eu-machinery-2023-1230",
+   "tr-makine-emniyeti-2026",
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ],
+  "neighbor": "c06",
+  "neighbor_w": 9,
+  "expected": 15
+ },
+ "query": "(onion) AND (pollination OR pollinator OR pollinating) AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+ "published": false,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-20",
+   "status": "skipped",
+   "reason": "Kaynak paketi çok küçük (2 yayın).",
+   "content": null,
+   "relevance": null,
+   "sources": [
+    {
+     "doi": "10.30843/nzpp.2019.72.304",
+     "title": "The potential management of the drone fly (Eristalis tenax) as a crop pollinator in New Zealand",
+     "year": 2019,
+     "countries": [
+      "NZ"
+     ]
+    },
+    {
+     "doi": "10.1104/pp.114.900486",
+     "title": "On the Inside",
+     "year": 2014,
+     "countries": [
+      "US"
+     ]
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "İşçilik & ergonomi",
+     "en": "Labour & ergonomics",
+     "n": 1
+    }
+   ],
+   "novelty": [],
+   "checks": {
+    "issues": []
+   }
+  },
+  "audit": null
+ }
+}

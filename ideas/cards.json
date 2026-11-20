@@ -1,6 +1,32 @@
 {
- "generated": "2026-11-18T10:53:22.816224+00:00",
+ "generated": "2026-11-20T11:09:29.642300+00:00",
  "cards": [
+  {
+   "id": "neighbor:c12:pollin:mech",
+   "file": "neighbor-c12-pollin-mech.json",
+   "type": "neighbor",
+   "crop": "c12",
+   "op": "pollin",
+   "layer": "mech",
+   "status": "skipped",
+   "published": false,
+   "created": "2026-11-20T11:09:29.640255+00:00",
+   "title_tr": "",
+   "title_en": ""
+  },
+  {
+   "id": "transfer:c34:scout:mech",
+   "file": "transfer-c34-scout-mech.json",
+   "type": "transfer",
+   "crop": "c34",
+   "op": "scout",
+   "layer": "mech",
+   "status": "rejected",
+   "published": false,
+   "created": "2026-11-20T11:09:28.985454+00:00",
+   "title_tr": "Arpa Tarla İzleme ve Verim Kestiriminde Araç Üstü ve Sahada Modüler Sensör Donanımları",
+   "title_en": "On-Board and Modular Field Sensor Hardware for Barley Field Monitoring and Yield Prediction"
+  },
   {
    "id": "neighbor:c17:weed:mech",
    "file": "neighbor-c17-weed-mech.json",

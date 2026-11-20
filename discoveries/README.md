@@ -7,6 +7,9 @@ Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var 
 
 | Tarih | Rapor | Ürün | Bölge | Durum | Tür |
 |---|---|---|---|---|---|
+| 2026-11-20 | [Elma: Soğuk hava deposu enerji maliyeti ve hasat sonrası kayıplar](2026-11-20-trg-014-elma.md) | Elma | TR | C | Otomatik tarama |
+| 2026-11-20 | [Patates: Kimyasal filiz önleyicilerin kısıtlanması sonrası depolama kayıpları](2026-11-20-trg-013-patates.md) | Patates | TR+EU | C | Otomatik tarama |
+| 2026-11-20 | [Üzüm: Budama çubukları ve cibrenin (üzüm posası) değerlendirilmesi](2026-11-20-trg-012-uzum.md) | Üzüm | TR+EU | A | Otomatik tarama |
 | 2026-11-19 | [Mısır: Kuraklıkta sulama planlaması ve sap artığının toprak organik maddesine katkısı](2026-11-19-trg-011-misir.md) | Mısır | TR+EU | C | Otomatik tarama |
 | 2026-11-19 | [Domates: Topraksız tarımda drenaj suyu ve kullanılmış yetiştirme ortamı (kaya yünü, kokopit) atığı](2026-11-19-trg-010-domates.md) | Domates | TR+EU | A | Otomatik tarama |
 | 2026-11-19 | [Portakal: Hasat işçiliği açığı ve pazarlanamayan (fire) meyvenin değerlendirilmesi](2026-11-19-trg-009-portakal.md) | Portakal | TR+EU | C | Otomatik tarama |

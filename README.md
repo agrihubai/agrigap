@@ -26,7 +26,7 @@ Elle başlatmak için: **Actions → AgriGap Otomatik Tarama → Run workflow** 
 Uygulamanın ikinci sekmesi. 48 ürün × 18 iş adımı (toprak işlemeden hasada, depolamadan stok ve maliyet takibine) tablosunun her hücresi için iki katmanda yayın sayar: **makine & donanım** ve **yazılım & yapay zekâ**. Sayılar yazar ülkesine göre bölünür (dünya, Türkiye, İspanya, AB). Mor hücreler dünyada neredeyse hiç çalışılmamış konuları, sarı hücreler dünyada çalışılmış ama seçilen bölgede yayını olmayan (aktarım adayı) konuları gösterir.
 
 - Ayarlar: [`core/matrix_config.json`](core/matrix_config.json) (ürünler, iş adımları, katman terimleri). Ürün listesi [Halden Anlayan](https://agrihubai.github.io/halden-anlayan/) ürünlerinden ve tarla/bahçe bitkilerinden seçildi.
-- Her çalışmada 12 ürün yenilenir (kayan güncelleme). İş akışı her gün çalışır: rapor olmayan günlerde yalnızca hiç taranmamış ürünler doldurulur, harita tamamlanınca bu günlerde hiçbir şey yapılmaz. Veri: `matrix/matrix.json`.
+- Her çalışmada 12 ürün yenilenir (kayan güncelleme). İş akışı her gece çalışır (00:13–06:13 UTC arası saat başı denenir, günde yalnız bir kez tarar; sabah site günceldir): rapor olmayan günlerde yalnızca hiç taranmamış ürünler doldurulur, harita tamamlanınca bu günlerde hiçbir şey yapılmaz. Veri: `matrix/matrix.json`.
 - **Kendini besleme:** dünyada en az 50 yayını olup Türkiye'den hiç yayını olmayan en güçlü hücre ayrıntılı tarama kuyruğuna eklenir.
 - Ayrıntılı raporlardaki **Zorluk Sinyalleri** bölümü, yayınlarda sık geçen engelleri (eğim, ürün hasarı, görüş engeli, dar alan, maliyet, enerji…) listeler: yeni bir makine, yazılım ya da uygulama için tasarım gerekliliği adayları.
 

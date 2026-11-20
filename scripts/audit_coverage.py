@@ -40,6 +40,54 @@ def section(t):
     print("\n==== " + t)
 
 
+import sys
+MED = "primary_topic.field.id:!27,primary_topic.field.id:!35,primary_topic.field.id:!36,primary_topic.field.id:!29"
+DIGI = ("software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" "
+        "OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain")
+
+
+def n(q, extra=""):
+    f = "publication_year:>2009,type:article|review|conference-paper" + ("," + extra if extra else "")
+    d = get("works", **{"search.title_and_abstract": q, "filter": f, "per_page": 1})
+    return d.get("meta", {}).get("count")
+
+
+section("A) Tıp alanı dışlama + bildiriler dahil (Hasat × Makine)")
+for k, crop in [("incir", "fig OR \"Ficus carica\""), ("narenciye", "citrus OR orange OR mandarin OR lemon"),
+                ("elma", "apple"), ("domates", "tomato"), ("mısır", "maize OR corn")]:
+    q = f"({crop}) AND ({HARV}) AND ({MECH})"
+    print(f"  {k}: tıp dahil {n(q)}, tıp hariç {n(q, MED)}")
+q = f"(fig OR \"Ficus carica\") AND ({HARV}) AND ({MECH})"
+d = get("works", **{"search.title_and_abstract": q, "filter": "publication_year:>2009,type:article|review|conference-paper," + MED,
+                    "per_page": 10, "select": "display_name"})
+for w in d.get("results", []):
+    print("     -", (w["display_name"] or "")[:90])
+
+section("B) Elma × Yazılım: Apple şirketi gürültüsü")
+q = f"(apple) AND ({HARV}) AND ({DIGI})"
+print("  apple:", n(q, MED), " NOT iPhone/iOS/Apple Watch:", n(f"(apple) AND ({HARV}) AND ({DIGI}) NOT (iPhone OR iOS OR \"Apple Watch\" OR macOS)", MED))
+
+section("C) Ülkesi boş yayınlarda Türkiye tahmini (Narenciye × Hasat × Makine, tıp hariç)")
+q = f"(citrus OR orange OR mandarin OR lemon) AND ({HARV}) AND ({MECH})"
+print("  TR yazar ülkesi:", n(q, MED + ",authorships.countries:TR"))
+print("  ülkesiz:", n(q, MED + ",authorships.countries:null"))
+for extra in ["authorships.countries:null,language:tr",
+              "authorships.countries:null,primary_location.source.country_code:TR",
+              "authorships.countries:null,locations.source.country_code:TR"]:
+    print(f"  {extra}:", n(q, MED + "," + extra))
+section("C2) Aynı tahmin, Tarım Makinaları Bilimi Dergisi bütününde")
+s = get("sources", search="Tarım Makinaları Bilimi Dergisi", per_page=1, select="id,country_code")
+src = s["results"][0]; print("  dergi country_code:", src.get("country_code"))
+sid = cc(src["id"])
+for extra in ["authorships.countries:null", "authorships.countries:null,language:tr",
+              "authorships.countries:null,primary_location.source.country_code:TR"]:
+    d = get("works", filter=f"primary_location.source.id:{sid},publication_year:>2009,{extra}", per_page=1)
+    print(f"  {extra}:", d.get("meta", {}).get("count"))
+d = get("works", filter="publication_year:>2009,authorships.countries:null,primary_location.source.country_code:TR", per_page=1)
+print("  tüm OpenAlex, 2010+, ülkesiz ama TR dergisi:", d.get("meta", {}).get("count"))
+sys.exit(0)
+
+# --- ilk denetim (2026-11-20) ---
 section("1) Yazar kapsamı: ORCID 0000-0001-8154-6993 (H. K. Çelik)")
 d = get("works", filter="author.orcid:0000-0001-8154-6993", group_by="publication_year")
 print("toplam iş:", sum(g["count"] for g in d.get("group_by", [])))

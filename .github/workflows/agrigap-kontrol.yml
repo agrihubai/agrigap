@@ -1,0 +1,22 @@
+name: AgriGap Kapsam Denetimi (elle, ücretsiz)
+
+# Yalnız elle çalışır; ~30 ücretsiz OpenAlex sorgusu. Hiçbir dosyayı değiştirmez, sonuç iş günlüğüne yazılır.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  denetim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Denetim
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: python scripts/audit_coverage.py

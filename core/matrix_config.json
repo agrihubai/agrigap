@@ -15,336 +15,492 @@
       "group": "Sebzeler",
       "tr": "Domates",
       "en": "tomato",
-      "label_en": "Tomato"
+      "label_en": "Tomato",
+      "tr_words": [
+        "domates"
+      ]
     },
     {
       "key": "c01",
       "group": "Sebzeler",
       "tr": "Biber",
       "en": "pepper OR capsicum",
-      "label_en": "Pepper"
+      "label_en": "Pepper",
+      "tr_words": [
+        "biber"
+      ]
     },
     {
       "key": "c02",
       "group": "Sebzeler",
       "tr": "Hıyar",
       "en": "cucumber",
-      "label_en": "Cucumber"
+      "label_en": "Cucumber",
+      "tr_words": [
+        "hıyar",
+        "salatalık"
+      ]
     },
     {
       "key": "c03",
       "group": "Sebzeler",
       "tr": "Patlıcan",
       "en": "eggplant OR aubergine",
-      "label_en": "Eggplant"
+      "label_en": "Eggplant",
+      "tr_words": [
+        "patlıcan"
+      ]
     },
     {
       "key": "c04",
       "group": "Sebzeler",
       "tr": "Kabak",
       "en": "zucchini OR courgette OR squash",
-      "label_en": "Zucchini & squash"
+      "label_en": "Zucchini & squash",
+      "tr_words": [
+        "kabak"
+      ]
     },
     {
       "key": "c05",
       "group": "Sebzeler",
       "tr": "Karpuz",
       "en": "watermelon",
-      "label_en": "Watermelon"
+      "label_en": "Watermelon",
+      "tr_words": [
+        "karpuz"
+      ]
     },
     {
       "key": "c06",
       "group": "Sebzeler",
       "tr": "Kavun",
       "en": "\"Cucumis melo\" OR muskmelon OR cantaloupe",
-      "label_en": "Melon"
+      "label_en": "Melon",
+      "tr_words": [
+        "kavun"
+      ]
     },
     {
       "key": "c07",
       "group": "Sebzeler",
       "tr": "Taze fasulye",
       "en": "\"green bean\" OR \"snap bean\" OR \"common bean\"",
-      "label_en": "Green bean"
+      "label_en": "Green bean",
+      "tr_words": [
+        "fasulye"
+      ]
     },
     {
       "key": "c08",
       "group": "Sebzeler",
       "tr": "Marul",
       "en": "lettuce",
-      "label_en": "Lettuce"
+      "label_en": "Lettuce",
+      "tr_words": [
+        "marul"
+      ]
     },
     {
       "key": "c09",
       "group": "Sebzeler",
       "tr": "Lahana",
       "en": "cabbage",
-      "label_en": "Cabbage"
+      "label_en": "Cabbage",
+      "tr_words": [
+        "lahana"
+      ]
     },
     {
       "key": "c10",
       "group": "Sebzeler",
       "tr": "Brokoli & karnabahar",
       "en": "broccoli OR cauliflower",
-      "label_en": "Broccoli & cauliflower"
+      "label_en": "Broccoli & cauliflower",
+      "tr_words": [
+        "brokoli",
+        "karnabahar"
+      ]
     },
     {
       "key": "c11",
       "group": "Sebzeler",
       "tr": "Havuç",
       "en": "carrot",
-      "label_en": "Carrot"
+      "label_en": "Carrot",
+      "tr_words": [
+        "havuç"
+      ]
     },
     {
       "key": "c12",
       "group": "Sebzeler",
       "tr": "Soğan",
       "en": "onion",
-      "label_en": "Onion"
+      "label_en": "Onion",
+      "tr_words": [
+        "soğan"
+      ]
     },
     {
       "key": "c13",
       "group": "Sebzeler",
       "tr": "Sarımsak",
       "en": "garlic",
-      "label_en": "Garlic"
+      "label_en": "Garlic",
+      "tr_words": [
+        "sarımsak"
+      ]
     },
     {
       "key": "c14",
       "group": "Sebzeler",
       "tr": "Patates",
       "en": "potato",
-      "label_en": "Potato"
+      "label_en": "Potato",
+      "tr_words": [
+        "patates"
+      ]
     },
     {
       "key": "c15",
       "group": "Sebzeler",
       "tr": "Ispanak",
       "en": "spinach",
-      "label_en": "Spinach"
+      "label_en": "Spinach",
+      "tr_words": [
+        "ıspanak"
+      ]
     },
     {
       "key": "c16",
       "group": "Sebzeler",
       "tr": "Enginar",
       "en": "artichoke",
-      "label_en": "Artichoke"
+      "label_en": "Artichoke",
+      "tr_words": [
+        "enginar"
+      ]
     },
     {
       "key": "c17",
       "group": "Sebzeler",
       "tr": "Mantar",
       "en": "mushroom OR Agaricus",
-      "label_en": "Mushroom"
+      "label_en": "Mushroom",
+      "tr_words": [
+        "mantar"
+      ]
     },
     {
       "key": "c18",
       "group": "Sebzeler",
       "tr": "Çilek",
       "en": "strawberry",
-      "label_en": "Strawberry"
+      "label_en": "Strawberry",
+      "tr_words": [
+        "çilek"
+      ]
     },
     {
       "key": "c19",
       "group": "Meyveler",
       "tr": "Elma",
       "en": "apple",
-      "label_en": "Apple"
+      "label_en": "Apple",
+      "tr_words": [
+        "elma"
+      ]
     },
     {
       "key": "c20",
       "group": "Meyveler",
       "tr": "Armut",
       "en": "pear",
-      "label_en": "Pear"
+      "label_en": "Pear",
+      "tr_words": [
+        "armut"
+      ]
     },
     {
       "key": "c21",
       "group": "Meyveler",
       "tr": "Kiraz",
       "en": "cherry",
-      "label_en": "Cherry"
+      "label_en": "Cherry",
+      "tr_words": [
+        "kiraz"
+      ]
     },
     {
       "key": "c22",
       "group": "Meyveler",
       "tr": "Kayısı",
       "en": "apricot",
-      "label_en": "Apricot"
+      "label_en": "Apricot",
+      "tr_words": [
+        "kayısı"
+      ]
     },
     {
       "key": "c23",
       "group": "Meyveler",
       "tr": "Şeftali & nektarin",
       "en": "peach OR nectarine",
-      "label_en": "Peach & nectarine"
+      "label_en": "Peach & nectarine",
+      "tr_words": [
+        "şeftali",
+        "nektarin"
+      ]
     },
     {
       "key": "c24",
       "group": "Meyveler",
       "tr": "Erik",
       "en": "plum",
-      "label_en": "Plum"
+      "label_en": "Plum",
+      "tr_words": [
+        "erik"
+      ]
     },
     {
       "key": "c25",
       "group": "Meyveler",
       "tr": "Üzüm",
       "en": "grape OR grapevine OR vineyard",
-      "label_en": "Grape"
+      "label_en": "Grape",
+      "tr_words": [
+        "üzüm",
+        "bağ",
+        "asma"
+      ]
     },
     {
       "key": "c26",
       "group": "Meyveler",
       "tr": "Narenciye",
       "en": "citrus OR mandarin OR tangerine OR lemon OR \"Citrus sinensis\" OR \"sweet orange\" OR \"orange fruit\" OR \"orange fruits\" OR \"orange tree\" OR \"orange trees\" OR \"orange orchard\" OR \"orange orchards\" OR \"orange grove\" OR \"orange harvesting\" OR \"orange harvest\" OR \"orange picking\" OR \"orange juice\"",
-      "label_en": "Citrus"
+      "label_en": "Citrus",
+      "tr_words": [
+        "narenciye",
+        "turunçgil",
+        "portakal",
+        "mandalina",
+        "limon"
+      ]
     },
     {
       "key": "c27",
       "group": "Meyveler",
       "tr": "Nar",
       "en": "pomegranate",
-      "label_en": "Pomegranate"
+      "label_en": "Pomegranate",
+      "tr_words": [
+        "nar"
+      ]
     },
     {
       "key": "c28",
       "group": "Meyveler",
       "tr": "İncir",
       "en": "\"Ficus carica\" OR \"fig fruit\" OR \"fig fruits\" OR \"fig tree\" OR \"fig trees\" OR \"fig orchard\" OR \"fig orchards\" OR \"fresh fig\" OR \"dried fig\" OR \"dried figs\" OR \"fig harvesting\" OR \"fig harvest\" OR \"fig production\"",
-      "label_en": "Fig"
+      "label_en": "Fig",
+      "tr_words": [
+        "incir"
+      ]
     },
     {
       "key": "c29",
       "group": "Meyveler",
       "tr": "Muz",
       "en": "banana",
-      "label_en": "Banana"
+      "label_en": "Banana",
+      "tr_words": [
+        "muz"
+      ]
     },
     {
       "key": "c30",
       "group": "Meyveler",
       "tr": "Avokado",
       "en": "avocado",
-      "label_en": "Avocado"
+      "label_en": "Avocado",
+      "tr_words": [
+        "avokado"
+      ]
     },
     {
       "key": "c31",
       "group": "Meyveler",
       "tr": "Kivi",
       "en": "kiwifruit OR kiwi",
-      "label_en": "Kiwifruit"
+      "label_en": "Kiwifruit",
+      "tr_words": [
+        "kivi"
+      ]
     },
     {
       "key": "c32",
       "group": "Meyveler",
       "tr": "Trabzon hurması",
       "en": "persimmon",
-      "label_en": "Persimmon"
+      "label_en": "Persimmon",
+      "tr_words": [
+        "trabzon hurması",
+        "hurma"
+      ]
     },
     {
       "key": "c33",
       "group": "Tarla Bitkileri",
       "tr": "Buğday",
       "en": "wheat",
-      "label_en": "Wheat"
+      "label_en": "Wheat",
+      "tr_words": [
+        "buğday"
+      ]
     },
     {
       "key": "c34",
       "group": "Tarla Bitkileri",
       "tr": "Arpa",
       "en": "barley",
-      "label_en": "Barley"
+      "label_en": "Barley",
+      "tr_words": [
+        "arpa"
+      ]
     },
     {
       "key": "c35",
       "group": "Tarla Bitkileri",
       "tr": "Mısır",
       "en": "maize OR corn",
-      "label_en": "Maize"
+      "label_en": "Maize",
+      "tr_words": [
+        "mısır"
+      ]
     },
     {
       "key": "c36",
       "group": "Tarla Bitkileri",
       "tr": "Çeltik",
       "en": "rice OR paddy",
-      "label_en": "Rice"
+      "label_en": "Rice",
+      "tr_words": [
+        "çeltik",
+        "pirinç"
+      ]
     },
     {
       "key": "c37",
       "group": "Tarla Bitkileri",
       "tr": "Pamuk",
       "en": "cotton",
-      "label_en": "Cotton"
+      "label_en": "Cotton",
+      "tr_words": [
+        "pamuk"
+      ]
     },
     {
       "key": "c38",
       "group": "Tarla Bitkileri",
       "tr": "Ayçiçeği",
       "en": "sunflower",
-      "label_en": "Sunflower"
+      "label_en": "Sunflower",
+      "tr_words": [
+        "ayçiçeği"
+      ]
     },
     {
       "key": "c39",
       "group": "Tarla Bitkileri",
       "tr": "Şeker pancarı",
       "en": "\"sugar beet\"",
-      "label_en": "Sugar beet"
+      "label_en": "Sugar beet",
+      "tr_words": [
+        "şeker pancarı"
+      ]
     },
     {
       "key": "c40",
       "group": "Tarla Bitkileri",
       "tr": "Nohut",
       "en": "chickpea",
-      "label_en": "Chickpea"
+      "label_en": "Chickpea",
+      "tr_words": [
+        "nohut"
+      ]
     },
     {
       "key": "c41",
       "group": "Tarla Bitkileri",
       "tr": "Mercimek",
       "en": "lentil",
-      "label_en": "Lentil"
+      "label_en": "Lentil",
+      "tr_words": [
+        "mercimek"
+      ]
     },
     {
       "key": "c42",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Zeytin",
       "en": "olive",
-      "label_en": "Olive"
+      "label_en": "Olive",
+      "tr_words": [
+        "zeytin"
+      ]
     },
     {
       "key": "c43",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Fındık",
       "en": "hazelnut",
-      "label_en": "Hazelnut"
+      "label_en": "Hazelnut",
+      "tr_words": [
+        "fındık"
+      ]
     },
     {
       "key": "c44",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Antep fıstığı",
       "en": "pistachio",
-      "label_en": "Pistachio"
+      "label_en": "Pistachio",
+      "tr_words": [
+        "antep fıstığı",
+        "fıstık"
+      ]
     },
     {
       "key": "c45",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Badem",
       "en": "almond",
-      "label_en": "Almond"
+      "label_en": "Almond",
+      "tr_words": [
+        "badem"
+      ]
     },
     {
       "key": "c46",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Ceviz",
       "en": "walnut",
-      "label_en": "Walnut"
+      "label_en": "Walnut",
+      "tr_words": [
+        "ceviz"
+      ]
     },
     {
       "key": "c47",
       "group": "Zeytin & Sert Kabuklular",
       "tr": "Çay",
       "en": "\"Camellia sinensis\" OR \"tea plantation\" OR \"tea plant\"",
-      "label_en": "Tea"
+      "label_en": "Tea",
+      "tr_words": [
+        "çay"
+      ]
     }
   ],
   "ops": [
@@ -354,7 +510,14 @@
       "tr": "Toprak işleme & analiz",
       "stage": "Toprak & Girdi",
       "terms": "tillage OR \"soil preparation\" OR seedbed OR plough OR plow OR subsoiler OR \"soil sampling\"",
-      "en": "Tillage & soil analysis"
+      "en": "Tillage & soil analysis",
+      "tr_words": [
+        "toprak işleme",
+        "pulluk",
+        "çizel",
+        "kültivatör",
+        "toprak analizi"
+      ]
     },
     {
       "key": "plant",
@@ -362,7 +525,14 @@
       "tr": "Ekim, dikim & aşılama",
       "stage": "Toprak & Girdi",
       "terms": "sowing OR seeding OR seeder OR transplanting OR transplanter OR planting OR grafting",
-      "en": "Sowing, planting & grafting"
+      "en": "Sowing, planting & grafting",
+      "tr_words": [
+        "ekim",
+        "dikim",
+        "ekim makinesi",
+        "fide",
+        "aşılama"
+      ]
     },
     {
       "key": "mulch",
@@ -370,7 +540,12 @@
       "tr": "Malçlama",
       "stage": "Toprak & Girdi",
       "terms": "mulch OR mulching OR \"plastic film\" OR \"film mulch\"",
-      "en": "Mulching"
+      "en": "Mulching",
+      "tr_words": [
+        "malç",
+        "malçlama",
+        "örtü"
+      ]
     },
     {
       "key": "irrig",
@@ -378,7 +553,13 @@
       "tr": "Sulama & gübreleme",
       "stage": "Yetiştirme & Bitki Koruma",
       "terms": "irrigation OR fertigation OR fertilizer OR fertiliser OR \"nutrient application\"",
-      "en": "Irrigation & fertilisation"
+      "en": "Irrigation & fertilisation",
+      "tr_words": [
+        "sulama",
+        "gübreleme",
+        "fertigasyon",
+        "gübre"
+      ]
     },
     {
       "key": "weed",
@@ -386,7 +567,12 @@
       "tr": "Yabancı ot & çapalama",
       "stage": "Yetiştirme & Bitki Koruma",
       "terms": "weed OR weeding OR hoeing OR \"inter-row\"",
-      "en": "Weeding & hoeing"
+      "en": "Weeding & hoeing",
+      "tr_words": [
+        "yabancı ot",
+        "çapa",
+        "çapalama"
+      ]
     },
     {
       "key": "prune",
@@ -394,7 +580,13 @@
       "tr": "Budama, seyreltme & uç alma",
       "stage": "Yetiştirme & Bitki Koruma",
       "terms": "pruning OR thinning OR deleafing OR \"de-leafing\" OR topping OR \"canopy management\"",
-      "en": "Pruning, thinning & topping"
+      "en": "Pruning, thinning & topping",
+      "tr_words": [
+        "budama",
+        "seyreltme",
+        "uç alma",
+        "koltuk alma"
+      ]
     },
     {
       "key": "pollin",
@@ -402,7 +594,11 @@
       "tr": "Tozlaşma",
       "stage": "Yetiştirme & Bitki Koruma",
       "terms": "pollination OR pollinator OR pollinating",
-      "en": "Pollination"
+      "en": "Pollination",
+      "tr_words": [
+        "tozlaşma",
+        "tozlayıcı"
+      ]
     },
     {
       "key": "spray",
@@ -410,7 +606,13 @@
       "tr": "İlaçlama (bitki koruma)",
       "stage": "Yetiştirme & Bitki Koruma",
       "terms": "spraying OR sprayer OR \"pesticide application\" OR \"plant protection product\"",
-      "en": "Spraying (crop protection)"
+      "en": "Spraying (crop protection)",
+      "tr_words": [
+        "ilaçlama",
+        "pülverizatör",
+        "atomizör",
+        "bitki koruma"
+      ]
     },
     {
       "key": "climate",
@@ -418,7 +620,14 @@
       "tr": "İklim koruma (don, dolu, sera iklimi)",
       "stage": "Yetiştirme & Bitki Koruma",
       "terms": "frost OR hail OR \"shade net\" OR shading OR \"greenhouse climate\" OR windbreak",
-      "en": "Climate protection (frost, hail, greenhouse climate)"
+      "en": "Climate protection (frost, hail, greenhouse climate)",
+      "tr_words": [
+        "don",
+        "dolu",
+        "gölgeleme",
+        "sera iklimi",
+        "rüzgar kıran"
+      ]
     },
     {
       "key": "scout",
@@ -426,7 +635,13 @@
       "tr": "Saha gözlemi (hastalık, verim izleme)",
       "stage": "Yetiştirme & Bitki Koruma",
       "terms": "monitoring OR \"disease detection\" OR \"yield estimation\" OR \"yield prediction\" OR phenotyping OR scouting",
-      "en": "Field monitoring (disease, yield)"
+      "en": "Field monitoring (disease, yield)",
+      "tr_words": [
+        "izleme",
+        "hastalık tespiti",
+        "verim tahmini",
+        "fenotipleme"
+      ]
     },
     {
       "key": "harvest",
@@ -435,7 +650,12 @@
       "stage": "Hasat & Mekanizasyon",
       "terms": "harvesting OR harvester OR harvest OR picking",
       "en": "Harvesting",
-      "exclude": "\"energy harvesting\" OR \"energy harvester\" OR \"energy harvesters\" OR \"pick and place\" OR \"pick-and-place\""
+      "exclude": "\"energy harvesting\" OR \"energy harvester\" OR \"energy harvesters\" OR \"pick and place\" OR \"pick-and-place\"",
+      "tr_words": [
+        "hasat",
+        "hasat makinesi",
+        "toplama"
+      ]
     },
     {
       "key": "store",
@@ -443,7 +663,13 @@
       "tr": "Ön soğutma & depolama",
       "stage": "Hasat Sonrası & Biyo-Atık",
       "terms": "precooling OR \"pre-cooling\" OR \"cold storage\" OR \"storage facility\" OR \"controlled atmosphere\"",
-      "en": "Pre-cooling & storage"
+      "en": "Pre-cooling & storage",
+      "tr_words": [
+        "ön soğutma",
+        "soğuk hava deposu",
+        "depolama",
+        "kontrollü atmosfer"
+      ]
     },
     {
       "key": "pack",
@@ -451,7 +677,14 @@
       "tr": "Tasnif, paketleme & izlenebilirlik",
       "stage": "Hasat Sonrası & Biyo-Atık",
       "terms": "grading OR sorting OR packaging OR packing OR labelling OR labeling OR traceability",
-      "en": "Grading, packing & traceability"
+      "en": "Grading, packing & traceability",
+      "tr_words": [
+        "tasnif",
+        "sınıflandırma",
+        "paketleme",
+        "ambalaj",
+        "izlenebilirlik"
+      ]
     },
     {
       "key": "process",
@@ -459,7 +692,14 @@
       "tr": "Kurutma & işleme",
       "stage": "Hasat Sonrası & Biyo-Atık",
       "terms": "drying OR dryer OR dehydration OR peeling OR shelling OR pitting OR \"post-harvest processing\"",
-      "en": "Drying & processing"
+      "en": "Drying & processing",
+      "tr_words": [
+        "kurutma",
+        "kurutucu",
+        "soyma",
+        "kabuk ayırma",
+        "işleme"
+      ]
     },
     {
       "key": "residue",
@@ -467,7 +707,14 @@
       "tr": "Artık & atık işleme",
       "stage": "Hasat Sonrası & Biyo-Atık",
       "terms": "\"crop residue\" OR residues OR \"agricultural waste\" OR \"pruning residues\" OR byproduct OR \"by-product\"",
-      "en": "Residue & waste processing"
+      "en": "Residue & waste processing",
+      "tr_words": [
+        "hasat artığı",
+        "bitkisel atık",
+        "tarımsal atık",
+        "budama artığı",
+        "yan ürün"
+      ]
     },
     {
       "key": "resource",
@@ -475,7 +722,14 @@
       "tr": "Kaynak tüketimi takibi (su, enerji, girdi)",
       "stage": "Toprak & Girdi",
       "terms": "\"water consumption\" OR \"energy consumption\" OR \"fuel consumption\" OR \"input use\" OR \"resource use efficiency\" OR \"carbon footprint\"",
-      "en": "Resource-use tracking (water, energy, inputs)"
+      "en": "Resource-use tracking (water, energy, inputs)",
+      "tr_words": [
+        "su tüketimi",
+        "enerji tüketimi",
+        "yakıt tüketimi",
+        "girdi kullanımı",
+        "karbon ayak izi"
+      ]
     },
     {
       "key": "stock",
@@ -483,7 +737,13 @@
       "tr": "Stok & lojistik",
       "stage": "Hasat Sonrası & Biyo-Atık",
       "terms": "inventory OR \"supply chain\" OR logistics OR \"stock management\" OR \"cold chain\"",
-      "en": "Inventory & logistics"
+      "en": "Inventory & logistics",
+      "tr_words": [
+        "stok",
+        "tedarik zinciri",
+        "lojistik",
+        "soğuk zincir"
+      ]
     },
     {
       "key": "finance",
@@ -491,7 +751,16 @@
       "tr": "Maliyet, kayıt & sertifikasyon",
       "stage": "Hasat Sonrası & Biyo-Atık",
       "terms": "\"cost analysis\" OR profitability OR \"farm management\" OR \"record keeping\" OR certification OR \"economic analysis\"",
-      "en": "Cost, records & certification"
+      "en": "Cost, records & certification",
+      "tr_words": [
+        "maliyet analizi",
+        "karlılık",
+        "kârlılık",
+        "işletme yönetimi",
+        "kayıt tutma",
+        "sertifikasyon",
+        "ekonomik analiz"
+      ]
     }
   ],
   "layers": [
@@ -499,13 +768,43 @@
       "key": "mech",
       "tr": "Makine & donanım",
       "en": "Machinery & hardware",
-      "terms": "machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor"
+      "terms": "machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor",
+      "tr_words": [
+        "makine",
+        "makina",
+        "mekanizasyon",
+        "mekanik",
+        "robot",
+        "otomasyon",
+        "otomatik",
+        "prototip",
+        "sensör",
+        "algılayıcı",
+        "insansız hava aracı",
+        "alet",
+        "ekipman"
+      ]
     },
     {
       "key": "digi",
       "tr": "Yazılım & yapay zekâ",
       "en": "Software & AI",
-      "terms": "software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain"
+      "terms": "software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain",
+      "tr_words": [
+        "yazılım",
+        "mobil uygulama",
+        "akıllı telefon",
+        "karar destek",
+        "yapay zeka",
+        "yapay zekâ",
+        "makine öğrenmesi",
+        "derin öğrenme",
+        "görüntü işleme",
+        "nesnelerin interneti",
+        "bilgi sistemi",
+        "dijital ikiz",
+        "blok zinciri"
+      ]
     }
   ],
   "_method": "v2 (2026-11-20): makale, derleme ve konferans bildirisi sayılır; tıp, diş, sağlık ve hemşirelik alanları dışlanır. Türkiye sayısı = Türkiye adresli yayınlar + yazar ülkesi kayıtsız Türkçe yayınlar (OpenAlex'te Türk dergilerinin çoğunda adres yok).",
@@ -515,5 +814,6 @@
     29,
     35,
     36
-  ]
+  ],
+  "_tr_note": "tr_words: Türkçe kök kelimeler (scripts/tr_terms.py sık çekim biçimlerini üretir). Yazar ülkesi kayıtsız yayınlar bu Türkçe sorguyla bulunup Türkiye sayısına eklenir."
 }

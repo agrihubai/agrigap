@@ -52,6 +52,21 @@ def n(q, extra=""):
     return d.get("meta", {}).get("count")
 
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import tr_terms  # noqa: E402
+CFG = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "core", "matrix_config.json"), encoding="utf-8"))
+CR = {x["key"]: x for x in CFG["crops"]}; OP = {x["key"]: x for x in CFG["ops"]}; LY = {x["key"]: x for x in CFG["layers"]}
+section("T) Türkçe terimlerle, yazar ülkesi kayıtsız yayınlar")
+for ck, ok, lk in [("c26", "harvest", "mech"), ("c43", "harvest", "mech"), ("c33", "soil", "mech"), ("c00", "irrig", "digi"),
+                   ("c26", "finance", "digi")]:
+    q = " AND ".join(f"({tr_terms.query(x['tr_words'])})" for x in (CR[ck], OP[ok], LY[lk]))
+    f = "publication_year:>2009,type:article|review|conference-paper," + MED + ",authorships.countries:null"
+    d = get("works", **{"search.title_and_abstract": q, "filter": f, "per_page": 5, "select": "display_name,primary_location"})
+    print(f"  {CR[ck]['tr']} · {OP[ok]['tr']} · {LY[lk]['tr']}: {d.get('meta', {}).get('count')}")
+    for w in d.get("results", []):
+        src = ((w.get("primary_location") or {}).get("source") or {}).get("display_name")
+        print("     -", (w["display_name"] or "")[:80], "|", src)
+sys.exit(0)
 section("A) Tıp alanı dışlama + bildiriler dahil (Hasat × Makine)")
 for k, crop in [("incir", "fig OR \"Ficus carica\""), ("narenciye", "citrus OR orange OR mandarin OR lemon"),
                 ("elma", "apple"), ("domates", "tomato"), ("mısır", "maize OR corn")]:

@@ -22,6 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hub_engine as hub  # noqa: E402
+import tr_terms as trt  # noqa: E402
 import source_scan as ss  # noqa: E402
 
 ROOT = hub.ROOT
@@ -36,6 +37,12 @@ def cell_query(crop, op, layer):
     return q + (f" NOT ({op['exclude']})" if op.get("exclude") else "")
 
 
+def tr_query(crop, op, layer):
+    if not (crop.get("tr_words") and op.get("tr_words") and layer.get("tr_words")):
+        return None
+    return " AND ".join(f"({trt.query(x['tr_words'])})" for x in (crop, op, layer))
+
+
 def base_filter():
     """Yıl, belge türü (makale, derleme, bildiri) ve tıp/sağlık alanlarının dışlanması."""
     f = [f"publication_year:>{CFG['from_year'] - 1}", "type:" + CFG.get("doc_types", "article|review")]
@@ -47,7 +54,7 @@ def country_key(k):
     return str(k or "").rstrip("/").split("/")[-1].upper()
 
 
-def count_cell(q, fixture_rng=None):
+def count_cell(q, fixture_rng=None, trq=None):
     if fixture_rng is not None:  # çevrimdışı deneme: sahte ama tutarlı sayılar
         w = int(fixture_rng.expovariate(1 / 120)) if fixture_rng.random() > 0.15 else fixture_rng.randint(0, 4)
         tr = int(w * fixture_rng.choice([0, 0, 0.01, 0.03, 0.06]))
@@ -56,12 +63,15 @@ def count_cell(q, fixture_rng=None):
     flt = base_filter()
     data = ss.openalex_get({"search.title_and_abstract": q, "filter": flt, "group_by": "authorships.countries"})
     groups = {country_key(g.get("key")): g.get("count", 0) for g in data.get("group_by") or []}
-    # OpenAlex'te Türk dergilerinin çoğunda yazar adresi yok: ülkesi kayıtsız Türkçe yayınlar Türkiye'ye eklenir.
-    nc = ss.openalex_get({"search.title_and_abstract": q, "filter": flt + ",authorships.countries:null,language:tr",
-                          "per_page": 1})
-    trl = nc.get("meta", {}).get("count", 0)
+    # OpenAlex'te Türk dergilerinin çoğunda yazar adresi yok ve Türkçe başlıklar İngilizce terimlerle eşleşmez:
+    # yazar ülkesi kayıtsız yayınlar Türkçe terimlerle ayrıca aranır ve Türkiye sayısına eklenir.
+    trl = 0
+    if trq:
+        nc = ss.openalex_get({"search.title_and_abstract": trq, "filter": flt + ",authorships.countries:null",
+                              "per_page": 1})
+        trl = nc.get("meta", {}).get("count", 0)
     return {"w": data.get("meta", {}).get("count", 0), "tr": groups.get("TR", 0) + trl, "trl": trl,
-            "es": groups.get("ES", 0), "eu": sum(groups.get(c, 0) for c in ss.EU27), "v": 2}
+            "es": groups.get("ES", 0), "eu": sum(groups.get(c, 0) for c in ss.EU27), "v": 3}
 
 
 def load():
@@ -72,9 +82,9 @@ def load():
 
 def save(m):
     m["generated"] = datetime.now(timezone.utc).isoformat()
-    m["crops"] = CFG["crops"]
-    m["ops"] = CFG["ops"]
-    m["layers"] = [{k: v for k, v in layer.items() if k != "terms"} for layer in CFG["layers"]]
+    m["crops"] = [{k: v for k, v in x.items() if k != "tr_words"} for x in CFG["crops"]]
+    m["ops"] = [{k: v for k, v in x.items() if k not in ("tr_words", "exclude")} for x in CFG["ops"]]
+    m["layers"] = [{k: v for k, v in layer.items() if k not in ("terms", "tr_words")} for layer in CFG["layers"]]
     m["from_year"] = CFG["from_year"]
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(m, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
@@ -124,8 +134,8 @@ def main():
 
     m = load()
     upd = m.setdefault("crop_updated", {})
-    def old_method(c):  # v2 öncesi yöntemle sayılmış ürün: önce yenilenir
-        return any((m["cells"].get(f"{c['key']}|{o['key']}") or {}).get(lay["key"], {}).get("v") != 2
+    def old_method(c):  # v3 öncesi yöntemle sayılmış ürün: önce yenilenir
+        return any((m["cells"].get(f"{c['key']}|{o['key']}") or {}).get(lay["key"], {}).get("v") != 3
                    for o in CFG["ops"] for lay in CFG["layers"])
     order = sorted(CFG["crops"], key=lambda c: (c["key"] in upd and not old_method(c), upd.get(c["key"], "")))
     if args.only_missing:
@@ -141,7 +151,7 @@ def main():
             for o in CFG["ops"]:
                 cell = {}
                 for layer in CFG["layers"]:
-                    cell[layer["key"]] = count_cell(cell_query(c, o, layer), rng)
+                    cell[layer["key"]] = count_cell(cell_query(c, o, layer), rng, tr_query(c, o, layer))
                 m["cells"][f"{c['key']}|{o['key']}"] = cell
             upd[c["key"]] = today
             done += 1

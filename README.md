@@ -110,6 +110,6 @@ Hiçbir rapor insan tarafından doğrulanmaz ve sahada denenmez.
 ### Sayım yöntemi (v2, 20 Kasım 2026)
 - Belge türü: makale, derleme ve konferans bildirisi. Tıp, hemşirelik, diş hekimliği ve sağlık meslekleri alanları dışlanır ("robotic flap harvest" gibi cerrahi yayınlar hasat sayımına karışıyordu).
 - Belirsiz terimler daraltıldı: incir ("fig", şekil kısaltmasıyla karışıyordu), narenciye ("orange" renk anlamıyla karışıyordu). Hasat sütunundan "energy harvesting" ve "pick and place" dışlanır.
-- Türkiye sayısı: Türkiye adresli yayınlar + yazar ülkesi kayıtsız Türkçe yayınlar. Denetimde OpenAlex'teki Tarım Makinaları Bilimi Dergisi yayınlarının 485'inden 390'ında yazar ülkesi kayıtsız çıktı.
+- Türkiye sayısı (v3): Türkiye adresli yayınlar + yazar ülkesi kayıtsız olup Türkçe terimlerle (ör. "hasat", "makine"; `scripts/tr_terms.py` sık çekim biçimlerini üretir: hasadı, makinesi, domatesin…) bulunan yayınlar. Denetimde OpenAlex'teki Tarım Makinaları Bilimi Dergisi yayınlarının 485'inden 390'ında yazar ülkesi kayıtsız çıktı.
 - Google Scholar kullanılmaz: resmî bir veri arayüzü yoktur ve otomatik taramayı kullanım koşullarıyla yasaklar. Scopus, Web of Science ve CAB Abstracts abonelikle çalışır.
 - Denetim: `scripts/audit_coverage.py` (Actions → AgriGap Kapsam Denetimi, elle).

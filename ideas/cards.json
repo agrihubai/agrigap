@@ -1,6 +1,32 @@
 {
- "generated": "2026-11-20T11:09:29.642300+00:00",
+ "generated": "2026-11-23T07:36:59.818312+00:00",
  "cards": [
+  {
+   "id": "neighbor:c15:mulch:mech",
+   "file": "neighbor-c15-mulch-mech.json",
+   "type": "neighbor",
+   "crop": "c15",
+   "op": "mulch",
+   "layer": "mech",
+   "status": "skipped",
+   "published": false,
+   "created": "2026-11-23T07:36:59.817507+00:00",
+   "title_tr": "",
+   "title_en": ""
+  },
+  {
+   "id": "transfer:c29:plant:digi",
+   "file": "transfer-c29-plant-digi.json",
+   "type": "transfer",
+   "crop": "c29",
+   "op": "plant",
+   "layer": "digi",
+   "status": "ok",
+   "published": true,
+   "created": "2026-11-23T07:36:59.165800+00:00",
+   "title_tr": "Muz Dikim ve Fidan Hazırlık Aşamasında Yapay Zekâ Destekli Kalite ve Yerleşim Yazılımı",
+   "title_en": "AI-Assisted Quality and Spatial Optimization Software for Banana Planting and Propagation"
+  },
   {
    "id": "neighbor:c12:pollin:mech",
    "file": "neighbor-c12-pollin-mech.json",

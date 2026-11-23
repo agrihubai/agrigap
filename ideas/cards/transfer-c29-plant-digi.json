@@ -1,0 +1,357 @@
+{
+ "id": "transfer:c29:plant:digi",
+ "created": "2026-11-23T07:36:59.165800+00:00",
+ "candidate": {
+  "id": "transfer:c29:plant:digi",
+  "type": "transfer",
+  "crop": "c29",
+  "op": "plant",
+  "layer": "digi",
+  "w": 465,
+  "tr": 1,
+  "es": 4,
+  "eu": 39,
+  "score": 2.668,
+  "regulations": [
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ]
+ },
+ "query": "(banana) AND (sowing OR seeding OR seeder OR transplanting OR transplanter OR planting OR grafting) AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+ "published": true,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-23",
+   "status": "ok",
+   "reason": "",
+   "content": {
+    "relevant": true,
+    "relevance_reason": {
+     "tr": "Muz yetiştiriciliğinde dikim ve fidan/fide hazırlık aşamaları kritik bir üretim adımıdır. Ancak taranan kaynaklarda yapay zekâ uygulamaları dikim aşaması yerine tamamen büyüme dönemindeki hastalık, besin eksikliği ve olgunlaşma teşhisine odaklanmıştır.",
+     "en": "Planting and sucker/tissue culture plantlet propagation are core operational steps in banana cultivation. However, the scanned literature focuses exclusively on post-planting disease, nutrient deficiency, and fruit maturity inspection, leaving a clear gap in software/AI for planting stage material quality control."
+    },
+    "tr": {
+     "title": "Muz Dikim ve Fidan Hazırlık Aşamasında Yapay Zekâ Destekli Kalite ve Yerleşim Yazılımı",
+     "finding": "Bu analize göre taranan kaynaklarda yazılım ve yapay zekâ çözümleri tamamen büyüme dönemindeki yaprak hastalıkları, besin eksiklikleri ve meyve olgunlaşmasına odaklanmış olup, muz dikim/fide seçimi aşamasına yönelik bir yazılım uygulamasına rastlanmamıştır.",
+     "problem": "Muz dikimi öncesinde doku kültürü fidelerinin veya fidanların sağlık ve fizyolojik durumunun analiz edilmemesi, hastalıklı veya yetersiz materyallerin sahaya dikilmesine ve dikim sonrası kayıplara yol açmaktadır. Literatürdeki mevcut modeller, enfeksiyon ve N-P-K besin eksikliği semptomlarını ancak bitki büyüdükten sonra yapraklardan tespit edebilmektedir.",
+     "existing": [
+      {
+       "what": "Yaprak görüntülerinden hastalık (Sigatoka, Panama wilt) ve N-P-K besin eksikliği tespiti yapan derin öğrenme ve makine öğrenimi modelleri",
+       "where": "Hindistan, Peru, Tayland, Tanzanya",
+       "how": "Mobil cihazlar ve bilgisayarlı görü ile alınan yaprak görüntülerinin CNN (ResNet50, MobileNet, InceptionV3) ve ML (SVM, KNN, LR) algoritmalarıyla sınıflandırılması",
+       "pros": "Tanzanya'daki mobil uygulamada InceptionV3 ile %95.41 ve ResNet152 ile %99.2 doğruluk; Hindistan'da MobileNet+LR ile %92.51 doğruluk ve yapraklardaki N-P-K besin noksanlıklarının sınıflandırılması",
+       "cons": "Modeller sadece dikim sonrasında gelişen yaprak semptomlarına dayanır; dikim anında fide veya fidan materyalinin kalitesini doğrulamaya veya dikim planlamasına yönelik bir çözüm sunmaz",
+       "source_dois": [
+        "10.1038/s41598-024-72197-2",
+        "10.1109/icaacca51523.2021.9465311",
+        "10.12732/ijam.v38i12s.1713",
+        "10.48084/etasr.3452"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Dikim Öncesi Muz Doku Kültürü Fidesi Kalite Derecelendirme Yazılımı",
+       "how": "Mobil cihazlar veya dikim bandı kameralarından alınan fide/fidan fotoğraflarını hafif derin öğrenme modelleri (MobileNet/InceptionV3) ile işleyerek gövde yapısı, yaprak gelişimi ve belirgin enfeksiyon işaretlerine göre fidanları dikim öncesi puanlayan mobil/web yazılımı.",
+       "difference": "Mevcut çözümler tarlaya dikilmiş yetişkin muz bitkilerindeki yaprak semptomlarını teşhis ederken, bu yazılım tarlaya aktarım öncesinde dikim materyalinin kalitesini denetler.",
+       "overcomes": [
+        "Doğruluk & hata payı",
+        "Veri & bağlantı",
+        "İşçilik & ergonomi"
+       ],
+       "effect_assumptions": "Dikim sonrası fire oranının düşmesi ve iş gücü tasarrufu, fide görsel veri kümesinin büyüklüğüne, kameranın çözünürlüğüne ve saha bağlantı imkanlarına bağlıdır.",
+       "regulation_fit": "Yazılım ve mobil bileşenler AB Siber Dayanıklılık Yasası (eu-cra) kapsamında siber güvenlik standartlarına uygun olmalıdır. Gömülü otonom bir sistem içermediği sürece AB Yapay Zekâ Yasası (eu-ai-act) yüksek risk ertelemelerine tabidir.",
+       "premortem": "Fide aşamasındaki gizli (semptomsuz) enfeksiyonların görsel modeller tarafından tespit edilemeyerek sahaya hastalıklı materyal dikilmesi riski.",
+       "min_experiment": "500 adet muz doku kültürü fidesinin dikim öncesi fotoğraflanıp manuel uzman puanlaması ile yazılım tahmininin karşılaştırılması ve en az %90 doğruluk eşiği."
+      },
+      {
+       "title": "Toprak Besin Haritası Entegreli Muz Dikim Düzeni Optimasyon Yazılımı",
+       "how": "Dikim öncesi alanın toprak/besin (N, P, K) haritalama verilerini fide kalite skorları ile eşleştirerek en uygun dikim aralıklarını ve fidan yerleşim haritasını oluşturan dijital reçete yazılımı.",
+       "difference": "Mevcut çalışmalar dikim sonrasındaki besin eksikliklerini yapraktan teşhis etmeye odaklanırken, bu sistem dikim anında toprağın besin durumuna göre dikim düzenini optimize eder.",
+       "overcomes": [
+        "Maliyet & yatırım",
+        "Küçük işletme ölçeği"
+       ],
+       "effect_assumptions": "Gübre ve girdi maliyetlerindeki tasarruf, toprak analiz verilerinin doğruluğuna ve üreticilerin dijital dikim reçetesine uyum sağlama oranına bağlıdır.",
+       "regulation_fit": "Bağlantılı toprak sensörleri ve tarım ekipmanlarından elde edilen veriler AB Veri Yasası (eu-data-act) kapsamında ücretsiz erişilebilir ve veri kullanıcısı ile paylaşılabilir olmalıdır.",
+       "premortem": "Küçük üreticilerin dijital dikim haritasını sahada hassas şekilde uygulamada zorlanması ve toprak veri toplama maliyetinin yüksek bulunması.",
+       "min_experiment": "2 hektarlık muz alanında geleneksel dikim ile optimizasyon yazılımı rehberliğinde yapılan dikimin ilk 60 günlük fidan gelişim başarımının karşılaştırılması."
+      }
+     ]
+    },
+    "en": {
+     "title": "AI-Assisted Quality and Spatial Optimization Software for Banana Planting and Propagation",
+     "finding": "According to this analysis, software and AI applications in the scanned literature focus exclusively on leaf disease detection, nutrient deficiencies, and fruit maturity during the growing phase, with no software identified for the banana planting or seedling selection stage.",
+     "problem": "Failing to inspect the health and vigor of tissue culture plantlets or suckers before planting leads to the introduction of diseased or weak material into the field. Existing models in the literature detect infections and N-P-K nutrient deficiencies only after leaves are fully developed post-planting.",
+     "existing": [
+      {
+       "what": "Deep learning and machine learning models for detecting diseases (Sigatoka, Panama wilt) and N-P-K nutrient deficiencies from leaf images",
+       "where": "India, Peru, Thailand, Tanzania",
+       "how": "Processing leaf photos captured via mobile devices using CNNs (ResNet50, MobileNet, InceptionV3) and ML algorithms (SVM, KNN, LR)",
+       "pros": "High accuracies such as 95.41% with InceptionV3 and 99.2% with ResNet152 in a Tanzanian mobile app, and 92.51% accuracy with MobileNet+LR in India alongside visual N-P-K deficiency classification",
+       "cons": "Models rely strictly on post-planting leaf symptoms and do not evaluate seedling/sucker material quality prior to planting or optimize planting layout",
+       "source_dois": [
+        "10.1038/s41598-024-72197-2",
+        "10.1109/icaacca51523.2021.9465311",
+        "10.12732/ijam.v38i12s.1713",
+        "10.48084/etasr.3452"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Pre-Planting Banana Tissue Culture Plantlet Quality Grading Software",
+       "how": "A mobile/web software that processes photos of plantlets or suckers captured via mobile cameras or conveyor belts using lightweight deep learning models (MobileNet/InceptionV3) to score material quality based on pseudostem thickness, leaf formation, and visible lesion signs prior to transplanting.",
+       "difference": "While existing solutions diagnose leaf symptoms on established field plants, this software screens planting material quality before field transfer.",
+       "overcomes": [
+        "Doğruluk & hata payı",
+        "Veri & bağlantı",
+        "İşçilik & ergonomi"
+       ],
+       "effect_assumptions": "Reduction in post-planting seedling mortality and labor savings depend on seedling image dataset diversity, camera resolution, and connectivity infrastructure.",
+       "regulation_fit": "Software and mobile applications must comply with cyber security rules under the EU Cyber Resilience Act (eu-cra). Unless embedded in autonomous machinery, high-risk obligations fall under the EU AI Act (eu-ai-act) timeline postponements.",
+       "premortem": "Risk of missing latent (asymptomatic) infections in young plantlets that visual computer vision models cannot detect.",
+       "min_experiment": "Photographing 500 tissue culture plantlets before planting, comparing expert manual scores against software predictions, aiming for at least 90% accuracy."
+      },
+      {
+       "title": "Soil Nutrient Map-Integrated Banana Planting Layout Optimization Software",
+       "how": "A digital prescription software that merges pre-planting soil N-P-K mapping data with seedling vigor scores to generate optimized spatial planting layouts and density maps.",
+       "difference": "While current research focuses on post-planting leaf nutrient deficiency detection, this system optimizes planting density and spatial arrangement at the planting stage based on soil nutrient maps.",
+       "overcomes": [
+        "Maliyet & yatırım",
+        "Küçük işletme ölçeği"
+       ],
+       "effect_assumptions": "Cost savings on inputs depend on the precision of soil nutrient mapping and grower adherence to the digital planting layout.",
+       "regulation_fit": "Data generated by connected soil sensors and agricultural equipment must be accessible and sharable under the EU Data Act (eu-data-act).",
+       "premortem": "Smallholder farmers struggling to execute precise digital spatial layouts manually, combined with high initial soil mapping costs.",
+       "min_experiment": "Comparing 60-day plantlet growth performance between a 2-hectare plot planted conventionally vs. one planted using the layout optimization software."
+      }
+     ]
+    },
+    "proposals_meta": [
+     {
+      "type": "software",
+      "grades": {
+       "problem": "strong",
+       "evidence": "medium",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-cra",
+       "eu-ai-act"
+      ],
+      "source_dois": [
+       "10.48084/etasr.3452",
+       "10.12732/ijam.v38i12s.1713"
+      ],
+      "novelty_query": "banana seedling computer vision planting quality AND deep learning"
+     },
+     {
+      "type": "practice",
+      "grades": {
+       "problem": "medium",
+       "evidence": "weak",
+       "regulation": "medium",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-data-act"
+      ],
+      "source_dois": [
+       "10.1109/icaacca51523.2021.9465311",
+       "10.1109/iceast58324.2023.10157689"
+      ],
+      "novelty_query": "banana planting spatial layout optimization AND soil nutrient mapping"
+     }
+    ]
+   },
+   "relevance": {
+    "tr": "Muz yetiştiriciliğinde dikim ve fidan/fide hazırlık aşamaları kritik bir üretim adımıdır. Ancak taranan kaynaklarda yapay zekâ uygulamaları dikim aşaması yerine tamamen büyüme dönemindeki hastalık, besin eksikliği ve olgunlaşma teşhisine odaklanmıştır.",
+    "en": "Planting and sucker/tissue culture plantlet propagation are core operational steps in banana cultivation. However, the scanned literature focuses exclusively on post-planting disease, nutrient deficiency, and fruit maturity inspection, leaving a clear gap in software/AI for planting stage material quality control."
+   },
+   "sources": [
+    {
+     "doi": "10.1038/s41598-024-72197-2",
+     "title": "Advancing plant leaf disease detection integrating machine learning and deep learning",
+     "year": 2025,
+     "countries": [
+      "AU",
+      "AZ",
+      "HU",
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1038/s41598-024-63930-y",
+     "title": "Analysis of banana plant health using machine learning techniques",
+     "year": 2024,
+     "countries": [
+      "IN",
+      "MY"
+     ]
+    },
+    {
+     "doi": "10.1109/icaacca51523.2021.9465311",
+     "title": "Detection of nutrient deficiencies in banana plants using deep learning",
+     "year": 2021,
+     "countries": [
+      "PE"
+     ]
+    },
+    {
+     "doi": "10.1109/aicera/icis59538.2023.10420299",
+     "title": "Banana Plant Disease Detection-Hybrid Machine Learning Approach",
+     "year": 2023,
+     "countries": []
+    },
+    {
+     "doi": "10.55248/gengpi.06.1125.38111",
+     "title": "Plant disease detection using Machine learning and Deep learning",
+     "year": 2025,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.17762/jaz.v44i3.369",
+     "title": "Plant Disease Detection using Deep Learning in Banana and Sunflower",
+     "year": 2023,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1109/iceast58324.2023.10157689",
+     "title": "Banana Plant Nutrient Deficiencies Identification using Deep Learning",
+     "year": 2023,
+     "countries": [
+      "JP",
+      "TH"
+     ]
+    },
+    {
+     "doi": "10.64771/ijesat.2026.v26.i5.2969",
+     "title": "IMAGE-BASED BANANA PLANT DISEASE DIAGNOSIS USING ARTIFICIAL INTELLIGENCE",
+     "year": 2026,
+     "countries": []
+    },
+    {
+     "doi": "10.12732/ijam.v38i12s.1713",
+     "title": "Hybrid Deep Learning Approach for Detection of Banana Plant Diseases",
+     "year": 2026,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1109/icaccs60874.2024.10717097",
+     "title": "An Extensive Analysis of Machine Learning and Deep Learning Based Banana Leaf Disease Detection Techniques",
+     "year": 2024,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1109/icuis64676.2024.10866142",
+     "title": "Advances in Machine Learning and Deep Learning for Automated Banana Disease Detection: A Comprehensive Survey",
+     "year": 2024,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.48084/etasr.3452",
+     "title": "Mobile-based Deep Learning Models for Banana Disease Detection",
+     "year": 2020,
+     "countries": [
+      "TZ"
+     ]
+    },
+    {
+     "doi": "10.1109/computingcon64838.2025.11378417",
+     "title": "Deep Learning-Based Classification of Banana Plant Leaf Diseases",
+     "year": 2025,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.5281/zenodo.19430025",
+     "title": "A thorough study of techniques for finding diseases on banana leaves that use machine learning and deep learning",
+     "year": 2026,
+     "countries": []
+    },
+    {
+     "doi": "10.1007/978-981-96-4226-7_23",
+     "title": "Banana Maturity Inspection Using Deep Learning",
+     "year": 2025,
+     "countries": [
+      "IN"
+     ]
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "Doğruluk & hata payı",
+     "en": "Accuracy & error rate",
+     "n": 5
+    },
+    {
+     "tr": "Veri & bağlantı",
+     "en": "Data & connectivity",
+     "n": 4
+    },
+    {
+     "tr": "İşçilik & ergonomi",
+     "en": "Labour & ergonomics",
+     "n": 3
+    },
+    {
+     "tr": "Görüş engeli (yaprak, örtüşme)",
+     "en": "Occlusion (leaves, overlap)",
+     "n": 2
+    },
+    {
+     "tr": "Maliyet & yatırım",
+     "en": "Cost & investment",
+     "n": 1
+    },
+    {
+     "tr": "Küçük işletme ölçeği",
+     "en": "Small farm scale",
+     "n": 1
+    }
+   ],
+   "novelty": [
+    {
+     "query": "banana seedling computer vision planting quality AND deep learning",
+     "count": 0,
+     "seen": false
+    },
+    {
+     "query": "banana planting spatial layout optimization AND soil nutrient mapping",
+     "count": 0,
+     "seen": false
+    }
+   ],
+   "checks": {
+    "issues": []
+   }
+  },
+  "audit": null
+ }
+}

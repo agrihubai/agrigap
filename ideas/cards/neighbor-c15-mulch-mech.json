@@ -1,0 +1,54 @@
+{
+ "id": "neighbor:c15:mulch:mech",
+ "created": "2026-11-23T07:36:59.817507+00:00",
+ "candidate": {
+  "id": "neighbor:c15:mulch:mech",
+  "type": "neighbor",
+  "crop": "c15",
+  "op": "mulch",
+  "layer": "mech",
+  "w": 0,
+  "tr": 0,
+  "es": 0,
+  "eu": 0,
+  "score": 1.048,
+  "regulations": [
+   "eu-machinery-2023-1230",
+   "tr-makine-emniyeti-2026",
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ],
+  "neighbor": "c05",
+  "neighbor_w": 30,
+  "expected": 10
+ },
+ "query": "(spinach) AND (mulch OR mulching OR \"plastic film\" OR \"film mulch\") AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+ "published": false,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-23",
+   "status": "skipped",
+   "reason": "Kaynak paketi çok küçük (0 yayın).",
+   "content": null,
+   "relevance": null,
+   "sources": [],
+   "constraints": [],
+   "novelty": [],
+   "checks": {
+    "issues": []
+   }
+  },
+  "audit": null
+ }
+}

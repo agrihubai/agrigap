@@ -230,12 +230,14 @@
     "crop": "Çilek",
     "region": "TR+EU",
     "focus": "Tozlaşma ve hasat işçiliği açığı",
-    "status": "pending",
+    "status": "published",
     "crop_en": "strawberry",
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "strawberry AND (pollination OR pollinator OR \"bumblebee\" OR \"harvesting robot\" OR \"harvest labour\" OR \"harvest labor\")",
     "crop_label_en": "Strawberry",
-    "focus_en": "Pollination and harvest labour shortage"
+    "focus_en": "Pollination and harvest labour shortage",
+    "report": "discoveries/2026-11-23-trg-015-cilek.md",
+    "processed_at": "2026-11-23T07:37:04.331193+00:00"
   },
   {
     "id": "TRG-016",
@@ -244,12 +246,14 @@
     "crop": "Çeltik",
     "region": "TR+EU",
     "focus": "Su tüketimi, metan salımı ve anız yönetimi",
-    "status": "pending",
+    "status": "published",
     "crop_en": "rice",
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "rice AND (\"alternate wetting and drying\" OR \"methane emission\" OR \"rice straw\" OR \"water saving\")",
     "crop_label_en": "Rice",
-    "focus_en": "Water use, methane emissions and straw management"
+    "focus_en": "Water use, methane emissions and straw management",
+    "report": "discoveries/2026-11-23-trg-016-celtik.md",
+    "processed_at": "2026-11-23T07:37:08.816697+00:00"
   },
   {
     "id": "TRG-017",
@@ -258,12 +262,14 @@
     "crop": "Antep Fıstığı",
     "region": "TR",
     "focus": "Yeşil kabuk atığı ve hasat sonrası aflatoksin riski",
-    "status": "pending",
+    "status": "published",
     "crop_en": "pistachio",
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "pistachio AND (hull OR \"green hull\" OR aflatoxin OR \"Aspergillus flavus\")",
     "crop_label_en": "Pistachio",
-    "focus_en": "Green hull waste and post-harvest aflatoxin risk"
+    "focus_en": "Green hull waste and post-harvest aflatoxin risk",
+    "report": "discoveries/2026-11-23-trg-017-antep-fistigi.md",
+    "processed_at": "2026-11-23T07:37:12.462007+00:00"
   },
   {
     "id": "TRG-018",
@@ -637,5 +643,21 @@
     "status": "pending",
     "suggested_by": "Teknoloji Boşluk Haritası",
     "matrix_cell": "c19|prune|digi"
+  },
+  {
+    "id": "TRG-042",
+    "production_system": "Sebze Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Sarımsak",
+    "crop_en": "garlic",
+    "stage": "Toprak & Girdi",
+    "region": "TR",
+    "focus": "Ekim, dikim & aşılama işinde yazılım & yapay zekâ: dünyada 145 yayın var, TR kaynaklı yayın yok",
+    "focus_en": "Sowing, planting & grafting — software & ai: 145 publications worldwide, none from TR",
+    "crop_label_en": "Garlic",
+    "query": "(garlic) AND (sowing OR seeding OR seeder OR transplanting OR transplanter OR planting OR grafting) AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c13|plant|digi"
   }
 ]

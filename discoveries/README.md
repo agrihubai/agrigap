@@ -7,6 +7,9 @@ Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var 
 
 | Tarih | Rapor | Ürün | Bölge | Durum | Tür |
 |---|---|---|---|---|---|
+| 2026-11-23 | [Antep Fıstığı: Yeşil kabuk atığı ve hasat sonrası aflatoksin riski](2026-11-23-trg-017-antep-fistigi.md) | Antep Fıstığı | TR | C | Otomatik tarama |
+| 2026-11-23 | [Çeltik: Su tüketimi, metan salımı ve anız yönetimi](2026-11-23-trg-016-celtik.md) | Çeltik | TR+EU | C | Otomatik tarama |
+| 2026-11-23 | [Çilek: Tozlaşma ve hasat işçiliği açığı](2026-11-23-trg-015-cilek.md) | Çilek | TR+EU | C | Otomatik tarama |
 | 2026-11-20 | [Elma: Soğuk hava deposu enerji maliyeti ve hasat sonrası kayıplar](2026-11-20-trg-014-elma.md) | Elma | TR | C | Otomatik tarama |
 | 2026-11-20 | [Patates: Kimyasal filiz önleyicilerin kısıtlanması sonrası depolama kayıpları](2026-11-20-trg-013-patates.md) | Patates | TR+EU | C | Otomatik tarama |
 | 2026-11-20 | [Üzüm: Budama çubukları ve cibrenin (üzüm posası) değerlendirilmesi](2026-11-20-trg-012-uzum.md) | Üzüm | TR+EU | A | Otomatik tarama |

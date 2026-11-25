@@ -1,6 +1,32 @@
 {
- "generated": "2026-11-23T07:36:59.818312+00:00",
+ "generated": "2026-11-25T08:35:11.044612+00:00",
  "cards": [
+  {
+   "id": "neighbor:c42:pollin:digi",
+   "file": "neighbor-c42-pollin-digi.json",
+   "type": "neighbor",
+   "crop": "c42",
+   "op": "pollin",
+   "layer": "digi",
+   "status": "skipped",
+   "published": false,
+   "created": "2026-11-25T08:35:11.042704+00:00",
+   "title_tr": "",
+   "title_en": ""
+  },
+  {
+   "id": "transfer:c35:finance:digi",
+   "file": "transfer-c35-finance-digi.json",
+   "type": "transfer",
+   "crop": "c35",
+   "op": "finance",
+   "layer": "digi",
+   "status": "ok",
+   "published": true,
+   "created": "2026-11-25T08:35:10.309976+00:00",
+   "title_tr": "Mısır Üretiminde Maliyet Kaydı, Dijital Veri Yönetimi ve Sertifikasyon Yazılımları",
+   "title_en": "Cost Recording, Digital Data Management, and Certification Software in Maize Production"
+  },
   {
    "id": "neighbor:c15:mulch:mech",
    "file": "neighbor-c15-mulch-mech.json",

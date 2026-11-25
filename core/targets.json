@@ -278,12 +278,14 @@
     "crop": "Nohut",
     "region": "TR",
     "focus": "Kuraklık stresi ve mekanize hasattaki ürün kayıpları",
-    "status": "pending",
+    "status": "published",
     "crop_en": "chickpea",
     "stage": "Hasat & Mekanizasyon",
     "query": "chickpea AND (drought OR \"mechanical harvesting\" OR \"harvest loss\" OR \"combine harvester\")",
     "crop_label_en": "Chickpea",
-    "focus_en": "Drought stress and crop losses in mechanised harvesting"
+    "focus_en": "Drought stress and crop losses in mechanised harvesting",
+    "report": "discoveries/2026-11-25-trg-018-nohut.md",
+    "processed_at": "2026-11-25T08:35:15.774381+00:00"
   },
   {
     "id": "TRG-019",
@@ -292,12 +294,14 @@
     "crop": "Hıyar",
     "region": "TR+EU",
     "focus": "Kış aylarında sera ısıtma enerji maliyeti",
-    "status": "pending",
+    "status": "published",
     "crop_en": "cucumber",
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "(cucumber OR greenhouse) AND (\"greenhouse heating\" OR \"energy consumption\" OR \"heat pump\" OR \"thermal screen\" OR geothermal) AND winter",
     "crop_label_en": "Cucumber",
-    "focus_en": "Greenhouse heating energy costs in winter"
+    "focus_en": "Greenhouse heating energy costs in winter",
+    "report": "discoveries/2026-11-25-trg-019-hiyar.md",
+    "processed_at": "2026-11-25T08:35:21.311904+00:00"
   },
   {
     "id": "TRG-020",
@@ -306,13 +310,15 @@
     "crop": "Biber",
     "region": "TR",
     "focus": "Biber serası artığının taşınma riski ve muz gibi başka ürünlerde toprak hastalıklarını baskılamada kullanılabilirliği",
-    "status": "pending",
+    "status": "published",
     "suggested_by": "TRG-002",
     "crop_en": "pepper",
     "stage": "Hasat Sonrası & Biyo-Atık",
     "query": "pepper AND (residue OR \"crop residue\" OR biofumigation OR \"soil disinfestation\") AND (Fusarium OR \"soil-borne\" OR soilborne)",
     "crop_label_en": "Pepper",
-    "focus_en": "Transport risk of pepper greenhouse residues and their use to suppress soil-borne diseases in other crops such as banana"
+    "focus_en": "Transport risk of pepper greenhouse residues and their use to suppress soil-borne diseases in other crops such as banana",
+    "report": "discoveries/2026-11-25-trg-020-biber.md",
+    "processed_at": "2026-11-25T08:35:24.870166+00:00"
   },
   {
     "id": "TRG-021",
@@ -675,5 +681,69 @@
     "status": "pending",
     "suggested_by": "Teknoloji Boşluk Haritası",
     "matrix_cell": "c15|scout|digi"
+  },
+  {
+    "id": "TRG-044",
+    "production_system": "Sebze Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Ispanak",
+    "crop_en": "spinach",
+    "stage": "Hasat & Mekanizasyon",
+    "region": "TR",
+    "focus": "Hasat işinde makine & donanım: dünyada 123 yayın var, TR kaynaklı yayın yok",
+    "focus_en": "Harvesting — machinery & hardware: 123 publications worldwide, none from TR",
+    "crop_label_en": "Spinach",
+    "query": "(spinach) AND (harvesting OR harvester OR harvest OR picking) AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor) NOT (\"energy harvesting\" OR \"energy harvester\" OR \"energy harvesters\" OR \"pick and place\" OR \"pick-and-place\")",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c15|harvest|mech"
+  },
+  {
+    "id": "TRG-045",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Nohut",
+    "crop_en": "chickpea",
+    "crop_label_en": "Chickpea",
+    "stage": "Hasat & Mekanizasyon",
+    "region": "TR",
+    "focus": "Kuraklık stresi ve mekanize hasattaki ürün kayıpları — su kullanımı ve su kirliliğiyle kesişimi",
+    "focus_en": "Drought stress and crop losses in mechanised harvesting — overlap with water use and water pollution",
+    "query": "(chickpea AND (drought OR \"mechanical harvesting\" OR \"harvest loss\" OR \"combine harvester\")) AND (water OR irrigation OR wastewater OR leaching OR salinity)",
+    "link_domain": "water",
+    "status": "pending",
+    "suggested_by": "TRG-018"
+  },
+  {
+    "id": "TRG-046",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Hıyar",
+    "crop_en": "cucumber",
+    "crop_label_en": "Cucumber",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "region": "TR+EU",
+    "focus": "Kış aylarında sera ısıtma enerji maliyeti — iklim ve emisyonla kesişimi",
+    "focus_en": "Greenhouse heating energy costs in winter — overlap with climate and emissions",
+    "query": "((cucumber OR greenhouse) AND (\"greenhouse heating\" OR \"energy consumption\" OR \"heat pump\" OR \"thermal screen\" OR geothermal) AND winter) AND (climate OR drought OR \"greenhouse gas\" OR emission OR methane)",
+    "link_domain": "climate",
+    "status": "pending",
+    "suggested_by": "TRG-019"
+  },
+  {
+    "id": "TRG-047",
+    "production_system": "Örtü Altı Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Biber",
+    "crop_en": "pepper",
+    "crop_label_en": "Pepper",
+    "stage": "Hasat Sonrası & Biyo-Atık",
+    "region": "TR",
+    "focus": "Biber serası artığının taşınma riski ve muz gibi başka ürünlerde toprak hastalıklarını baskılamada kullanılabilirliği — su kullanımı ve su kirliliğiyle kesişimi",
+    "focus_en": "Transport risk of pepper greenhouse residues and their use to suppress soil-borne diseases in other crops such as banana — overlap with water use and water pollution",
+    "query": "(pepper AND (residue OR \"crop residue\" OR biofumigation OR \"soil disinfestation\") AND (Fusarium OR \"soil-borne\" OR soilborne)) AND (water OR irrigation OR wastewater OR leaching OR salinity)",
+    "link_domain": "water",
+    "status": "pending",
+    "suggested_by": "TRG-020"
   }
 ]

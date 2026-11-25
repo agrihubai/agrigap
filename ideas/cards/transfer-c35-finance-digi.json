@@ -1,0 +1,364 @@
+{
+ "id": "transfer:c35:finance:digi",
+ "created": "2026-11-25T08:35:10.309976+00:00",
+ "candidate": {
+  "id": "transfer:c35:finance:digi",
+  "type": "transfer",
+  "crop": "c35",
+  "op": "finance",
+  "layer": "digi",
+  "w": 352,
+  "tr": 1,
+  "es": 8,
+  "eu": 50,
+  "score": 2.548,
+  "regulations": [
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act",
+   "eu-eudr",
+   "eu-cbam",
+   "tr-7584-pancar"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ]
+ },
+ "query": "(maize OR corn) AND (\"cost analysis\" OR profitability OR \"farm management\" OR \"record keeping\" OR certification OR \"economic analysis\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+ "published": true,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-25",
+   "status": "ok",
+   "reason": "",
+   "content": {
+    "relevant": true,
+    "relevance_reason": {
+     "tr": "Mısır üretiminde girdi maliyetlerinin takibi, veri odaklı tarım kayıtlarının tutulması ve AB ormansızlaşma (EUDR) ile karbon emisyonu (CBAM) düzenlemelerine uyum için yazılım ve yapay zekâ çözümlerine ihtiyaç duyulmaktadır.",
+     "en": "Maize production requires software and AI solutions for tracking input costs, maintaining data-driven farm records, and ensuring compliance with EU deforestation (EUDR) and carbon emission (CBAM) regulations."
+    },
+    "tr": {
+     "title": "Mısır Üretiminde Maliyet Kaydı, Dijital Veri Yönetimi ve Sertifikasyon Yazılımları",
+     "finding": "Bu analize göre taranan kaynaklarda doğrudan mısır tarlası maliyet kaydı ve sertifikasyon süreçlerini otomatikleştiren entegre yazılımlara az rastlanmış; mevcut yayınların daha çok sanayi ölçekli maliyet simülasyonları, girdi-verim analizi ve karar destek sistemlerine odaklandığı görülmüştür.",
+     "problem": "Mısır üreticileri, yüksek gübre ve mazot maliyetlerini hassas şekilde takip edip belgelemekte ve AB Ormansızlaşma Tüzüğü (EUDR) veya SKDM (CBAM) gibi yeni mevzuatlara uyum için gerekli dijital kayıt ve sertifikasyon verilerini manuel olarak toplamakta zorlanmaktadır.",
+     "existing": [
+      {
+       "what": "Biyorefineri Maliyet Modellemesi için Yapay Zekâ ve Monte Carlo Simülasyonu",
+       "where": "ABD",
+       "how": "Aspen Plus süreç modeli ile Yapay Sinir Ağları (YSA) ve Rastgele Orman (RF) algoritmaları birleştirilerek mısır sapından PLA üretim maliyeti ve belirsizlikleri modellenmiştir.",
+       "pros": "Hesaplama süresini kısaltarak geniş ölçekli maliyet ve risk simülasyonu sağlar.",
+       "cons": "Çiftlik düzeyinde anlık tarımsal girdi ve sertifikasyon kayıtlarını değil, sanayi ölçeğindeki işleme maliyetlerini kapsar.",
+       "source_dois": [
+        "10.1002/adsu.202500865"
+       ]
+      },
+      {
+       "what": "Veri Yoğun Çiftlik Yönetimi (DIFM) ve Makine Öğrenmesi ile Girdi Takibi",
+       "where": "Güney Afrika",
+       "how": "Mısır tarlalarında tohum, gübre, NDVI ve verim verileri toplanarak Rastgele Orman modeliyle girdi yönetiminin maliyet ve verim üzerindeki etkisi analiz edilmiştir.",
+       "pros": "Tarla içi değişkenlikleri ve girdi kullanım etkinliğini sayısal olarak ortaya koyar.",
+       "cons": "Yasal sertifikasyon veya otomatik mevzuat raporlaması sunmaz; yüksek veri toplama iş yükü gerektirir.",
+       "source_dois": [
+        "10.1016/j.eja.2024.127193"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "AB Veri Yasası ve EUDR Uyumlu Otomatik Mısır Kayıt ve Dijital Sertifikasyon Yazılımı",
+       "how": "AB Veri Yasası (eu-data-act) kapsamında bağlantılı tarım makinelerinden (biçerdöver, gübreleme makinesi) çekilen telemetri verileri Sentinel-2 uydu görüntüleriyle eşleştirilir. Makine öğrenmesi modeli, arazi kullanım geçmişini ormansızlaşma riski açısından doğrulayarak (EUDR uyumu) otomatik dijital üretim ve maliyet sertifikası dosyası oluşturur.",
+       "difference": "Manuel veri girişine veya hasat sonrası maliyet hesabına dayanmak yerine, makine telemetrisi ve uydu verilerini kullanarak mevzuat doğrulamasını ve maliyet defterini otomatikleştirir.",
+       "overcomes": [
+        "Manuel kayıt tutma zorluğu",
+        "Sertifikasyon ve mevzuat uyum belge eksikliği",
+        "Veri entegrasyonu ve doğrulama güçlüğü"
+       ],
+       "effect_assumptions": "İş gücü ve sertifikasyon maliyet tasarrufu, makinelerin veri paylaşım yeteneğine ve tarladaki dijital veri erişimine bağlıdır.",
+       "regulation_fit": "AB Veri Yasası (eu-data-act) ile makinelerden doğrudan veri alma imkânını kullanır; AB Ormansızlaşma Tüzüğü (eu-eudr) kapsamında durum tespiti ve arazi doğrulama şartlarını karşılar.",
+       "premortem": "Farklı makine markalarının veri formatlarının uyumsuz olması veya kırsal alanda veri akışının kesilmesi durumunda sistemin rapor üretememesi riskidir.",
+       "min_experiment": "10 mısır tarlasında bağlantılı traktör/makine verileri ve Sentinel-2 görüntüleri ile 1 sezonluk deneme yapılarak %90 üzeri eksiksiz sertifika raporu üretimi doğrulacaktır."
+      },
+      {
+       "title": "SKDM (CBAM) Uyumlu Karbon ve Azot Gübre Maliyet Takip Platformu",
+       "how": "Çiftçiler mobil uygulama üzerinden mısır yaprak görüntüsü (DGCI analizi) veya VRA bölgesel haritalar kullanarak hassas azot gübrelemesi yapar. Yapay zekâ yazılımı kullanılan azot miktarını kaydeder, gübre tasarrufunu ve gömülü emisyon azaltımını SKDM standartlarına uygun CBAM uyum ve maliyet raporuna dönüştürür.",
+       "difference": "Tek başına gübre tavsiyesi vermek yerine, azot girdisini doğrudan SKDM emisyon ve gübre maliyet belgelendirmesiyle ilişkilendirir.",
+       "overcomes": [
+        "Yüksek gübre maliyetleri",
+        "Gübre emisyonlarının takip edilememesi",
+        "Karbon/emisyon sertifikasyonkarmaşıklığı"
+       ],
+       "effect_assumptions": "Maliyet tasarrufu ve emisyon belgelendirme başarısı, çiftçilerin mobil uygulamayı doğru kullanmasına ve azot optimizasyon önerilerine uymasına bağlıdır.",
+       "regulation_fit": "SKDM (eu-cbam) tüzüğü kapsamında ithal gübre maliyet artışlarına karşı emisyon azaltımının belgelenmesini destekler.",
+       "premortem": "Mobil cihaz kamera kalibrasyonu farklılıklarının azot analizini hatalı yönlendirmesi veya çiftçilerin veri girmeyi bırakması riskidir.",
+       "min_experiment": "50 mısır üreticisi ile mobil azot takip uygulaması denenerek gübre harcamalarında en az %15 tasarruf ve doğru CBAM emisyon raporu çıktısı doğrulanacaktır."
+      }
+     ]
+    },
+    "en": {
+     "title": "Cost Recording, Digital Data Management, and Certification Software in Maize Production",
+     "finding": "According to this analysis, limited software directly automating maize field cost recording and certification processes was found in the scanned literature, which primarily focuses on biorefinery cost modeling, input-yield optimization, and decision support tools.",
+     "problem": "Maize growers struggle to precisely track and log high fertilizer and fuel costs, and face heavy manual workloads to collect digital records and compliance data needed for new regulations like the EU Deforestation Regulation (EUDR) or CBAM.",
+     "existing": [
+      {
+       "what": "AI and Monte Carlo Simulation for Biorefinery Techno-Economic Analysis",
+       "where": "United States",
+       "how": "Integrated Aspen Plus process modeling with Artificial Neural Networks (ANN) and Random Forest (RF) algorithms to model uncertainties and production costs of PLA from corn stover.",
+       "pros": "Reduces computational time and enables large-scale cost and risk simulations.",
+       "cons": "Covers industrial-scale processing costs rather than farm-level real-time input logging and certification records.",
+       "source_dois": [
+        "10.1002/adsu.202500865"
+       ]
+      },
+      {
+       "what": "Input Tracking via Data-Intensive Farm Management (DIFM) and Machine Learning",
+       "where": "South Africa",
+       "how": "Collected seed, fertilizer, NDVI, and yield data across maize subplots to analyze the impact of input management on cost and yield using Random Forest models.",
+       "pros": "Quantifies spatial field variability and input use efficiency.",
+       "cons": "Lacks automated regulatory compliance reporting or digital certification mechanisms; requires high data collection effort.",
+       "source_dois": [
+        "10.1016/j.eja.2024.127193"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "EU Data Act & EUDR Compliant Automated Maize Record and Digital Certification Software",
+       "how": "Under the EU Data Act (eu-data-act), telemetry data pulled directly from connected farm machinery is combined with Sentinel-2 satellite imagery. ML models verify land-use history against deforestation risks (EUDR compliance) and automatically generate a digital production log and cost compliance certificate.",
+       "difference": "Automates legal validation and cost accounting using machinery telemetry and satellite data rather than relying on manual data entry or post-harvest calculations.",
+       "overcomes": [
+        "Manual record-keeping burden",
+        "Lack of documentation for certification compliance",
+        "Data integration and verification difficulty"
+       ],
+       "effect_assumptions": "Labor and certification cost savings depend on machinery data-sharing capabilities and digital network access in the field.",
+       "regulation_fit": "Leverages direct machine data access rights under the EU Data Act (eu-data-act) and satisfies due diligence and land verification demands under the EU Deforestation Regulation (eu-eudr).",
+       "premortem": "Risk of data stream disruption due to unstandardized machine telemetry formats or lack of connectivity in rural fields.",
+       "min_experiment": "Run a 1-season trial across 10 maize fields using connected tractor data and Sentinel-2 imagery to validate automated certificate generation with >90% data completeness."
+      },
+      {
+       "title": "CBAM-Compliant Carbon and Nitrogen Fertilizer Cost Tracking Platform",
+       "how": "Farmers apply precision nitrogen using a mobile app via leaf image DGCI analysis or VRA maps. The AI software records applied nitrogen volumes, converting saved fertilizer and reduced embedded emissions into CBAM-compliant cost and carbon verification reports.",
+       "difference": "Directly links precision nitrogen application to CBAM emission certification and fertilizer cost management, rather than offering isolated agronomic recommendations.",
+       "overcomes": [
+        "High fertilizer expenditures",
+        "Inability to track fertilizer carbon footprints",
+        "Complexity of carbon/emission certification"
+       ],
+       "effect_assumptions": "Cost savings and emission certification success rely on farmer adherence to mobile app recommendations and accurate camera calibration.",
+       "regulation_fit": "Helps document emission reductions to offset rising imported fertilizer costs under the Carbon Border Adjustment Mechanism (eu-cbam).",
+       "premortem": "Discrepancies in mobile camera color calibration leading to incorrect nitrogen advice or low farmer retention in logging daily inputs.",
+       "min_experiment": "Test the mobile nitrogen logging tool with 50 maize farmers to verify at least a 15% reduction in fertilizer costs and accurate CBAM emission reporting."
+      }
+     ]
+    },
+    "proposals_meta": [
+     {
+      "type": "software",
+      "grades": {
+       "problem": "strong",
+       "evidence": "medium",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-data-act",
+       "eu-eudr"
+      ],
+      "source_dois": [
+       "10.3390/rs15123131",
+       "10.1016/j.eja.2024.127193"
+      ],
+      "novelty_query": "maize record certification automated telemetry EUDR software"
+     },
+     {
+      "type": "business",
+      "grades": {
+       "problem": "strong",
+       "evidence": "medium",
+       "regulation": "strong",
+       "field": "strong",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-cbam"
+      ],
+      "source_dois": [
+       "10.1016/j.inpa.2025.07.007",
+       "10.3390/rs15123131"
+      ],
+      "novelty_query": "maize nitrogen fertilizer recording CBAM cost certification app"
+     }
+    ]
+   },
+   "relevance": {
+    "tr": "Mısır üretiminde girdi maliyetlerinin takibi, veri odaklı tarım kayıtlarının tutulması ve AB ormansızlaşma (EUDR) ile karbon emisyonu (CBAM) düzenlemelerine uyum için yazılım ve yapay zekâ çözümlerine ihtiyaç duyulmaktadır.",
+    "en": "Maize production requires software and AI solutions for tracking input costs, maintaining data-driven farm records, and ensuring compliance with EU deforestation (EUDR) and carbon emission (CBAM) regulations."
+   },
+   "sources": [
+    {
+     "doi": "10.1371/journal.pone.0343517",
+     "title": "Artificial intelligence–Driven detection and decision support system for precision management of maize downy mildew",
+     "year": 2026,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.3389/fpls.2017.00031",
+     "title": "Using CERES-Maize and ENSO as Decision Support Tools to Evaluate Climate-Sensitive Farm Management Practices for Maize Production in the Northern Regions of Ghana",
+     "year": 2017,
+     "countries": [
+      "GH",
+      "NG"
+     ]
+    },
+    {
+     "doi": "10.1016/j.eja.2024.127193",
+     "title": "Evaluating machine learning models and identifying key factors influencing spatial maize yield predictions in data intensive farm management",
+     "year": 2024,
+     "countries": [
+      "ZA"
+     ]
+    },
+    {
+     "doi": "10.1002/adsu.202500865",
+     "title": "Techno‐Economic Analysis of Polylactic Acid from Corn Stover: Understanding Uncertainty and Variability via Artificial Intelligence Tools",
+     "year": 2025,
+     "countries": [
+      "US"
+     ]
+    },
+    {
+     "doi": "10.1109/aqtr61889.2024.10554121",
+     "title": "Smart Agriculture: Farm Management through IoT with Predictive and Precision Monitoring",
+     "year": 2024,
+     "countries": [
+      "RO"
+     ]
+    },
+    {
+     "doi": "10.1109/scse70081.2026.11499778",
+     "title": "MaizeGenie – Mobile Platform for Sustainable and Profitable Corn Cultivation",
+     "year": 2026,
+     "countries": [
+      "LK"
+     ]
+    },
+    {
+     "doi": "10.3390/rs15123131",
+     "title": "Multilayer Data and Artificial Intelligence for the Delineation of Homogeneous Management Zones in Maize Cultivation",
+     "year": 2023,
+     "countries": [
+      "BE",
+      "ES",
+      "US"
+     ]
+    },
+    {
+     "doi": "10.1109/ihtc.2015.7238049",
+     "title": "SMS-based Smarter Agriculture decision support system for yellow corn farmers in Isabela",
+     "year": 2015,
+     "countries": [
+      "PH",
+      "US"
+     ]
+    },
+    {
+     "doi": "10.4236/ajps.2014.56096",
+     "title": "Maize Cultivar Specific Parameters for Decision Support System for Agrotechnology Transfer (DSSAT) Application in Tanzania",
+     "year": 2014,
+     "countries": [
+      "TZ"
+     ]
+    },
+    {
+     "doi": "10.1016/j.inpa.2025.07.007",
+     "title": "An insight into productivity, profitability, and sustainable energy use in maize under precision nitrogen management using a smartphone app",
+     "year": 2025,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1007/s44279-025-00215-6",
+     "title": "Maize and soybean yield prediction using machine learning methods: a systematic literature review",
+     "year": 2025,
+     "countries": [
+      "IN",
+      "US"
+     ]
+    },
+    {
+     "doi": "10.1109/tensymp68909.2026.11704045",
+     "title": "An Integrated Multimodal System for Corn Crop Health Monitoring and Explainable Decision Support",
+     "year": 2026,
+     "countries": [
+      "LK"
+     ]
+    },
+    {
+     "doi": "10.1016/j.agsy.2021.103181",
+     "title": "Improved nutrient management in cereals using Nutrient Expert and machine learning tools: Productivity, profitability and nutrient use efficiency",
+     "year": 2021,
+     "countries": [
+      "BD",
+      "IN",
+      "MA",
+      "NP"
+     ]
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "Doğruluk & hata payı",
+     "en": "Accuracy & error rate",
+     "n": 5
+    },
+    {
+     "tr": "Veri & bağlantı",
+     "en": "Data & connectivity",
+     "n": 4
+    },
+    {
+     "tr": "Bitki ve ürün değişkenliği",
+     "en": "Plant and produce variability",
+     "n": 2
+    },
+    {
+     "tr": "Enerji, su & yakıt tüketimi",
+     "en": "Energy, water & fuel use",
+     "n": 1
+    },
+    {
+     "tr": "Küçük işletme ölçeği",
+     "en": "Small farm scale",
+     "n": 1
+    }
+   ],
+   "novelty": [
+    {
+     "query": "maize record certification automated telemetry EUDR software",
+     "count": 0,
+     "seen": false
+    },
+    {
+     "query": "maize nitrogen fertilizer recording CBAM cost certification app",
+     "count": 0,
+     "seen": false
+    }
+   ],
+   "checks": {
+    "issues": []
+   }
+  },
+  "audit": null
+ }
+}

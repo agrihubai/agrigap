@@ -7,6 +7,9 @@ Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var 
 
 | Tarih | Rapor | Ürün | Bölge | Durum | Tür |
 |---|---|---|---|---|---|
+| 2026-11-25 | [Biber: Biber serası artığının taşınma riski ve muz gibi başka ürünlerde toprak hastalıklarını baskılamada kullanılabilirliği](2026-11-25-trg-020-biber.md) | Biber | TR | B | Otomatik tarama |
+| 2026-11-25 | [Hıyar: Kış aylarında sera ısıtma enerji maliyeti](2026-11-25-trg-019-hiyar.md) | Hıyar | TR+EU | C | Otomatik tarama |
+| 2026-11-25 | [Nohut: Kuraklık stresi ve mekanize hasattaki ürün kayıpları](2026-11-25-trg-018-nohut.md) | Nohut | TR | C | Otomatik tarama |
 | 2026-11-23 | [Antep Fıstığı: Yeşil kabuk atığı ve hasat sonrası aflatoksin riski](2026-11-23-trg-017-antep-fistigi.md) | Antep Fıstığı | TR | C | Otomatik tarama |
 | 2026-11-23 | [Çeltik: Su tüketimi, metan salımı ve anız yönetimi](2026-11-23-trg-016-celtik.md) | Çeltik | TR+EU | C | Otomatik tarama |
 | 2026-11-23 | [Çilek: Tozlaşma ve hasat işçiliği açığı](2026-11-23-trg-015-cilek.md) | Çilek | TR+EU | C | Otomatik tarama |

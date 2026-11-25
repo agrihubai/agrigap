@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T09:51:09.451675+00:00",
+ "generated": "2026-11-25T08:28:56.875628+00:00",
  "rules": {
   "transfer": {
    "min_world": 30,
@@ -21,7 +21,7 @@
   "per_type": 40,
   "per_crop": 2
  },
- "matrix_generated": "2026-11-24T09:51:09.398835+00:00",
+ "matrix_generated": "2026-11-25T08:28:56.818711+00:00",
  "candidates": {
   "transfer": [
    {
@@ -245,11 +245,11 @@
     "crop": "c02",
     "op": "harvest",
     "layer": "mech",
-    "w": 197,
+    "w": 203,
     "tr": 1,
     "es": 7,
     "eu": 29,
-    "score": 2.297,
+    "score": 2.31,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -616,6 +616,34 @@
     ]
    },
    {
+    "id": "transfer:c02:process:mech",
+    "type": "transfer",
+    "crop": "c02",
+    "op": "process",
+    "layer": "mech",
+    "w": 128,
+    "tr": 1,
+    "es": 2,
+    "eu": 26,
+    "score": 2.111,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
     "id": "transfer:c20:pack:digi",
     "type": "transfer",
     "crop": "c20",
@@ -685,32 +713,6 @@
      "eu-cra",
      "eu-ai-act",
      "eu-wfd-food-waste"
-    ],
-    "target": "",
-    "proposal_types": [
-     "machine",
-     "software",
-     "practice",
-     "bio",
-     "business"
-    ]
-   },
-   {
-    "id": "transfer:c02:pack:digi",
-    "type": "transfer",
-    "crop": "c02",
-    "op": "pack",
-    "layer": "digi",
-    "w": 118,
-    "tr": 1,
-    "es": 1,
-    "eu": 11,
-    "score": 2.076,
-    "regulations": [
-     "eu-data-act",
-     "eu-cra",
-     "eu-ai-act",
-     "eu-ppwr"
     ],
     "target": "",
     "proposal_types": [
@@ -939,43 +941,16 @@
     ]
    },
    {
-    "id": "transfer:c08:weed:mech",
-    "type": "transfer",
-    "crop": "c08",
-    "op": "weed",
-    "layer": "mech",
-    "w": 94,
-    "tr": 0,
-    "es": 0,
-    "eu": 11,
-    "score": 1.978,
-    "regulations": [
-     "eu-machinery-2023-1230",
-     "tr-makine-emniyeti-2026",
-     "eu-data-act",
-     "eu-cra",
-     "eu-ai-act"
-    ],
-    "target": "",
-    "proposal_types": [
-     "machine",
-     "software",
-     "practice",
-     "bio",
-     "business"
-    ]
-   },
-   {
     "id": "transfer:c01:spray:mech",
     "type": "transfer",
     "crop": "c01",
     "op": "spray",
     "layer": "mech",
-    "w": 93,
+    "w": 94,
     "tr": 1,
     "es": 3,
-    "eu": 13,
-    "score": 1.973,
+    "eu": 16,
+    "score": 1.978,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -994,16 +969,16 @@
     ]
    },
    {
-    "id": "transfer:c47:harvest:mech",
+    "id": "transfer:c08:weed:mech",
     "type": "transfer",
-    "crop": "c47",
-    "op": "harvest",
+    "crop": "c08",
+    "op": "weed",
     "layer": "mech",
-    "w": 91,
-    "tr": 1,
+    "w": 94,
+    "tr": 0,
     "es": 0,
-    "eu": 2,
-    "score": 1.964,
+    "eu": 11,
+    "score": 1.978,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -1076,6 +1051,34 @@
     ]
    },
    {
+    "id": "transfer:c42:stock:mech",
+    "type": "transfer",
+    "crop": "c42",
+    "op": "stock",
+    "layer": "mech",
+    "w": 87,
+    "tr": 0,
+    "es": 9,
+    "eu": 45,
+    "score": 1.944,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-eudr"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ]
+   },
+   {
     "id": "transfer:c30:harvest:mech",
     "type": "transfer",
     "crop": "c30",
@@ -1114,7 +1117,7 @@
     "tr": 0,
     "es": 0,
     "eu": 0,
-    "score": 1.048,
+    "score": 1.049,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -1144,7 +1147,7 @@
     "tr": 0,
     "es": 0,
     "eu": 1,
-    "score": 0.909,
+    "score": 0.917,
     "regulations": [
      "eu-data-act",
      "eu-cra",
@@ -1159,8 +1162,8 @@
      "business"
     ],
     "neighbor": "c45",
-    "neighbor_w": 9,
-    "expected": 23
+    "neighbor_w": 10,
+    "expected": 24
    },
    {
     "id": "neighbor:c47:process:mech",
@@ -1169,10 +1172,10 @@
     "op": "process",
     "layer": "mech",
     "w": 43,
-    "tr": 4,
+    "tr": 5,
     "es": 0,
     "eu": 5,
-    "score": 0.824,
+    "score": 0.823,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -1190,7 +1193,7 @@
      "business"
     ],
     "neighbor": "c46",
-    "neighbor_w": 638,
+    "neighbor_w": 635,
     "expected": 292
    },
    {
@@ -1233,7 +1236,7 @@
     "tr": 0,
     "es": 0,
     "eu": 0,
-    "score": 0.741,
+    "score": 0.754,
     "regulations": [
      "eu-data-act",
      "eu-cra",
@@ -1261,7 +1264,7 @@
     "tr": 0,
     "es": 0,
     "eu": 0,
-    "score": 0.722,
+    "score": 0.726,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -1291,7 +1294,7 @@
     "tr": 0,
     "es": 0,
     "eu": 2,
-    "score": 0.673,
+    "score": 0.659,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -1310,8 +1313,8 @@
      "business"
     ],
     "neighbor": "c44",
-    "neighbor_w": 12,
-    "expected": 23
+    "neighbor_w": 13,
+    "expected": 22
    },
    {
     "id": "neighbor:c27:prune:digi",
@@ -1456,33 +1459,6 @@
     "other_w": 74
    },
    {
-    "id": "layer:c42:weed:digi",
-    "type": "layer",
-    "crop": "c42",
-    "op": "weed",
-    "layer": "digi",
-    "w": 4,
-    "tr": 0,
-    "es": 1,
-    "eu": 2,
-    "score": 0.892,
-    "regulations": [
-     "eu-data-act",
-     "eu-cra",
-     "eu-ai-act"
-    ],
-    "target": "",
-    "proposal_types": [
-     "machine",
-     "software",
-     "practice",
-     "bio",
-     "business"
-    ],
-    "other_layer": "mech",
-    "other_w": 38
-   },
-   {
     "id": "layer:c10:prune:digi",
     "type": "layer",
     "crop": "c10",
@@ -1622,10 +1598,10 @@
     "other_w": 30
    },
    {
-    "id": "layer:c40:resource:digi",
+    "id": "layer:c40:residue:digi",
     "type": "layer",
     "crop": "c40",
-    "op": "resource",
+    "op": "residue",
     "layer": "digi",
     "w": 4,
     "tr": 0,
@@ -1636,8 +1612,8 @@
      "eu-data-act",
      "eu-cra",
      "eu-ai-act",
-     "eu-cbam",
-     "tr-iklim-kanunu"
+     "eu-wfd-food-waste",
+     "tr-aniz-yakma"
     ],
     "target": "",
     "proposal_types": [
@@ -1707,22 +1683,22 @@
     "other_w": 40
    },
    {
-    "id": "layer:c43:residue:digi",
+    "id": "layer:c40:resource:digi",
     "type": "layer",
-    "crop": "c43",
-    "op": "residue",
+    "crop": "c40",
+    "op": "resource",
     "layer": "digi",
-    "w": 10,
-    "tr": 6,
+    "w": 5,
+    "tr": 0,
     "es": 0,
-    "eu": 2,
-    "score": 0.758,
+    "eu": 1,
+    "score": 0.766,
     "regulations": [
      "eu-data-act",
      "eu-cra",
      "eu-ai-act",
-     "eu-wfd-food-waste",
-     "tr-aniz-yakma"
+     "eu-cbam",
+     "tr-iklim-kanunu"
     ],
     "target": "",
     "proposal_types": [
@@ -1733,7 +1709,7 @@
      "business"
     ],
     "other_layer": "mech",
-    "other_w": 62
+    "other_w": 34
    },
    {
     "id": "layer:c16:process:digi",
@@ -1793,35 +1769,6 @@
     "other_w": 55
    },
    {
-    "id": "layer:c44:residue:digi",
-    "type": "layer",
-    "crop": "c44",
-    "op": "residue",
-    "layer": "digi",
-    "w": 6,
-    "tr": 1,
-    "es": 1,
-    "eu": 3,
-    "score": 0.746,
-    "regulations": [
-     "eu-data-act",
-     "eu-cra",
-     "eu-ai-act",
-     "eu-wfd-food-waste",
-     "tr-aniz-yakma"
-    ],
-    "target": "",
-    "proposal_types": [
-     "machine",
-     "software",
-     "practice",
-     "bio",
-     "business"
-    ],
-    "other_layer": "mech",
-    "other_w": 38
-   },
-   {
     "id": "layer:c37:climate:digi",
     "type": "layer",
     "crop": "c37",
@@ -1848,6 +1795,33 @@
     ],
     "other_layer": "mech",
     "other_w": 58
+   },
+   {
+    "id": "layer:c42:weed:digi",
+    "type": "layer",
+    "crop": "c42",
+    "op": "weed",
+    "layer": "digi",
+    "w": 7,
+    "tr": 0,
+    "es": 1,
+    "eu": 2,
+    "score": 0.72,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 41
    },
    {
     "id": "layer:c05:mulch:digi",
@@ -1877,6 +1851,35 @@
     "other_w": 30
    },
    {
+    "id": "layer:c44:residue:digi",
+    "type": "layer",
+    "crop": "c44",
+    "op": "residue",
+    "layer": "digi",
+    "w": 7,
+    "tr": 1,
+    "es": 1,
+    "eu": 3,
+    "score": 0.699,
+    "regulations": [
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "eu-wfd-food-waste",
+     "tr-aniz-yakma"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "other_layer": "mech",
+    "other_w": 39
+   },
+   {
     "id": "layer:c06:pack:digi",
     "type": "layer",
     "crop": "c06",
@@ -1903,35 +1906,6 @@
     ],
     "other_layer": "mech",
     "other_w": 48
-   },
-   {
-    "id": "layer:c40:soil:digi",
-    "type": "layer",
-    "crop": "c40",
-    "op": "soil",
-    "layer": "digi",
-    "w": 8,
-    "tr": 0,
-    "es": 0,
-    "eu": 1,
-    "score": 0.679,
-    "regulations": [
-     "eu-data-act",
-     "eu-cra",
-     "eu-ai-act",
-     "eu-soil",
-     "tr-aniz-yakma"
-    ],
-    "target": "",
-    "proposal_types": [
-     "machine",
-     "software",
-     "practice",
-     "bio",
-     "business"
-    ],
-    "other_layer": "mech",
-    "other_w": 42
    }
   ],
   "gap": [
@@ -1962,34 +1936,6 @@
      "business"
     ],
     "group_median": 101.0
-   },
-   {
-    "id": "gap:c40:resource:digi",
-    "type": "gap",
-    "crop": "c40",
-    "op": "resource",
-    "layer": "digi",
-    "w": 4,
-    "tr": 0,
-    "es": 0,
-    "eu": 0,
-    "score": 1.869,
-    "regulations": [
-     "eu-data-act",
-     "eu-cra",
-     "eu-ai-act",
-     "eu-cbam",
-     "tr-iklim-kanunu"
-    ],
-    "target": "",
-    "proposal_types": [
-     "machine",
-     "software",
-     "practice",
-     "bio",
-     "business"
-    ],
-    "group_median": 73.0
    },
    {
     "id": "gap:c41:resource:digi",
@@ -2131,6 +2077,35 @@
     "group_median": 45.5
    },
    {
+    "id": "gap:c40:climate:mech",
+    "type": "gap",
+    "crop": "c40",
+    "op": "climate",
+    "layer": "mech",
+    "w": 3,
+    "tr": 0,
+    "es": 0,
+    "eu": 0,
+    "score": 1.648,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act",
+     "tr-iklim-kanunu"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "group_median": 43.5
+   },
+   {
     "id": "gap:c06:prune:mech",
     "type": "gap",
     "crop": "c06",
@@ -2140,7 +2115,7 @@
     "tr": 0,
     "es": 0,
     "eu": 0,
-    "score": 1.505,
+    "score": 1.512,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -2156,7 +2131,7 @@
      "bio",
      "business"
     ],
-    "group_median": 31.0
+    "group_median": 31.5
    },
    {
     "id": "gap:c07:prune:mech",
@@ -2168,7 +2143,7 @@
     "tr": 0,
     "es": 0,
     "eu": 1,
-    "score": 1.505,
+    "score": 1.512,
     "regulations": [
      "eu-machinery-2023-1230",
      "tr-makine-emniyeti-2026",
@@ -2184,7 +2159,7 @@
      "bio",
      "business"
     ],
-    "group_median": 31.0
+    "group_median": 31.5
    },
    {
     "id": "gap:c28:stock:mech",
@@ -2301,6 +2276,34 @@
      "business"
     ],
     "group_median": 21
+   },
+   {
+    "id": "gap:c15:mulch:mech",
+    "type": "gap",
+    "crop": "c15",
+    "op": "mulch",
+    "layer": "mech",
+    "w": 0,
+    "tr": 0,
+    "es": 0,
+    "eu": 0,
+    "score": 1.322,
+    "regulations": [
+     "eu-machinery-2023-1230",
+     "tr-makine-emniyeti-2026",
+     "eu-data-act",
+     "eu-cra",
+     "eu-ai-act"
+    ],
+    "target": "",
+    "proposal_types": [
+     "machine",
+     "software",
+     "practice",
+     "bio",
+     "business"
+    ],
+    "group_median": 20.0
    },
    {
     "id": "gap:c38:mulch:digi",

@@ -1,0 +1,70 @@
+{
+ "id": "neighbor:c42:pollin:digi",
+ "created": "2026-11-25T08:35:11.042704+00:00",
+ "candidate": {
+  "id": "neighbor:c42:pollin:digi",
+  "type": "neighbor",
+  "crop": "c42",
+  "op": "pollin",
+  "layer": "digi",
+  "w": 2,
+  "tr": 0,
+  "es": 0,
+  "eu": 1,
+  "score": 0.917,
+  "regulations": [
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ],
+  "neighbor": "c45",
+  "neighbor_w": 10,
+  "expected": 24
+ },
+ "query": "(olive) AND (pollination OR pollinator OR pollinating) AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+ "published": false,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-25",
+   "status": "skipped",
+   "reason": "Kaynak paketi çok küçük (2 yayın).",
+   "content": null,
+   "relevance": null,
+   "sources": [
+    {
+     "doi": "10.5424/sjar/2012103-501-11",
+     "title": "Sexual compatibility of the olive cultivar ‘Kalamata’ assessed by paternity analysis",
+     "year": 2012,
+     "countries": [
+      "AU",
+      "IR"
+     ]
+    },
+    {
+     "doi": "10.1155/2014/208590",
+     "title": "Paternity Analysis of the Olive Variety “Istrska Belica” and Identification of Pollen Donors by Microsatellite Markers",
+     "year": 2014,
+     "countries": [
+      "SI"
+     ]
+    }
+   ],
+   "constraints": [],
+   "novelty": [],
+   "checks": {
+    "issues": []
+   }
+  },
+  "audit": null
+ }
+}

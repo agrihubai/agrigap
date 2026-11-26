@@ -131,6 +131,58 @@ def auto_queue(m, targets):
              "matrix_cell": mk}
         targets.append(t)
         added.append(t)
+    added += d_feed(m, targets, crops, ops, layers)
+    return added
+
+
+def d_feed(m, targets, crops, ops, layers):
+    """D adayı beslemesi: dünyada neredeyse hiç yayını olmayan ama iş adımı aynı ürün grubunda çalışılan hücreler.
+
+    Önceki kuyruk kuralları (min_world, bağlantı eşikleri) yalnızca çok yayını olan konuları seçtiği için
+    'D' (çok az yayın) raporu yapısal olarak hiç üretilemiyordu. Bu besleme o seçim yanlılığını kaldırır.
+    """
+    df = CFG["auto_queue"].get("d_feed")
+    if not df:
+        return []
+    have = {t.get("matrix_cell") for t in targets}
+    pending_d = [t for t in targets if t.get("d_candidate") and t.get("status") == "pending"]
+    room = min(df["max_per_run"], df["max_pending"] - len(pending_d))
+    if room <= 0:
+        return []
+    group_of = {c["key"]: c["group"] for c in CFG["crops"]}
+    vals = {}
+    for key, cell in m["cells"].items():
+        ck, ok = key.split("|")
+        for lk, v in cell.items():
+            if isinstance(v, dict) and ck in group_of:
+                vals.setdefault((group_of[ck], ok, lk), []).append(v["w"])
+    cands = []
+    for key, cell in m["cells"].items():
+        ck, ok = key.split("|")
+        for lk, v in cell.items():
+            mk = f"{ck}|{ok}|{lk}"
+            if lk not in layers or not isinstance(v, dict) or mk in have or ck not in crops or ok not in ops:
+                continue
+            if v["w"] > df["max_world"]:
+                continue
+            others = sorted(vals.get((group_of[ck], ok, lk), []))
+            med = others[len(others) // 2] if others else 0
+            if med >= df["min_group_median"]:
+                cands.append((med - v["w"], v["w"], med, mk, crops[ck], ops[ok], layers[lk]))
+    cands.sort(key=lambda x: (-x[0], x[3]))
+    added = []
+    for _, w, med, mk, c, o, layer in cands[:room]:
+        nmax = max(int(x["id"].split("-")[1]) for x in targets if x["id"].startswith("TRG-"))
+        t = {"id": f"TRG-{nmax + 1:03d}", "production_system": SYSTEM.get(c["group"], c["group"]),
+             "crop_group": c["group"], "crop": c["tr"], "crop_en": c["en"], "stage": o["stage"],
+             "region": "TR+EU",
+             "focus": f"{o['tr']} işinde {layer['tr'].lower()}: dünyada yalnızca {w} yayın; aynı gruptaki ürünlerde bu iş için ortanca {med} yayın",
+             "focus_en": f"{o['en']} — {layer['en']}: only {w} publications worldwide; median of {med} for this task in the same crop group",
+             "crop_label_en": c.get("label_en", c["tr"]),
+             "query": cell_query(c, o, layer), "status": "pending", "suggested_by": "Teknoloji Boşluk Haritası (D adayı)",
+             "matrix_cell": mk, "d_candidate": True}
+        targets.append(t)
+        added.append(t)
     return added
 
 

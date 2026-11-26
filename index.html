@@ -21,6 +21,7 @@
   --read:"Literata",Georgia,serif;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{background:var(--film);color:var(--loam)}
 body{margin:0;font-family:var(--ui);font-size:16px;line-height:1.5;font-variation-settings:"wdth" 100}
 a{color:var(--leaf)}
@@ -211,6 +212,82 @@ table.mx td.sel button{outline:3px solid var(--loam);outline-offset:-3px}
 .icard ol.src{font-size:13px;padding-left:20px}
 @media (max-width:820px){.icard dl{grid-template-columns:1fr}}
 
+/* çözüm olgunluğu */
+.mat{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;margin-right:8px;vertical-align:1px;background:#EEE9DC;color:var(--loam);font-variation-settings:"wdth" 90}
+.mat.no_known,.mat.insufficient_evidence{background:#E4E2F2;color:var(--D)}
+.mat.no_validated,.mat.no_field_proven,.mat.no_scalable{background:#F4E9CF;color:#7A5E10}
+.mat.field_reported{background:#DCE6DE;color:var(--leaf)}
+.mat.not_assessed{background:#ECEFEC;color:var(--mute)}
+.dempty{background:var(--sheet);border:1px solid var(--line);border-left:6px solid var(--D);border-radius:12px;padding:16px 18px;margin:8px 0 0;max-width:820px;font-size:15px}
+.dempty h3{margin:0 0 6px;font-size:18px}
+.dempty p{margin:6px 0}
+.dempty ul{margin:6px 0 0;padding-left:20px}
+.matkey{margin:6px 0 0;font-size:14px;color:var(--mute);max-width:820px}
+.matkey summary{cursor:pointer;color:var(--leaf);font-weight:600}
+.matkey table{border-collapse:collapse;margin:8px 0;font-size:13px}
+.matkey td{padding:4px 10px 4px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+
+/* etki ve değer atlası */
+.at-intro{max-width:72ch;color:var(--mute);margin:20px 0 4px}
+.at-sub{margin:0 0 14px;font-weight:700;color:var(--leaf);font-size:15px}
+.at-panel{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:12px}
+.at-panel fieldset{border:0;margin:0;padding:0;min-width:0}
+.at-panel legend{font-size:13px;font-weight:700;color:var(--mute);margin-bottom:6px;padding:0}
+.at-panel legend small{font-weight:400}
+.chipset{display:flex;flex-wrap:wrap;gap:6px}
+.chipset label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:14px;cursor:pointer;user-select:none}
+.chipset input{accent-color:var(--leaf);margin:0}
+.chipset label:has(input:checked){background:var(--loam);color:var(--film);border-color:var(--loam)}
+.chipset label:has(input:focus-visible){outline:3px solid var(--leaf);outline-offset:2px}
+.at-more summary{cursor:pointer;font-size:13px;color:var(--leaf);font-weight:600;margin:6px 0}
+.at-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{all:unset;cursor:pointer;padding:9px 16px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid var(--loam)}
+.btn.primary{background:var(--leaf);border-color:var(--leaf);color:#fff}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn:focus-visible{outline:3px solid var(--loam);outline-offset:2px}
+.at-hint{font-size:13px;color:var(--mute)}
+.at-stale{display:flex;gap:10px;align-items:flex-start;background:#F4E9CF;border:1px solid #E2CF9A;border-radius:10px;padding:10px 14px;margin:14px 0 0;font-size:14px}
+.at-crit{font-size:13px;color:var(--mute);margin:16px 0 8px}
+.at-crit b{color:var(--loam)}
+.at-res.stale .at-tw{opacity:.45}
+.at-tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--sheet)}
+table.at{border-collapse:collapse;font-size:13px;line-height:1.4;min-width:820px;width:100%}
+table.at th,table.at td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+table.at thead th{background:#E1E8E2;position:sticky;top:0;font-weight:700}
+table.at th.rk{min-width:210px;background:var(--sheet);position:sticky;left:0;z-index:1}
+table.at thead th.rk{background:#E1E8E2;z-index:2}
+table.at tr.ind th{background:var(--film);color:var(--leaf);font-size:13px;position:static}
+.at-v{display:block;margin:0 0 6px}
+.at-v b{font-size:15px}
+.at-v .u{color:var(--mute);font-size:12px;margin-left:3px}
+.at-e{color:var(--mute);font-style:italic}
+.q{display:inline-block;font-size:11px;font-weight:700;padding:1px 6px;border-radius:999px;margin:2px 4px 0 0;background:#E1E8E2;font-style:normal}
+.q.official,.q.official_derived{background:#DDE4F2}.q.peer_reviewed{background:#DCE6DE;color:var(--leaf)}.q.modelled{background:#F4E9CF}.q.na,.q.insufficient{background:#ECEFEC;color:var(--mute)}
+.bd{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;background:#fff;border:1px solid var(--line);margin:2px 4px 0 0}
+.srcbtn{all:unset;cursor:pointer;color:var(--leaf);font-size:12px;text-decoration:underline;margin-left:2px}
+.srcbtn:focus-visible{outline:2px solid var(--leaf)}
+.warn{display:block;font-size:12px;color:#7A5E10;margin-top:4px}
+tr.det td{background:#fff;font-size:13px}
+tr.det dl{display:grid;grid-template-columns:200px 1fr;gap:3px 12px;margin:0}
+tr.det dt{color:var(--mute)}tr.det dd{margin:0;word-break:break-word}
+.gaps{margin:26px 0 0}
+.gaps h2{font-size:20px;margin:0 0 4px}
+.gaps h3{font-size:16px;margin:16px 0 6px}
+.gaps .why{color:var(--mute);font-size:14px;max-width:76ch;margin:0 0 10px}
+.gap-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.gap-list li{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.45}
+.gap-list li b.h{display:block;font-size:15px}
+.gap-list li.v{border-left:5px solid var(--D)}.gap-list li.m{border-left:5px solid var(--B)}
+.gap-list dl{margin:6px 0 0;display:grid;grid-template-columns:130px 1fr;gap:2px 10px;font-size:13px}
+.gap-list dt{color:var(--mute)}.gap-list dd{margin:0}
+.incomp{font-size:14px;color:var(--mute)}
+.incomp summary{cursor:pointer;color:var(--leaf);font-weight:600}
+.opp{border-left:5px solid var(--leaf)}
+.opp .lv{display:grid;grid-template-columns:110px 1fr;gap:4px 10px;margin:6px 0 0;font-size:13px}
+.opp .lv dt{font-weight:700}
+.opp .lv dt.ev{color:var(--leaf)}.opp .lv dt.in{color:var(--A)}.opp .lv dt.hy{color:#7A5E10}.opp .lv dt.sp{color:var(--C)}
+@media (max-width:820px){tr.det dl,.gap-list dl,.opp .lv{grid-template-columns:1fr}table.at th.rk{min-width:150px}}
+
 @media (max-width:820px){
   .tabs{flex-wrap:wrap}
   .tabs a{padding:10px 8px}
@@ -246,6 +323,7 @@ table.mx td.sel button{outline:3px solid var(--loam);outline-offset:-3px}
   <nav class="tabs" aria-label="AgriGap">
     <a href="#/" data-tab="reports" data-i18n="tabReports"></a>
     <a href="#/harita" data-tab="map" data-i18n="tabMap"></a>
+    <a href="#/atlas" data-tab="atlas" data-i18n="tabAtlas"></a>
     <a href="#/oneriler" data-tab="ideas" data-i18n="tabIdeas"></a>
     <a href="#/mevzuat" data-tab="reg" class="regbtn" data-i18n="tabReg"></a>
   </nav>
@@ -270,7 +348,7 @@ const T = {
   tr:{
     lede:"Türkiye ve Avrupa tarımındaki darboğazları düzenli aralıklarla kendiliğinden tarayan, açık erişimli bir merkez. Her sorun için önce dünyada yayımlanmış çözümleri haritalar ve ilk bakışta ilgisiz görünen bağlantıları gösterir. Her tarama yeni konular önerir; kuyruk böyle büyür.",
     solved:"Çözüm var", gap:"Gerçek boşluk",
-    A:"Çözüm var, burada da yaygın", B:"Çözüm başka yerde var, burada yok", C:"Çözüm var ama zayıf", D:"Taranan kaynaklarda çözüm yok",
+    A:"Çözüm var, burada da yaygın", B:"Çözüm başka yerde var, burada yok", C:"Çözüm var ama zayıf", D:"Çok az yayın: çözüm durumu belirsiz",
     n:c=>c===0?"Henüz rapor yok":c+" rapor",
     system:"Üretim sistemi", group:"Ürün grubu", stage:"Değer zinciri aşaması", all:"Tümü", reset:"Filtreleri temizle",
     none:"Bu filtrelere uyan rapor yok. Filtreleri temizleyip tekrar deneyin.",
@@ -318,7 +396,7 @@ const T = {
   en:{
     lede:"An open-access hub that scans bottlenecks in Turkish and European farming on a regular schedule, by itself. For each one it first maps the solutions already published worldwide and shows links that look unrelated at first sight. Every scan suggests new topics, and that is how the queue grows.",
     solved:"Solved", gap:"Real gap",
-    A:"Solved, and common here", B:"Solved elsewhere, not here", C:"Solved, but with weak spots", D:"No solution found",
+    A:"Solved, and common here", B:"Solved elsewhere, not here", C:"Solved, but with weak spots", D:"Very few publications: solution status unclear",
     n:c=>c===0?"No reports yet":c+(c===1?" report":" reports"),
     system:"Production system", group:"Crop group", stage:"Value-chain stage", all:"All", reset:"Clear filters",
     none:"No reports match these filters. Clear the filters and try again.",
@@ -364,9 +442,153 @@ const T = {
     source:"Source code and reports (GitHub)", license:"Code MIT, reports CC BY 4.0"
   }
 };
+/* ---------- çözüm olgunluğu + atlas metinleri (TR/EN) ---------- */
+Object.assign(T.tr, {
+  mat:"Çözüm olgunluğu", matAll:"Tümü",
+  m_no_known:"Bilinen çözüm yok", m_no_validated:"Doğrulanmış çözüm yok", m_no_field_proven:"Sahada kanıtlanmış çözüm yok",
+  m_no_scalable:"Ölçeklenebilir çözüm yok", m_insufficient_evidence:"Yetersiz kanıt", m_field_reported:"Saha doğrulaması bildirilmiş", m_not_assessed:"Değerlendirilmedi",
+  md_no_known:"İncelenen kanıtta tanımlı bir çözüm bulunamadı.", md_no_validated:"Önerilen çözümler var ama doğrulama yetersiz.",
+  md_no_field_proven:"Laboratuvar ya da kontrollü ortam sonuçları var, saha doğrulaması eksik.", md_no_scalable:"Çözüm var ama ekonomik ya da teknik olarak ölçekte uygulanamıyor.",
+  md_insufficient_evidence:"Mevcut kanıt, çözüm durumuna karar vermek için yetersiz.", md_field_reported:"Saha doğrulaması bildiren yayınlar var (yaygın kullanım anlamına gelmez).",
+  md_not_assessed:"Bu rapor olgunluk kuralından önce üretildi; yeniden taramada dolacak.",
+  matKey:"A–D ölçeği ile çözüm olgunluğu arasındaki fark",
+  matKeyP:"A–D ölçeği yalnızca yayın sayısına bakar. Bir sorun hakkında yayın bulunması uygulanabilir bir çözüm olduğu anlamına gelmez; yayının olmaması da çözümün olmadığı anlamına gelmez. Bu yüzden her raporda ayrıca bir çözüm olgunluğu sınıfı vardır:",
+  dEmptyH:"Bu kategoride henüz rapor yok: nedeni",
+  dEmpty1:"D, taranan sorguda 10'dan az yayın bulunduğunda verilir. Şimdiye kadarki tüm hedefler, tasarım gereği çok yayını olan konulardan seçildi: kuyruğa yalnız dünyada en az 50 yayını olan harita hücreleri ve yeterince sık geçen bağlantı alanları ekleniyordu. Bu yüzden D yapısal olarak üretilemiyordu. Sorun boş bir kategori değil, bir seçim yanlılığıydı.",
+  dEmpty2:"Düzeltme: harita artık dünyada en fazla 4 yayını olan ama aynı ürün grubunda çalışılan iş adımlarını D adayı olarak kuyruğa ekliyor ve tarayıcı bu adayları önce alıyor. Rapor uydurulmaz: aday taranınca gerçek yayın sayısı D eşiğinin üstündeyse rapor başka bir harf alır.",
+  dQueued:"Kuyruktaki D adayları", dCells:n=>`Haritada D adayı olabilecek ${n} hücre var (dünyada neredeyse hiç yayın yok).`, dCellsLink:"Yeni Öneriler → Gerçek boşluk",
+  tabAtlas:"Etki ve Değer Atlası",
+  atSub:"Çevresel Etki, Ekonomik Değer ve Teknoloji Etkinliği",
+  atIntro:"Ürünleri ve bölgeleri seçip karşılaştırma tablosu oluşturun. Her değer kaynağı, yılı, kapsamı ve veri güvenilirliği sınıfıyla gelir. Eksik değer sıfır olarak gösterilmez; neden eksik olduğu yazılır. Hiçbir değer uydurulmaz.",
+  atProducts:"Ürün", atRegions:"Bölge", atSystems:"Üretim sistemi", atCats:"Çözüm kategorisi", atInds:"Gösterge",
+  atMulti:"(birden fazla seçilebilir)", atOpt:"(isteğe bağlı)", atMore:n=>`AgriGap'teki diğer ürünler (${n})`,
+  atShow:"Karşılaştırmayı göster", atReset:"Filtreleri sıfırla", atCsv:"CSV indir",
+  atNeed:"Karşılaştırma için en az bir ürün ve bir bölge seçin.",
+  atStale:"Seçim değişti. Aşağıdaki tablo önceki seçime ait; yenilemek için \"Karşılaştırmayı göster\"e basın.",
+  atLoading:"Atlas verisi yükleniyor…", atErr:"Atlas verisi yüklenemedi. Sayfayı yenileyin; sorun sürerse GitHub deposundaki atlas/ klasörüne bakın.",
+  atNoRes:"Seçilen ölçütlerle gösterilecek satır yok. Gösterge ya da çözüm kategorisi seçimini genişletin.",
+  atCrit:"Seçili ölçütler", atDefInd:"(gösterge seçilmedi: varsayılan göstergeler)", atAnySys:"tümü", atAnyCat:"tümü",
+  atRow:"Ürün · gösterge · sistem", atSrc:"kaynak", atHide:"gizle",
+  e_na:"N/A — Veri mevcut değil", e_not_assessed:"Değerlendirilmedi", e_insufficient:"Yetersiz kanıt", e_not_applicable:"Uygulanamaz",
+  ew_world:"FAOSTAT henüz bağlı değil", ew_gap:src=>`Kontrol edildi: ${src} bu bölge/ürün için değer vermiyor`, ew_nom:"Ürün resmî sınıflamada ayrı kalem değil",
+  ew_noitem:"Kaynak tabloda bu ürün için kalem yok", ew_area:"Aynı yıl için alan verisi yok", ew_rank:"Sıralama için aynı kaynak ve yılda en az 2 ürün değeri gerekir",
+  ew_sys:"Bu sistem bu ürün için tanımlı değil",
+  w_years:y=>`Veri yılları farklı (${y}); doğrudan karşılaştırırken dikkat.`, w_bound:"Farklı sistem sınırları (LCA) aynı satırda: değerler doğrudan karşılaştırılamaz.",
+  w_fu:"Farklı fonksiyonel birimler: değerler doğrudan karşılaştırılamaz.", w_member:"AB sütunundaki değer bir üye ülkeye (İtalya) aittir; AB ortalaması değildir.",
+  w_pooled:"Birleşik meta-analiz: birden çok sebze türü birlikte; ürüne özgü değildir.", w_es_eu:"AB-27 toplamı İspanya'yı da içerir; İspanya AB ortalamasının yerine geçmez.",
+  w_same_sys:"Kaynakta açık tarla ve sera için aynı fiyat var; sisteme göre ayrıştırılmamış olabilir.", w_methods:"Bölgelerin kaynakları ve yöntemleri farklı: doğrudan karşılaştırılamaz.",
+  w_soft:"Fiyat yalnızca yumuşak buğday içindir; üretim ve değer tüm buğdayı kapsar.",
+  sysAll:"tüm sistemler", tech:"Teknoloji", baseline:"Temel durum", improved:"İyileştirilmiş sistem", change:"Değişim", outcome:"Ölçülen sonuç", conditions:"Koşullar", nStudies:n=>`${n} çalışma`,
+  incr:"artış", decr:"azalış", notRep:"Kaynakta bildirilmedi",
+  pooledRow:"Sebzeler (birleşik, ürüne özgü değil)", rankOf:(r,n)=>`${r}. / ${n} seçili ürün`,
+  relRow:"Veri güvenilirliği", relNone:"Bu bölgede gösterilen değer yok",
+  dSource:"Kaynak", dAuthors:"Yazarlar", dJournal:"Yayın", dYear:"Yayın yılı", dDataYear:"Veri yılı", dGeo:"Coğrafi kapsam", dSystem:"Üretim sistemi",
+  dFU:"Fonksiyonel birim", dBound:"Sistem sınırı", dMethod:"Yöntem", dQuality:"Güvenilirlik", dFlag:"Eurostat işareti", dQuery:"Sorgu", dComp:"Karşılaştırılabilirlik",
+  cs_system_specific:"Sisteme ve yöre örneklemine özgü", cs_member_state_proxy:"Üye ülke verisi (AB ortalaması değil)", cs_pooled_not_crop_specific:"Birleşik, ürüne özgü değil",
+  cs_pooled_world:"Dünya meta-analizi", cs_same_source:"Tüm bölgeler için aynı kaynak ve yöntem",
+  fl_provisional:"geçici", fl_estimated:"tahmini", fl_break_in_series:"seride kırılma", fl_low_reliability:"düşük güvenilirlik", fl_eurostat_estimate:"Eurostat tahmini", fl_definition_differs:"tanım farklı",
+  notStated:"Belirtilmemiş",
+  gapsH:"Belirlenen Veri Boşlukları", gapsP:"Seçiminiz için eksik ya da karşılaştırılamayan veriler. Doğrulanmış boşluk: ilgili kaynak kontrol edildi ve değer yok ya da yöntemler uyuşmuyor. Veri tabanı eksikliği: henüz hiçbir kaynak taranmadı; bu bir araştırma boşluğu olduğunu göstermez.",
+  gapsV:"Doğrulanmış boşluklar", gapsM:"Yöntem uyuşmazlıkları", gapsI:n=>`Veri tabanı eksikliği: henüz değerlendirilmedi (${n})`, gapsNone:"Bu seçim için doğrulanmış boşluk bulunmadı.",
+  gProduct:"Ürün", gRegion:"Bölge", gMissing:"Eksik gösterge", gWhy:"Neden önemli", gAct:"Önerilen çalışma", gInno:"Yenilik ilgisi", gChecked:"Kontrol edilen kaynak",
+  gw_product_cf:"Karbon ayak izi olmadan ürün veya bölge için emisyon azaltım önceliği belirlenemez.", gw_production_volume:"Üretim büyüklüğü bilinmeden etki ve fırsatın ölçeği tartılamaz.",
+  gw_production_value:"Ekonomik ağırlık bilinmeden yatırımın ve yeniliğin getirisi karşılaştırılamaz.", gw_value_per_kg:"Kg değeri olmadan çevresel maliyet ile ürün değeri aynı ölçekte konuşulamaz.",
+  gw_value_per_ha:"Hektar başı değer, arazi kullanımı ve teknoloji yatırımının karşılanabilirliği için gerekir.", gw_effectiveness:"Etkinlik verisi olmadan hangi çözümün gerçekten işe yaradığı bilinemez.",
+  gw_field:"Saha doğrulaması olmadan laboratuvar sonucu üretici kararına dönüşemez.", gw_method:"Farklı yöntemlerle hesaplanmış değerler yanlış sıralamaya yol açabilir.",
+  ga_product_cf:"Aynı fonksiyonel birim ve sistem sınırıyla (beşikten çiftlik kapısına) bölgesel LCA ölçümü.", ga_production_volume:"Ulusal istatistik kurumunun ürün bazlı serisinin derlenmesi.",
+  ga_production_value:"Ulusal tarım hesaplarından ürün bazlı üretim değerinin derlenmesi (Türkiye için TÜİK, İspanya için Tarım Bakanlığı MAPA).", ga_value_per_kg:"Ulusal üretici fiyatı serisinin derlenmesi ve €/kg'a çevrilmesi (kur ve yıl belirtilerek).",
+  ga_value_per_ha:"Üretim değeri ve alanın aynı yıl ve kapsamla derlenmesi.", ga_effectiveness:"Bölgede kontrollü saha denemesi; temel durum, ölçülen sonuç ve koşullar açıkça kaydedilerek.",
+  ga_field:"Hedef bölgede çok yerli saha denemesi.", ga_method:"Değerlerin ortak bir sistem sınırı ve fonksiyonel birime göre yeniden hesaplanması.",
+  gi_high:"Yüksek: ölçüm eksikliği doğrudan bir doğrulama veya ölçüm projesi olabilir.", gi_mid:"Orta: karşılaştırmayı tamamlar, kendi başına yenilik değildir.",
+  why_not_in_nomenclature:"ürün resmî sınıflamada ayrı kalem değil", why_no_value_for_geo:"bu bölge için değer yok", why_no_item_for_product:"tabloda bu ürün için kalem yok", why_no_area_same_year:"aynı yıl alan verisi yok",
+  oppH:"Etki ve Değer Atlası'ndan fırsat sinyalleri", oppP:"Atlas verisinden kurallarla çıkarılan fırsat adayları. Bunlar sonuç değil, sınanacak işaretlerdir. Her kartta kanıt, çıkarım, hipotez ve spekülasyon ayrı yazılır. Kural eşikleri bilimsel eşik değildir.",
+  oppNone:"Bu kuralların tetiklendiği bir atlas kaydı henüz yok.", opEv:"Kanıt", opIn:"Çıkarım", opHy:"Hipotez", opSp:"Spekülasyon", opSee:"Atlas'ta gör", opRule:"Kural",
+  r1:"Yüksek ekonomik değer + yüksek karbon ayak izi → çevresel yenilik fırsatı", r2:"Belgelenmiş su tasarrufu/verimlilik teknolojisi → kaynak verimliliği fırsatı",
+  r3:"Teknoloji var ama saha doğrulaması yetersiz → doğrulama projesi", r4:"Büyük üretim ama doğrulanmış ekonomik veri boşluğu → ölçüm fırsatı",
+  r1i:(p,r,rk,n,cf,b)=>`${p}, ${r} bölgesinde atlas ürünleri arasında üretim değerine göre ${rk}. / ${n}; aynı bölgede bildirilen bir karbon ayak izi değeri ${cf} kg CO2e/kg (${b}). Kural eşiği: ilk üçte bir ve ≥ 1 kg CO2e/kg.`,
+  r1h:"Bu üründe emisyonu düşüren bir teknoloji, ekonomik ağırlığı yüksek bir üretimde çevresel fark yaratabilir.",
+  r1s:"Hangi teknolojinin en büyük azaltımı sağlayacağı bu veriden çıkarılamaz.",
+  r2i:(p,o,v)=>`${p} için ${o}: ${v}. Aynı kaynakta verim değişimi de bildiriliyorsa birlikte okunmalı.`,
+  r2h:"Su verimliliğini artıran yöntem, verim kaybını sınırlayan bir uygulama ya da karar destek aracıyla birleştiğinde bir kaynak verimliliği projesi olabilir.",
+  r3i:(p,n)=>`${p} için ${n} AgriGap raporu sahada kanıtlanmış / doğrulanmış / ölçeklenebilir çözüm eksikliği gösteriyor.`, r3h:"Hedef bölgede bir saha doğrulama projesi.",
+  r4i:(p,r,v)=>`${p}, ${r} bölgesinde ${v} bin ton üretimle seçili ürünler arasında büyük; ama kontrol edilen kaynakta üretim değeri yok.`, r4h:"Ürün bazlı ekonomik değer serisinin derlenmesi, öncelik sıralamasını değiştirebilir."
+});
+Object.assign(T.en, {
+  mat:"Solution maturity", matAll:"All",
+  m_no_known:"No known solution", m_no_validated:"No validated solution", m_no_field_proven:"No field-proven solution",
+  m_no_scalable:"No scalable solution", m_insufficient_evidence:"Insufficient evidence", m_field_reported:"Field validation reported", m_not_assessed:"Not assessed",
+  md_no_known:"No identifiable solution found in the reviewed evidence.", md_no_validated:"Proposed solutions exist, but validation is insufficient.",
+  md_no_field_proven:"Laboratory or controlled-environment results exist, but field validation is missing.", md_no_scalable:"A solution exists but cannot yet be implemented economically or technically at scale.",
+  md_insufficient_evidence:"Available evidence is insufficient to determine the solution status.", md_field_reported:"Publications report field validation (this does not mean wide adoption).",
+  md_not_assessed:"This report was generated before the maturity rule; it will be filled on the next rescan.",
+  matKey:"How the A–D scale differs from solution maturity",
+  matKeyP:"The A–D scale only looks at publication counts. Finding publications about a problem does not mean a practical solution exists, and the absence of publications does not mean the absence of a solution. That is why every report also carries a solution-maturity class:",
+  dEmptyH:"No reports in this category yet: why",
+  dEmpty1:"D is assigned when the scanned query returns fewer than 10 publications. So far every target was, by design, a well-published topic: the queue only received map cells with at least 50 publications worldwide and link fields that passed frequency thresholds. D could therefore never be produced. The problem was not an empty category but a selection bias.",
+  dEmpty2:"Fix: the map now queues farm tasks with at most 4 publications worldwide that are studied in the same crop group as D candidates, and the scanner takes them first. Nothing is fabricated: if a scanned candidate turns out to have more publications than the D threshold, the report gets another letter.",
+  dQueued:"D candidates in the queue", dCells:n=>`The map has ${n} cells that may be D candidates (barely any publications worldwide).`, dCellsLink:"New Opportunities → Real gap",
+  tabAtlas:"Impact & Value Atlas",
+  atSub:"Environmental Impact, Economic Value & Technology Effectiveness",
+  atIntro:"Select products and regions to build a comparison table. Every value comes with its source, year, scope and data-reliability class. Missing values are never shown as zero; the reason they are missing is stated. No value is fabricated.",
+  atProducts:"Product", atRegions:"Region", atSystems:"Production system", atCats:"Solution category", atInds:"Indicator",
+  atMulti:"(multiple selection)", atOpt:"(optional)", atMore:n=>`Other crops in AgriGap (${n})`,
+  atShow:"Show Comparison", atReset:"Reset Filters", atCsv:"Export CSV",
+  atNeed:"Select at least one product and one region to compare.",
+  atStale:"Your selection has changed. The table below belongs to the previous selection; press \"Show Comparison\" to refresh it.",
+  atLoading:"Loading atlas data…", atErr:"Atlas data could not be loaded. Refresh the page; if it persists, see the atlas/ folder in the GitHub repository.",
+  atNoRes:"No rows to show for the selected criteria. Widen the indicator or solution-category selection.",
+  atCrit:"Selected criteria", atDefInd:"(no indicator selected: default indicators)", atAnySys:"all", atAnyCat:"all",
+  atRow:"Product · indicator · system", atSrc:"source", atHide:"hide",
+  e_na:"N/A — Data unavailable", e_not_assessed:"Not assessed", e_insufficient:"Insufficient evidence", e_not_applicable:"Not applicable",
+  ew_world:"FAOSTAT not connected yet", ew_gap:src=>`Checked: ${src} gives no value for this region/product`, ew_nom:"Product is not a separate item in the official classification",
+  ew_noitem:"The source table has no item for this product", ew_area:"No area data for the same year", ew_rank:"Ranking needs values for at least 2 products from the same source and year",
+  ew_sys:"This system is not defined for this product",
+  w_years:y=>`Data years differ (${y}); take care when comparing directly.`, w_bound:"Different LCA system boundaries in the same row: values are not directly comparable.",
+  w_fu:"Different functional units: values are not directly comparable.", w_member:"The value in the EU column belongs to one member state (Italy); it is not an EU average.",
+  w_pooled:"Pooled meta-analysis: several vegetable species together; not crop-specific.", w_es_eu:"The EU-27 total includes Spain; Spain is not interchangeable with the EU average.",
+  w_same_sys:"The source gives the same price for open field and greenhouse; it may not be split by system.", w_methods:"Regions use different sources and methods: not directly comparable.",
+  w_soft:"The price covers soft wheat only; production and value cover all wheat.",
+  sysAll:"all systems", tech:"Technology", baseline:"Baseline", improved:"Improved system", change:"Change", outcome:"Measured outcome", conditions:"Conditions", nStudies:n=>`${n} studies`,
+  incr:"increase", decr:"decrease", notRep:"Not reported by the source",
+  pooledRow:"Vegetables (pooled, not crop-specific)", rankOf:(r,n)=>`${r} of ${n} selected products`,
+  relRow:"Data reliability", relNone:"No values shown for this region",
+  dSource:"Source", dAuthors:"Authors", dJournal:"Published in", dYear:"Publication year", dDataYear:"Data year", dGeo:"Geographical scope", dSystem:"Production system",
+  dFU:"Functional unit", dBound:"System boundary", dMethod:"Method", dQuality:"Reliability", dFlag:"Eurostat flag", dQuery:"Query", dComp:"Comparability",
+  cs_system_specific:"Specific to the system and local sample", cs_member_state_proxy:"Member-state data (not an EU average)", cs_pooled_not_crop_specific:"Pooled, not crop-specific",
+  cs_pooled_world:"World meta-analysis", cs_same_source:"Same source and method for all regions",
+  fl_provisional:"provisional", fl_estimated:"estimated", fl_break_in_series:"break in series", fl_low_reliability:"low reliability", fl_eurostat_estimate:"Eurostat estimate", fl_definition_differs:"definition differs",
+  notStated:"Not stated",
+  gapsH:"Identified Data Gaps", gapsP:"Missing or non-comparable data for your selection. Verified gap: the relevant source was checked and has no value, or methods do not match. Database incompleteness: no source has been scanned yet; this does not show that a research gap exists.",
+  gapsV:"Verified gaps", gapsM:"Methodology mismatches", gapsI:n=>`Database incompleteness: not assessed yet (${n})`, gapsNone:"No verified gaps for this selection.",
+  gProduct:"Product", gRegion:"Region", gMissing:"Missing indicator", gWhy:"Why it matters", gAct:"Suggested activity", gInno:"Innovation relevance", gChecked:"Source checked",
+  gw_product_cf:"Without a carbon footprint, emission-reduction priorities for the product or region cannot be set.", gw_production_volume:"Without production size, the scale of impact and opportunity cannot be weighed.",
+  gw_production_value:"Without economic weight, returns on investment and innovation cannot be compared.", gw_value_per_kg:"Without value per kg, environmental cost and product value cannot be discussed on the same scale.",
+  gw_value_per_ha:"Value per hectare is needed to judge land use and whether a technology investment is affordable.", gw_effectiveness:"Without effectiveness data it is unknown which solution actually works.",
+  gw_field:"Without field validation, a laboratory result cannot become a grower's decision.", gw_method:"Values calculated with different methods can produce a misleading ranking.",
+  ga_product_cf:"A regional LCA measurement with the same functional unit and system boundary (cradle-to-farm-gate).", ga_production_volume:"Compile the crop-level series of the national statistics office.",
+  ga_production_value:"Compile crop-level production value from national agricultural accounts (TurkStat for Türkiye, the Ministry of Agriculture MAPA for Spain).", ga_value_per_kg:"Compile the national producer-price series and convert to €/kg (stating exchange rate and year).",
+  ga_value_per_ha:"Compile production value and area for the same year and scope.", ga_effectiveness:"A controlled field trial in the region, recording baseline, measured outcome and conditions.",
+  ga_field:"A multi-site field trial in the target region.", ga_method:"Recalculate the values to a common system boundary and functional unit.",
+  gi_high:"High: the missing measurement could itself be a validation or measurement project.", gi_mid:"Medium: completes the comparison, not an innovation in itself.",
+  why_not_in_nomenclature:"product is not a separate item in the classification", why_no_value_for_geo:"no value for this region", why_no_item_for_product:"no item for this product in the table", why_no_area_same_year:"no area data for the same year",
+  oppH:"Opportunity signals from the Impact & Value Atlas", oppP:"Opportunity candidates derived from atlas data by rules. They are signs to test, not conclusions. Each card separates evidence, inference, hypothesis and speculation. Rule thresholds are not scientific thresholds.",
+  oppNone:"No atlas record triggers these rules yet.", opEv:"Evidence", opIn:"Inference", opHy:"Hypothesis", opSp:"Speculation", opSee:"View in Atlas", opRule:"Rule",
+  r1:"High economic value + high carbon footprint → environmental innovation opportunity", r2:"Documented water-saving/efficiency technology → resource-efficiency opportunity",
+  r3:"Technology exists but field validation is insufficient → validation project", r4:"Large production but a verified economic-data gap → measurement opportunity",
+  r1i:(p,r,rk,n,cf,b)=>`${p} ranks ${rk} of ${n} atlas products by production value in ${r}; a reported carbon footprint in the same region is ${cf} kg CO2e/kg (${b}). Rule threshold: top third and ≥ 1 kg CO2e/kg.`,
+  r1h:"A technology that lowers emissions for this product could make an environmental difference in an economically heavy production.",
+  r1s:"Which technology would give the largest reduction cannot be inferred from these data.",
+  r2i:(p,o,v)=>`${p}: ${o}: ${v}. If the same source reports a yield change, read both together.`,
+  r2h:"A method that raises water productivity, combined with a practice or decision-support tool that limits yield loss, could be a resource-efficiency project.",
+  r3i:(p,n)=>`${n} AgriGap reports for ${p} show a lack of field-proven / validated / scalable solutions.`, r3h:"A field validation project in the target region.",
+  r4i:(p,r,v)=>`${p} is large among the selected products in ${r} with ${v} thousand t, but the checked source has no production value.`, r4h:"Compiling a crop-level economic value series could change the priority ranking."
+});
+const MATS = ["no_known","no_validated","no_field_proven","no_scalable","insufficient_evidence","field_reported","not_assessed"];
+const matTag = r => { const m = r.maturity||"not_assessed"; return `<span class="mat ${m}" title="${esc(t("md_"+m))}">${t("m_"+m)}</span>`; };
+
 let lang = "tr";
 try{ lang = localStorage.getItem("agrigap-lang") || "tr"; }catch(e){}
-const state = {reports:[], targets:[], d:null, system:"", group:"", stage:""};
+const state = {reports:[], targets:[], d:null, system:"", group:"", stage:"", mat:""};
 const app = document.getElementById("app");
 const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const t = k => T[lang][k];
@@ -415,7 +637,7 @@ function queueHtml(){
 }
 
 function home(){
-  const f = state.reports.filter(r=>(!state.d||r.decision===state.d)&&(!state.system||r.production_system===state.system)&&(!state.group||r.crop_group===state.group)&&(!state.stage||r.stage===state.stage));
+  const f = state.reports.filter(r=>(!state.d||r.decision===state.d)&&(!state.system||r.production_system===state.system)&&(!state.group||r.crop_group===state.group)&&(!state.stage||r.stage===state.stage)&&(!state.mat||(r.maturity||"not_assessed")===state.mat));
   const count = d => state.reports.filter(r=>r.decision===d).length;
   app.innerHTML = `
     <p class="lede">${t("lede")}</p>
@@ -430,20 +652,35 @@ function home(){
       ${options("production_system",t("system"),state.system)}
       ${options("crop_group",t("group"),state.group)}
       ${options("stage",t("stage"),state.stage)}
-      ${(state.d||state.system||state.group||state.stage)?`<button class="reset" type="button">${t("reset")}</button>`:""}
+      <label>${t("mat")}<select data-f="maturity"><option value="">${t("matAll")}</option>${MATS.map(m=>`<option value="${m}" ${m===state.mat?"selected":""}>${t("m_"+m)}</option>`).join("")}</select></label>
+      ${(state.d||state.system||state.group||state.stage||state.mat)?`<button class="reset" type="button">${t("reset")}</button>`:""}
     </div>
+    <details class="matkey"><summary>${t("matKey")}</summary><p>${t("matKeyP")}</p>
+      <table>${MATS.map(m=>`<tr><td><span class="mat ${m}">${t("m_"+m)}</span></td><td>${t("md_"+m)}</td></tr>`).join("")}</table></details>
+    ${state.d==="D"&&!f.length?dEmpty():""}
     ${f.length?`<ul class="list">${f.map(r=>`
       <li class="item"><a href="#/r/${encodeURIComponent(r.id)}">
         <span class="bar" style="background:var(--${r.decision||"line"})" aria-hidden="true"></span>
         <span class="when"><b>${esc(cropName(r))}</b>${esc(r.date)}</span>
         <span class="body"><h2 class="t" ${lang==="en"&&!r.title_en?'lang="tr"':""}>${esc(rf(r,"title"))}</h2><p class="f">${esc(rf(r,"finding"))}</p>
           ${r.link?`<p class="lk">${LINK_ICON("var(--leaf)")}<span><b>${t("link")}:</b>${esc(rf(r,"link"))}</span></p>`:""}
-          <div class="tax">${kindTag(r)}${lang==="en"&&!r.title_en?`<span class="kind deep" style="background:#E1E8E2;color:var(--loam)">${t("trOnly")}</span>`:""}${esc([tx(r.production_system),tx(r.stage),r.region].filter(Boolean).join(" / "))}</div></span>
-      </a></li>`).join("")}</ul>`:`<p class="empty">${state.reports.length?t("none"):t("n")(0)}</p>`}
+          <div class="tax">${kindTag(r)}${matTag(r)}${lang==="en"&&!r.title_en?`<span class="kind deep" style="background:#E1E8E2;color:var(--loam)">${t("trOnly")}</span>`:""}${esc([tx(r.production_system),tx(r.stage),r.region].filter(Boolean).join(" / "))}</div></span>
+      </a></li>`).join("")}</ul>`:(state.d==="D"?"":`<p class="empty">${state.reports.length?t("none"):t("n")(0)}</p>`)}
     ${queueHtml()}`;
   app.querySelectorAll(".band").forEach(b=>b.onclick=()=>{state.d=state.d===b.dataset.d?null:b.dataset.d;home();});
-  app.querySelectorAll("select").forEach(s=>s.onchange=()=>{const k={production_system:"system",crop_group:"group",stage:"stage"}[s.dataset.f];state[k]=s.value;home();});
-  const rs=app.querySelector(".reset"); if(rs) rs.onclick=()=>{Object.assign(state,{d:null,system:"",group:"",stage:""});home();};
+  app.querySelectorAll("select").forEach(s=>s.onchange=()=>{const k={production_system:"system",crop_group:"group",stage:"stage",maturity:"mat"}[s.dataset.f];state[k]=s.value;home();});
+  const rs=app.querySelector(".reset"); if(rs) rs.onclick=()=>{Object.assign(state,{d:null,system:"",group:"",stage:"",mat:""});home();};
+}
+
+function dEmpty(){
+  // D kategorisi boşsa nedenini açıkla; rapor uydurma. Kuyruktaki gerçek D adaylarını ve haritadaki sinyali göster.
+  const dq = state.targets.filter(x=>x.d_candidate && x.status==="pending");
+  const cells = idv.data && idv.data.candidates ? (idv.data.candidates.gap||[]).length : 0;
+  const filtered = state.reports.some(r=>r.decision==="D");
+  return `<section class="dempty" aria-live="polite"><h3>${t("dEmptyH")}</h3>
+    ${filtered?`<p>${t("none")}</p>`:`<p>${t("dEmpty1")}</p><p>${t("dEmpty2")}</p>`}
+    ${dq.length?`<p><b>${t("dQueued")}:</b></p><ul>${dq.map(x=>`<li><b>${esc(x.id)}</b> — ${esc(lang==="en"?(x.crop_label_en||x.crop):x.crop)}: ${esc(lang==="en"?(x.focus_en||x.focus):x.focus)}</li>`).join("")}</ul>`:""}
+    ${cells?`<p>${t("dCells")(cells)} <a href="#/oneriler">${t("dCellsLink")}</a></p>`:""}</section>`;
 }
 
 async function report(id){
@@ -469,6 +706,7 @@ async function report(id){
         <dt>${t("system")}</dt><dd>${esc(tx(r.production_system))}</dd>
         <dt>${t("stage")}</dt><dd>${esc(tx(r.stage))}</dd>
         <dt>${t("solution")}</dt><dd>${esc(tx(r.solution_type))}</dd>
+        <dt>${t("mat")}</dt><dd>${matTag(r)}<span class="why" style="display:block;margin-top:6px">${esc(rf(r,"maturity_reason")||t("md_"+(r.maturity||"not_assessed")))}</span></dd>
         <dt>${t("region")}</dt><dd>${esc(r.region)}</dd>
         <dt>${t("date")}</dt><dd>${esc(r.date)}</dd>
         <dt>${t("kind")}</dt><dd>${kindTag(r)}<span class="why" style="display:block;margin-top:6px">${t(r.kind==="auto"?"autoWhy":"deepWhy")}</span></dd>
@@ -665,14 +903,391 @@ function ideasPage(){
     ${pub.length?`<div class="cards">${pub.map(c=>cardHtml(c,C,O,L)).join("")}</div>`:`<p class="why">${t("idCardsNone")}</p>`}</section>`;
   app.innerHTML = `<p class="id-intro">${t("idIntro")}</p>
     ${cardsSec}
+    ${oppsHtml()}
     <div class="id-stage" ${pub.length?'hidden':''}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--leaf)" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span>${t("idStage")}</span></div>
     <div class="mx-ctl"><label>${t("idType")}<select id="idt"><option value="">${t("idAllTypes")}</option>${types.map(k=>`<option value="${k}" ${k===idv.type?"selected":""}>${t("idT_"+k)}</option>`).join("")}</select></label></div>
     ${secs}`;
   app.querySelector("#idt").onchange=e=>{idv.type=e.target.value;ideasPage();};
 }
 
+/* ---------- Etki ve Değer Atlası ---------- */
+const atl = {loaded:false, err:false, promise:null, cfg:null, src:{}, obs:[], checks:[], techs:{}, products:[],
+  sel:{p:[], r:[], s:[], c:[], i:[]}, sub:null, res:null, open:new Set()};
+const OFFICIAL_INDS = ["production_volume","production_value","value_per_kg","value_per_ha","export_value"];
+const SOLUTION_INDS = ["solution_cf","cf_reduction","effectiveness","trl"];
+function loadAtlas(){
+  if(atl.promise) return atl.promise;
+  const j = f => fetch("atlas/"+f,{cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(f); return r.json(); });
+  atl.promise = Promise.all([j("config.json"), j("sources.json"), j("observations.json"), j("official.json").catch(()=>({observations:[],checks:[]}))])
+    .then(([cfg,src,cur,off])=>{
+      atl.cfg = cfg;
+      src.sources.forEach(s=>atl.src[s.id]=s);
+      (cur.technologies||[]).forEach(x=>atl.techs[x.id]=x);
+      atl.obs = [...(cur.observations||[]), ...(off.observations||[])];
+      atl.checks = off.checks||[];
+      atl.generated = off.generated||"";
+      const have = new Set(cfg.products.map(p=>p.id));
+      const extra = ((mx.data&&mx.data.crops)||[]).filter(c=>!have.has(c.key))
+        .map(c=>({id:c.key, tr:c.tr, en:c.label_en||c.tr, group:c.group, extra:true}));
+      atl.products = [...cfg.products, ...extra];
+      atl.loaded = true;
+    }).catch(e=>{ atl.err = true; atl.promise = null; throw e; });
+  return atl.promise;
+}
+const L2 = o => o ? (lang==="en" ? (o.en||o.tr) : (o.tr||o.en)) : "";
+const biL = s => { if(!s) return ""; const p = String(s).split(" · "); return p.length===2 ? (lang==="en"?p[1]:p[0]) : s; };
+const aP = id => L2(atl.products.find(x=>x.id===id)) || id;
+const aR = id => L2(atl.cfg.regions.find(x=>x.id===id)) || id;
+const aS = id => L2(atl.cfg.systems.find(x=>x.id===id)) || id;
+const aC = id => L2(atl.cfg.solution_categories.find(x=>x.id===id)) || id;
+const aI = id => id==="reliability" ? t("relRow") : (L2(atl.cfg.indicators.find(x=>x.id===id)) || id);
+const aQ = id => L2(atl.cfg.quality.find(x=>x.id===id)) || id;
+const aB = id => L2(atl.cfg.boundaries.find(x=>x.id===id)) || id;
+const aT = id => L2(atl.techs[id]) || id || "—";
+const aSrc = id => (atl.src[id]||{}).title || id;
+const nf = v => typeof v==="number" ? new Intl.NumberFormat(lang==="en"?"en-GB":"tr-TR",{maximumFractionDigits:3}).format(v) : esc(v);
+const unitL = u => lang==="en" ? String(u||"").replace("milyon €","million €").replace("sıra","rank") : (u||"");
+
+function atlasHashSel(){
+  const m = location.hash.match(/^#\/atlas\/(.+)$/); if(!m) return false;
+  const sel = {p:[], r:[], s:[], c:[], i:[]};
+  decodeURIComponent(m[1]).split(";").forEach(kv=>{ const [k,v]=kv.split("="); if(sel[k]&&v) sel[k]=v.split(",").filter(Boolean); });
+  if(!sel.p.length||!sel.r.length) return false;
+  atl.sel = sel; atl.sub = atlasOrder(JSON.parse(JSON.stringify(sel))); atl.res = atlasBuild(atl.sub); atl.open.clear();
+  try{ history.replaceState(null, "", "#/atlas"); }catch(e){}  // bağlantıdaki seçim bir kez uygulanır; dil değişince sıfırlanmaz
+  return true;
+}
+function atlasOrder(sub){  // sütun ve satır sırası tıklama sırasına değil, ayar dosyasındaki sıraya göre
+  const ord = (list, ids) => ids.slice().sort((a,b)=>list.findIndex(x=>x.id===a)-list.findIndex(x=>x.id===b));
+  sub.p = ord(atl.products, sub.p); sub.r = ord(atl.cfg.regions, sub.r);
+  return sub;
+}
+const selKey = s => JSON.stringify(["p","r","s","c","i"].map(k=>[...(s[k]||[])].sort()));
+const defaultInds = () => atl.cfg.indicators.filter(x=>x.default).map(x=>x.id);
+
+function chipset(name, items, cur){
+  return `<div class="chipset">${items.map(x=>`<label><input type="checkbox" data-g="${name}" value="${esc(x.id)}" ${cur.includes(x.id)?"checked":""}>${esc(x.label)}</label>`).join("")}</div>`;
+}
+function atlasPage(){
+  if(!atl.loaded){
+    app.innerHTML = `<p class="at-intro" role="status">${atl.err?t("atErr"):t("atLoading")}</p>`;
+    if(!atl.err) loadAtlas().then(()=>{ if(location.hash.startsWith("#/atlas")){ atlasHashSel(); atlasPage(); } }).catch(()=>{ if(location.hash.startsWith("#/atlas")) atlasPage(); });
+    return;
+  }
+  const c = atl.cfg, S = atl.sel;
+  const main = atl.products.filter(p=>!p.extra), extra = atl.products.filter(p=>p.extra);
+  const inds = [...c.indicators.map(x=>({id:x.id,label:L2(x)})), {id:"reliability", label:t("relRow")}];
+  app.innerHTML = `
+    <p class="at-intro">${t("atIntro")}</p>
+    <p class="at-sub">${t("atSub")}</p>
+    <form class="at-panel" id="atf" onsubmit="return false">
+      <fieldset><legend>${t("atProducts")} <small>${t("atMulti")}</small></legend>
+        ${chipset("p", main.map(p=>({id:p.id,label:L2(p)})), S.p)}
+        ${extra.length?`<details class="at-more" ${S.p.some(id=>extra.find(x=>x.id===id))?"open":""}><summary>${t("atMore")(extra.length)}</summary>${chipset("p", extra.map(p=>({id:p.id,label:L2(p)})), S.p)}</details>`:""}
+      </fieldset>
+      <fieldset><legend>${t("atRegions")} <small>${t("atMulti")}</small></legend>${chipset("r", c.regions.map(x=>({id:x.id,label:L2(x)})), S.r)}</fieldset>
+      <fieldset><legend>${t("atSystems")} <small>${t("atOpt")}</small></legend>${chipset("s", c.systems.map(x=>({id:x.id,label:L2(x)})), S.s)}</fieldset>
+      <fieldset><legend>${t("atCats")} <small>${t("atOpt")}</small></legend>${chipset("c", c.solution_categories.map(x=>({id:x.id,label:L2(x)})), S.c)}</fieldset>
+      <fieldset><legend>${t("atInds")} <small>${t("atOpt")}</small></legend>${chipset("i", inds, S.i)}</fieldset>
+      <div class="at-actions">
+        <button type="button" class="btn primary" id="atgo">${t("atShow")}</button>
+        <button type="button" class="btn" id="atreset">${t("atReset")}</button>
+        <button type="button" class="btn" id="atcsv" ${atl.res&&atl.res.rows.length?"":"hidden"}>${t("atCsv")}</button>
+        <span class="at-hint" id="athint" aria-live="polite"></span>
+      </div>
+    </form>
+    <div id="atres" class="at-res">${atl.res?atlasResultHtml():""}</div>`;
+  app.querySelectorAll("#atf input[type=checkbox]").forEach(cb=>cb.onchange=()=>{
+    const g = cb.dataset.g, set = new Set(atl.sel[g]); cb.checked ? set.add(cb.value) : set.delete(cb.value);
+    atl.sel[g] = [...set];
+    app.querySelectorAll(`#atf input[data-g="${g}"][value="${cb.value}"]`).forEach(x=>x.checked=cb.checked); // aynı ürün iki listede olabilir
+    atlasUpdate();
+  });
+  app.querySelector("#atgo").onclick=()=>{
+    if(!atl.sel.p.length||!atl.sel.r.length) return;
+    atl.sub = atlasOrder(JSON.parse(JSON.stringify(atl.sel))); atl.open.clear();
+    const box = app.querySelector("#atres"); box.innerHTML = `<p class="at-hint" role="status">${t("atLoading")}</p>`;
+    setTimeout(()=>{ atl.res = atlasBuild(atl.sub); atlasPage(); const r=document.getElementById("atres"); if(r) r.scrollIntoView({block:"start",behavior:"smooth"}); }, 0);
+  };
+  app.querySelector("#atreset").onclick=()=>{ atl.sel={p:[],r:[],s:[],c:[],i:[]}; atl.sub=null; atl.res=null; atl.open.clear(); atlasPage(); };
+  app.querySelector("#atcsv").onclick=atlasCsv;
+  atlasBind(); atlasUpdate();
+}
+function atlasUpdate(){
+  const ok = atl.sel.p.length && atl.sel.r.length;
+  const go = app.querySelector("#atgo"); if(!go) return;
+  go.disabled = !ok; go.setAttribute("aria-disabled", String(!ok));
+  app.querySelector("#athint").textContent = ok ? "" : t("atNeed");
+  const stale = atl.sub && selKey(atl.sel)!==selKey(atl.sub);
+  const res = app.querySelector("#atres"); if(!res) return;
+  res.classList.toggle("stale", !!stale);
+  const b = res.querySelector(".at-stale"); if(b) b.hidden = !stale;
+}
+function atlasBind(){
+  app.querySelectorAll(".srcbtn").forEach(b=>b.onclick=()=>{ const k=b.dataset.k; atl.open.has(k)?atl.open.delete(k):atl.open.add(k);
+    const box = app.querySelector("#atres"); box.innerHTML = atlasResultHtml(); atlasBind(); atlasUpdate(); });
+}
+
+/* satır üretimi: tüm değerler yalnızca kaynak kayıtlarından gelir */
+function atEmpty(p, ind, sys, rid){
+  const prod = atl.products.find(x=>x.id===p) || {};
+  if(sys && sys!=="all" && prod.systems && !prod.systems.includes(sys)) return {label:"e_not_applicable", why:t("ew_sys")};
+  const ck = atl.checks.find(x=>x.product_id===p && x.region_id===rid && x.indicator_id===ind && (x.production_system_id===sys || (!sys||sys==="all")));
+  if(ck){ const w = ck.why==="not_in_nomenclature"?t("ew_nom"):ck.why==="no_item_for_product"?t("ew_noitem"):ck.why==="no_area_same_year"?t("ew_area"):t("ew_gap")(aSrc(ck.source_id));
+    return {label:"e_na", why:w, check:ck}; }
+  if(rid==="world" && OFFICIAL_INDS.includes(ind)) return {label:"e_not_assessed", why:t("ew_world")};
+  return {label:"e_not_assessed", why:""};
+}
+function atlasBuild(sub){
+  const inds = sub.i.length ? sub.i : defaultInds();
+  const R = sub.r, rows = [];
+  const sysOk = o => !sub.s.length || sub.s.includes(o.production_system_id);
+  const catOk = o => !sub.c.length || sub.c.includes((atl.techs[o.technology_id]||{}).category);
+  const inR = o => R.includes(o.region_id);
+  const cellsFor = (list, emptyFn) => Object.fromEntries(R.map(rid=>{ const os=list.filter(o=>o.region_id===rid); return [rid, os.length?{obs:os}:{empty:emptyFn(rid)}]; }));
+  inds.filter(i=>i!=="reliability").forEach(ind=>{
+    sub.p.forEach(p=>{
+      if(ind==="econ_rank"){
+        const cells = {};
+        R.forEach(rid=>{
+          const vals = atl.obs.filter(o=>o.indicator_id==="production_value" && o.region_id===rid && o.production_system_id==="all" && sub.p.includes(o.product_id));
+          const yr = vals.map(o=>o.data_year).sort().pop();
+          const same = vals.filter(o=>o.data_year===yr && o.source_id==="eurostat-aact_eaa01").sort((a,b)=>b.value-a.value);
+          const i = same.findIndex(o=>o.product_id===p);
+          cells[rid] = same.length>=2 && i>=0 ? {obs:[{...same[i], id:"rank:"+same[i].id, indicator_id:"econ_rank", rank:i+1, of:same.length, data_quality:"official_derived"}]}
+            : {empty:{label:"e_insufficient", why:t("ew_rank")}};
+        });
+        rows.push({p, ind, sys:"all", cells}); return;
+      }
+      if(ind==="trl"){
+        const techs = Object.values(atl.techs).filter(x=>x.trl!=null && catOk({technology_id:x.id}));
+        // Kanıta dayalı TRL kaydı yoksa değer atanmaz
+        const tl = techs.filter(x=>atl.obs.some(o=>o.product_id===p && o.technology_id===x.id));
+        rows.push({p, ind, sys:"all", cells:cellsFor(tl.length?[]:[], ()=>({label:"e_not_assessed", why:""}))}); return;
+      }
+      if(SOLUTION_INDS.includes(ind)){
+        const src = ind==="solution_cf" ? ["product_cf","cf_reduction"] : [ind];
+        const os = atl.obs.filter(o=>o.product_id===p && src.includes(o.indicator_id) && o.technology_id && inR(o) && sysOk(o) && catOk(o));
+        const groups = {};
+        os.forEach(o=>{ const k=[o.technology_id,o.production_system_id,ind==="effectiveness"?(o.outcome_en||""):""].join("|"); (groups[k]=groups[k]||[]).push(o); });
+        const keys = Object.keys(groups);
+        if(!keys.length) rows.push({p, ind, sys:"all", cells:cellsFor([], rid=>atEmpty(p, ind, "all", rid))});
+        keys.forEach(k=>{ const [tech, sys] = k.split("|"); rows.push({p, ind, sys, tech, cells:cellsFor(groups[k], rid=>atEmpty(p, ind, sys, rid))}); });
+        return;
+      }
+      const os = atl.obs.filter(o=>o.product_id===p && o.indicator_id===ind && inR(o) && sysOk(o));
+      let systems = sub.s.length ? [...sub.s] : [...new Set(os.map(o=>o.production_system_id))];
+      if(!systems.length) systems = ["all"];
+      const order = atl.cfg.systems.map(x=>x.id); systems.sort((a,b)=>order.indexOf(a)-order.indexOf(b));
+      systems.forEach(sys=>rows.push({p, ind, sys, cells:cellsFor(os.filter(o=>o.production_system_id===sys), rid=>atEmpty(p, ind, sys, rid))}));
+    });
+    // birleşik (ürüne özgü olmayan) kanıt: sebze grubu seçiliyse ayrı satır
+    if(ind==="effectiveness" && sub.p.some(p=>(atl.products.find(x=>x.id===p)||{}).group==="Sebzeler")){
+      const os = atl.obs.filter(o=>!o.product_id && o.product_scope==="vegetables_pooled" && o.indicator_id==="effectiveness" && inR(o) && sysOk(o) && catOk(o));
+      const g = {}; os.forEach(o=>{ const k=o.technology_id+"|"+o.production_system_id; (g[k]=g[k]||[]).push(o); });
+      Object.entries(g).forEach(([k,list])=>{ const [tech,sys]=k.split("|"); rows.push({p:null, pooled:true, ind, sys, tech, cells:cellsFor(list, ()=>({label:"e_not_assessed", why:""}))}); });
+    }
+  });
+  if(inds.includes("reliability")){
+    sub.p.forEach(p=>{
+      const cells = {};
+      R.forEach(rid=>{ const q = {}; rows.filter(r=>r.p===p).forEach(r=>((r.cells[rid]||{}).obs||[]).forEach(o=>q[o.data_quality]=(q[o.data_quality]||0)+1));
+        cells[rid] = Object.keys(q).length ? {rel:q} : {empty:{label:"e_na", why:t("relNone")}}; });
+      rows.push({p, ind:"reliability", sys:"all", cells});
+    });
+  }
+  rows.forEach(r=>r.warn = atWarn(r, sub));
+  return {rows, inds, gaps:atlasGaps(rows, sub, inds)};
+}
+function atWarn(r, sub){
+  const all = Object.values(r.cells).flatMap(c=>c.obs||[]), w = [];
+  const yrs = [...new Set(all.map(o=>o.data_year).filter(Boolean))];
+  if(yrs.length>1) w.push(t("w_years")(yrs.sort().join(", ")));
+  if(new Set(all.map(o=>o.system_boundary).filter(Boolean)).size>1) w.push(t("w_bound"));
+  if(new Set(all.map(o=>o.functional_unit).filter(Boolean)).size>1) w.push(t("w_fu"));
+  const regsWith = Object.entries(r.cells).filter(([,c])=>c.obs&&c.obs.length).map(([k])=>k);
+  if(regsWith.length>1 && new Set(all.map(o=>o.source_id)).size>1 && ["product_cf","solution_cf","effectiveness"].includes(r.ind)) w.push(t("w_methods"));
+  if(all.some(o=>o.comparability_status==="member_state_proxy")) w.push(t("w_member"));
+  if(all.some(o=>o.comparability_status==="pooled_not_crop_specific")) w.push(t("w_pooled"));
+  if(all.some(o=>(o.note||"").includes("same_value_across_systems"))) w.push(t("w_same_sys"));
+  if(all.some(o=>(o.note||"").startsWith("Fiyat yalnızca yumuşak"))) w.push(t("w_soft"));
+  if(regsWith.includes("es") && regsWith.includes("eu27") && ["production_volume","production_value","econ_rank"].includes(r.ind)) w.push(t("w_es_eu"));
+  return w;
+}
+function atlasGaps(rows, sub, inds){
+  const verified = [], method = [], incomplete = [], seen = new Set();
+  atl.checks.filter(c=>sub.p.includes(c.product_id) && sub.r.includes(c.region_id) && inds.includes(c.indicator_id)).forEach(c=>{
+    const k = [c.product_id,c.region_id,c.indicator_id].join("|"); if(seen.has(k)) return; seen.add(k);
+    verified.push({p:c.product_id, r:[c.region_id], ind:c.indicator_id, src:c.source_id, why:c.why});
+  });
+  rows.filter(r=>r.warn.some(x=>x===t("w_bound")||x===t("w_fu")||x===t("w_methods"))).forEach(r=>{
+    method.push({p:r.p, pooled:r.pooled, r:Object.entries(r.cells).filter(([,c])=>c.obs&&c.obs.length).map(([k])=>k), ind:r.ind});
+  });
+  const crops = new Set(sub.p.map(p=>(atl.products.find(x=>x.id===p)||{}).tr));
+  state.reports.filter(r=>crops.has(r.crop) && ["no_field_proven","no_validated","no_scalable"].includes(r.maturity)).forEach(r=>{
+    const p = atl.products.find(x=>x.tr===r.crop);
+    verified.push({p:p&&p.id, r:[], ind:"field", report:r});
+  });
+  rows.forEach(r=>Object.entries(r.cells).forEach(([rid,c])=>{ if(c.empty && c.empty.label==="e_not_assessed")
+    incomplete.push(`${r.pooled?t("pooledRow"):aP(r.p)} · ${aR(rid)} · ${aI(r.ind)}${r.sys&&r.sys!=="all"?" · "+aS(r.sys):""}`); }));
+  return {verified, method, incomplete:[...new Set(incomplete)]};
+}
+
+function obsHtml(o, rowKey){
+  const k = rowKey+"|"+o.id, flag = o.eurostat_flag ? ` · ${t("fl_"+o.eurostat_flag)||o.eurostat_flag}` : "";
+  let main;
+  if(o.indicator_id==="econ_rank") main = `<b>${t("rankOf")(o.rank,o.of)}</b><span class="u">(${o.data_year})</span>`;
+  else if(o.indicator_id==="cf_reduction"||o.indicator_id==="effectiveness"){
+    const sign = o.value>0?"+":"";
+    main = `<b>${sign}${nf(o.value)}</b><span class="u">${esc(unitL(o.unit))}</span> <span class="u">${esc(L2({tr:o.outcome_tr,en:o.outcome_en}))}</span>
+      <span class="at-e" style="display:block;font-style:normal">${t("baseline")}: ${esc(L2({tr:o.baseline_tr,en:o.baseline_en}))}${o.n_studies?" · "+t("nStudies")(o.n_studies):""}</span>`;
+  } else main = `<b>${nf(o.value)}</b><span class="u">${esc(unitL(o.unit))}</span>${o.data_year?`<span class="u">(${o.data_year}${flag})</span>`:""}`;
+  const cond = o.conditions_tr ? `<span class="at-e" style="display:block;font-style:normal">${esc(L2({tr:o.conditions_tr,en:o.conditions_en}))}${o.geo_scope?" · "+esc(o.geo_scope.startsWith("member_state:")?(lang==="en"?"Italy (member state)":"İtalya (üye ülke)"):biL(o.geo_scope)):""}</span>` : "";
+  return `<span class="at-v">${main}${cond}
+    <span class="q ${esc(o.data_quality)}">${esc(aQ(o.data_quality))}</span>${o.system_boundary?`<span class="bd">${esc(aB(o.system_boundary))}</span>`:""}
+    <button type="button" class="srcbtn" data-k="${esc(k)}" aria-expanded="${atl.open.has(k)}">${atl.open.has(k)?t("atHide"):t("atSrc")}</button></span>`;
+}
+function detHtml(o){
+  const s = atl.src[o.source_id]||{};
+  const row = (a,b)=> b==null||b===""?"":`<dt>${a}</dt><dd>${b}</dd>`;
+  const link = s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.doi||s.url)}</a>` : "";
+  return `<dl>${row(t("dSource"), esc(s.title||o.source_id))}${row(t("dAuthors"), esc(biL(s.authors)))}${row(t("dJournal"), esc(s.journal))}
+    ${row("DOI / URL", link)}${row(t("dYear"), esc(s.publication_year??t("notStated")))}${row(t("dDataYear"), esc(o.data_year??t("notStated")))}
+    ${row(t("dGeo"), esc(biL(s.geo)))}${row(t("dSystem"), esc(aS(o.production_system_id)))}${o.technology_id?row(t("tech"), esc(aT(o.technology_id))):""}
+    ${row(t("dFU"), esc(biL(o.functional_unit)||""))}${o.system_boundary?row(t("dBound"), esc(aB(o.system_boundary))):""}
+    ${row(t("dMethod"), esc(biL(o.methodology)))}${row(t("dQuality"), esc(aQ(o.data_quality)))}
+    ${o.eurostat_flag?row(t("dFlag"), esc(t("fl_"+o.eurostat_flag)||o.eurostat_flag)):""}
+    ${o.comparability_status?row(t("dComp"), esc(t("cs_"+o.comparability_status)||o.comparability_status)):""}
+    ${o.query_url?row(t("dQuery"), `<a href="${esc(o.query_url)}" target="_blank" rel="noopener">Eurostat API</a>`):""}</dl>`;
+}
+function rowLabel(r){
+  const name = r.pooled ? t("pooledRow") : aP(r.p);
+  const extra = [r.sys&&r.sys!=="all"?aS(r.sys):(r.ind==="reliability"||r.ind==="econ_rank"?"":t("sysAll")), r.tech?aT(r.tech):""].filter(Boolean).join(" · ");
+  return `<b>${esc(name)}</b>${extra?`<span class="at-e" style="display:block;font-style:normal">${esc(extra)}</span>`:""}`;
+}
+function atlasResultHtml(){
+  const sub = atl.sub, res = atl.res, R = sub.r;
+  const crit = [`${t("atProducts")}: <b>${sub.p.map(aP).map(esc).join(", ")}</b>`, `${t("atRegions")}: <b>${R.map(aR).map(esc).join(", ")}</b>`,
+    `${t("atSystems")}: <b>${sub.s.length?sub.s.map(aS).map(esc).join(", "):t("atAnySys")}</b>`, `${t("atCats")}: <b>${sub.c.length?sub.c.map(aC).map(esc).join(", "):t("atAnyCat")}</b>`,
+    `${t("atInds")}: <b>${res.inds.map(aI).map(esc).join(", ")}</b>${sub.i.length?"":" "+t("atDefInd")}`].join(" · ");
+  const stale = selKey(atl.sel)!==selKey(sub);
+  let body = "";
+  res.inds.forEach(ind=>{
+    const rs = res.rows.filter(r=>r.ind===ind); if(!rs.length) return;
+    const meta = atl.cfg.indicators.find(x=>x.id===ind);
+    body += `<tr class="ind"><th colspan="${R.length+1}">${esc(aI(ind))}${meta&&meta.unit?` <span class="at-e" style="font-weight:400">(${esc(unitL(meta.unit))})</span>`:""}${meta?` <span class="at-e" style="font-weight:400;display:block">${esc(L2({tr:meta.method_tr,en:meta.method_en}))}</span>`:""}</th></tr>`;
+    rs.forEach((r,ri)=>{
+      const rk = `${ind}|${r.p}|${r.sys}|${r.tech||""}|${ri}`;
+      body += `<tr><th class="rk" scope="row">${rowLabel(r)}${r.warn.map(w=>`<span class="warn">⚠ ${esc(w)}</span>`).join("")}</th>${R.map(rid=>{
+        const c = r.cells[rid]||{};
+        if(c.rel) return `<td>${Object.entries(c.rel).map(([q,n])=>`<span class="q ${esc(q)}">${esc(aQ(q))} ×${n}</span>`).join(" ")}</td>`;
+        if(c.obs) return `<td>${c.obs.map(o=>obsHtml(o, rk)).join("")}</td>`;
+        return `<td><span class="at-e">${t(c.empty.label)}</span>${c.empty.why?`<span class="at-e" style="display:block;font-size:12px">${esc(c.empty.why)}</span>`:""}</td>`;
+      }).join("")}</tr>`;
+      R.forEach(rid=>((r.cells[rid]||{}).obs||[]).forEach(o=>{ if(atl.open.has(rk+"|"+o.id)) body += `<tr class="det"><td colspan="${R.length+1}"><b>${esc(aP(r.p)||t("pooledRow"))} · ${esc(aR(rid))}</b>${detHtml(o)}</td></tr>`; }));
+    });
+  });
+  const world = R.includes("world") ? `<p class="at-hint">${esc(L2(atl.cfg.world_source_note))}</p>` : "";
+  return `<div class="at-stale" role="status" ${stale?"":"hidden"}><span aria-hidden="true">⟳</span><span>${t("atStale")}</span></div>
+    <p class="at-crit">${t("atCrit")}: ${crit}</p>${world}
+    ${res.rows.length?`<div class="at-tw"><table class="at"><thead><tr><th class="rk">${t("atRow")}</th>${R.map(rid=>`<th>${esc(aR(rid))}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`:`<p class="empty">${t("atNoRes")}</p>`}
+    ${gapsHtml(res.gaps)}`;
+}
+function gapsHtml(g){
+  const card = (x, cls) => {
+    const ind = x.ind==="field" ? "field" : x.ind;
+    const name = x.ind==="field" ? (lang==="en"?"Field validation":"Saha doğrulaması") : aI(x.ind);
+    const hi = ["product_cf","effectiveness","field","production_value"].includes(ind);
+    return `<li class="${cls}"><b class="h">${esc(x.pooled?t("pooledRow"):aP(x.p))}${x.r.length?" · "+x.r.map(aR).map(esc).join(", "):""}</b>
+      <dl><dt>${t("gMissing")}</dt><dd>${esc(cls==="m"?name+" — "+(lang==="en"?"methods do not match":"yöntemler uyuşmuyor"):name)}</dd>
+      <dt>${t("gWhy")}</dt><dd>${t(cls==="m"?"gw_method":"gw_"+ind)||""}</dd>
+      <dt>${t("gAct")}</dt><dd>${t(cls==="m"?"ga_method":"ga_"+ind)||""}</dd>
+      <dt>${t("gInno")}</dt><dd>${t(hi?"gi_high":"gi_mid")}</dd>
+      ${x.src?`<dt>${t("gChecked")}</dt><dd>${esc(aSrc(x.src))} — ${t("why_"+x.why)||esc(x.why)}</dd>`:""}
+      ${x.report?`<dt>${t("gChecked")}</dt><dd><a href="#/r/${encodeURIComponent(x.report.id)}">${esc(x.report.id)}</a> — ${t("m_"+x.report.maturity)}</dd>`:""}</dl></li>`;
+  };
+  return `<section class="gaps"><h2>${t("gapsH")}</h2><p class="why">${t("gapsP")}</p>
+    <h3>${t("gapsV")} (${g.verified.length})</h3>${g.verified.length?`<ul class="gap-list">${g.verified.map(x=>card(x,"v")).join("")}</ul>`:`<p class="why">${t("gapsNone")}</p>`}
+    ${g.method.length?`<h3>${t("gapsM")} (${g.method.length})</h3><ul class="gap-list">${g.method.map(x=>card(x,"m")).join("")}</ul>`:""}
+    ${g.incomplete.length?`<details class="incomp"><summary>${t("gapsI")(g.incomplete.length)}</summary><ul>${g.incomplete.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>`:""}</section>`;
+}
+function atlasCsv(){
+  if(!atl.res) return;
+  const R = atl.sub.r, out = [["product","indicator","production_system","technology","outcome","region","value","unit","status","data_year","data_quality","system_boundary","functional_unit","source","source_url","warnings"]];
+  atl.res.rows.forEach(r=>R.forEach(rid=>{
+    const c = r.cells[rid]||{}, base = [r.pooled?t("pooledRow"):aP(r.p), aI(r.ind), aS(r.sys||"all"), r.tech?aT(r.tech):""];
+    const w = r.warn.join(" | ");
+    if(c.rel) out.push([...base, "", aR(rid), Object.entries(c.rel).map(([q,n])=>aQ(q)+" x"+n).join("; "), "", "", "", "", "", "", "", "", w]);
+    else if(c.obs) c.obs.forEach(o=>{ const s = atl.src[o.source_id]||{};
+      out.push([...base, L2({tr:o.outcome_tr,en:o.outcome_en}), aR(rid), o.indicator_id==="econ_rank"?`${o.rank}/${o.of}`:o.value, unitL(o.unit), "", o.data_year??"", aQ(o.data_quality),
+        o.system_boundary?aB(o.system_boundary):"", biL(o.functional_unit)||"", s.title||o.source_id, s.url||o.query_url||"", w]); });
+    else out.push([...base, "", aR(rid), "", "", t(c.empty.label)+(c.empty.why?" — "+c.empty.why:""), "", "", "", "", "", "", w]);
+  }));
+  const csv = "﻿"+out.map(row=>row.map(v=>{ const x=String(v??""); return /[",\n;]/.test(x)?`"${x.replace(/"/g,'""')}"`:x; }).join(",")).join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));
+  a.download = `agrigap-atlas-${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();}, 500);
+}
+
+/* Yeni Öneriler'e bağlantı: atlas verisinden kural tabanlı fırsat sinyalleri */
+function atlasOpps(){
+  if(!atl.loaded) return [];
+  const c = atl.cfg, rule = c.opportunity_rules, cards = [], ids = new Set(((idv.data&&idv.data.candidates)?Object.values(idv.data.candidates).flat():[]).map(x=>x.id));
+  const srcA = id => { const s=atl.src[id]||{}; return s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title||id)}</a>`:esc(s.title||id); };
+  const link = (p,r,i) => `#/atlas/p=${p.join(",")};r=${r.join(",")};i=${i.join(",")}`;
+  const push = x => { if(!ids.has(x.id) && !cards.find(y=>y.id===x.id)) cards.push(x); };
+  c.regions.forEach(reg=>{
+    const vals = atl.obs.filter(o=>o.indicator_id==="production_value" && o.region_id===reg.id && o.production_system_id==="all");
+    const yr = vals.map(o=>o.data_year).sort().pop();
+    const ranked = vals.filter(o=>o.data_year===yr).sort((a,b)=>b.value-a.value);
+    const top = Math.max(1, Math.ceil(ranked.length*rule.high_value_top_share));
+    ranked.slice(0, ranked.length>=2?top:0).forEach((v,i)=>{
+      const cfs = atl.obs.filter(o=>o.product_id===v.product_id && o.region_id===reg.id && o.indicator_id==="product_cf").sort((a,b)=>b.value-a.value);
+      if(!cfs.length || cfs[0].value < rule.high_cf_kg) return;
+      push({id:`atlas:r1:${v.product_id}:${reg.id}`, rule:"r1", p:v.product_id, r:reg.id,
+        ev:`${aP(v.product_id)} · ${aR(reg.id)}: ${nf(v.value)} ${unitL(v.unit)} (${v.data_year}, ${srcA(v.source_id)}); ${cfs.map(o=>`${nf(o.value)} kg CO2e/kg, ${esc(aB(o.system_boundary))} (${srcA(o.source_id)})`).join("; ")}`,
+        inf:t("r1i")(aP(v.product_id), aR(reg.id), i+1, ranked.length, nf(cfs[0].value), aB(cfs[0].system_boundary)), hy:t("r1h"), sp:t("r1s"),
+        href:link([v.product_id],[reg.id],["product_cf","production_value","econ_rank"])});
+    });
+  });
+  atl.obs.filter(o=>o.product_id && o.indicator_id==="effectiveness" && /water/i.test(o.outcome_en||"")).forEach(o=>{
+    const same = atl.obs.filter(x=>x.source_id===o.source_id && x.product_id===o.product_id && x.indicator_id==="effectiveness");
+    push({id:`atlas:r2:${o.product_id}:${o.technology_id}`, rule:"r2", p:o.product_id, r:o.region_id,
+      ev:same.map(x=>`${esc(aT(x.technology_id))}: ${esc(L2({tr:x.outcome_tr,en:x.outcome_en}))} ${x.value>0?"+":""}${nf(x.value)} ${esc(x.unit)} (${t("baseline")}: ${esc(L2({tr:x.baseline_tr,en:x.baseline_en}))}; ${x.n_studies?t("nStudies")(x.n_studies)+", ":""}${srcA(x.source_id)})`).join("<br>"),
+      inf:t("r2i")(aP(o.product_id), L2({tr:o.outcome_tr,en:o.outcome_en}), `${o.value>0?"+":""}${nf(o.value)} ${o.unit}`), hy:t("r2h"), sp:"",
+      href:link([o.product_id],[o.region_id],["effectiveness"])});
+  });
+  const byCrop = {};
+  state.reports.filter(r=>["no_field_proven","no_validated","no_scalable"].includes(r.maturity)).forEach(r=>(byCrop[r.crop]=byCrop[r.crop]||[]).push(r));
+  Object.entries(byCrop).forEach(([crop,rs])=>{ const p = atl.products.find(x=>x.tr===crop);
+    push({id:`atlas:r3:${crop}`, rule:"r3", p:p&&p.id, r:null, ev:rs.map(r=>`<a href="#/r/${encodeURIComponent(r.id)}">${esc(r.id)}</a> — ${t("m_"+r.maturity)}`).join("<br>"),
+      inf:t("r3i")(crop, rs.length), hy:t("r3h"), sp:"", href:p?link([p.id],["tr","es","eu27"],["effectiveness","trl"]):""}); });
+  c.regions.forEach(reg=>{
+    const vol = atl.obs.filter(o=>o.indicator_id==="production_volume" && o.region_id===reg.id && o.production_system_id==="all").sort((a,b)=>b.value-a.value);
+    vol.slice(0, Math.ceil(vol.length*rule.high_value_top_share)).forEach(v=>{
+      const ck = atl.checks.find(x=>x.product_id===v.product_id && x.region_id===reg.id && x.indicator_id==="production_value" && x.why==="no_value_for_geo");
+      if(!ck) return;
+      push({id:`atlas:r4:${v.product_id}:${reg.id}`, rule:"r4", p:v.product_id, r:reg.id,
+        ev:`${aP(v.product_id)} · ${aR(reg.id)}: ${nf(v.value)} ${unitL(v.unit)} (${v.data_year}, ${srcA(v.source_id)}); ${srcA(ck.source_id)}: ${t("why_no_value_for_geo")}`,
+        inf:t("r4i")(aP(v.product_id), aR(reg.id), nf(v.value)), hy:t("r4h"), sp:"", href:link([v.product_id],[reg.id,"es","eu27"].filter((x,i,a)=>a.indexOf(x)===i),["production_volume","production_value","value_per_kg"])});
+    });
+  });
+  return cards;
+}
+function oppsHtml(){
+  if(!atl.loaded) return atl.err ? "" : `<section class="id-sec"><h2>${t("oppH")}</h2><p class="why" role="status">${t("atLoading")}</p></section>`;
+  const cs = atlasOpps();
+  return `<section class="id-sec"><h2>${t("oppH")} (${cs.length})</h2><p class="why">${t("oppP")}</p>
+    ${cs.length?`<ul class="id-list">${cs.map(x=>`<li class="id-card opp"><span class="lay">${t("opRule")}: ${t(x.rule)}</span>
+      <b class="h">${esc(aP(x.p)||"—")}${x.r?" · "+esc(aR(x.r)):""}</b>
+      <dl class="lv"><dt class="ev">${t("opEv")}</dt><dd>${x.ev}</dd><dt class="in">${t("opIn")}</dt><dd>${esc(x.inf)}</dd>
+      <dt class="hy">${t("opHy")}</dt><dd>${esc(x.hy)}</dd><dt class="sp">${t("opSp")}</dt><dd>${x.sp?esc(x.sp):"—"}</dd></dl>
+      ${x.href?`<div class="lnk"><a href="${x.href}">${t("opSee")}</a></div>`:""}</li>`).join("")}</ul>`:`<p class="why">${t("oppNone")}</p>`}</section>`;
+}
+
 function route(){
-  const tab = location.hash.startsWith("#/harita") ? "map" : location.hash.startsWith("#/mevzuat") ? "reg" : location.hash.startsWith("#/oneriler") ? "ideas" : "reports";
+  const tab = location.hash.startsWith("#/harita") ? "map" : location.hash.startsWith("#/mevzuat") ? "reg" : location.hash.startsWith("#/oneriler") ? "ideas" : location.hash.startsWith("#/atlas") ? "atlas" : "reports";
   document.querySelectorAll(".tabs a").forEach(a=>a.setAttribute("aria-current", a.dataset.tab===tab ? "page" : "false"));
   if(tab==="map"){
     const mm = location.hash.match(/^#\/harita\/([^/]+)\/([^/]+)(?:\/([^/]+))?/);
@@ -680,7 +1295,10 @@ function route(){
     document.title = t("tabMap")+" — AgriGap"; mapPage();
     if(mm){ const b=app.querySelector(`table.mx td button[data-c="${mm[1]}"][data-o="${mm[2]}"]`); if(b) b.scrollIntoView({block:"center",inline:"center"}); }
     return; }
-  if(tab==="ideas"){ document.title = t("tabIdeas")+" — AgriGap"; loadCards().then(()=>{ if(location.hash.startsWith("#/oneriler")) ideasPage(); }); ideasPage(); return; }
+  if(tab==="atlas"){ document.title = t("tabAtlas")+" — AgriGap"; if(atl.loaded) atlasHashSel(); atlasPage(); return; }
+  if(tab==="ideas"){ document.title = t("tabIdeas")+" — AgriGap";
+    const again = ()=>{ if(location.hash.startsWith("#/oneriler")) ideasPage(); };
+    loadCards().then(again); loadAtlas().then(again).catch(again); ideasPage(); return; }
   if(tab==="reg"){ document.title = t("tabReg")+" — AgriGap"; regPage(); return; }
   const m = location.hash.match(/^#\/r\/(.+)$/);
   if(m) report(decodeURIComponent(m[1]));

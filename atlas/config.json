@@ -1,0 +1,98 @@
+{
+  "_note": "Etki ve Değer Atlası ayarları. Ürün kimlikleri Teknoloji Boşluk Haritası'ndaki ürün anahtarlarıyla aynıdır (c00 = Domates); haritada olmayan ürünler 'x_' önekiyle eklenir. Haritadaki diğer ürünler seçilebilir ama atlasta henüz verileri yoksa 'Değerlendirilmedi' görünür. Yeni ürün, bölge, teknoloji ya da gösterge eklemek için yalnızca bu dosyayı düzenleyin.",
+  "version": 1,
+  "products": [
+    {"id": "c00", "tr": "Domates", "en": "Tomato", "group": "Sebzeler", "systems": ["all", "open_field", "greenhouse", "soilless", "organic"],
+     "eurostat": {"crops": {"all": "V3100", "greenhouse": "V3100S"}, "eaa": "AM041200", "price": {"open_field": "04121000", "greenhouse": "04122000"}}},
+    {"id": "c01", "tr": "Biber", "en": "Pepper", "group": "Sebzeler", "systems": ["all", "open_field", "greenhouse", "soilless", "organic"],
+     "eurostat": {"crops": {"all": "V3600", "greenhouse": "V3600S"}}},
+    {"id": "c02", "tr": "Hıyar", "en": "Cucumber", "group": "Sebzeler", "systems": ["all", "open_field", "greenhouse", "soilless", "organic"],
+     "eurostat": {"crops": {"all": "V3200", "greenhouse": "V3200S"}, "price": {"open_field": "04194100", "greenhouse": "04194200"}}},
+    {"id": "c18", "tr": "Çilek", "en": "Strawberry", "group": "Sebzeler", "systems": ["all", "open_field", "greenhouse", "soilless", "organic"],
+     "eurostat": {"crops": {"all": "S0000", "greenhouse": "S0000S"}, "price": {"all": "06193000", "open_field": "06193100", "greenhouse": "06193200"}}},
+    {"id": "x_blackberry", "tr": "Böğürtlen", "en": "Blackberry", "group": "Meyveler", "systems": ["all", "open_field", "greenhouse", "soilless", "organic"],
+     "eurostat": {"_not_in_nomenclature": "Eurostat bitkisel üretim sınıflamasında böğürtlen ayrı kalem değil; 'F3900 Other berries n.e.c.' içinde başka meyvelerle birlikte."}},
+    {"id": "x_raspberry", "tr": "Ahududu", "en": "Raspberry", "group": "Meyveler", "systems": ["all", "open_field", "greenhouse", "soilless", "organic"],
+     "eurostat": {"crops": {"all": "F3200"}, "price": {"all": "06199200"}}},
+    {"id": "x_blueberry", "tr": "Yaban mersini", "en": "Blueberry", "group": "Meyveler", "systems": ["all", "open_field", "greenhouse", "soilless", "organic"],
+     "eurostat": {"crops": {"all": "F3300"}}},
+    {"id": "c33", "tr": "Buğday", "en": "Wheat", "group": "Tarla Bitkileri", "systems": ["all", "open_field", "organic"],
+     "eurostat": {"crops": {"all": "C1100"}, "eaa": "AM011000", "price": {"all": "01110000"}, "_price_note": "Fiyat yalnızca yumuşak buğday (01110000) içindir; üretim ve değer tüm buğdayı (yumuşak + makarnalık) kapsar."}},
+    {"id": "c35", "tr": "Mısır", "en": "Maize", "group": "Tarla Bitkileri", "systems": ["all", "open_field", "organic"],
+     "eurostat": {"crops": {"all": "C1500"}, "eaa": "AM015000", "price": {"all": "01500000"}}}
+  ],
+  "regions": [
+    {"id": "world", "tr": "Dünya", "en": "World", "type": "global", "eurostat": null},
+    {"id": "tr", "tr": "Türkiye", "en": "Türkiye", "type": "country", "eurostat": "TR"},
+    {"id": "es", "tr": "İspanya", "en": "Spain", "type": "eu_member_state", "eurostat": "ES"},
+    {"id": "eu27", "tr": "AB-27", "en": "EU-27", "type": "eu_aggregate", "eurostat": "EU27_2020"}
+  ],
+  "systems": [
+    {"id": "all", "tr": "Tüm sistemler (toplam)", "en": "All systems (total)"},
+    {"id": "open_field", "tr": "Açık tarla", "en": "Open field"},
+    {"id": "greenhouse", "tr": "Sera / örtü altı", "en": "Greenhouse / under cover"},
+    {"id": "soilless", "tr": "Topraksız", "en": "Soilless"},
+    {"id": "organic", "tr": "Organik", "en": "Organic"}
+  ],
+  "solution_categories": [
+    {"id": "breeding", "tr": "Genetik ve bitki ıslahı", "en": "Genetics and plant breeding"},
+    {"id": "biotech", "tr": "Biyoteknoloji", "en": "Biotechnology"},
+    {"id": "irrigation", "tr": "Sulama ve su yönetimi", "en": "Irrigation and water management"},
+    {"id": "fertilisation", "tr": "Gübreleme ve toprak yönetimi", "en": "Fertilisation and soil management"},
+    {"id": "biocontrol", "tr": "Biyolojik mücadele", "en": "Biological control"},
+    {"id": "protection", "tr": "Bitki koruma", "en": "Crop protection"},
+    {"id": "digital", "tr": "Dijital tarım ve yapay zekâ", "en": "Digital agriculture and AI"},
+    {"id": "mechanisation", "tr": "Mekanizasyon ve otomasyon", "en": "Mechanisation and automation"},
+    {"id": "postharvest", "tr": "Hasat sonrası teknolojiler", "en": "Post-harvest technologies"},
+    {"id": "energy", "tr": "Enerji ve sera iklimi", "en": "Energy and greenhouse climate"},
+    {"id": "other", "tr": "Diğer tarım teknolojileri", "en": "Other agricultural technologies"}
+  ],
+  "indicators": [
+    {"id": "product_cf", "tr": "Ürün karbon ayak izi", "en": "Product carbon footprint", "unit": "kg CO2e/kg", "kind": "product", "default": true,
+     "method_tr": "Yaşam döngüsü analizi (LCA). Fonksiyonel birim ve sistem sınırı her değerde ayrıca yazılır.", "method_en": "Life cycle assessment (LCA). Functional unit and system boundary are stated with every value."},
+    {"id": "solution_cf", "tr": "Mevcut çözümün karbon ayak izi", "en": "Existing solution carbon footprint", "unit": "kg CO2e/kg", "kind": "solution",
+     "method_tr": "Temel sistem ile iyileştirilmiş sistemin karbon ayak izi; fark ve değişim yüzdesi kaynakta bildirildiği kadarıyla.", "method_en": "Baseline vs improved-system carbon footprint; difference and % change as reported by the source."},
+    {"id": "cf_reduction", "tr": "Karbon azaltım potansiyeli", "en": "Carbon reduction potential", "unit": "%", "kind": "solution",
+     "method_tr": "Kaynakta bildirilen değişim yüzdesi. Artış da gösterilir: her teknoloji emisyonu azaltmaz.", "method_en": "% change reported by the source. Increases are shown too: not every technology reduces emissions."},
+    {"id": "production_volume", "tr": "Üretim miktarı", "en": "Production volume", "unit": "1000 t", "kind": "product", "default": true,
+     "method_tr": "Resmî bitkisel üretim istatistiği (AB standart nemi). Hacimdir, ekonomik değer değildir.", "method_en": "Official crop statistics (EU standard humidity). This is volume, not economic value."},
+    {"id": "production_value", "tr": "Toplam üretim değeri", "en": "Total production value", "unit": "milyon €", "kind": "product", "default": true,
+     "method_tr": "Tarımsal ekonomik hesaplar (EAA), temel fiyatlarla üretim değeri, cari fiyatlar.", "method_en": "Economic Accounts for Agriculture (EAA), production value at basic prices, current prices."},
+    {"id": "econ_rank", "tr": "Ekonomik değer sıralaması", "en": "Economic value ranking", "unit": "sıra", "kind": "derived",
+     "method_tr": "Yalnızca seçilen ürünler arasında, aynı bölge, aynı kaynak ve aynı yıl için toplam üretim değerine göre sıra. Dünya veya bölge sıralaması değildir.", "method_en": "Rank among the selected products only, for the same region, source and year, by total production value. Not a global or regional ranking."},
+    {"id": "value_per_kg", "tr": "Kg başına ekonomik değer", "en": "Economic value per kg", "unit": "€/kg", "kind": "product", "default": true,
+     "method_tr": "Üretici satış fiyatı (Eurostat, 100 kg başına € / 100).", "method_en": "Producer selling price (Eurostat, € per 100 kg / 100)."},
+    {"id": "value_per_ha", "tr": "Hektar başına brüt ekonomik değer", "en": "Gross economic value per hectare", "unit": "€/ha", "kind": "derived",
+     "method_tr": "Türetilmiş: EAA üretim değeri ÷ hasat alanı, aynı bölge ve aynı yıl. İki resmî istatistiğin bölümüdür; kapsamları tam örtüşmeyebilir.", "method_en": "Derived: EAA production value ÷ harvested area, same region and year. Ratio of two official statistics whose scopes may not overlap exactly."},
+    {"id": "export_value", "tr": "İhracat değeri", "en": "Export value", "unit": "milyon €", "kind": "product",
+     "method_tr": "Henüz bağlı kaynak yok.", "method_en": "No source connected yet."},
+    {"id": "effectiveness", "tr": "Çözüm etkinliği", "en": "Solution effectiveness", "unit": "", "kind": "solution",
+     "method_tr": "Her değer kendi ölçülen sonucu, temel durumu, koşulları ve kaynağıyla birlikte gösterilir. Farklı sonuçlar tek bir etkinlik yüzdesinde birleştirilmez.", "method_en": "Each value is shown with its own measured outcome, baseline, conditions and source. Different outcomes are never merged into one effectiveness percentage."},
+    {"id": "trl", "tr": "Teknoloji Hazırlık Seviyesi (TRL)", "en": "Technology Readiness Level (TRL)", "unit": "1–9", "kind": "solution",
+     "method_tr": "TRL 1–9 (AB Horizon tanımı). Kanıt olmadan değer atanmaz.", "method_en": "TRL 1–9 (EU Horizon definition). No value is assigned without supporting evidence."}
+  ],
+  "quality": [
+    {"id": "measured", "tr": "Ölçülmüş veri", "en": "Measured data"},
+    {"id": "official", "tr": "Resmî istatistik", "en": "Official statistics"},
+    {"id": "official_derived", "tr": "Resmî istatistikten türetilmiş", "en": "Derived from official statistics"},
+    {"id": "peer_reviewed", "tr": "Hakemli literatür", "en": "Peer-reviewed literature"},
+    {"id": "modelled", "tr": "Modellenmiş tahmin", "en": "Modelled estimate"},
+    {"id": "insufficient", "tr": "Yetersiz veri", "en": "Insufficient data"},
+    {"id": "na", "tr": "Mevcut değil", "en": "Not available"}
+  ],
+  "boundaries": [
+    {"id": "cradle_to_farm_gate", "tr": "Beşikten çiftlik kapısına", "en": "Cradle-to-farm-gate"},
+    {"id": "cradle_to_market", "tr": "Beşikten pazara (bölgesel dağıtım merkezi dahil)", "en": "Cradle-to-market (incl. regional distribution centre)"},
+    {"id": "full_lca", "tr": "Tam yaşam döngüsü", "en": "Full life-cycle assessment"},
+    {"id": "not_stated", "tr": "Özette belirtilmemiş", "en": "Not stated in the abstract"}
+  ],
+  "opportunity_rules": {
+    "_note": "Kural eşikleri bilimsel eşik değildir; yalnızca fırsat adayı üretmek içindir ve uygulamada açıkça yazılır.",
+    "high_cf_kg": 1.0,
+    "high_value_top_share": 0.34
+  },
+  "world_source_note": {
+    "tr": "Dünya sütunu için FAOSTAT henüz bağlanmadı (bu ortamdan erişilemedi). Dünya değerleri yalnızca hakemli meta-analizlerden gelir; geri kalanı 'Değerlendirilmedi'.",
+    "en": "FAOSTAT is not connected yet for the World column (it could not be reached from this environment). World values come only from peer-reviewed meta-analyses; everything else is 'Not assessed'."
+  }
+}

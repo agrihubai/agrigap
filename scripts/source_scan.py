@@ -275,6 +275,54 @@ def gap_decision(t, data, lang="tr"):
                  else f"{total} yayının {reg} tanesinde (%{share * 100:.0f}) hedef bölgeden ({rn}) yazar var; konu bölgede çalışılmış ama sınırlı.")
 
 
+MATURITY = ["no_known", "no_validated", "no_field_proven", "no_scalable", "insufficient_evidence", "field_reported"]
+MAT_LABEL = {
+    "tr": {"no_known": "Bilinen çözüm yok", "no_validated": "Doğrulanmış çözüm yok", "no_field_proven": "Sahada kanıtlanmış çözüm yok",
+           "no_scalable": "Ölçeklenebilir çözüm yok", "insufficient_evidence": "Yetersiz kanıt",
+           "field_reported": "Saha doğrulaması bildirilmiş"},
+    "en": {"no_known": "No known solution", "no_validated": "No validated solution", "no_field_proven": "No field-proven solution",
+           "no_scalable": "No scalable solution", "insufficient_evidence": "Insufficient evidence",
+           "field_reported": "Field validation reported"},
+}
+
+
+def maturity(t, data, a):
+    """Çözüm olgunluğu (yapay zekâsız). Yayın sayısı ile çözüm varlığını karıştırmamak için A–D kararından ayrı tutulur."""
+    mr, D = RULES["maturity_rule"], RULES["gap_rule"]["D_if_total_below"]
+    works = a["works"]
+    n = len(works)
+    texts = [((w.get("display_name") or "") + " " + abstract(w)) for w in works]
+    sig = {}
+    for k, terms in mr["signals"].items():
+        rx = term_re(terms)
+        hits = [w for w, x in zip(works, texts) if rx.search(x)]
+        reg = set(region_codes(t["region"]))
+        sig[k] = {"n": len(hits), "region_n": sum(1 for w in hits if countries(w) & reg),
+                  "examples": sorted(hits, key=lambda w: -(w.get("cited_by_count") or 0))[:2]}
+    barrier = sum(c["n"] for c in a["constraints"] if c["tr"] in mr["scale_barrier_constraints"])
+    bshare = barrier / n if n else 0
+    groups = a["groups"]
+    if data["total"] < D:
+        status = "no_known" if n and not groups else "insufficient_evidence"
+    elif sig["field"]["n"] < mr["min_field"] or sig["field"]["n"] / max(1, n) < mr["min_field_share"]:
+        status = "no_field_proven" if sig["lab"]["n"] >= mr["min_lab"] else "no_validated"
+    elif sig["scale"]["n"] < mr["min_scale"] and bshare >= mr["scale_barrier_share"]:
+        status = "no_scalable"
+    else:
+        status = "field_reported"
+    return {"status": status, "signals": sig, "n": n, "barrier_share": bshare}
+
+
+def maturity_reason(m, data, lang="tr"):
+    s = m["signals"]
+    f, lab, p, sc = s["field"]["n"], s["lab"]["n"], s["proposed"]["n"], s["scale"]["n"]
+    if lang == "en":
+        return (f"{data['total']} publications; in the {m['n']} reviewed: field-validation signal {f}, lab/controlled {lab}, "
+                f"proposal/simulation {p}, scale/commercial {sc}. Term-based indicator, not proof of field performance.")
+    return (f"{data['total']} yayın; incelenen {m['n']} yayında saha doğrulama sinyali {f}, laboratuvar/kontrollü ortam {lab}, "
+            f"öneri/simülasyon {p}, ölçek/ticari {sc}. Terim tabanlı göstergedir; sahada çalıştığını kanıtlamaz.")
+
+
 def stype(groups):
     if not groups:
         return "Döngüsel Biyo-Ekonomi"
@@ -354,8 +402,38 @@ S = {
         "rA": lambda x, y: f"- **A:** hedef bölgeden yazarı olan yayın sayısı ≥ {x} ve payı ≥ %{y}",
         "rC": "- **C:** diğer durumlar (bölgede çalışılmış ama sınırlı)",
         "rThis": lambda d: f"- **Bu tarama:** `{d}`. Bu gösterge yayın sayısına dayanır; derin bir değerlendirme değildir.",
-        "h6": "## 6. Kaynaklar", "h6p": "OpenAlex (CC0 açık veri, https://openalex.org). Atıf sayısına göre ilk 25 yayın:",
-        "h7": "## 7. Yeni Hedef Önerileri", "nosugg": "Bu taramada eşiği geçen yeni bir bağlantı alanı çıkmadı.",
+        "mat": "Çözüm olgunluğu",
+        "h6m": "## 6. Çözüm Olgunluğu ve Eksik Kanıt",
+        "h6mp": ("Yayın bulunması uygulanabilir bir çözüm olduğu anlamına gelmez. Bu bölüm bilimsel kanıtı, önerilen çözümleri, "
+                 "deneysel doğrulamayı, saha doğrulamasını ve ölçeklenebilirliği ayırır. Sinyaller başlık ve özetlerdeki terimlerden "
+                 "sayılır; sahadaki başarıyı kanıtlamaz."),
+        "mProb": "Tarımsal sorun", "mCrop": "Ürün", "mGeo": "Coğrafi bağlam", "mEv": "Mevcut araştırma kanıtı",
+        "mEvV": lambda w, rn, r, n: f"dünyada {w} yayın, hedef bölgeden ({rn}) yazarı olan {r}; incelenen {n} yayın",
+        "mAppr": "Bilinen yaklaşımlar ve önerilen çözümler", "mNone": "İncelenen yayınlarda tanımlı çözüm türlerinden hiçbiri geçmiyor.",
+        "mStat": "Mevcut çözüm olgunluğu",
+        "mSigT": "| Kanıt basamağı | İncelenen yayın | Örnek yayınlar |",
+        "mSig": {"proposed": "Önerilen çözüm (kavram, simülasyon)", "lab": "Deneysel doğrulama (laboratuvar, kontrollü ortam, prototip)",
+                 "field": "Saha doğrulaması (tarla/sera denemesi, çiftçi arazisi)", "scale": "Ölçek ve ticari kullanım sinyali"},
+        "mMiss": "Eksik doğrulama veya uygulama kanıtı",
+        "mMissV": {"no_known": "Taranan kaynaklarda tanımlı bir çözüm türü yok; önce sorunun kendisinin ölçülmesi gerekiyor.",
+                   "insufficient_evidence": "Yayın sayısı karar vermek için çok az; yayının olmaması çözümün olmadığı anlamına gelmez (yerel, gri literatür ya da ticari uygulamalar taranmadı).",
+                   "no_validated": "Önerilen çözümler var ama laboratuvar ya da saha doğrulama sinyali zayıf.",
+                   "no_field_proven": "Laboratuvar veya kontrollü ortam sonuçları var; saha doğrulaması eksik.",
+                   "no_scalable": "Saha sonuçları var; ancak maliyet veya işletme ölçeği engelleri sık geçiyor ve ölçek/ticari kullanım sinyali zayıf.",
+                   "field_reported": "Saha doğrulaması bildiren yayınlar var. Bu, sahada yaygın kullanıldığı anlamına gelmez; yaygınlık bu taramada ölçülmez."},
+        "mGaps": "Kalan araştırma boşlukları (sinyal, doğrulanmış değil)",
+        "mGapReg": lambda m: f"Hedef bölgede örneği olmayan çözüm türleri: {m}.",
+        "mGapField": "Saha koşullarında, hedef bölgede yapılmış karşılaştırmalı deneme eksik görünüyor.",
+        "mGapNone": "Bu taramada ayrıca belirgin bir boşluk sinyali çıkmadı.",
+        "mOpp": "Olası yenilik fırsatları (hipotez)",
+        "mOppV": {"no_known": "Hipotez: sorunun büyüklüğünü ölçen bir saha gözlemi ve en az bir çözüm denemesi bu alanda ilk çalışmalardan biri olabilir.",
+                  "insufficient_evidence": "Hipotez: yerel kaynak, gri literatür ve üretici görüşmeleriyle kanıt boşluğunun gerçek mi yoksa yayın eksikliği mi olduğu sınanmalı.",
+                  "no_validated": "Hipotez: önerilen yaklaşımlardan birinin küçük ölçekli kontrollü denemesi bir doğrulama projesi olabilir.",
+                  "no_field_proven": "Hipotez: laboratuvarda çalışan yaklaşımın hedef bölgede saha denemesi bir doğrulama projesi olabilir.",
+                  "no_scalable": "Hipotez: maliyeti düşüren bir iş modeli, ortak kullanım ya da sadeleştirilmiş tasarım ölçeklenme engelini aşabilir.",
+                  "field_reported": "Hipotez: saha sonuçlarını hedef bölgeye aktaran bir uyarlama ya da karşılaştırmalı deneme."},
+        "h6": "## 7. Kaynaklar", "h6p": "OpenAlex (CC0 açık veri, https://openalex.org). Atıf sayısına göre ilk 25 yayın:",
+        "h7": "## 8. Yeni Hedef Önerileri", "nosugg": "Bu taramada eşiği geçen yeni bir bağlantı alanı çıkmadı.",
     },
     "en": {
         "note": "> **Automatic scan.** This report was generated without AI, by fixed rules, from publication records in OpenAlex. "
@@ -399,8 +477,38 @@ S = {
         "rA": lambda x, y: f"- **A:** publications with an author from the target region ≥ {x} and share ≥ {y}%",
         "rC": "- **C:** all other cases (studied in the region, but to a limited extent)",
         "rThis": lambda d: f"- **This scan:** `{d}`. The indicator is based on publication counts; it is not an in-depth assessment.",
-        "h6": "## 6. Sources", "h6p": "OpenAlex (CC0 open data, https://openalex.org). Top 25 publications by citations:",
-        "h7": "## 7. New Target Suggestions", "nosugg": "No new link field passed the threshold in this scan.",
+        "mat": "Solution maturity",
+        "h6m": "## 6. Solution Maturity and Missing Evidence",
+        "h6mp": ("Finding publications does not mean that a practical solution exists. This section separates scientific evidence, proposed "
+                 "solutions, experimental validation, field validation and scalability. Signals are counted from terms in titles and "
+                 "abstracts; they do not prove field performance."),
+        "mProb": "Agricultural problem", "mCrop": "Crop", "mGeo": "Geographical context", "mEv": "Existing research evidence",
+        "mEvV": lambda w, rn, r, n: f"{w} publications worldwide, {r} with an author from the target region ({rn}); {n} reviewed",
+        "mAppr": "Known approaches and proposed solutions", "mNone": "None of the defined solution types appear in the reviewed publications.",
+        "mStat": "Current solution maturity",
+        "mSigT": "| Evidence step | Reviewed publications | Example publications |",
+        "mSig": {"proposed": "Proposed solution (concept, simulation)", "lab": "Experimental validation (laboratory, controlled environment, prototype)",
+                 "field": "Field validation (field/greenhouse trial, farmers' fields)", "scale": "Scale and commercial-use signal"},
+        "mMiss": "Missing validation or implementation evidence",
+        "mMissV": {"no_known": "No defined solution type appears in the scanned sources; the problem itself needs to be measured first.",
+                   "insufficient_evidence": "Too few publications to decide; absence of publications does not mean absence of a solution (local, grey literature and commercial practice were not scanned).",
+                   "no_validated": "Solutions are proposed, but laboratory or field validation signals are weak.",
+                   "no_field_proven": "Laboratory or controlled-environment results exist; field validation is missing.",
+                   "no_scalable": "Field results exist, but cost or farm-size barriers are frequent and the scale/commercial signal is weak.",
+                   "field_reported": "Publications report field validation. This does not mean wide use in the field; adoption is not measured in this scan."},
+        "mGaps": "Remaining research gaps (signals, not verified)",
+        "mGapReg": lambda m: f"Solution types with no example in the target region: {m}.",
+        "mGapField": "A comparative trial under field conditions in the target region appears to be missing.",
+        "mGapNone": "No further clear gap signal in this scan.",
+        "mOpp": "Potential innovation opportunities (hypothesis)",
+        "mOppV": {"no_known": "Hypothesis: a field observation that measures the size of the problem plus at least one solution trial could be among the first studies here.",
+                  "insufficient_evidence": "Hypothesis: test with local sources, grey literature and grower interviews whether the evidence gap is real or only a publication gap.",
+                  "no_validated": "Hypothesis: a small controlled trial of one of the proposed approaches could be a validation project.",
+                  "no_field_proven": "Hypothesis: a field trial in the target region of the approach that works in the lab could be a validation project.",
+                  "no_scalable": "Hypothesis: a cost-reducing business model, shared use or simplified design could overcome the scaling barrier.",
+                  "field_reported": "Hypothesis: an adaptation or comparative trial transferring the field results to the target region."},
+        "h6": "## 7. Sources", "h6p": "OpenAlex (CC0 open data, https://openalex.org). Top 25 publications by citations:",
+        "h7": "## 8. New Target Suggestions", "nosugg": "No new link field passed the threshold in this scan.",
     },
 }
 
@@ -408,6 +516,7 @@ S = {
 def render(t, data, a, today, sugg, lang="tr"):
     s, en = S[lang], lang == "en"
     dec, why = gap_decision(t, data, lang)
+    mat = maturity(t, data, a)
     groups, links = a["groups"], a["links"]
     n = len(a["works"])
     crop = t.get("crop_label_en", t["crop"]) if en else t["crop"]
@@ -428,6 +537,7 @@ def render(t, data, a, today, sugg, lang="tr"):
          f"- **{s['stage']}:** `{t.get('stage', '')}` | `{st}`",
          f"- **{s['region']}:** `{t['region']}`",
          f"- **{s['dec']}:** `{dec}` — {why}",
+         f"- **{s['mat']}:** `{mat['status']}` — {MAT_LABEL[lang][mat['status']]}. {maturity_reason(mat, data, lang)}",
          f"- **{s['find']}:** {finding}"]
     if link_line:
         L.append(f"- **{s['link']}:** {link_line}")
@@ -481,6 +591,24 @@ def render(t, data, a, today, sugg, lang="tr"):
     L += ["", s["h5"], s["rD"](r["D_if_total_below"]), s["rB"](r["B_if_region_below"]),
           s["rA"](r["A_if_region_at_least"], f"{r['A_if_region_share_at_least'] * 100:.0f}"), s["rC"], s["rThis"](dec), ""]
 
+    L += [s["h6m"], s["h6mp"], "",
+          f"- **{s['mProb']}:** {focus}", f"- **{s['mCrop']}:** {crop}", f"- **{s['mGeo']}:** {t['region']}",
+          f"- **{s['mEv']}:** {s['mEvV'](data['total'], t['region'], data['total_region'], n)}",
+          f"- **{s['mAppr']}:** " + (", ".join(f"{gname(g)} ({g['n']})" for g in groups[:6]) if groups else s["mNone"]),
+          f"- **{s['mStat']}:** `{mat['status']}` — {MAT_LABEL[lang][mat['status']]}", "",
+          s["mSigT"], "|---|---|---|"]
+    for k in ("proposed", "lab", "field", "scale"):
+        sg = mat["signals"][k]
+        L.append(f"| {s['mSig'][k]} | {sg['n']} / {n} | " + ("<br>".join(study(w, lang) for w in sg["examples"]) or "—") + " |")
+    gaps = []
+    if missing:
+        gaps.append(s["mGapReg"](", ".join(missing)))
+    if mat["signals"]["field"]["n"] and not mat["signals"]["field"]["region_n"]:
+        gaps.append(s["mGapField"])
+    L += ["", f"**{s['mMiss']}:** {s['mMissV'][mat['status']]}", "",
+          f"**{s['mGaps']}:** " + (" ".join(gaps) if gaps else s["mGapNone"]), "",
+          f"**{s['mOpp']}:** {s['mOppV'][mat['status']]}", ""]
+
     L += [s["h6"], s["h6p"], ""]
     for w in sorted(a["works"], key=lambda w: -(w.get("cited_by_count") or 0))[:25]:
         src = ((w.get("primary_location") or {}).get("source") or {}).get("display_name") or ""
@@ -502,12 +630,19 @@ def write(t, md, today, lang="tr"):
     path = hub.DISCOVERIES_DIR / f"{today}-{t['id'].lower()}-{hub.slugify(t['crop'])}{suffix}"
     front = ["---", f"id: {t['id']}", f"date: {today}", f"production_system: {t['production_system']}",
              f"crop_group: {t['crop_group']}", f"crop: {t['crop']}", f"region: {t['region']}",
-             f"engine: {ENGINE}", "kind: auto", f"lang: {lang}", "status: published", "---", ""]
+             f"engine: {ENGINE}", "kind: auto", f"lang: {lang}", "status: published"]
+    if t.get("d_candidate"):
+        front.append("d_candidate: true")
+    front += ["---", ""]
     path.write_text("\n".join(front) + md, encoding="utf-8")
     return path
 
 
 def pick(targets, tid):
+    if not tid:  # D adayları önce: aksi hâlde kuyruğun sonunda bekler ve D raporu hiç çıkmaz
+        for t in targets:
+            if t.get("d_candidate") and t.get("status") == "pending" and t.get("query"):
+                return t
     for t in targets:
         if tid and t["id"] == tid:
             return t

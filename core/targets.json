@@ -745,5 +745,22 @@
     "link_domain": "water",
     "status": "pending",
     "suggested_by": "TRG-020"
+  },
+  {
+    "id": "TRG-048",
+    "production_system": "Sebze Yetiştiriciliği",
+    "crop_group": "Sebzeler",
+    "crop": "Enginar",
+    "crop_en": "artichoke",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "region": "TR+EU",
+    "focus": "Sulama & gübreleme işinde yazılım & yapay zekâ: dünyada yalnızca 2 yayın; aynı gruptaki ürünlerde bu iş için ortanca 52 yayın",
+    "focus_en": "Irrigation & fertilisation — Software & AI: only 2 publications worldwide; median of 52 for this task in the same crop group",
+    "crop_label_en": "Artichoke",
+    "query": "(artichoke) AND (irrigation OR fertigation OR fertilizer OR fertiliser OR \"nutrient application\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası (D adayı)",
+    "matrix_cell": "c16|irrig|digi",
+    "d_candidate": true
   }
 ]

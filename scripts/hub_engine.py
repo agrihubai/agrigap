@@ -176,6 +176,7 @@ def parse_report(p):
     stage = _ticks(_field(body, "Aşama & Çözüm Türü"))
     dec_line = _field(body, "Durum Kararı")
     dec = re.match(r"`?([ABCD])`?\s*[—-]?\s*(.*)", dec_line)
+    mat = re.match(r"`([a-z_]+)`\s*[—-]?\s*(.*)", _field(body, "Çözüm olgunluğu"))
     return {
         "id": meta.get("id", p.stem),
         "file": p.name,
@@ -194,6 +195,10 @@ def parse_report(p):
         "suggested_by": "",
         "engine": meta.get("engine", "claude"),
         "kind": meta.get("kind", "deep"),
+        # Olgunluk kuralından (Kasım 2026) önce üretilen raporlarda alan yoktur: "not_assessed" (yeniden taramada dolar)
+        "maturity": mat.group(1) if mat else "not_assessed",
+        "maturity_reason": mat.group(2).strip() if mat else "",
+        "d_candidate": meta.get("d_candidate", "") == "true",
     }
 
 
@@ -204,7 +209,8 @@ def parse_report_en(p):
     body = p.read_text(encoding="utf-8")
     stage = _ticks(_field(body, "Stage & Solution Type"))
     dec = re.match(r"`?([ABCD])`?\s*[—-]?\s*(.*)", _field(body, "Decision"))
-    return {"file_en": p.name, "title_en": extract_title(body, ""), "finding_en": _field(body, "Finding in one sentence"),
+    mat = re.match(r"`([a-z_]+)`\s*[—-]?\s*(.*)", _field(body, "Solution maturity"))
+    return {"maturity_reason_en": mat.group(2).strip() if mat else "", "file_en": p.name, "title_en": extract_title(body, ""), "finding_en": _field(body, "Finding in one sentence"),
             "link_en": _field(body, "Hidden link"), "decision_reason_en": dec.group(2).strip() if dec else ""}
 
 
@@ -219,7 +225,7 @@ def rebuild_index():
     (DISCOVERIES_DIR / "index.json").write_text(
         json.dumps({"generated": datetime.now(timezone.utc).isoformat(), "reports": reports},
                    ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    rows = [f"| {r['date']} | [{r['title']}]({r['file']}) | {r['crop']} | {r['region']} | {r['decision'] or '?'} | {'Otomatik tarama' if r['kind'] == 'auto' else 'Derin rapor'} |"
+    rows = [f"| {r['date']} | [{r['title']}]({r['file']}) | {r['crop']} | {r['region']} | {r['decision'] or '?'} | {r['maturity']} | {'Otomatik tarama' if r['kind'] == 'auto' else 'Derin rapor'} |"
             for r in reports]
     INDEX_FILE.write_text(
         "# AgriGap Raporları\n\n"
@@ -227,8 +233,8 @@ def rebuild_index():
         "Otomatik taramalar OpenAlex yayın kayıtlarından yapay zekâ kullanılmadan, sabit kurallarla üretilir; "
         "derin raporlar Claude ile yazılmıştır. Hiçbiri insan tarafından doğrulanmaz.\n"
         "Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var · "
-        "**C** çözüm var ama zayıf · **D** taranan kaynaklarda çözüm yok.\n\n"
-        "| Tarih | Rapor | Ürün | Bölge | Durum | Tür |\n|---|---|---|---|---|---|\n"
+        "**C** çözüm var ama zayıf · **D** taranan kaynaklarda çok az yayın (çözüm durumu belirsiz; olgunluk sütununa bakın).\n\n"
+        "| Tarih | Rapor | Ürün | Bölge | Durum | Olgunluk | Tür |\n|---|---|---|---|---|---|---|\n"
         + "\n".join(rows) + "\n",
         encoding="utf-8",
     )

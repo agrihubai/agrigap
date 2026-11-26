@@ -45,6 +45,23 @@ Her adaya ilgili mevzuat ve varsa ayrıntılı tarama bağlanır.
 - **Otomatik kontroller (yapay zekâsız):** pakette olmayan bir DOI ya da kaynaksız bir sayı/yüzde varsa kart reddedilir ve yayınlanmaz. "Bu iş bu ürün için anlamsız" denen adaylar elenir. Yenilik kontrolünde önerinin anahtar kelimeleri OpenAlex'te aranır.
 - **Katman 2, denetçi (planlandı):** ikinci, bağımsız bir ücretsiz yapay zekâ.
 
+### Etki ve Değer Atlası (yeni sekme)
+
+Teknoloji Boşluk Haritası ile Yeni Öneriler arasında. Ürün, bölge (Dünya, Türkiye, İspanya, AB-27), üretim sistemi, çözüm kategorisi ve gösterge seçilir; tablo yalnızca **Karşılaştırmayı göster** düğmesine basılınca oluşur. Seçim değişince eski tablo soluklaşır ve yenilenmesi gerektiği yazılır. CSV indirilebilir.
+
+- **Veri:** [`atlas/config.json`](atlas/config.json) (ürün, bölge, sistem, kategori, gösterge tanımları), [`atlas/sources.json`](atlas/sources.json), [`atlas/observations.json`](atlas/observations.json) (elle doğrulanmış LCA ve etkinlik değerleri), [`atlas/official.json`](atlas/official.json) (Eurostat'tan otomatik).
+- **Resmî istatistik:** [`scripts/atlas_fetch.py`](scripts/atlas_fetch.py) her Pazartesi Eurostat'tan üretim, alan, üretim değeri ve üretici fiyatını çeker (ücretsiz, anahtarsız). Kontrol edilip kaynakta bulunmayan her değer "doğrulanmış boşluk" olarak kaydedilir.
+- **Kural:** değer uydurulmaz, eksik değer sıfır gösterilmez (N/A, Değerlendirilmedi, Yetersiz kanıt, Uygulanamaz). Farklı yıl, sistem sınırı, fonksiyonel birim, üye ülke verisi ve birleşik meta-analizler için uyarı çıkar.
+- **Veri Boşlukları:** doğrulanmış boşluklar, yöntem uyuşmazlıkları ve henüz değerlendirilmemiş (veri tabanı eksikliği) ayrı listelenir.
+- **Yeni Öneriler bağlantısı:** atlas verisinden 4 kuralla fırsat sinyalleri üretilir; her kart kanıt, çıkarım, hipotez ve spekülasyonu ayırır.
+- **Bilinen sınırlar:** Dünya sütunu için FAOSTAT henüz bağlı değil; Türkiye için üretim değeri ve fiyat Eurostat'ta yok; TRL ve ihracat değeri için henüz kanıt kaydı yok.
+
+### Çözüm olgunluğu ve D kategorisi
+
+A–D ölçeği yalnızca yayın sayısına bakar. Her yeni raporda ayrıca bir **çözüm olgunluğu** sınıfı vardır (bilinen çözüm yok, doğrulanmış çözüm yok, sahada kanıtlanmış çözüm yok, ölçeklenebilir çözüm yok, yetersiz kanıt, saha doğrulaması bildirilmiş). Kural [`core/scan_rules.json`](core/scan_rules.json) içindeki `maturity_rule` alanındadır. Kasım 2026 öncesi raporlar "Değerlendirilmedi" görünür.
+
+D raporları önceden hiç çıkmıyordu: kuyruğa yalnızca çok yayını olan konular ekleniyordu (seçim yanlılığı). Artık harita, dünyada en fazla 4 yayını olan ama aynı ürün grubunda çalışılan iş adımlarını D adayı olarak kuyruğa ekler (`auto_queue.d_feed`) ve tarayıcı bunları önce alır.
+
 ### Mevzuat listesi
 
 [`core/regulations.json`](core/regulations.json): Türkiye ve AB'nin 2026–2030 döneminde tarımı etkileyen kuralları. Her madde kaynaklarıyla birlikte ve doğrulama tarihiyle yer alır; uygulamada **Mevzuat listesi** düğmesinden görülür. Hukuki tavsiye değildir.

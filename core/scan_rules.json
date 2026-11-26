@@ -620,5 +620,77 @@
       ],
       "en": "Safety & regulation"
     }
-  ]
+  ],
+  "maturity_rule": {
+    "_note": "Çözüm olgunluğu sınıflaması (yapay zekâsız). Yayın başlık ve özetlerindeki terimlere dayanan kaba bir göstergedir; çözümün sahada çalıştığını kanıtlamaz. Sırayla uygulanır: 1) toplam yayın gap_rule.D_if_total_below altındaysa: hiç yayın yoksa ya da çözüm türü varsa 'insufficient_evidence', yayın var ama hiçbir çözüm türü geçmiyorsa 'no_known'; 2) saha sinyali min_field altındaysa: laboratuvar/kontrollü ortam sinyali min_lab ve üstündeyse 'no_field_proven', değilse 'no_validated'; 3) saha sinyali var ama ölçek/ticari sinyal min_scale altında ve maliyet/ölçek engeli payı scale_barrier_share ve üstündeyse 'no_scalable'; 4) aksi hâlde 'field_reported'.",
+    "min_field": 3,
+    "min_field_share": 0.03,
+    "min_lab": 3,
+    "min_scale": 3,
+    "scale_barrier_share": 0.15,
+    "scale_barrier_constraints": [
+      "Maliyet & yatırım",
+      "Küçük işletme ölçeği"
+    ],
+    "signals": {
+      "proposed": [
+        "we propose",
+        "proposed",
+        "conceptual",
+        "concept design",
+        "simulation",
+        "simulated",
+        "framework",
+        "theoretical",
+        "design of a",
+        "model-based"
+      ],
+      "lab": [
+        "laboratory",
+        "lab-scale",
+        "bench-scale",
+        "in vitro",
+        "growth chamber",
+        "pot experiment",
+        "pot trial",
+        "controlled conditions",
+        "controlled environment",
+        "climate chamber",
+        "prototype"
+      ],
+      "field": [
+        "field trial",
+        "field trials",
+        "field experiment",
+        "field experiments",
+        "field test",
+        "field tests",
+        "field conditions",
+        "field evaluation",
+        "field-scale",
+        "on-farm",
+        "on farm",
+        "farmers' fields",
+        "farmer fields",
+        "commercial greenhouse",
+        "commercial orchard",
+        "commercial farm",
+        "commercial vineyard"
+      ],
+      "scale": [
+        "commercial scale",
+        "commercially available",
+        "large-scale",
+        "large scale",
+        "scale-up",
+        "scaling up",
+        "adoption",
+        "adopted by",
+        "cost-effective",
+        "economic feasibility",
+        "economically feasible",
+        "market"
+      ]
+    }
+  }
 }

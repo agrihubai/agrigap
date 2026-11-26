@@ -7,7 +7,14 @@
     "region": "TR",
     "min_world": 50,
     "max_region": 0,
-    "max_per_run": 1
+    "max_per_run": 1,
+    "d_feed": {
+      "_note": "D adayı beslemesi: dünyada en fazla max_world yayını olan, ama aynı ürün grubunda bu iş adımı için ortanca yayın sayısı min_group_median ve üstünde olan hücre (iş adımı anlamlı). Kuyrukta aynı anda en fazla max_pending D adayı bekler; tarayıcı her çalışmada önce bunlardan birini alır. Böylece D raporları gerçekten üretilir.",
+      "max_world": 4,
+      "min_group_median": 20,
+      "max_per_run": 1,
+      "max_pending": 2
+    }
   },
   "crops": [
     {

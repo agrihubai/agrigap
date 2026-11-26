@@ -1041,7 +1041,8 @@ function atEmpty(p, ind, sys, rid){
 function atlasBuild(sub){
   const inds = sub.i.length ? sub.i : defaultInds();
   const R = sub.r, rows = [];
-  const sysOk = o => !sub.s.length || sub.s.includes(o.production_system_id);
+  const sysF = sub.s.filter(x=>x!=="all");  // "Tüm sistemler" seçimi filtre değildir: her sistemi gösterir
+  const sysOk = o => !sysF.length || sysF.includes(o.production_system_id);
   const catOk = o => !sub.c.length || sub.c.includes((atl.techs[o.technology_id]||{}).category);
   const inR = o => R.includes(o.region_id);
   const cellsFor = (list, emptyFn) => Object.fromEntries(R.map(rid=>{ const os=list.filter(o=>o.region_id===rid); return [rid, os.length?{obs:os}:{empty:emptyFn(rid)}]; }));
@@ -1076,7 +1077,7 @@ function atlasBuild(sub){
         return;
       }
       const os = atl.obs.filter(o=>o.product_id===p && o.indicator_id===ind && inR(o) && sysOk(o));
-      let systems = sub.s.length ? [...sub.s] : [...new Set(os.map(o=>o.production_system_id))];
+      let systems = sysF.length ? [...sysF] : [...new Set(os.map(o=>o.production_system_id))];
       if(!systems.length) systems = ["all"];
       const order = atl.cfg.systems.map(x=>x.id); systems.sort((a,b)=>order.indexOf(a)-order.indexOf(b));
       systems.forEach(sys=>rows.push({p, ind, sys, cells:cellsFor(os.filter(o=>o.production_system_id===sys), rid=>atEmpty(p, ind, sys, rid))}));
@@ -1118,15 +1119,18 @@ function atlasGaps(rows, sub, inds){
   const verified = [], method = [], incomplete = [], seen = new Set();
   atl.checks.filter(c=>sub.p.includes(c.product_id) && sub.r.includes(c.region_id) && inds.includes(c.indicator_id)).forEach(c=>{
     const k = [c.product_id,c.region_id,c.indicator_id].join("|"); if(seen.has(k)) return; seen.add(k);
-    verified.push({p:c.product_id, r:[c.region_id], ind:c.indicator_id, src:c.source_id, why:c.why});
+    const g = verified.find(x=>!x.report && x.ind===c.indicator_id && x.src===c.source_id && x.why===c.why);
+    if(g){ if(!g.ps.includes(c.product_id)) g.ps.push(c.product_id); if(!g.r.includes(c.region_id)) g.r.push(c.region_id); }
+    else verified.push({ps:[c.product_id], r:[c.region_id], ind:c.indicator_id, src:c.source_id, why:c.why});
   });
+  const ro = atl.cfg.regions.map(x=>x.id); verified.forEach(x=>x.r.sort((a,b)=>ro.indexOf(a)-ro.indexOf(b)));
   rows.filter(r=>r.warn.some(x=>x===t("w_bound")||x===t("w_fu")||x===t("w_methods"))).forEach(r=>{
-    method.push({p:r.p, pooled:r.pooled, r:Object.entries(r.cells).filter(([,c])=>c.obs&&c.obs.length).map(([k])=>k), ind:r.ind});
+    method.push({ps:r.p?[r.p]:[], pooled:r.pooled, r:Object.entries(r.cells).filter(([,c])=>c.obs&&c.obs.length).map(([k])=>k), ind:r.ind});
   });
   const crops = new Set(sub.p.map(p=>(atl.products.find(x=>x.id===p)||{}).tr));
   state.reports.filter(r=>crops.has(r.crop) && ["no_field_proven","no_validated","no_scalable"].includes(r.maturity)).forEach(r=>{
     const p = atl.products.find(x=>x.tr===r.crop);
-    verified.push({p:p&&p.id, r:[], ind:"field", report:r});
+    verified.push({ps:p?[p.id]:[], r:[], ind:"field", report:r});
   });
   rows.forEach(r=>Object.entries(r.cells).forEach(([rid,c])=>{ if(c.empty && c.empty.label==="e_not_assessed")
     incomplete.push(`${r.pooled?t("pooledRow"):aP(r.p)} · ${aR(rid)} · ${aI(r.ind)}${r.sys&&r.sys!=="all"?" · "+aS(r.sys):""}`); }));
@@ -1141,7 +1145,7 @@ function obsHtml(o, rowKey){
     const sign = o.value>0?"+":"";
     main = `<b>${sign}${nf(o.value)}</b><span class="u">${esc(unitL(o.unit))}</span> <span class="u">${esc(L2({tr:o.outcome_tr,en:o.outcome_en}))}</span>
       <span class="at-e" style="display:block;font-style:normal">${t("baseline")}: ${esc(L2({tr:o.baseline_tr,en:o.baseline_en}))}${o.n_studies?" · "+t("nStudies")(o.n_studies):""}</span>`;
-  } else main = `<b>${nf(o.value)}</b><span class="u">${esc(unitL(o.unit))}</span>${o.data_year?`<span class="u">(${o.data_year}${flag})</span>`:""}`;
+  } else main = `<b>${nf(o.value)}</b> <span class="u">${esc(unitL(o.unit))}</span>${o.data_year?` <span class="u">(${o.data_year}${flag})</span>`:""}`;
   const cond = o.conditions_tr ? `<span class="at-e" style="display:block;font-style:normal">${esc(L2({tr:o.conditions_tr,en:o.conditions_en}))}${o.geo_scope?" · "+esc(o.geo_scope.startsWith("member_state:")?(lang==="en"?"Italy (member state)":"İtalya (üye ülke)"):biL(o.geo_scope)):""}</span>` : "";
   return `<span class="at-v">${main}${cond}
     <span class="q ${esc(o.data_quality)}">${esc(aQ(o.data_quality))}</span>${o.system_boundary?`<span class="bd">${esc(aB(o.system_boundary))}</span>`:""}
@@ -1198,8 +1202,10 @@ function gapsHtml(g){
     const ind = x.ind==="field" ? "field" : x.ind;
     const name = x.ind==="field" ? (lang==="en"?"Field validation":"Saha doğrulaması") : aI(x.ind);
     const hi = ["product_cf","effectiveness","field","production_value"].includes(ind);
-    return `<li class="${cls}"><b class="h">${esc(x.pooled?t("pooledRow"):aP(x.p))}${x.r.length?" · "+x.r.map(aR).map(esc).join(", "):""}</b>
-      <dl><dt>${t("gMissing")}</dt><dd>${esc(cls==="m"?name+" — "+(lang==="en"?"methods do not match":"yöntemler uyuşmuyor"):name)}</dd>
+    return `<li class="${cls}"><b class="h">${esc(name)}</b>
+      <dl><dt>${t("gProduct")}</dt><dd>${esc(x.pooled?t("pooledRow"):x.ps.map(aP).join(", "))}</dd>
+      ${x.r.length?`<dt>${t("gRegion")}</dt><dd>${x.r.map(aR).map(esc).join(", ")}</dd>`:""}</dl>
+      <dl>${cls==="m"?`<dt>${t("gMissing")}</dt><dd>${lang==="en"?"Methods do not match":"Yöntemler uyuşmuyor"}</dd>`:""}
       <dt>${t("gWhy")}</dt><dd>${t(cls==="m"?"gw_method":"gw_"+ind)||""}</dd>
       <dt>${t("gAct")}</dt><dd>${t(cls==="m"?"ga_method":"ga_"+ind)||""}</dd>
       <dt>${t("gInno")}</dt><dd>${t(hi?"gi_high":"gi_mid")}</dd>

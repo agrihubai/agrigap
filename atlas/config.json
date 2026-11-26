@@ -28,7 +28,7 @@
     {"id": "eu27", "tr": "AB-27", "en": "EU-27", "type": "eu_aggregate", "eurostat": "EU27_2020"}
   ],
   "systems": [
-    {"id": "all", "tr": "Tüm sistemler (toplam)", "en": "All systems (total)"},
+    {"id": "all", "tr": "Tüm sistemler", "en": "All systems"},
     {"id": "open_field", "tr": "Açık tarla", "en": "Open field"},
     {"id": "greenhouse", "tr": "Sera / örtü altı", "en": "Greenhouse / under cover"},
     {"id": "soilless", "tr": "Topraksız", "en": "Soilless"},

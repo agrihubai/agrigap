@@ -1117,11 +1117,14 @@ function atWarn(r, sub){
 }
 function atlasGaps(rows, sub, inds){
   const verified = [], method = [], incomplete = [], seen = new Set();
-  atl.checks.filter(c=>sub.p.includes(c.product_id) && sub.r.includes(c.region_id) && inds.includes(c.indicator_id)).forEach(c=>{
+  // Aynı ürün/bölge/gösterge için herhangi bir sistemde değer varsa, yalnız sistem kırılımının olmaması ürün düzeyinde boşluk sayılmaz
+  const hasAny = c => atl.obs.some(o=>o.product_id===c.product_id && o.region_id===c.region_id && o.indicator_id===c.indicator_id);
+  atl.checks.filter(c=>sub.p.includes(c.product_id) && sub.r.includes(c.region_id) && inds.includes(c.indicator_id) && !hasAny(c)).forEach(c=>{
     const k = [c.product_id,c.region_id,c.indicator_id].join("|"); if(seen.has(k)) return; seen.add(k);
     const g = verified.find(x=>!x.report && x.ind===c.indicator_id && x.src===c.source_id && x.why===c.why);
-    if(g){ if(!g.ps.includes(c.product_id)) g.ps.push(c.product_id); if(!g.r.includes(c.region_id)) g.r.push(c.region_id); }
-    else verified.push({ps:[c.product_id], r:[c.region_id], ind:c.indicator_id, src:c.source_id, why:c.why});
+    if(g){ if(!g.ps.includes(c.product_id)) g.ps.push(c.product_id); if(!g.r.includes(c.region_id)) g.r.push(c.region_id);
+      (g.by[c.region_id]=g.by[c.region_id]||[]).includes(c.product_id) || g.by[c.region_id].push(c.product_id); }
+    else verified.push({ps:[c.product_id], r:[c.region_id], by:{[c.region_id]:[c.product_id]}, ind:c.indicator_id, src:c.source_id, why:c.why});
   });
   const ro = atl.cfg.regions.map(x=>x.id); verified.forEach(x=>x.r.sort((a,b)=>ro.indexOf(a)-ro.indexOf(b)));
   rows.filter(r=>r.warn.some(x=>x===t("w_bound")||x===t("w_fu")||x===t("w_methods"))).forEach(r=>{
@@ -1203,8 +1206,8 @@ function gapsHtml(g){
     const name = x.ind==="field" ? (lang==="en"?"Field validation":"Saha doğrulaması") : aI(x.ind);
     const hi = ["product_cf","effectiveness","field","production_value"].includes(ind);
     return `<li class="${cls}"><b class="h">${esc(name)}</b>
-      <dl><dt>${t("gProduct")}</dt><dd>${esc(x.pooled?t("pooledRow"):x.ps.map(aP).join(", "))}</dd>
-      ${x.r.length?`<dt>${t("gRegion")}</dt><dd>${x.r.map(aR).map(esc).join(", ")}</dd>`:""}</dl>
+      <dl>${x.by ? x.r.map(rid=>`<dt>${esc(aR(rid))}</dt><dd>${esc(x.by[rid].map(aP).join(", "))}</dd>`).join("")
+        : `<dt>${t("gProduct")}</dt><dd>${esc(x.pooled?t("pooledRow"):x.ps.map(aP).join(", "))}</dd>${x.r.length?`<dt>${t("gRegion")}</dt><dd>${x.r.map(aR).map(esc).join(", ")}</dd>`:""}`}</dl>
       <dl>${cls==="m"?`<dt>${t("gMissing")}</dt><dd>${lang==="en"?"Methods do not match":"Yöntemler uyuşmuyor"}</dd>`:""}
       <dt>${t("gWhy")}</dt><dd>${t(cls==="m"?"gw_method":"gw_"+ind)||""}</dd>
       <dt>${t("gAct")}</dt><dd>${t(cls==="m"?"ga_method":"ga_"+ind)||""}</dd>

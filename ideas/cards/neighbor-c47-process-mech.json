@@ -1,0 +1,384 @@
+{
+ "id": "neighbor:c47:process:mech",
+ "created": "2026-11-27T08:25:29.539516+00:00",
+ "candidate": {
+  "id": "neighbor:c47:process:mech",
+  "type": "neighbor",
+  "crop": "c47",
+  "op": "process",
+  "layer": "mech",
+  "w": 43,
+  "tr": 5,
+  "es": 0,
+  "eu": 5,
+  "score": 0.823,
+  "regulations": [
+   "eu-machinery-2023-1230",
+   "tr-makine-emniyeti-2026",
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act",
+   "eu-wfd-food-waste"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ],
+  "neighbor": "c46",
+  "neighbor_w": 635,
+  "expected": 292
+ },
+ "query": "(\"Camellia sinensis\" OR \"tea plantation\" OR \"tea plant\") AND (drying OR dryer OR dehydration OR peeling OR shelling OR pitting OR \"post-harvest processing\") AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+ "published": false,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.6-flash",
+   "date": "2026-11-27",
+   "status": "rejected",
+   "reason": "unsourced_number: ['90%']",
+   "content": {
+    "relevant": true,
+    "relevance_reason": {
+     "tr": "Çay kurutma ve işleme adımı, ürünün kalitesinin korunması, kateşin seviyelerinin optimize edilmesi ve işlenmiş ürünün derecelendirilmesi açısından donanım ve makine teknolojilerine doğrudan ihtiyaç duyulmaktadır.",
+     "en": "Tea drying and processing directly requires hardware and machinery technologies for quality preservation, catechin optimization, and processed product grading."
+    },
+    "tr": {
+     "title": "Çay Kurutma ve İşleme Donanımları",
+     "finding": "Bu analize göre, çay kurutma ve işleme alanındaki mevcut çalışmalar kurutulmuş tanelerin bilgisayarlı görü ile sınıflandırılmasına ve işleme sırasındaki mikrobiyal ile mekanik etkenlerin ürün kalitesine etkilerine odaklanmaktadır.",
+     "problem": "Çay işleme ve kurutma süreçlerinde geleneksel sınıflandırmanın işçilik yoğun, verimsiz ve maliyetli olması, makine temizleme suyundan kaynaklanan mikrobiyal kontaminasyonun kateşin seviyelerinde %71.6'ya varan kayıplara yol açması ve kontrolsüz mekanik stresin şeker metabolizması ile kalite unsurlarını olumsuz etkilemesidir.",
+     "existing": [
+      {
+       "what": "Bilgisayarlı görü tabanlı kurutulmuş çay tanesi sınıflandırma sistemi",
+       "where": "Bangladeş",
+       "how": "Uygun aydınlatma düzeneğine sahip bir görüntü alma donanımı kullanılarak kurutulmuş çay taneleri fiziksel parametrelerine göre BOP, GBOP, CD ve PF standart sınıflarına ayrılmıştır.",
+       "pros": "Zaman alıcı, verimsiz ve maliyetli olan geleneksel elle sınıflandırma yöntemlerine kıyasla güvenilir bir alternatif sunar.",
+       "cons": "Yalnızca kurutma sonrası tane sınıflandırmasına odaklanmakta; kurutma sırasındaki sanitasyon koşullarını veya metabolik değişimleri denetlememektedir.",
+       "source_dois": [
+        "10.1016/j.jafr.2021.100210"
+       ]
+      },
+      {
+       "what": "Mekanik çay yaprağı sıkma ve soldurma/işleme hatları",
+       "where": "Çin, Hindistan",
+       "how": "Çay yapraklarına mekanik stres uygulanarak veya sıkılarak işleme yapılmaktadır; ancak işleme hatlarındaki temizlik suları mikrobiyal patojen taşıyabilmektedir.",
+       "pros": "Polifenol ekstraksiyonu veya geleneksel çay işleme adımlarının yürütülmesini sağlar.",
+       "cons": "Ekipman temizlik suyundaki mikrobiyal patojenler işleme aşamalarında %71.6'ya varan kateşin kaybına yol açmakta ve mekanik stres kilit şeker hidroliz genlerini baskılamaktadır.",
+       "source_dois": [
+        "10.7717/peerj.14869",
+        "10.1177/15353141261467634"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Dezenfeksiyonlu Temizlik Suyu Entegreli ve Kontrollü Kurutma Makinesi",
+       "how": "Yıkama ve temizleme suyu hatlarında otomatik dezenfeksiyon ünitesi barındıran, hava akışı ve mekanik karıştırma şiddetini sensörlerle denetleyen modüler bir çay kurutma donanımı tasarlanacaktır. Makine temizlik suyundan kaynaklanan mikrobiyal kontaminasyon engellenerek kateşin kayıpları önlenecektir.",
+       "difference": "Mevcut kurutma ve işleme hatlarından farkı, temizlik suyundaki patojen kaynaklı kateşin kaybını önleyen entegre sanitasyon mekanizmasını kontrollü mekanik karıştırma ile birleştirmesidir.",
+       "overcomes": [
+        "Makine temizlik suyundan kaynaklanan mikrobiyal patojen bulaşması",
+        "İşleme aşamalarında görülen %71.6'ya varan kateşin kaybı",
+        "Kurutma sırasındaki olumsuz mekanik stres etkileri"
+       ],
+       "effect_assumptions": "İş gücü, maliyet ve çevre etkisi; kurutma hücresinin yüksek enerji tüketmeden sürekli dezenfeksiyon sağlayabilmesine ve kimyasal kalıntı bırakmayan sanitasyon kullanılmasına bağlıdır.",
+       "regulation_fit": "AB Makine Tüzüğü (eu-machinery-2023-1230) ve Makine Emniyeti Yönetmeliği (tr-makine-emniyeti-2026) ile uyumlu güvenlik tasarımı; işleme atıklarını azaltması bakımından Atık Çerçeve Direktifi (eu-wfd-food-waste) hedeflerini destekler.",
+       "premortem": "En kritik varsayım, nemli ve tozlu fabrika ortamında dezenfeksiyon filtrelerinin tıkanmadan sürekli çalışabilmesidir. Nem ve çay tozu nedeniyle dezenfeksiyon ünitesinin arızalanması risk oluşturur.",
+       "min_experiment": "Kapalı devrede UV/filtre sanitasyonlu temizlik suyuna sahip 5 kg çay yaprağı kapasiteli mikro kurutma hücresi kurup kurutma sonrası kateşin korunumunu ve mikrobiyal yükü ölçmek."
+      },
+      {
+       "title": "Siber Güvenlikli ve Veri Erişimli Bilgisayarlı Görü Tane Sınıflandırma Donanımı",
+       "how": "Kurutulmuş çay tanelerini (BOP, GBOP, CD, PF) taşıyan bant üzerinde optik kameralarla fiziksel sınıflandırma yapan, görüntü verilerini yapay zekâ modeliyle işleyen ve makine verilerini açık formatta sunan bir konveyör donanımı geliştirilecektir.",
+       "difference": "Mevcut bilgisayarlı görü çalışmalarından farkı, sınıflandırma donanımını siber güvenlik standartlarına uygun IoT mimarisiyle ve açık veri erişim yeteneğiyle entegre etmesidir.",
+       "overcomes": [
+        "İşçilik yoğun, verimsiz ve yüksek maliyetli manuel çay sınıflandırması",
+        "Bağlantılı makine verilerine erişim eksikliği ve dijital güvenlik zafiyetleri"
+       ],
+       "effect_assumptions": "Maliyet ve verimlilik artışı; yüksek bant hızlarında doğru sınıflandırma yapılmasına ve kameraların tozlu fabrika koşullarında kesintisiz çalışabilmesine bağlıdır.",
+       "regulation_fit": "AB Veri Yasası (eu-data-act) uyarınca veri erişimi sağlama, Siber Dayanıklılık Yasası (eu-cra) kapsamında siber güvenlik gereksinimleri, AB Yapay Zekâ Yasası (eu-ai-act) gömülü yapay zekâ kuralları ve Makine Tüzüğü (eu-machinery-2023-1230 / tr-makine-emniyeti-2026) standartları ile uyumludur.",
+       "premortem": "En kritik varsayım, çay tozunun kamera lenslerini kaplamadan kesintisiz görüntü alınabilmesidir. Optik merceklerin kirlenmesi durumunda hatalı sınıflandırma riski mevcuttur.",
+       "min_experiment": "Toz korumalı kamera muhafazasına sahip bir optik konveyör prototipinde 100 gramlık standart çay tanesi örneğini 4 farklı sınıfa (BOP, GBOP, CD, PF) ayırarak doğruluk oranını (%90 üzeri) test etmek."
+      }
+     ]
+    },
+    "en": {
+     "title": "Tea Drying and Processing Equipment",
+     "finding": "According to this analysis, existing studies in tea drying and processing focus on computer vision-based grading of dried granules and evaluating the impacts of microbial and mechanical factors on product quality.",
+     "problem": "Traditional manual sorting in tea processing and drying is labor-intensive, inefficient, and costly, while microbial contamination from machinery cleaning water causes up to 71.6% losses in catechin levels and unmonitored mechanical stress adversely affects sugar metabolism.",
+     "existing": [
+      {
+       "what": "Computer vision-based tea granule sorting hardware",
+       "where": "Bangladesh",
+       "how": "An image acquisition system with suitable illumination arrangement was developed to grade dried tea granules into four standard grades (BOP, GBOP, CD, PF) based on physical parameters.",
+       "pros": "Offers a reliable alternative to labor-intensive, inefficient, and costly traditional manual grading and sorting methods.",
+       "cons": "Focuses solely on post-drying granule sorting without monitoring hygienic conditions or metabolic changes during the drying process.",
+       "source_dois": [
+        "10.1016/j.jafr.2021.100210"
+       ]
+      },
+      {
+       "what": "Mechanical tea leaf expulsion and withering/processing equipment",
+       "where": "China, India",
+       "how": "Tea leaves are processed under mechanical expulsion or stress; however, cleaning water in processing lines can carry microbial pathogens and withering stress can alter gene expression.",
+       "pros": "Enables polyphenol extraction or execution of traditional tea processing steps.",
+       "cons": "Microbial pathogens in machinery cleaning water cause up to 71.6% catechin loss across processing stages, and mechanical stress down-regulates key sugar hydrolysis genes.",
+       "source_dois": [
+        "10.7717/peerj.14869",
+        "10.1177/15353141261467634"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Controlled Drying Machine with Integrated Sanitized Cleaning Water Unit",
+       "how": "A modular tea drying hardware unit will be designed incorporating an automated sanitation unit in washing/cleaning water lines and sensor-controlled airflow and mechanical agitation. By preventing microbial contamination from cleaning water, catechin degradation is minimized.",
+       "difference": "Differs from existing drying lines by combining integrated hygienic sanitation to prevent pathogen-induced catechin loss with sensor-controlled mechanical agitation.",
+       "overcomes": [
+        "Microbial food pathogen contamination originating from machinery cleaning water",
+        "Up to 71.6% loss of catechins across tea processing stages",
+        "Damage to sugar metabolism caused by excessive mechanical stress during withering and drying"
+       ],
+       "effect_assumptions": "Labor, cost, and environmental benefits depend on maintaining continuous water sanitation without high energy consumption or chemical residues.",
+       "regulation_fit": "Designed in compliance with EU Machinery Regulation (eu-machinery-2023-1230) and Turkish Machinery Safety Regulation (tr-makine-emniyeti-2026); supports EU Waste Framework Directive (eu-wfd-food-waste) by reducing processing losses.",
+       "premortem": "The most critical assumption is that sanitation filters can operate continuously without clogging in humid and dusty tea factory environments. Filter failure due to dust/steam poses an operational risk.",
+       "min_experiment": "Construct a closed-loop micro drying chamber with UV/filter sanitized cleaning water (5 kg leaf capacity) to evaluate post-drying catechin retention and microbial load."
+      },
+      {
+       "title": "Cyber-Secure and Data-Accessible Computer Vision Granule Sorting Machine",
+       "how": "A conveyor hardware unit will be developed featuring optical cameras to sort dried tea granules (BOP, GBOP, CD, PF) on a moving belt using embedded AI vision models while offering open data access interfaces.",
+       "difference": "Differs from current computer vision applications by embedding sorting hardware into a cyber-secure IoT architecture with open data access capabilities.",
+       "overcomes": [
+        "Labor-intensive, inefficient, and costly manual tea grading",
+        "Lack of access to connected machinery data and digital security vulnerabilities"
+       ],
+       "effect_assumptions": "Cost and efficiency gains depend on achieving accurate classification at high belt speeds and maintaining continuous optical sensor operation in dusty environments.",
+       "regulation_fit": "Complies with EU Data Act (eu-data-act) for connected machine data access, EU Cyber Resilience Act (eu-cra) for cybersecurity, EU AI Act (eu-ai-act) for embedded AI models, and Machinery Regulations (eu-machinery-2023-1230 / tr-makine-emniyeti-2026).",
+       "premortem": "The most critical assumption is that visual inspection can occur without tea dust coating camera lenses. Lens contamination poses a risk of misclassification.",
+       "min_experiment": "Test a 100-gram sample of dried tea granules across four standard grades (BOP, GBOP, CD, PF) on an optical conveyor prototype equipped with dust-sealed camera housings to verify sorting accuracy (>90%)."
+      }
+     ]
+    },
+    "proposals_meta": [
+     {
+      "type": "machine",
+      "grades": {
+       "problem": "strong",
+       "evidence": "strong",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-machinery-2023-1230",
+       "tr-makine-emniyeti-2026",
+       "eu-wfd-food-waste"
+      ],
+      "source_dois": [
+       "10.1177/15353141261467634",
+       "10.7717/peerj.14869"
+      ],
+      "novelty_query": "tea AND drying AND machinery AND sanitation AND catechin"
+     },
+     {
+      "type": "software",
+      "grades": {
+       "problem": "strong",
+       "evidence": "strong",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-machinery-2023-1230",
+       "tr-makine-emniyeti-2026",
+       "eu-data-act",
+       "eu-cra",
+       "eu-ai-act"
+      ],
+      "source_dois": [
+       "10.1016/j.jafr.2021.100210"
+      ],
+      "novelty_query": "tea AND sorting AND computer vision AND grading"
+     }
+    ]
+   },
+   "relevance": {
+    "tr": "Çay kurutma ve işleme adımı, ürünün kalitesinin korunması, kateşin seviyelerinin optimize edilmesi ve işlenmiş ürünün derecelendirilmesi açısından donanım ve makine teknolojilerine doğrudan ihtiyaç duyulmaktadır.",
+    "en": "Tea drying and processing directly requires hardware and machinery technologies for quality preservation, catechin optimization, and processed product grading."
+   },
+   "sources": [
+    {
+     "doi": "10.47709/joa.v1i03.1971",
+     "title": "ANALYSIS OF TEA HARVESTING MECHANIZATION (CAMELLIA SINENSIS) ON THE INCOME OF PICKING WORKERS IN WONOSOBO TEA PLANTATIONS, CENTRAL JAVA",
+     "year": 2023,
+     "countries": [
+      "ID"
+     ]
+    },
+    {
+     "doi": "10.21010/ajtcam.v14i4.5",
+     "title": "SOME ENGINEERING PROPERTIES OF SHELLED AND KERNEL TEA (Camellia sinensis) SEEDS",
+     "year": 2017,
+     "countries": [
+      "TR"
+     ]
+    },
+    {
+     "doi": "10.1371/journal.pone.0195422",
+     "title": "Quantitative validation of nicotine production in tea (Camellia sinensis L.)",
+     "year": 2018,
+     "countries": [
+      "JP"
+     ]
+    },
+    {
+     "doi": "10.1016/j.compag.2024.109795",
+     "title": "Non-destructive monitoring of tea plant growth through UAV spectral imagery and meteorological data using machine learning and parameter optimization algorithms",
+     "year": 2024,
+     "countries": [
+      "CN"
+     ]
+    },
+    {
+     "doi": "10.7717/peerj.14869",
+     "title": "Integrated metabolomic and transcriptomic analysis reveal the effect of mechanical stress on sugar metabolism in tea leaves (Camellia sinensis) post-harvest",
+     "year": 2023,
+     "countries": [
+      "CN"
+     ]
+    },
+    {
+     "doi": "10.5511/plantbiotechnology.14.1027a",
+     "title": "Identification and characterization of Camellia sinensis glucosyltransferase, UGT73A17: A possible role in flavonol glucosylation",
+     "year": 2014,
+     "countries": [
+      "JP"
+     ]
+    },
+    {
+     "doi": "10.1021/acs.jafc.9b07578",
+     "title": "Carotenoid Cleavage Dioxygenase 4 Catalyzes the Formation of Carotenoid-Derived Volatile β-Ionone during Tea (Camellia sinensis) Withering",
+     "year": 2020,
+     "countries": [
+      "CN",
+      "DE"
+     ]
+    },
+    {
+     "doi": "10.1016/j.jafr.2021.100210",
+     "title": "Characterization of tea (Camellia sinensis) granules for quality grading using computer vision system",
+     "year": 2021,
+     "countries": [
+      "BD"
+     ]
+    },
+    {
+     "doi": "10.1002/jsfa.6633",
+     "title": "Catechin concentrates of garden tea leaves (Camellia sinensis L.): extraction/isolation and evaluation of chemical composition",
+     "year": 2014,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.22092/ijwpr.2011.117243",
+     "title": "EFFECTS OF PLANT DYES (WALNUT SHELL, TEA PLANT, HENNA) ON PAPER'S STABILITY IN MANUSCRIPT RESTORATION",
+     "year": 2011,
+     "countries": [
+      "IR"
+     ]
+    },
+    {
+     "doi": "10.3390/rs18172923",
+     "title": "Deep Learning-Based Monitoring of Tea Plant Growth and Nitrogen Status Using UAV Multisource Remote Sensing Features",
+     "year": 2026,
+     "countries": [
+      "CN"
+     ]
+    },
+    {
+     "doi": "10.3390/metabo13070868",
+     "title": "The Dynamic Change in Aromatic Compounds and Their Relationship with CsAAAT Genes during the Post-Harvest Process of Oolong Tea",
+     "year": 2023,
+     "countries": [
+      "CN"
+     ]
+    },
+    {
+     "doi": "10.5281/zenodo.22071625",
+     "title": "Matcha (Camellia sinensis): Bioactive Constituents, Pharmacological Activities, and Emerging Therapeutic Applications — A Comprehensive Review",
+     "year": 2026,
+     "countries": []
+    },
+    {
+     "doi": "10.3390/antiox15040497",
+     "title": "Catechin and Phenolic Profiles of Fermented Miang (Camellia sinensis var. assamica) and Their Application as Natural Antioxidants in Cosmetic Formulations",
+     "year": 2026,
+     "countries": [
+      "TH"
+     ]
+    },
+    {
+     "doi": "10.1177/15353141261467634",
+     "title": "Occurrence and Identification of Microbial Food Pathogens in Green Tea (Camellia sinensis): Influence on Catechins, Flavonoids, Phenolics, and Antioxidant Potential",
+     "year": 2026,
+     "countries": [
+      "IN"
+     ]
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "İşçilik & ergonomi",
+     "en": "Labour & ergonomics",
+     "n": 2
+    },
+    {
+     "tr": "Eğim & arazi yapısı",
+     "en": "Slope & terrain",
+     "n": 1
+    },
+    {
+     "tr": "Ürün hasarı (ezilme, kopma)",
+     "en": "Produce damage (bruising, detachment)",
+     "n": 1
+    },
+    {
+     "tr": "Bitki ve ürün değişkenliği",
+     "en": "Plant and produce variability",
+     "n": 1
+    },
+    {
+     "tr": "Hız & kapasite",
+     "en": "Speed & capacity",
+     "n": 1
+    },
+    {
+     "tr": "Maliyet & yatırım",
+     "en": "Cost & investment",
+     "n": 1
+    },
+    {
+     "tr": "Veri & bağlantı",
+     "en": "Data & connectivity",
+     "n": 1
+    }
+   ],
+   "novelty": [],
+   "checks": {
+    "issues": [
+     {
+      "kind": "unsourced_number",
+      "detail": [
+       "90%"
+      ]
+     }
+    ]
+   }
+  },
+  "audit": null
+ }
+}

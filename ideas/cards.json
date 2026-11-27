@@ -1,6 +1,32 @@
 {
- "generated": "2026-11-25T08:35:11.044612+00:00",
+ "generated": "2026-11-27T08:25:29.550472+00:00",
  "cards": [
+  {
+   "id": "neighbor:c47:process:mech",
+   "file": "neighbor-c47-process-mech.json",
+   "type": "neighbor",
+   "crop": "c47",
+   "op": "process",
+   "layer": "mech",
+   "status": "rejected",
+   "published": false,
+   "created": "2026-11-27T08:25:29.539516+00:00",
+   "title_tr": "Çay Kurutma ve İşleme Donanımları",
+   "title_en": "Tea Drying and Processing Equipment"
+  },
+  {
+   "id": "transfer:c36:stock:mech",
+   "file": "transfer-c36-stock-mech.json",
+   "type": "transfer",
+   "crop": "c36",
+   "op": "stock",
+   "layer": "mech",
+   "status": "rejected",
+   "published": false,
+   "created": "2026-11-27T08:22:23.044779+00:00",
+   "title_tr": "Çeltikte Stok ve Lojistik Yönetimi İçin Donanım ve Hizmet Çözümleri",
+   "title_en": "Hardware and Service Solutions for Rice Inventory and Logistics Management"
+  },
   {
    "id": "neighbor:c42:pollin:digi",
    "file": "neighbor-c42-pollin-digi.json",

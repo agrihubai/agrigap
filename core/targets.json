@@ -327,13 +327,15 @@
     "crop": "Muz",
     "region": "TR",
     "focus": "Muz seralarında Fusarium TR4'ün alet, su ve fide yoluyla yayılımını önleyen biyogüvenlik uygulamaları",
-    "status": "pending",
+    "status": "published",
     "suggested_by": "TRG-002",
     "crop_en": "banana",
     "stage": "Yetiştirme & Bitki Koruma",
     "query": "banana AND (\"Fusarium wilt\" OR \"Tropical Race 4\" OR TR4) AND (biosecurity OR quarantine OR spread OR disinfection OR \"planting material\")",
     "crop_label_en": "Banana",
-    "focus_en": "Biosecurity practices preventing the spread of Fusarium TR4 via tools, water and planting material in banana greenhouses"
+    "focus_en": "Biosecurity practices preventing the spread of Fusarium TR4 via tools, water and planting material in banana greenhouses",
+    "report": "discoveries/2026-11-27-trg-021-muz.md",
+    "processed_at": "2026-11-27T08:25:36.477429+00:00"
   },
   {
     "id": "TRG-022",
@@ -758,9 +760,46 @@
     "focus_en": "Irrigation & fertilisation — Software & AI: only 2 publications worldwide; median of 52 for this task in the same crop group",
     "crop_label_en": "Artichoke",
     "query": "(artichoke) AND (irrigation OR fertigation OR fertilizer OR fertiliser OR \"nutrient application\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
-    "status": "pending",
+    "status": "published",
     "suggested_by": "Teknoloji Boşluk Haritası (D adayı)",
     "matrix_cell": "c16|irrig|digi",
-    "d_candidate": true
+    "d_candidate": true,
+    "report": "discoveries/2026-11-27-trg-048-enginar.md",
+    "processed_at": "2026-11-27T08:25:31.277222+00:00"
+  },
+  {
+    "id": "TRG-049",
+    "production_system": "Açık Tarla Tarımı",
+    "crop_group": "Tarla Bitkileri",
+    "crop": "Pamuk",
+    "crop_en": "cotton",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "region": "TR",
+    "focus": "İlaçlama (bitki koruma) işinde yazılım & yapay zekâ: dünyada 123 yayın var, TR kaynaklı yayın yok",
+    "focus_en": "Spraying (crop protection) — software & ai: 123 publications worldwide, none from TR",
+    "crop_label_en": "Cotton",
+    "query": "(cotton) AND (spraying OR sprayer OR \"pesticide application\" OR \"plant protection product\") AND (software OR \"mobile app\" OR smartphone OR \"decision support\" OR \"artificial intelligence\" OR \"machine learning\" OR \"deep learning\" OR \"computer vision\" OR IoT OR \"internet of things\" OR \"digital twin\" OR \"information system\" OR blockchain)",
+    "status": "pending",
+    "suggested_by": "Teknoloji Boşluk Haritası",
+    "matrix_cell": "c37|spray|digi"
+  },
+  {
+    "id": "TRG-050",
+    "production_system": "Çok Yıllık Bahçe & Bağcılık",
+    "crop_group": "Meyveler",
+    "crop": "İncir",
+    "crop_en": "\"Ficus carica\" OR \"fig fruit\" OR \"fig fruits\" OR \"fig tree\" OR \"fig trees\" OR \"fig orchard\" OR \"fig orchards\" OR \"fresh fig\" OR \"dried fig\" OR \"dried figs\" OR \"fig harvesting\" OR \"fig harvest\" OR \"fig production\"",
+    "stage": "Yetiştirme & Bitki Koruma",
+    "region": "TR+EU",
+    "focus": "İlaçlama (bitki koruma) işinde makine & donanım: dünyada yalnızca 2 yayın; aynı gruptaki ürünlerde bu iş için ortanca 48 yayın",
+    "focus_en": "Spraying (crop protection) — Machinery & hardware: only 2 publications worldwide; median of 48 for this task in the same crop group",
+    "crop_label_en": "Fig",
+    "query": "(\"Ficus carica\" OR \"fig fruit\" OR \"fig fruits\" OR \"fig tree\" OR \"fig trees\" OR \"fig orchard\" OR \"fig orchards\" OR \"fresh fig\" OR \"dried fig\" OR \"dried figs\" OR \"fig harvesting\" OR \"fig harvest\" OR \"fig production\") AND (spraying OR sprayer OR \"pesticide application\" OR \"plant protection product\") AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+    "status": "published",
+    "suggested_by": "Teknoloji Boşluk Haritası (D adayı)",
+    "matrix_cell": "c28|spray|mech",
+    "d_candidate": true,
+    "report": "discoveries/2026-11-27-trg-050-incir.md",
+    "processed_at": "2026-11-27T08:25:33.218413+00:00"
   }
 ]

@@ -1,0 +1,393 @@
+{
+ "id": "transfer:c36:stock:mech",
+ "created": "2026-11-27T08:22:23.044779+00:00",
+ "candidate": {
+  "id": "transfer:c36:stock:mech",
+  "type": "transfer",
+  "crop": "c36",
+  "op": "stock",
+  "layer": "mech",
+  "w": 343,
+  "tr": 1,
+  "es": 7,
+  "eu": 44,
+  "score": 2.537,
+  "regulations": [
+   "eu-machinery-2023-1230",
+   "tr-makine-emniyeti-2026",
+   "eu-data-act",
+   "eu-cra",
+   "eu-ai-act",
+   "eu-eudr"
+  ],
+  "target": "",
+  "proposal_types": [
+   "machine",
+   "software",
+   "practice",
+   "bio",
+   "business"
+  ]
+ },
+ "query": "(rice OR paddy) AND (inventory OR \"supply chain\" OR logistics OR \"stock management\" OR \"cold chain\") AND (machine OR machinery OR mechanization OR mechanisation OR mechanical OR mechanized OR robot OR robotic OR automation OR automated OR autonomous OR prototype OR drone OR UAV OR sensor)",
+ "published": false,
+ "layers": {
+  "writer": {
+   "engine": "gemini",
+   "model": "gemini-3.8-flash",
+   "date": "2026-11-27",
+   "status": "rejected",
+   "reason": "unsourced_number: ['90%']",
+   "content": {
+    "relevant": true,
+    "relevance_reason": {
+     "tr": "Çeltik üretiminde hasat sonrası stoklama, depolama ve lojistik donanımları tedarik zincirinin sürekliliği, ürün kayıplarının önlenmesi ve maliyet yönetimi için kritik bir iş adımıdır.",
+     "en": "In rice production, post-harvest storage, inventory, and logistics hardware are critical operational stages for supply chain continuity, preventing crop losses, and cost management."
+    },
+    "tr": {
+     "title": "Çeltikte Stok ve Lojistik Yönetimi İçin Donanım ve Hizmet Çözümleri",
+     "finding": "Bu analize göre çeltik tedarik zincirinde stok ve lojistik süreçleri için makine ve donanım geliştirilmesine duyulan ihtiyaç vurgulanırken, mevcut çalışmaların büyük oranda yazılım ve uzaktan algılama odaklı kaldığı taranan kaynaklarda görülmektedir.",
+     "problem": "Çeltik tedarik zincirinde verimli ekipman ve makine eksikliği, iş gücü yetersizliği ve yüksek taşıma maliyetleri en kritik risk faktörleri arasında yer almaktadır. Ayrıca hasat ve ekim makinelerine kıyasla depolama ve lojistik aşamalarında donanım mekanizasyonu geri planda kalmış, sahadaki stok ve kalite takibi fiziksel belgelere ya da salt yazılımsal blokzincir simülasyonlarına bağımlı kalmıştır.",
+     "existing": [
+      {
+       "what": "Drone tabanlı RGB ve NIR sensörleriyle kasaba ölçeğinde çeltik envanteri ve alan tespiti",
+       "where": "Güney Kore (Chungbuk)",
+       "how": "Drone üzerine yerleştirilen RGB ve NIR sensörler, Smart Farm Haritası ve kadastro verileriyle eşleştirilerek çeltik tarlalarının büyüme durumları ve envanter alanı belirlenmiştir.",
+       "pros": "Parsel büyüklüğüne bağlı olarak %95 ile %97 arasında ayrıştırma doğruluğu sağlamıştır.",
+       "cons": "Yalnızca tarla düzeyinde alan envanterini kapsamakta olup hasat sonrası depolama, fiziksel stok hareketi veya tane lojistiği donanımlarını içermemektedir.",
+       "source_dois": [
+        "10.1117/12.2324963"
+       ]
+      },
+      {
+       "what": "Blokzincir ve akıllı sözleşmelere dayalı çeltik tedarik zinciri takip ve ödeme prototipleri",
+       "where": "Endonezya ve Çin",
+       "how": "Hyperledger Fabric, Ethereum veya çoklu blokzincir mimarileri kullanılarak tedarik zinciri doğrulaması, izlenebilirlik ve ödeme önkoşulu süreçleri yazılımsal olarak modellenmiştir.",
+       "pros": "Fiziksel evrak dolaşımını azaltmakta, 782 işlem simülasyonu ve test senaryolarında işlem güvenilirliği ve şeffaflık sunmaktadır.",
+       "cons": "Doğrudan fiziksel yükleme, depolama veya nakliye donanımı içermemekte; sahadaki lojistik araçlarıyla fiziksel donanım entegrasyonu sunmamaktadır.",
+       "source_dois": [
+        "10.33964/jp.v35i2.1056",
+        "10.3390/foods11182785",
+        "10.1038/s41598-022-25559-7"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Entegre Kalite Değerlendirmeli Mobil Çeltik Yükleme ve Stok Takip Donanımı",
+       "how": "Çeltik aktarma ve depolama donanımlarına CNN tabanlı görüntü işleme ve optik sensör modülleri entegre edilerek, ürün siloya veya nakliye aracına yüklenirken eşzamanlı kalite sınıflaması ve tartım verisi toplanır.",
+       "difference": "mevcut çözümden farkı: Yalnızca yazılımsal kalan kalite veya izlenebilirlik modellerini doğrudan aktarma ve yükleme donanımı üzerine taşır; tarladan depoya geçişte anlık donanım seviyesinde veri üretir.",
+       "overcomes": [
+        "Verimli ekipman ve makine eksikliğini giderir",
+        "Fiziksel belge ve manuel muayene bağımlılığını azaltır"
+       ],
+       "effect_assumptions": "İş gücü ve kabul süresi tasarrufu, sensörlerin çeltik tozu ve nem ortamında optik kalibrasyonunu koruyabilmesine ve aktarma debisinin donanım işlem hızını aşmamasına bağlıdır.",
+       "regulation_fit": "AB Makine Tüzüğü (2023/1230) ve TR Makine Emniyeti Yönetmeliği sağlık/güvenlik gereksinimlerine; gömülü bileşenler için AB Veri Yasası (2023/2854) ve Siber Dayanıklılık Yasası (2024/2847) kurallarına uyumludur.",
+       "premortem": "En kritik risk, tozlu çeltik yükleme ortamında kamera lenslerinin kirlenerek görüntü kalitesini bozması ve CNN sınıflandırmasında hatalı kabullere yol açmasıdır.",
+       "min_experiment": "10 tonluk çeltik partisi aktarımı sırasında konveyör çıkışına yerleştirilmiş korumalı tek kamera ve optik sensör düzeneğiyle dane sınıflandırma doğruluğunun test edilmesi; %90 üzeri eşleşme sağlanması."
+      },
+      {
+       "title": "Çeltik Lojistik ve Depolama Donanımları İçin Özel Kiralama Merkezi (CHC) Modeli",
+       "how": "Tarlada ekim operasyonlarında başarı sağlayan Özel Kiralama Merkezleri (CHC) altyapısı, çeltik taşıma, mekanik yükleme ve geçici havalandırmalı depolama donanımlarını kapsayacak şekilde hizmet modeline dönüştürülür.",
+       "difference": "mevcut çözümden farkı: Bireysel çiftçinin tek başına karşılayamadığı modern lojistik ve depolama makinelerine ortak kiralama ve operasyonel hizmet yoluyla erişim sağlar.",
+       "overcomes": [
+        "Yüksek yatırım maliyeti ve küçük işletme ölçeği engelini aşar",
+        "Lojistik ekipman yetersizliği ve taşıma maliyeti baskısını hafifletir"
+       ],
+       "effect_assumptions": "Maliyet ve verim avantajı, hasat dönemindeki yoğun talep takviminin çakışmadan yönetilebilmesine ve merkezlerin operasyonel bakım kapasitesine bağlıdır.",
+       "regulation_fit": "Kiralanan tüm makineler AB Makine Tüzüğü (2023/1230) ve TR Makine Emniyeti Yönetmeliği güvenlik kurallarına uygun olarak tescil edilmelidir.",
+       "premortem": "Hasat penceresinin dar olması nedeniyle aynı anda gelen kiralama taleplerinin karşılanamaması ve lojistik gecikmeler yüzünden ürün kaybı yaşanması.",
+       "min_experiment": "Seçilen bir çeltik bölgesinde 20 üreticiyle pilot lojistik ekipman kiralama havuzu oluşturulması ve nakliye bekleme sürelerinin önceki sezona kıyasla ölçülmesi."
+      }
+     ]
+    },
+    "en": {
+     "title": "Hardware and Service Solutions for Rice Inventory and Logistics Management",
+     "finding": "According to this analysis, while the necessity for developing machinery and hardware in rice storage and logistics is emphasized, existing studies in the reviewed literature remain predominantly limited to software and remote sensing.",
+     "problem": "In the rice supply chain, lack of efficient equipment or machinery, labor shortages, and high transportation costs represent top critical risks. Compared to transplanting and harvesting, post-harvest storage and logistics mechanization has received less development thrust, leaving inventory and quality control dependent on physical documents or pure software blockchain prototypes.",
+     "existing": [
+      {
+       "what": "Drone-based RGB and NIR imagery for small town-level paddy rice inventory and area estimation",
+       "where": "South Korea (Chungbuk)",
+       "how": "Drone-mounted RGB and NIR sensors were integrated with cadastral maps and Smart Farm Map data to estimate paddy field boundaries, inventory, and growth status.",
+       "pros": "Achieved discrimination accuracy between 95 and 97 percent depending on plot size.",
+       "cons": "Restricted to field-level area inventory; does not address post-harvest storage, physical grain movement, or handling hardware.",
+       "source_dois": [
+        "10.1117/12.2324963"
+       ]
+      },
+      {
+       "what": "Blockchain and smart contract prototypes for rice supply chain tracking and payment automation",
+       "where": "Indonesia and China",
+       "how": "Hyperledger Fabric, Ethereum, and multi-blockchain architectures were designed to model payment preconditions, traceability, and supervision digitally.",
+       "pros": "Reduces physical paperwork transit and provides data integrity across 782 transaction simulations and functional test cases.",
+       "cons": "Does not include physical material handling, storage, or transport machinery; lacks integration with on-field logistics hardware.",
+       "source_dois": [
+        "10.33964/jp.v35i2.1056",
+        "10.3390/foods11182785",
+        "10.1038/s41598-022-25559-7"
+       ]
+      }
+     ],
+     "proposals": [
+      {
+       "title": "Integrated Quality-Assessing Mobile Rice Loading and Inventory Hardware",
+       "how": "Integrate CNN-based computer vision and optical sensor hardware onto rice transfer conveyors and grain handlers to collect real-time quality grading and weight data as paddy is loaded into storage bins or transit vehicles.",
+       "difference": "Difference from existing solution: Moves purely software-based quality classification and traceability directly onto transfer and loading hardware, generating verified data at the physical handover point.",
+       "overcomes": [
+        "Lack of efficient equipment or machinery",
+        "Reliance on physical paperwork and subjective manual inspection"
+       ],
+       "effect_assumptions": "Labor and reception time reductions depend on sensor optics remaining uncompromised in dusty, humid grain environments and transfer flow rates matching processing capacity.",
+       "regulation_fit": "Complies with EU Machinery Regulation (2023/1230) and TR Machinery Safety Regulation; embedded connected units align with the EU Data Act (2023/2854) and Cyber Resilience Act (2024/2847).",
+       "premortem": "The most critical risk is dust buildup on optical sensor apertures during high-throughput loading, corrupting image inputs and leading to erroneous CNN grading.",
+       "min_experiment": "Mount an enclosed camera and optical inspection unit on a 10-ton paddy transfer auger to test grain classification accuracy against manual samples, targeting over 90% matching consistency."
+      },
+      {
+       "title": "Custom Hiring Centre (CHC) Model for Rice Logistics and Storage Equipment",
+       "how": "Extend the proven Custom Hiring Centre (CHC) rental framework beyond field preparation and transplanting to encompass bulk paddy transport, loading machinery, and ventilated temporary storage equipment.",
+       "difference": "Difference from existing solution: Provides smallholders affordable rental access to capital-intensive logistics and handling machinery without individual ownership burdens.",
+       "overcomes": [
+        "High machinery investment costs and fragmented smallholder scale",
+        "Equipment shortages and high logistics/transport cost pressures"
+       ],
+       "effect_assumptions": "Cost and efficiency gains depend on the operational capability to schedule overlapping harvest-window demands and maintain fleet readiness.",
+       "regulation_fit": "Rented machinery fleets must conform to safety and conformity requirements under the EU Machinery Regulation (2023/1230) and TR Machinery Safety Regulation.",
+       "premortem": "Failure to satisfy simultaneous equipment requests during compressed harvest windows, resulting in logistics bottlenecks and grain spoilage.",
+       "min_experiment": "Establish a pilot shared logistics equipment pool serving 20 rice farmers in a designated district and benchmark transport turnaround times against the previous season."
+      }
+     ]
+    },
+    "proposals_meta": [
+     {
+      "type": "machine",
+      "grades": {
+       "problem": "strong",
+       "evidence": "medium",
+       "regulation": "strong",
+       "field": "medium",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-machinery-2023-1230",
+       "tr-makine-emniyeti-2026",
+       "eu-data-act",
+       "eu-cra"
+      ],
+      "source_dois": [
+       "10.52151/aet2025492.1827",
+       "10.1109/iccsp60870.2024.10543842",
+       "10.5267/j.uscm.2019.7.007"
+      ],
+      "novelty_query": "rice grain logistics loading optical sensor hardware"
+     },
+     {
+      "type": "business",
+      "grades": {
+       "problem": "strong",
+       "evidence": "strong",
+       "regulation": "strong",
+       "field": "strong",
+       "testability": "strong"
+      },
+      "regulations": [
+       "eu-machinery-2023-1230",
+       "tr-makine-emniyeti-2026"
+      ],
+      "source_dois": [
+       "10.9734/acri/2026/v26i41823",
+       "10.52151/aet2025492.1827",
+       "10.5267/j.uscm.2019.7.007"
+      ],
+      "novelty_query": "custom hiring centre rice logistics equipment rental"
+     }
+    ]
+   },
+   "relevance": {
+    "tr": "Çeltik üretiminde hasat sonrası stoklama, depolama ve lojistik donanımları tedarik zincirinin sürekliliği, ürün kayıplarının önlenmesi ve maliyet yönetimi için kritik bir iş adımıdır.",
+    "en": "In rice production, post-harvest storage, inventory, and logistics hardware are critical operational stages for supply chain continuity, preventing crop losses, and cost management."
+   },
+   "sources": [
+    {
+     "doi": "10.33964/jp.v35i2.1056",
+     "title": "Otomasi Pembayaran Rantai Pasok Beras Nasional melalui Smart Contract Berbasis Hyperledger Fabric: Bukti Rancang Bangun pada BUMN Pangan",
+     "year": 2026,
+     "countries": [
+      "ID"
+     ]
+    },
+    {
+     "doi": "10.3390/agriculture11121208",
+     "title": "Analysis of Air Pollutant Emissions for Mechanized Rice Cultivation in Korea",
+     "year": 2021,
+     "countries": [
+      "KR"
+     ]
+    },
+    {
+     "doi": "10.1109/access.2021.3069449",
+     "title": "Towards Paddy Rice Smart Farming: A Review on Big Data, Machine Learning, and Rice Production Tasks",
+     "year": 2021,
+     "countries": [
+      "ID",
+      "JP",
+      "MY"
+     ]
+    },
+    {
+     "doi": "10.52151/aet2025492.1827",
+     "title": "Drivers of Farm Mechanization",
+     "year": 2025,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1117/12.2324963",
+     "title": "Paddy rice inventory studies using drone imagery on a small town area in South Korea",
+     "year": 2018,
+     "countries": [
+      "KR"
+     ]
+    },
+    {
+     "doi": "10.9734/acri/2026/v26i41823",
+     "title": "Economic Impact of Custom Hiring Centres on Farm Mechanization, Productivity and Profitability of Paddy Farmers in Mandya District, Karnataka",
+     "year": 2026,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.1109/iccsp60870.2024.10543842",
+     "title": "Revolutionizing the Rice Supply Chain: Blockchain and Machine Learning Integration for Transparency and Efficiency",
+     "year": 2024,
+     "countries": [
+      "IN"
+     ]
+    },
+    {
+     "doi": "10.5267/j.uscm.2019.7.007",
+     "title": "Supply chain risk management of organic rice in Thailand",
+     "year": 2020,
+     "countries": [
+      "TH"
+     ]
+    },
+    {
+     "doi": "10.3390/info10100288",
+     "title": "Development of a Smart Traceability System for the Rice Agroindustry Supply Chain in Indonesia",
+     "year": 2019,
+     "countries": [
+      "ID"
+     ]
+    },
+    {
+     "doi": "10.3390/foods11182785",
+     "title": "A Refined Supervision Model of Rice Supply Chain Based on Multi-Blockchain",
+     "year": 2022,
+     "countries": [
+      "CN"
+     ]
+    },
+    {
+     "doi": "10.1016/j.scitotenv.2014.06.126",
+     "title": "Environmental profile of paddy rice cultivation with different straw management",
+     "year": 2014,
+     "countries": [
+      "ES",
+      "IT"
+     ]
+    },
+    {
+     "doi": "10.1016/j.rse.2022.113335",
+     "title": "Paddy rice methane emissions across Monsoon Asia",
+     "year": 2022,
+     "countries": [
+      "BR",
+      "CA",
+      "CH",
+      "CN",
+      "IT",
+      "JP",
+      "KR",
+      "NL",
+      "PH",
+      "TW",
+      "US"
+     ]
+    },
+    {
+     "doi": "10.3390/agriculture12050689",
+     "title": "Multi-Chain Collaboration-Based Information Management and Control for the Rice Supply Chain",
+     "year": 2022,
+     "countries": [
+      "CN"
+     ]
+    },
+    {
+     "doi": "10.1038/s41598-022-25559-7",
+     "title": "Construction of rice supply chain supervision model driven by blockchain smart contract",
+     "year": 2022,
+     "countries": [
+      "CN"
+     ]
+    }
+   ],
+   "constraints": [
+    {
+     "tr": "Güvenlik & mevzuat",
+     "en": "Safety & regulation",
+     "n": 4
+    },
+    {
+     "tr": "Doğruluk & hata payı",
+     "en": "Accuracy & error rate",
+     "n": 2
+    },
+    {
+     "tr": "Maliyet & yatırım",
+     "en": "Cost & investment",
+     "n": 2
+    },
+    {
+     "tr": "İşçilik & ergonomi",
+     "en": "Labour & ergonomics",
+     "n": 2
+    },
+    {
+     "tr": "Bitki ve ürün değişkenliği",
+     "en": "Plant and produce variability",
+     "n": 1
+    },
+    {
+     "tr": "Enerji, su & yakıt tüketimi",
+     "en": "Energy, water & fuel use",
+     "n": 1
+    },
+    {
+     "tr": "Küçük işletme ölçeği",
+     "en": "Small farm scale",
+     "n": 1
+    },
+    {
+     "tr": "Veri & bağlantı",
+     "en": "Data & connectivity",
+     "n": 1
+    }
+   ],
+   "novelty": [],
+   "checks": {
+    "issues": [
+     {
+      "kind": "unsourced_number",
+      "detail": [
+       "90%"
+      ]
+     }
+    ]
+   }
+  },
+  "audit": null
+ }
+}

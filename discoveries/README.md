@@ -7,6 +7,9 @@ Durum kararı: **A** çözüm var ve yaygın · **B** çözüm başka yerde var 
 
 | Tarih | Rapor | Ürün | Bölge | Durum | Olgunluk | Tür |
 |---|---|---|---|---|---|---|
+| 2026-11-27 | [İncir: İlaçlama (bitki koruma) işinde makine & donanım: dünyada yalnızca 2 yayın; aynı gruptaki ürünlerde bu iş için ortanca 48 yayın](2026-11-27-trg-050-incir.md) | İncir | TR+EU | D | insufficient_evidence | Otomatik tarama |
+| 2026-11-27 | [Enginar: Sulama & gübreleme işinde yazılım & yapay zekâ: dünyada yalnızca 2 yayın; aynı gruptaki ürünlerde bu iş için ortanca 52 yayın](2026-11-27-trg-048-enginar.md) | Enginar | TR+EU | D | no_known | Otomatik tarama |
+| 2026-11-27 | [Muz: Muz seralarında Fusarium TR4'ün alet, su ve fide yoluyla yayılımını önleyen biyogüvenlik uygulamaları](2026-11-27-trg-021-muz.md) | Muz | TR | B | field_reported | Otomatik tarama |
 | 2026-11-25 | [Biber: Biber serası artığının taşınma riski ve muz gibi başka ürünlerde toprak hastalıklarını baskılamada kullanılabilirliği](2026-11-25-trg-020-biber.md) | Biber | TR | B | not_assessed | Otomatik tarama |
 | 2026-11-25 | [Hıyar: Kış aylarında sera ısıtma enerji maliyeti](2026-11-25-trg-019-hiyar.md) | Hıyar | TR+EU | C | not_assessed | Otomatik tarama |
 | 2026-11-25 | [Nohut: Kuraklık stresi ve mekanize hasattaki ürün kayıpları](2026-11-25-trg-018-nohut.md) | Nohut | TR | C | not_assessed | Otomatik tarama |
